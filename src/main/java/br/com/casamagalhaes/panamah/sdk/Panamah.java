@@ -125,6 +125,15 @@ public class Panamah {
     }
 
     /**
+     * enviar loja para o lote
+     *
+     * @param loja loja
+     */
+    public void send(PanamahLoja loja) {
+
+    }
+
+    /**
      * enviar venda para o lote
      *
      * @param venda venda de produto
