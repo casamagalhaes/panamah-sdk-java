@@ -2,6 +2,10 @@
 
 Implementação java do panamah sdk
 
+## Documentação
+
+[Aqui](https://casamagalhaes.github.io/panamah-sdk/)
+
 ## Requisitos
 
 - java 1.7
@@ -9,7 +13,7 @@ Implementação java do panamah sdk
 
 ## Testando
 
-Roda os testes unitários e gera a cobertura.
+Roda os testes unitários e gerar a cobertura.
 
 ```bash
 mvn test
