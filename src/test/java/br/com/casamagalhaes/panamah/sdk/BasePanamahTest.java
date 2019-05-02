@@ -36,17 +36,12 @@ public class BasePanamahTest {
 	@Test
 	public void shouldInitDefault() {
 		Panamah p = Panamah.init(new PanamahConfig());
+		p.flush();
 		assertNotNull(p);
 	}
 
 	@Test
 	public void shouldInit() {
-		Panamah p = Panamah.init(c);
-		assertNotNull(p);
-	}
-
-	@Test
-	public void shouldFlush() {
 		Panamah p = Panamah.init(c);
 		p.flush();
 		assertNotNull(p);
@@ -56,6 +51,7 @@ public class BasePanamahTest {
 	public void shouldProgress() {
 		Panamah p = Panamah.init(c);
 		p.progress();
+		p.flush();
 		assertNotNull(p);
 	}
 
@@ -64,6 +60,7 @@ public class BasePanamahTest {
 		PanamahAcesso model = new PanamahAcesso();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -72,6 +69,7 @@ public class BasePanamahTest {
 		PanamahAssinante model = new PanamahAssinante();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -80,6 +78,7 @@ public class BasePanamahTest {
 		PanamahCliente model = new PanamahCliente();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -88,6 +87,7 @@ public class BasePanamahTest {
 		PanamahCompra model = new PanamahCompra();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -96,6 +96,7 @@ public class BasePanamahTest {
 		PanamahEan model = new PanamahEan();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -104,6 +105,7 @@ public class BasePanamahTest {
 		PanamahEstoqueMovimentacao model = new PanamahEstoqueMovimentacao();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -112,6 +114,7 @@ public class BasePanamahTest {
 		PanamahEventoCaixa model = new PanamahEventoCaixa();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -120,6 +123,7 @@ public class BasePanamahTest {
 		PanamahFormaPagamento model = new PanamahFormaPagamento();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -128,6 +132,7 @@ public class BasePanamahTest {
 		PanamahFornecedor model = new PanamahFornecedor();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -136,6 +141,7 @@ public class BasePanamahTest {
 		PanamahFuncionario model = new PanamahFuncionario();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -152,6 +158,7 @@ public class BasePanamahTest {
 		PanamahHolding model = new PanamahHolding();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -160,6 +167,7 @@ public class BasePanamahTest {
 		PanamahLocalEstoque model = new PanamahLocalEstoque();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -168,6 +176,7 @@ public class BasePanamahTest {
 		PanamahLoja model = new PanamahLoja();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -176,6 +185,7 @@ public class BasePanamahTest {
 		PanamahMeta model = new PanamahMeta();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -184,6 +194,7 @@ public class BasePanamahTest {
 		PanamahProduto model = new PanamahProduto();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -192,6 +203,7 @@ public class BasePanamahTest {
 		PanamahRevenda model = new PanamahRevenda();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -200,6 +212,7 @@ public class BasePanamahTest {
 		PanamahSecao model = new PanamahSecao();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -208,6 +221,7 @@ public class BasePanamahTest {
 		PanamahSubgrupo model = new PanamahSubgrupo();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -216,6 +230,7 @@ public class BasePanamahTest {
 		PanamahTituloPagar model = new PanamahTituloPagar();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -224,6 +239,7 @@ public class BasePanamahTest {
 		PanamahTituloReceber model = new PanamahTituloReceber();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -232,6 +248,7 @@ public class BasePanamahTest {
 		PanamahTrocaDevolucao model = new PanamahTrocaDevolucao();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 
@@ -240,6 +257,7 @@ public class BasePanamahTest {
 		PanamahVenda model = new PanamahVenda();
 		Panamah p = Panamah.init(c);
 		p.send(model);
+		p.flush();
 		assertTrue(true);
 	}
 

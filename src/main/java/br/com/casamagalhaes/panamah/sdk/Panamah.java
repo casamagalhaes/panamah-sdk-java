@@ -41,6 +41,7 @@ public class Panamah {
     private Panamah(PanamahConfig config) {
     	timer = new Timer("Panamah", true);
     	task = new PanamahTask();
+    	task.restauraLoteAtual();
     	timer.schedule(task,config.getDelay());
     }
 
@@ -57,6 +58,20 @@ public class Panamah {
     }
 
     /**
+	 * chamada para forçar o fechamento e envio do lote atual
+	 */
+	public void flush() {
+	
+	}
+
+	/**
+	 * chamada para saber o status geral dos lotes
+	 */
+	public void progress() {
+	
+	}
+
+	/**
      * enviar acesso para o lote
      *
      * @param acesso acesso
@@ -120,20 +135,20 @@ public class Panamah {
     }
 
     /**
+	 * enviar formaPagamento para o lote
+	 *
+	 * @param formaPagamento formaPagamento
+	 */
+	public void send(PanamahFormaPagamento formaPagamento) {
+	
+	}
+
+	/**
      * enviar fornecedor para o lote
      *
      * @param fornecedor fornecedor
      */
     public void send(PanamahFornecedor fornecedor) {
-
-    }
-
-    /**
-     * enviar formaPagamento para o lote
-     *
-     * @param formaPagamento formaPagamento
-     */
-    public void send(PanamahFormaPagamento formaPagamento) {
 
     }
 
@@ -260,20 +275,6 @@ public class Panamah {
      * @param venda venda
      */
     public void send(PanamahVenda venda) {
-
-    }
-
-    /**
-     * chamada para forçar o fechamento e envio do lote atual
-     */
-    public void flush() {
-
-    }
-
-    /**
-     * chamada para saber o status geral dos lotes
-     */
-    public void progress() {
 
     }
 }

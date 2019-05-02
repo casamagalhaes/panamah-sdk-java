@@ -6,7 +6,20 @@ public class PanamahTask extends TimerTask {
 
 	@Override
 	public void run() {
-		System.out.println("aaa");
+		verificaFechamento();
+		verificaEnvio();
+	}
+
+	public void verificaEnvio() {
+		
+	}
+
+	public void verificaFechamento() {
+		
+	}
+
+	public void restauraLoteAtual() {
+		
 	}
 
 }
