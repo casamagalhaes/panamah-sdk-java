@@ -80,6 +80,15 @@ public class Panamah {
     }
 
     /**
+     * enviar formaPagamento para o lote
+     *
+     * @param formaPagamento formaPagamento
+     */
+    public void send(PanamahFormaPagamento formaPagamento) {
+
+    }
+
+    /**
      * enviar funcionario para o lote
      *
      * @param funcionario funcionario
@@ -121,6 +130,15 @@ public class Panamah {
      * @param loja loja
      */
     public void send(PanamahLoja loja) {
+
+    }
+
+    /**
+     * enviar meta para o lote
+     *
+     * @param meta meta
+     */
+    public void send(PanamahMeta meta) {
 
     }
 
