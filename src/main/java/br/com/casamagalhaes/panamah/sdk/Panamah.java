@@ -1,5 +1,31 @@
 package br.com.casamagalhaes.panamah.sdk;
 
+import java.util.Timer;
+
+import br.com.casamagalhaes.panamah.sdk.model.PanamahAcesso;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahAssinante;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahCliente;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahCompra;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahEan;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahEstoqueMovimentacao;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahEventoCaixa;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahFormaPagamento;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahFornecedor;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahFuncionario;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahGrupo;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahHolding;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahLocalEstoque;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahLoja;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahMeta;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahProduto;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahRevenda;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahSecao;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahSubgrupo;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahTituloPagar;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahTituloReceber;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaDevolucao;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
+
 /**
  * Panamah client
  *
@@ -9,8 +35,13 @@ package br.com.casamagalhaes.panamah.sdk;
 public class Panamah {
 
     private static Panamah instance;
-
+    private Timer timer;
+    private PanamahTask task;
+    
     private Panamah(PanamahConfig config) {
+    	timer = new Timer("Panamah", true);
+    	task = new PanamahTask();
+    	timer.schedule(task,config.getDelay());
     }
 
     /**
