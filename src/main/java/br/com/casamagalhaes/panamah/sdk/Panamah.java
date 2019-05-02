@@ -26,7 +26,16 @@ public class Panamah {
     }
 
     /**
-     * enviar venda para o lote
+     * enviar acesso para o lote
+     *
+     * @param acesso acesso
+     */
+    public void send(PanamahAcesso acesso) {
+
+    }
+
+    /**
+     * enviar assinante para o lote
      *
      * @param assinante assinante
      */
@@ -49,6 +58,15 @@ public class Panamah {
      * @param compra compra
      */
     public void send(PanamahCompra compra) {
+
+    }
+
+    /**
+     * enviar ean para o lote
+     *
+     * @param ean ean 
+     */
+    public void send(PanamahEan ean) {
 
     }
 

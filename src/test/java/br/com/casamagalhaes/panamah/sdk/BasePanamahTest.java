@@ -14,23 +14,93 @@ public class BasePanamahTest {
     }
 
     @Test
-    public void shouldInitClient() {
+    public void shouldInit() {
         Panamah p = Panamah.init();
         assertNotNull(p);
     }
 
     @Test
-    public void shouldFlushClient() {
+    public void shouldFlush() {
         Panamah p = Panamah.init();
         p.flush();
         assertNotNull(p);
     }
 
     @Test
-    public void shouldProgressClient() {
+    public void shouldProgress() {
         Panamah p = Panamah.init();
         p.progress();
         assertNotNull(p);
+    }
+
+    @Test
+    public void shouldSendAcesso() {
+        
+    	PanamahAcesso model = new PanamahAcesso();
+
+        Panamah p = Panamah.init();
+        p.send(model);
+        assertTrue(true);
+    }
+
+    @Test
+    public void shouldSendAssinante() {
+        
+    	PanamahAssinante model = new PanamahAssinante();
+
+        Panamah p = Panamah.init();
+        p.send(model);
+        assertTrue(true);
+    }
+
+    @Test
+    public void shouldSendCliente() {
+        
+    	PanamahCliente model = new PanamahCliente();
+
+        Panamah p = Panamah.init();
+        p.send(model);
+        assertTrue(true);
+    }
+
+    @Test
+    public void shouldSendCompra() {
+        
+    	PanamahCompra model = new PanamahCompra();
+
+        Panamah p = Panamah.init();
+        p.send(model);
+        assertTrue(true);
+    }
+
+    @Test
+    public void shouldSendEan() {
+        
+    	PanamahEan model = new PanamahEan();
+
+        Panamah p = Panamah.init();
+        p.send(model);
+        assertTrue(true);
+    }
+
+    @Test
+    public void shouldSendEstoqueMovimentacao() {
+        
+    	PanamahEstoqueMovimentacao model = new PanamahEstoqueMovimentacao();
+
+        Panamah p = Panamah.init();
+        p.send(model);
+        assertTrue(true);
+    }
+
+    @Test
+    public void shouldSendEventoCaixa() {
+        
+    	PanamahEventoCaixa model = new PanamahEventoCaixa();
+
+        Panamah p = Panamah.init();
+        p.send(model);
+        assertTrue(true);
     }
 
     @Test
