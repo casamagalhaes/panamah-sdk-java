@@ -10,7 +10,7 @@ public class Panamah {
 
     private static Panamah instance;
 
-    private Panamah() {
+    private Panamah(PanamahConfig config) {
     }
 
     /**
@@ -18,9 +18,9 @@ public class Panamah {
      *
      * @return instância singleton
      */
-    public synchronized static Panamah init() {
+    public synchronized static Panamah init(PanamahConfig config) {
         if (instance == null) {
-            instance = new Panamah();
+            instance = new Panamah(config);
         }
         return instance;
     }
