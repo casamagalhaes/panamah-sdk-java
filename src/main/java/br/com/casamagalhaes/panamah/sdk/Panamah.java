@@ -53,15 +53,6 @@ public class Panamah {
     }
 
     /**
-     * enviar revenda para o lote
-     *
-     * @param revenda
-     */
-    public void send(PanamahRevenda revenda) {
-
-    }
-
-    /**
      * enviar movimentação de estoque para o lote
      *
      * @param estoqueMovimentacao estoqueMovimentacao
@@ -134,9 +125,72 @@ public class Panamah {
     }
 
     /**
+     * enviar produto para o lote
+     *
+     * @param produto produto
+     */
+    public void send(PanamahProduto produto) {
+
+    }
+
+    /**
+     * enviar revenda para o lote
+     *
+     * @param revenda revenda
+     */
+    public void send(PanamahRevenda revenda) {
+
+    }
+
+    /**
+     * enviar secao para o lote
+     *
+     * @param secao secao
+     */
+    public void send(PanamahSecao secao) {
+
+    }
+
+    /**
+     * enviar subgrupo para o lote
+     *
+     * @param subgrupo subgrupo
+     */
+    public void send(PanamahSubgrupo subgrupo) {
+
+    }
+
+    /**
+     * enviar tituloPagar para o lote
+     *
+     * @param tituloPagar tituloPagar
+     */
+    public void send(PanamahTituloPagar tituloPagar) {
+
+    }
+
+    /**
+     * enviar tituloReceber para o lote
+     *
+     * @param tituloReceber tituloReceber
+     */
+    public void send(PanamahTituloReceber tituloReceber) {
+
+    }
+
+    /**
+     * enviar trocaDevolucao para o lote
+     *
+     * @param trocaDevolucao trocaDevolucao
+     */
+    public void send(PanamahTrocaDevolucao trocaDevolucao) {
+
+    }
+
+    /**
      * enviar venda para o lote
      *
-     * @param venda venda de produto
+     * @param venda venda
      */
     public void send(PanamahVenda venda) {
 
