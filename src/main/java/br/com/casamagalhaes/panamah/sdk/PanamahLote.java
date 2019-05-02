@@ -46,8 +46,6 @@ public class PanamahLote {
 	private List<PanamahLocalEstoque> locaisEstoque;
 	private List<PanamahLoja> lojas;
 	private List<PanamahMeta> metas;
-	private List<PanamahProdutoComposicao> produtosComposicao;
-	private List<PanamahProdutoFornecedores> produtosFornecedores;
 	private List<PanamahProduto> produtos;
 	private List<PanamahRevenda> revendas;
 	private List<PanamahSecao> secoes;
@@ -236,30 +234,6 @@ public class PanamahLote {
 	 */
 	public void setMetas(List<PanamahMeta> metas) {
 		this.metas = metas;
-	}
-	/**
-	 * @return the produtosComposicao
-	 */
-	public List<PanamahProdutoComposicao> getProdutosComposicao() {
-		return produtosComposicao;
-	}
-	/**
-	 * @param produtosComposicao the produtosComposicao to set
-	 */
-	public void setProdutosComposicao(List<PanamahProdutoComposicao> produtosComposicao) {
-		this.produtosComposicao = produtosComposicao;
-	}
-	/**
-	 * @return the produtosFornecedores
-	 */
-	public List<PanamahProdutoFornecedores> getProdutosFornecedores() {
-		return produtosFornecedores;
-	}
-	/**
-	 * @param produtosFornecedores the produtosFornecedores to set
-	 */
-	public void setProdutosFornecedores(List<PanamahProdutoFornecedores> produtosFornecedores) {
-		this.produtosFornecedores = produtosFornecedores;
 	}
 	/**
 	 * @return the produtos
