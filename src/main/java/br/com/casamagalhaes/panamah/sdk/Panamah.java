@@ -50,8 +50,8 @@ public class Panamah {
 	 * configuração inicial
 	 *
 	 * @return instância singleton
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
+	 * @throws IOException
+	 * @throws FileNotFoundException
 	 */
 	public synchronized static Panamah init(PanamahConfig config) throws FileNotFoundException, IOException {
 		if (instance == null) {
@@ -67,6 +67,7 @@ public class Panamah {
 		task.fechaLoteAtual();
 		task.enviaLote();
 		timer.cancel();
+		Panamah.instance = null;
 	}
 
 	/**

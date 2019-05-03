@@ -419,4 +419,13 @@ public class PanamahLote {
 		this.vendas = vendas;
 	}
 
+	public boolean isVelho(PanamahConfig config) {
+		return ultimaAtualizacao.getTime() - criacao.getTime() > config.getMaxAge();
+	}
+
+	public boolean isCheio(PanamahConfig config) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

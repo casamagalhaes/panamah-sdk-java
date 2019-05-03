@@ -32,11 +32,18 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public void verificaFechamento() {
-
+		if (loteAtual != null) {
+			if(loteAtual.isCheio(config) || loteAtual.isVelho(config)) {
+				
+			}
+		}
 	}
 
 	public void restauraLoteAtual() throws FileNotFoundException, IOException {
-		File f = Paths.get(config.getBasePath(), "loteatual.json").toFile();
+		if (!Paths.get(config.getBasePath(), "lotes").toFile().exists())
+			Paths.get(config.getBasePath(), "lotes").toFile().mkdirs();
+
+		File f = Paths.get(config.getBasePath(), "lotes", "loteatual.json").toFile();
 		if (f.exists()) {
 			try (Reader r = new FileReader(f)) {
 				loteAtual = PanamahUtil.buildGson().fromJson(r, PanamahLote.class);
@@ -49,12 +56,10 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public void fechaLoteAtual() {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void enviaLote() {
-		// TODO Auto-generated method stub
 
 	}
 
