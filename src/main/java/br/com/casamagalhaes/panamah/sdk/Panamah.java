@@ -26,6 +26,7 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahSubgrupo;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahTituloPagar;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahTituloReceber;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaDevolucao;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaFormaPagamento;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 
 /**
@@ -62,15 +63,18 @@ public class Panamah {
 
 	/**
 	 * chamada para forçar o fechamento e envio do lote atual
+	 * 
+	 * @throws IOException
+	 * @throws FileNotFoundException
 	 */
-	public void flush() {
+	public void flush() throws FileNotFoundException, IOException {
 		task.fechaLoteAtual();
 		task.enviaLote();
 		timer.cancel();
 		Panamah.instance = null;
 	}
-	
-	public PanamahTask getTask() {
+
+	PanamahTask getTask() {
 		return this.task;
 	}
 
@@ -87,7 +91,7 @@ public class Panamah {
 	 * @param acesso acesso
 	 */
 	public void send(PanamahAcesso acesso) {
-
+		task.getLoteAtual().add(acesso);
 	}
 
 	/**
@@ -96,7 +100,7 @@ public class Panamah {
 	 * @param assinante assinante
 	 */
 	public void send(PanamahAssinante assinante) {
-
+		task.getLoteAtual().add(assinante);
 	}
 
 	/**
@@ -105,7 +109,7 @@ public class Panamah {
 	 * @param cliente cliente
 	 */
 	public void send(PanamahCliente cliente) {
-
+		task.getLoteAtual().add(cliente);
 	}
 
 	/**
@@ -114,7 +118,7 @@ public class Panamah {
 	 * @param compra compra
 	 */
 	public void send(PanamahCompra compra) {
-
+		task.getLoteAtual().add(compra);
 	}
 
 	/**
@@ -123,7 +127,7 @@ public class Panamah {
 	 * @param ean ean
 	 */
 	public void send(PanamahEan ean) {
-
+		task.getLoteAtual().add(ean);
 	}
 
 	/**
@@ -132,7 +136,7 @@ public class Panamah {
 	 * @param estoqueMovimentacao estoqueMovimentacao
 	 */
 	public void send(PanamahEstoqueMovimentacao estoqueMovimentacao) {
-
+		task.getLoteAtual().add(estoqueMovimentacao);
 	}
 
 	/**
@@ -141,7 +145,7 @@ public class Panamah {
 	 * @param eventoCaixa eventoCaixa
 	 */
 	public void send(PanamahEventoCaixa eventoCaixa) {
-
+		task.getLoteAtual().add(eventoCaixa);
 	}
 
 	/**
@@ -150,7 +154,7 @@ public class Panamah {
 	 * @param formaPagamento formaPagamento
 	 */
 	public void send(PanamahFormaPagamento formaPagamento) {
-
+		task.getLoteAtual().add(formaPagamento);
 	}
 
 	/**
@@ -159,7 +163,7 @@ public class Panamah {
 	 * @param fornecedor fornecedor
 	 */
 	public void send(PanamahFornecedor fornecedor) {
-
+		task.getLoteAtual().add(fornecedor);
 	}
 
 	/**
@@ -168,7 +172,7 @@ public class Panamah {
 	 * @param funcionario funcionario
 	 */
 	public void send(PanamahFuncionario funcionario) {
-
+		task.getLoteAtual().add(funcionario);
 	}
 
 	/**
@@ -177,7 +181,7 @@ public class Panamah {
 	 * @param grupo grupo
 	 */
 	public void send(PanamahGrupo grupo) {
-
+		task.getLoteAtual().add(grupo);
 	}
 
 	/**
@@ -186,7 +190,7 @@ public class Panamah {
 	 * @param holding holding
 	 */
 	public void send(PanamahHolding holding) {
-
+		task.getLoteAtual().add(holding);
 	}
 
 	/**
@@ -195,7 +199,7 @@ public class Panamah {
 	 * @param localEstoque localEstoque
 	 */
 	public void send(PanamahLocalEstoque localEstoque) {
-
+		task.getLoteAtual().add(localEstoque);
 	}
 
 	/**
@@ -204,7 +208,7 @@ public class Panamah {
 	 * @param loja loja
 	 */
 	public void send(PanamahLoja loja) {
-
+		task.getLoteAtual().add(loja);
 	}
 
 	/**
@@ -213,7 +217,7 @@ public class Panamah {
 	 * @param meta meta
 	 */
 	public void send(PanamahMeta meta) {
-
+		task.getLoteAtual().add(meta);
 	}
 
 	/**
@@ -222,7 +226,7 @@ public class Panamah {
 	 * @param produto produto
 	 */
 	public void send(PanamahProduto produto) {
-
+		task.getLoteAtual().add(produto);
 	}
 
 	/**
@@ -231,7 +235,7 @@ public class Panamah {
 	 * @param revenda revenda
 	 */
 	public void send(PanamahRevenda revenda) {
-
+		task.getLoteAtual().add(revenda);
 	}
 
 	/**
@@ -240,7 +244,7 @@ public class Panamah {
 	 * @param secao secao
 	 */
 	public void send(PanamahSecao secao) {
-
+		task.getLoteAtual().add(secao);
 	}
 
 	/**
@@ -249,7 +253,7 @@ public class Panamah {
 	 * @param subgrupo subgrupo
 	 */
 	public void send(PanamahSubgrupo subgrupo) {
-
+		task.getLoteAtual().add(subgrupo);
 	}
 
 	/**
@@ -258,7 +262,7 @@ public class Panamah {
 	 * @param tituloPagar tituloPagar
 	 */
 	public void send(PanamahTituloPagar tituloPagar) {
-
+		task.getLoteAtual().add(tituloPagar);
 	}
 
 	/**
@@ -267,7 +271,7 @@ public class Panamah {
 	 * @param tituloReceber tituloReceber
 	 */
 	public void send(PanamahTituloReceber tituloReceber) {
-
+		task.getLoteAtual().add(tituloReceber);
 	}
 
 	/**
@@ -276,7 +280,16 @@ public class Panamah {
 	 * @param trocaDevolucao trocaDevolucao
 	 */
 	public void send(PanamahTrocaDevolucao trocaDevolucao) {
+		task.getLoteAtual().add(trocaDevolucao);
+	}
 
+	/**
+	 * enviar trocaFormaPagamento para o lote
+	 *
+	 * @param trocaFormaPagamento trocaFormaPagamento
+	 */
+	public void send(PanamahTrocaFormaPagamento trocaFormaPagamento) {
+		task.getLoteAtual().add(trocaFormaPagamento);
 	}
 
 	/**
@@ -285,6 +298,6 @@ public class Panamah {
 	 * @param venda venda
 	 */
 	public void send(PanamahVenda venda) {
-
+		task.getLoteAtual().add(venda);
 	}
 }

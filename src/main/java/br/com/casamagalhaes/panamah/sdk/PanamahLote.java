@@ -1,5 +1,6 @@
 package br.com.casamagalhaes.panamah.sdk;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,7 +30,7 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaFormaPagamento;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 
 public class PanamahLote {
-	
+
 	private PanamahStatusLote status = PanamahStatusLote.ABERTO;
 	private Date criacao = new Date();
 	private Date ultimaAtualizacao = new Date();
@@ -56,33 +57,41 @@ public class PanamahLote {
 	private List<PanamahTituloPagar> titulosPagar;
 	private List<PanamahTituloReceber> titulosReceber;
 	private List<PanamahTrocaDevolucao> trocasDevolucoes;
-	private List<PanamahTrocaFormaPagamento> formasPagamentos;
+	private List<PanamahTrocaFormaPagamento> trocaFormasPagamentos;
 	private List<PanamahVenda> vendas;
+
+	public boolean isVelho(PanamahConfig config) {
+		return new Date().getTime() - criacao.getTime() > config.getMaxAge();
+	}
+
+	public boolean isCheio(PanamahConfig config) {
+		return false;
+	}
 
 	public PanamahStatusLote getStatus() {
 		return status;
 	}
-	
+
 	public void setStatus(PanamahStatusLote status) {
 		this.status = status;
 	}
-	
+
 	public Date getCriacao() {
 		return criacao;
 	}
-	
+
 	public void setCriacao(Date criacao) {
 		this.criacao = criacao;
 	}
-	
+
 	public Date getUltimaAtualizacao() {
 		return ultimaAtualizacao;
 	}
-	
+
 	public void setUltimaAtualizacao(Date ultimaAtualizacao) {
 		this.ultimaAtualizacao = ultimaAtualizacao;
 	}
-	
+
 	/**
 	 * @return the acessos
 	 */
@@ -394,15 +403,15 @@ public class PanamahLote {
 	/**
 	 * @return the formasPagamentos
 	 */
-	public List<PanamahTrocaFormaPagamento> getFormasPagamentos() {
-		return formasPagamentos;
+	public List<PanamahTrocaFormaPagamento> getTrocaFormasPagamentos() {
+		return trocaFormasPagamentos;
 	}
 
 	/**
 	 * @param formasPagamentos the formasPagamentos to set
 	 */
-	public void setFormasPagamentos(List<PanamahTrocaFormaPagamento> formasPagamentos) {
-		this.formasPagamentos = formasPagamentos;
+	public void setTrocaFormasPagamentos(List<PanamahTrocaFormaPagamento> trocaFormasPagamentos) {
+		this.trocaFormasPagamentos = trocaFormasPagamentos;
 	}
 
 	/**
@@ -419,13 +428,327 @@ public class PanamahLote {
 		this.vendas = vendas;
 	}
 
-	public boolean isVelho(PanamahConfig config) {
-		return ultimaAtualizacao.getTime() - criacao.getTime() > config.getMaxAge();
+	/**
+	 * enviar acesso para o lote
+	 *
+	 * @param acesso acesso
+	 */
+	public void add(PanamahAcesso acesso) {
+		if (this.acessos == null) {
+			this.acessos = new ArrayList<PanamahAcesso>();
+		}
+		this.acessos.add(acesso);
+		this.ultimaAtualizacao = new Date();
 	}
 
-	public boolean isCheio(PanamahConfig config) {
-		// TODO Auto-generated method stub
-		return false;
+	/**
+	 * enviar assinante para o lote
+	 *
+	 * @param assinante assinante
+	 */
+	public void add(PanamahAssinante assinante) {
+		if (this.assinantes == null) {
+			this.assinantes = new ArrayList<PanamahAssinante>();
+		}
+		this.assinantes.add(assinante);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar cliente para o lote
+	 *
+	 * @param cliente cliente
+	 */
+	public void add(PanamahCliente cliente) {
+		if (this.clientes == null) {
+			this.clientes = new ArrayList<PanamahCliente>();
+		}
+		this.clientes.add(cliente);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar compra para o lote
+	 *
+	 * @param compra compra
+	 */
+	public void add(PanamahCompra compra) {
+		if (this.compras == null) {
+			this.compras = new ArrayList<PanamahCompra>();
+		}
+		this.compras.add(compra);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar ean para o lote
+	 *
+	 * @param ean ean
+	 */
+	public void add(PanamahEan ean) {
+		if (this.eans == null) {
+			this.eans = new ArrayList<PanamahEan>();
+		}
+		this.eans.add(ean);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar movimentação de estoque para o lote
+	 *
+	 * @param estoqueMovimentacao estoqueMovimentacao
+	 */
+	public void add(PanamahEstoqueMovimentacao estoqueMovimentacao) {
+		if (this.estoqueMovimentacoes == null) {
+			this.estoqueMovimentacoes = new ArrayList<PanamahEstoqueMovimentacao>();
+		}
+		this.estoqueMovimentacoes.add(estoqueMovimentacao);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar evento de caixa para o lote
+	 *
+	 * @param eventoCaixa eventoCaixa
+	 */
+	public void add(PanamahEventoCaixa eventoCaixa) {
+		if (this.eventosCaixa == null) {
+			this.eventosCaixa = new ArrayList<PanamahEventoCaixa>();
+		}
+		this.eventosCaixa.add(eventoCaixa);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar formaPagamento para o lote
+	 *
+	 * @param formaPagamento formaPagamento
+	 */
+	public void add(PanamahFormaPagamento formaPagamento) {
+		if (this.formasPagamento == null) {
+			this.formasPagamento = new ArrayList<PanamahFormaPagamento>();
+		}
+		this.formasPagamento.add(formaPagamento);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar fornecedor para o lote
+	 *
+	 * @param fornecedor fornecedor
+	 */
+	public void add(PanamahFornecedor fornecedor) {
+		if (this.fornecedores == null) {
+			this.fornecedores = new ArrayList<PanamahFornecedor>();
+		}
+		this.fornecedores.add(fornecedor);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar funcionario para o lote
+	 *
+	 * @param funcionario funcionario
+	 */
+	public void add(PanamahFuncionario funcionario) {
+		if (this.funcionarios == null) {
+			this.funcionarios = new ArrayList<PanamahFuncionario>();
+		}
+		this.funcionarios.add(funcionario);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar grupo para o lote
+	 *
+	 * @param grupo grupo
+	 */
+	public void add(PanamahGrupo grupo) {
+		if (this.grupos == null) {
+			this.grupos = new ArrayList<PanamahGrupo>();
+		}
+		this.grupos.add(grupo);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar holding para o lote
+	 *
+	 * @param holding holding
+	 */
+	public void add(PanamahHolding holding) {
+		if (this.holdings == null) {
+			this.holdings = new ArrayList<PanamahHolding>();
+		}
+		this.holdings.add(holding);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar localEstoque para o lote
+	 *
+	 * @param localEstoque localEstoque
+	 */
+	public void add(PanamahLocalEstoque localEstoque) {
+		if (this.locaisEstoque == null) {
+			this.locaisEstoque = new ArrayList<PanamahLocalEstoque>();
+		}
+		this.locaisEstoque.add(localEstoque);
+		this.ultimaAtualizacao = new Date();
+	}
+
+	/**
+	 * enviar loja para o lote
+	 *
+	 * @param loja loja
+	 */
+	public void add(PanamahLoja loja) {
+		if (this.lojas == null) {
+			this.lojas = new ArrayList<PanamahLoja>();
+		}
+		this.lojas.add(loja);
+		this.ultimaAtualizacao = new Date();
+
+	}
+
+	/**
+	 * enviar meta para o lote
+	 *
+	 * @param meta meta
+	 */
+	public void add(PanamahMeta meta) {
+		if (this.metas == null) {
+			this.metas = new ArrayList<PanamahMeta>();
+		}
+		this.metas.add(meta);
+		this.ultimaAtualizacao = new Date();
+
+	}
+
+	/**
+	 * enviar produto para o lote
+	 *
+	 * @param produto produto
+	 */
+	public void add(PanamahProduto produto) {
+		if (this.produtos == null) {
+			this.produtos = new ArrayList<PanamahProduto>();
+		}
+		this.produtos.add(produto);
+		this.ultimaAtualizacao = new Date();
+
+	}
+
+	/**
+	 * enviar revenda para o lote
+	 *
+	 * @param revenda revenda
+	 */
+	public void add(PanamahRevenda revenda) {
+		if (this.revendas == null) {
+			this.revendas = new ArrayList<PanamahRevenda>();
+		}
+		this.revendas.add(revenda);
+		this.ultimaAtualizacao = new Date();
+
+	}
+
+	/**
+	 * enviar secao para o lote
+	 *
+	 * @param secao secao
+	 */
+	public void add(PanamahSecao secao) {
+		if (this.secoes == null) {
+			this.secoes = new ArrayList<PanamahSecao>();
+		}
+		this.secoes.add(secao);
+		this.ultimaAtualizacao = new Date();
+
+	}
+
+	/**
+	 * enviar subgrupo para o lote
+	 *
+	 * @param subgrupo subgrupo
+	 */
+	public void add(PanamahSubgrupo subgrupo) {
+		if (this.subgrupos == null) {
+			this.subgrupos = new ArrayList<PanamahSubgrupo>();
+		}
+		this.subgrupos.add(subgrupo);
+		this.ultimaAtualizacao = new Date();
+
+	}
+
+	/**
+	 * enviar tituloPagar para o lote
+	 *
+	 * @param tituloPagar tituloPagar
+	 */
+	public void add(PanamahTituloPagar tituloPagar) {
+		if (this.titulosPagar == null) {
+			this.titulosPagar = new ArrayList<PanamahTituloPagar>();
+		}
+		this.titulosPagar.add(tituloPagar);
+		this.ultimaAtualizacao = new Date();
+
+	}
+
+	/**
+	 * enviar tituloReceber para o lote
+	 *
+	 * @param tituloReceber tituloReceber
+	 */
+	public void add(PanamahTituloReceber tituloReceber) {
+		if (this.titulosReceber == null) {
+			this.titulosReceber = new ArrayList<PanamahTituloReceber>();
+		}
+		this.titulosReceber.add(tituloReceber);
+		this.ultimaAtualizacao = new Date();
+
+	}
+
+	/**
+	 * enviar trocaDevolucao para o lote
+	 *
+	 * @param trocaDevolucao trocaDevolucao
+	 */
+	public void add(PanamahTrocaDevolucao trocaDevolucao) {
+		if (this.trocasDevolucoes == null) {
+			this.trocasDevolucoes = new ArrayList<PanamahTrocaDevolucao>();
+		}
+		this.trocasDevolucoes.add(trocaDevolucao);
+		this.ultimaAtualizacao = new Date();
+
+	}
+
+	/**
+	 * enviar trocaFormaPagamento para o lote
+	 *
+	 * @param trocaFormaPagamento trocaFormaPagamento
+	 */
+	public void add(PanamahTrocaFormaPagamento trocaFormaPagamento) {
+		if (this.trocaFormasPagamentos == null) {
+			this.trocaFormasPagamentos = new ArrayList<PanamahTrocaFormaPagamento>();
+		}
+		this.trocaFormasPagamentos.add(trocaFormaPagamento);
+		this.ultimaAtualizacao = new Date();
+
+	}
+
+	/**
+	 * enviar venda para o lote
+	 *
+	 * @param venda venda
+	 */
+	public void add(PanamahVenda venda) {
+		if (this.vendas == null) {
+			this.vendas = new ArrayList<PanamahVenda>();
+		}
+		this.vendas.add(venda);
+		this.ultimaAtualizacao = new Date();
+
 	}
 
 }

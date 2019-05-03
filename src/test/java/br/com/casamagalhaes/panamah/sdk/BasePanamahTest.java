@@ -57,6 +57,14 @@ public class BasePanamahTest {
 	}
 
 	@Test
+	public void shouldRun() throws Exception {
+		Panamah p = Panamah.init(c);
+		p.getTask().run();
+		p.flush();
+		assertNotNull(p);
+	}
+
+	@Test
 	public void shouldSendAcesso() throws Exception {
 		PanamahAcesso model = new PanamahAcesso();
 		Panamah p = Panamah.init(c);

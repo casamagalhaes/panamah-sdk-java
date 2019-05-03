@@ -23,19 +23,22 @@ public class PanamahTask extends TimerTask {
 
 	@Override
 	public void run() {
-		verificaFechamento();
-		verificaEnvio();
+		try {
+			verificaFechamento();
+			verificaEnvio();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void verificaEnvio() {
 
 	}
 
-	public void verificaFechamento() {
-		if (loteAtual != null) {
-			if(loteAtual.isCheio(config) || loteAtual.isVelho(config)) {
-				
-			}
+	public void verificaFechamento() throws FileNotFoundException, IOException {
+		if (loteAtual.isCheio(config) || loteAtual.isVelho(config)) {
+			fechaLoteAtual();
+			abreNovoLote();
 		}
 	}
 
@@ -54,12 +57,31 @@ public class PanamahTask extends TimerTask {
 		}
 	}
 
-	public void fechaLoteAtual() {
+	public void fechaLoteAtual() throws FileNotFoundException, IOException {
+		loteAtual.setStatus(PanamahStatusLote.FECHADO);
+		String fileName = "lote-" + PanamahUtil.stamp(loteAtual.getUltimaAtualizacao()) + ".json";
+		if (!Paths.get(config.getBasePath(), "lotes", "fechados").toFile().exists())
+			Paths.get(config.getBasePath(), "lotes", "fechados").toFile().mkdirs();
+		File f = Paths.get(config.getBasePath(), "lotes", "fechados", fileName).toFile();
+		try (Writer w = new BufferedWriter(new FileWriter(f))) {
+			w.write(PanamahUtil.buildGson().toJson(loteAtual));
+		}
+	}
 
+	private void abreNovoLote() throws IOException {
+		loteAtual = new PanamahLote();
+		File f = Paths.get(config.getBasePath(), "lotes", "loteatual.json").toFile();
+		try (Writer w = new BufferedWriter(new FileWriter(f))) {
+			w.write(PanamahUtil.buildGson().toJson(loteAtual));
+		}
 	}
 
 	public void enviaLote() {
 
+	}
+
+	public PanamahLote getLoteAtual() {
+		return loteAtual;
 	}
 
 }
