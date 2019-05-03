@@ -7,11 +7,11 @@ public class PanamahConfig {
 	private long maxAge;
 
 	public PanamahConfig() {
-		this(".", 5000, 5 * 60 * 1000);
+		this(".");
 	}
 
 	public PanamahConfig(String basePath) {
-		this(basePath, 5000, 5 * 60 * 1000);
+		this(basePath, 5000);
 	}
 
 	public PanamahConfig(String basePath, long delay) {

@@ -42,7 +42,6 @@ public class PanamahTask extends TimerTask {
 	public void restauraLoteAtual() throws FileNotFoundException, IOException {
 		if (!Paths.get(config.getBasePath(), "lotes").toFile().exists())
 			Paths.get(config.getBasePath(), "lotes").toFile().mkdirs();
-
 		File f = Paths.get(config.getBasePath(), "lotes", "loteatual.json").toFile();
 		if (f.exists()) {
 			try (Reader r = new FileReader(f)) {

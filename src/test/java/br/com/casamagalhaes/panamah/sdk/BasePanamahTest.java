@@ -34,13 +34,6 @@ public class BasePanamahTest {
 	private PanamahConfig c = new PanamahConfig();
 
 	@Test
-	public void shouldInitDefault() throws Exception {
-		Panamah p = Panamah.init(new PanamahConfig("aaa",200));
-		p.flush();
-		assertNotNull(p);
-	}
-
-	@Test
 	public void shouldInit() throws Exception {
 		Panamah p = Panamah.init(c);
 		p.flush();
@@ -51,6 +44,14 @@ public class BasePanamahTest {
 	public void shouldProgress() throws Exception {
 		Panamah p = Panamah.init(c);
 		p.progress();
+		p.flush();
+		assertNotNull(p);
+	}
+
+	@Test
+	public void shouldVerifyFechamento() throws Exception {
+		Panamah p = Panamah.init(c);
+		p.getTask().verificaFechamento();
 		p.flush();
 		assertNotNull(p);
 	}

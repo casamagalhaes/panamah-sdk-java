@@ -69,6 +69,10 @@ public class Panamah {
 		timer.cancel();
 		Panamah.instance = null;
 	}
+	
+	public PanamahTask getTask() {
+		return this.task;
+	}
 
 	/**
 	 * chamada para saber o status geral dos lotes
