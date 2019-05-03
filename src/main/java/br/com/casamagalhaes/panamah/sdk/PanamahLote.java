@@ -31,6 +31,7 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 public class PanamahLote {
 	
 	private PanamahStatusLote status = PanamahStatusLote.ABERTO;
+	private Date criacao = new Date();
 	private Date ultimaAtualizacao = new Date();
 
 	private List<PanamahAcesso> acessos;
@@ -64,6 +65,14 @@ public class PanamahLote {
 	
 	public void setStatus(PanamahStatusLote status) {
 		this.status = status;
+	}
+	
+	public Date getCriacao() {
+		return criacao;
+	}
+	
+	public void setCriacao(Date criacao) {
+		this.criacao = criacao;
 	}
 	
 	public Date getUltimaAtualizacao() {

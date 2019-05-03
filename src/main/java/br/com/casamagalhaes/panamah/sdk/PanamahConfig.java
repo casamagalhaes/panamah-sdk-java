@@ -6,12 +6,17 @@ public class PanamahConfig {
 	private long delay;
 
 	public PanamahConfig() {
-		this.basePath = "./panamah";
+		this.basePath = ".";
 		this.delay = 5000;
 	}
 
 	public PanamahConfig(String basePath) {
 		this.basePath = basePath;
+	}
+
+	public PanamahConfig(String basePath, long delay) {
+		this.basePath = basePath;
+		this.delay = delay;
 	}
 
 	public String getBasePath() {

@@ -1,5 +1,7 @@
 package br.com.casamagalhaes.panamah.sdk;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Timer;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahAcesso;
@@ -38,7 +40,7 @@ public class Panamah {
 	private Timer timer;
 	private PanamahTask task;
 
-	private Panamah(PanamahConfig config) {
+	private Panamah(PanamahConfig config) throws FileNotFoundException, IOException {
 		timer = new Timer("Panamah", true);
 		task = new PanamahTask(config);
 		timer.schedule(task, config.getDelay());
@@ -48,8 +50,10 @@ public class Panamah {
 	 * configuração inicial
 	 *
 	 * @return instância singleton
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
 	 */
-	public synchronized static Panamah init(PanamahConfig config) {
+	public synchronized static Panamah init(PanamahConfig config) throws FileNotFoundException, IOException {
 		if (instance == null) {
 			instance = new Panamah(config);
 		}
@@ -60,7 +64,9 @@ public class Panamah {
 	 * chamada para forçar o fechamento e envio do lote atual
 	 */
 	public void flush() {
-
+		task.fechaLoteAtual();
+		task.enviaLote();
+		timer.cancel();
 	}
 
 	/**

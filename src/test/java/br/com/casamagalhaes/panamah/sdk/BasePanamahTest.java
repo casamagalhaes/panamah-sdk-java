@@ -31,24 +31,24 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 
 public class BasePanamahTest {
 
-	private PanamahConfig c = new PanamahConfig("./teste");
+	private PanamahConfig c = new PanamahConfig();
 
 	@Test
-	public void shouldInitDefault() {
-		Panamah p = Panamah.init(new PanamahConfig());
+	public void shouldInitDefault() throws Exception {
+		Panamah p = Panamah.init(new PanamahConfig("aaa",200));
 		p.flush();
 		assertNotNull(p);
 	}
 
 	@Test
-	public void shouldInit() {
+	public void shouldInit() throws Exception {
 		Panamah p = Panamah.init(c);
 		p.flush();
 		assertNotNull(p);
 	}
 
 	@Test
-	public void shouldProgress() {
+	public void shouldProgress() throws Exception {
 		Panamah p = Panamah.init(c);
 		p.progress();
 		p.flush();
@@ -56,7 +56,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendAcesso() {
+	public void shouldSendAcesso() throws Exception {
 		PanamahAcesso model = new PanamahAcesso();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -65,7 +65,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendAssinante() {
+	public void shouldSendAssinante() throws Exception {
 		PanamahAssinante model = new PanamahAssinante();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -74,7 +74,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendCliente() {
+	public void shouldSendCliente() throws Exception {
 		PanamahCliente model = new PanamahCliente();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -83,7 +83,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendCompra() {
+	public void shouldSendCompra() throws Exception {
 		PanamahCompra model = new PanamahCompra();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -92,7 +92,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendEan() {
+	public void shouldSendEan() throws Exception {
 		PanamahEan model = new PanamahEan();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -101,7 +101,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendEstoqueMovimentacao() {
+	public void shouldSendEstoqueMovimentacao() throws Exception {
 		PanamahEstoqueMovimentacao model = new PanamahEstoqueMovimentacao();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -110,7 +110,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendEventoCaixa() {
+	public void shouldSendEventoCaixa() throws Exception {
 		PanamahEventoCaixa model = new PanamahEventoCaixa();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -119,7 +119,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendFormaPagamento() {
+	public void shouldSendFormaPagamento() throws Exception {
 		PanamahFormaPagamento model = new PanamahFormaPagamento();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -128,7 +128,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendFornecedor() {
+	public void shouldSendFornecedor() throws Exception {
 		PanamahFornecedor model = new PanamahFornecedor();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -137,7 +137,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendFuncionario() {
+	public void shouldSendFuncionario() throws Exception {
 		PanamahFuncionario model = new PanamahFuncionario();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -146,7 +146,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendGrupo() {
+	public void shouldSendGrupo() throws Exception {
 		PanamahGrupo model = new PanamahGrupo();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -154,7 +154,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendHolding() {
+	public void shouldSendHolding() throws Exception {
 		PanamahHolding model = new PanamahHolding();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -163,7 +163,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendLocalEstoque() {
+	public void shouldSendLocalEstoque() throws Exception {
 		PanamahLocalEstoque model = new PanamahLocalEstoque();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -172,7 +172,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendLoja() {
+	public void shouldSendLoja() throws Exception {
 		PanamahLoja model = new PanamahLoja();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -181,7 +181,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendMeta() {
+	public void shouldSendMeta() throws Exception {
 		PanamahMeta model = new PanamahMeta();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -190,7 +190,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendProduto() {
+	public void shouldSendProduto() throws Exception {
 		PanamahProduto model = new PanamahProduto();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -199,7 +199,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendRevenda() {
+	public void shouldSendRevenda() throws Exception {
 		PanamahRevenda model = new PanamahRevenda();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -208,7 +208,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendSecao() {
+	public void shouldSendSecao() throws Exception {
 		PanamahSecao model = new PanamahSecao();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -217,7 +217,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendSubgrupo() {
+	public void shouldSendSubgrupo() throws Exception {
 		PanamahSubgrupo model = new PanamahSubgrupo();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -226,7 +226,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendTituloPagar() {
+	public void shouldSendTituloPagar() throws Exception {
 		PanamahTituloPagar model = new PanamahTituloPagar();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -235,7 +235,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendTituloReceber() {
+	public void shouldSendTituloReceber() throws Exception {
 		PanamahTituloReceber model = new PanamahTituloReceber();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -244,7 +244,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendTrocaDevolucao() {
+	public void shouldSendTrocaDevolucao() throws Exception {
 		PanamahTrocaDevolucao model = new PanamahTrocaDevolucao();
 		Panamah p = Panamah.init(c);
 		p.send(model);
@@ -253,7 +253,7 @@ public class BasePanamahTest {
 	}
 
 	@Test
-	public void shouldSendVenda() {
+	public void shouldSendVenda() throws Exception {
 		PanamahVenda model = new PanamahVenda();
 		Panamah p = Panamah.init(c);
 		p.send(model);
