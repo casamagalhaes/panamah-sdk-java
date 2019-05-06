@@ -25,6 +25,7 @@ public class PanamahUtil {
 	public static String send(PanamahConfig config, PanamahLote lote) throws ClientProtocolException, IOException {
 		String res = Request.Post(config.getAddr())//
 				.bodyString(buildGson().toJson(lote), ContentType.APPLICATION_JSON)//
+				.addHeader("x-api-key", config.getApiKey())//
 				.execute().returnContent().asString();
 		return res;
 	}

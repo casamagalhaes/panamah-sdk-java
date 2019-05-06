@@ -6,6 +6,7 @@ public class PanamahConfig {
 	private String addr;
 	private long delay;
 	private long maxAge;
+	private String apiKey;
 
 	public PanamahConfig() {
 		this(".");
@@ -60,5 +61,13 @@ public class PanamahConfig {
 
 	public void setMaxAge(long maxAge) {
 		this.maxAge = maxAge;
+	}
+	
+	public String getApiKey() {
+		return apiKey;
+	}
+	
+	public void setApiKey(String apiKey) {
+		this.apiKey = apiKey;
 	}
 }
