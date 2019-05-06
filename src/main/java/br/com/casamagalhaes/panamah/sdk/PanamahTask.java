@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -77,7 +78,15 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public void enviaLote() {
+		if (!Paths.get(config.getBasePath(), "lotes", "enviados").toFile().exists())
+			Paths.get(config.getBasePath(), "lotes", "enviados").toFile().mkdirs();
+		File[] files = Paths.get(config.getBasePath(), "lotes", "fechados").toFile().listFiles(new FilenameFilter() {
 
+			@Override
+			public boolean accept(File dir, String name) {
+				return false;
+			}
+		});
 	}
 
 	public PanamahLote getLoteAtual() {

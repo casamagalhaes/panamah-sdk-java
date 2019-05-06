@@ -27,9 +27,11 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahSubgrupo;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahTituloPagar;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahTituloReceber;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaDevolucao;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaFormaPagamento;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 
 public class BasePanamahTest {
+	
 
 	private PanamahConfig c = new PanamahConfig();
 
@@ -255,6 +257,15 @@ public class BasePanamahTest {
 	@Test
 	public void shouldSendTrocaDevolucao() throws Exception {
 		PanamahTrocaDevolucao model = new PanamahTrocaDevolucao();
+		Panamah p = Panamah.init(c);
+		p.send(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldSendTrocaFormaPagamento() throws Exception {
+		PanamahTrocaFormaPagamento model = new PanamahTrocaFormaPagamento();
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
