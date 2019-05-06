@@ -1,116 +1,119 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahTrocaDevolucao {
+  public class PanamahTrocaDevolucao {
+      
 
-    private String autorizadorId;
+  private String autorizadorId;
 
-    public String getAutorizadorId() {
-        return autorizadorId;
-    }
+  public String getAutorizadorId(){
+    return autorizadorId;
+  }
 
-    public void setAutorizadorId(String autorizadorId) {
-        this.autorizadorId = autorizadorId;
-    }
+  public void setAutorizadorId(String autorizadorId){
+    this.autorizadorId = autorizadorId;
+  }
+  
+  private java.util.Date data;
 
-    private java.util.Date data;
+  public java.util.Date getData(){
+    return data;
+  }
 
-    public java.util.Date getData() {
-        return data;
-    }
+  public void setData(java.util.Date data){
+    this.data = data;
+  }
+  
+  private String vendaId;
 
-    public void setData(java.util.Date data) {
-        this.data = data;
-    }
+  public String getVendaId(){
+    return vendaId;
+  }
 
-    private String vendaId;
+  public void setVendaId(String vendaId){
+    this.vendaId = vendaId;
+  }
+  
+  private String id;
 
-    public String getVendaId() {
-        return vendaId;
-    }
+  public String getId(){
+    return id;
+  }
 
-    public void setVendaId(String vendaId) {
-        this.vendaId = vendaId;
-    }
-
-    private String id;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
+  public void setId(String id){
+    this.id = id;
+  }
+  
     private java.util.List<PanamahTrocaDevolucaoItens> itens;
-
-    public java.util.List<PanamahTrocaDevolucaoItens> getItens() {
-        return itens;
+    
+    public java.util.List<PanamahTrocaDevolucaoItens> getItens(){ 
+      return itens;
     }
 
     public void setItens(java.util.List<PanamahTrocaDevolucaoItens> itens) {
-        this.itens = itens;
+      this.itens = itens;
     }
 
-    private String lojaId;
+    
+  private String lojaId;
 
-    public String getLojaId() {
-        return lojaId;
-    }
+  public String getLojaId(){
+    return lojaId;
+  }
 
-    public void setLojaId(String lojaId) {
-        this.lojaId = lojaId;
-    }
+  public void setLojaId(String lojaId){
+    this.lojaId = lojaId;
+  }
+  
+  private String numeroCaixa;
 
-    private String numeroCaixa;
+  public String getNumeroCaixa(){
+    return numeroCaixa;
+  }
 
-    public String getNumeroCaixa() {
-        return numeroCaixa;
-    }
+  public void setNumeroCaixa(String numeroCaixa){
+    this.numeroCaixa = numeroCaixa;
+  }
+  
+  private String operadorId;
 
-    public void setNumeroCaixa(String numeroCaixa) {
-        this.numeroCaixa = numeroCaixa;
-    }
+  public String getOperadorId(){
+    return operadorId;
+  }
 
-    private String operadorId;
+  public void setOperadorId(String operadorId){
+    this.operadorId = operadorId;
+  }
+  
+  private String sequencial;
 
-    public String getOperadorId() {
-        return operadorId;
-    }
+  public String getSequencial(){
+    return sequencial;
+  }
 
-    public void setOperadorId(String operadorId) {
-        this.operadorId = operadorId;
-    }
+  public void setSequencial(String sequencial){
+    this.sequencial = sequencial;
+  }
+  
+  private Double valor;
 
-    private String sequencial;
+  public Double getValor(){
+    return valor;
+  }
 
-    public String getSequencial() {
-        return sequencial;
-    }
+  public void setValor(Double valor){
+    this.valor = valor;
+  }
+  
+  private String vendedorId;
 
-    public void setSequencial(String sequencial) {
-        this.sequencial = sequencial;
-    }
+  public String getVendedorId(){
+    return vendedorId;
+  }
 
-    private Double valor;
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
-    private String vendedorId;
-
-    public String getVendedorId() {
-        return vendedorId;
-    }
-
-    public void setVendedorId(String vendedorId) {
-        this.vendedorId = vendedorId;
-    }
-
-}
+  public void setVendedorId(String vendedorId){
+    this.vendedorId = vendedorId;
+  }
+  
+  }
+  

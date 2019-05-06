@@ -1,76 +1,78 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahRevenda {
+  public class PanamahRevenda {
+      
 
-    private String id;
+  private String id;
 
-    public String getId() {
-        return id;
-    }
+  public String getId(){
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private String nome;
 
-    private String nome;
+  public String getNome(){
+    return nome;
+  }
 
-    public String getNome() {
-        return nome;
-    }
+  public void setNome(String nome){
+    this.nome = nome;
+  }
+  
+  private String fantasia;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+  public String getFantasia(){
+    return fantasia;
+  }
 
-    private String fantasia;
+  public void setFantasia(String fantasia){
+    this.fantasia = fantasia;
+  }
+  
+  private String ramo;
 
-    public String getFantasia() {
-        return fantasia;
-    }
+  public String getRamo(){
+    return ramo;
+  }
 
-    public void setFantasia(String fantasia) {
-        this.fantasia = fantasia;
-    }
+  public void setRamo(String ramo){
+    this.ramo = ramo;
+  }
+  
+  private String uf;
 
-    private String ramo;
+  public String getUf(){
+    return uf;
+  }
 
-    public String getRamo() {
-        return ramo;
-    }
+  public void setUf(String uf){
+    this.uf = uf;
+  }
+  
+  private String cidade;
 
-    public void setRamo(String ramo) {
-        this.ramo = ramo;
-    }
+  public String getCidade(){
+    return cidade;
+  }
 
-    private String uf;
+  public void setCidade(String cidade){
+    this.cidade = cidade;
+  }
+  
+  private String bairro;
 
-    public String getUf() {
-        return uf;
-    }
+  public String getBairro(){
+    return bairro;
+  }
 
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    private String cidade;
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    private String bairro;
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-}
+  public void setBairro(String bairro){
+    this.bairro = bairro;
+  }
+  
+  }
+  

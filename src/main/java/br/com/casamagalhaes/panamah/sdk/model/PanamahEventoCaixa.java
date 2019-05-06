@@ -1,76 +1,79 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahEventoCaixa {
+  public class PanamahEventoCaixa {
+      
 
-    private String id;
+  private String id;
 
-    public String getId() {
-        return id;
-    }
+  public String getId(){
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private String lojaId;
 
-    private String lojaId;
+  public String getLojaId(){
+    return lojaId;
+  }
 
-    public String getLojaId() {
-        return lojaId;
-    }
+  public void setLojaId(String lojaId){
+    this.lojaId = lojaId;
+  }
+  
+  private String numeroCaixa;
 
-    public void setLojaId(String lojaId) {
-        this.lojaId = lojaId;
-    }
+  public String getNumeroCaixa(){
+    return numeroCaixa;
+  }
 
-    private String numeroCaixa;
+  public void setNumeroCaixa(String numeroCaixa){
+    this.numeroCaixa = numeroCaixa;
+  }
+  
+  private String funcionarioId;
 
-    public String getNumeroCaixa() {
-        return numeroCaixa;
-    }
+  public String getFuncionarioId(){
+    return funcionarioId;
+  }
 
-    public void setNumeroCaixa(String numeroCaixa) {
-        this.numeroCaixa = numeroCaixa;
-    }
+  public void setFuncionarioId(String funcionarioId){
+    this.funcionarioId = funcionarioId;
+  }
+  
+  private java.util.Date dataHora;
 
-    private String funcionarioId;
+  public java.util.Date getDataHora(){
+    return dataHora;
+  }
 
-    public String getFuncionarioId() {
-        return funcionarioId;
-    }
+  public void setDataHora(java.util.Date dataHora){
+    this.dataHora = dataHora;
+  }
+  
+  private String tipo;
 
-    public void setFuncionarioId(String funcionarioId) {
-        this.funcionarioId = funcionarioId;
-    }
+  public String getTipo(){
+    return tipo;
+  }
 
-    private java.util.Date dataHora;
-
-    public java.util.Date getDataHora() {
-        return dataHora;
-    }
-
-    public void setDataHora(java.util.Date dataHora) {
-        this.dataHora = dataHora;
-    }
-
-    private String tipo;
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
+  public void setTipo(String tipo){
+    this.tipo = tipo;
+  }
+  
     private java.util.List<PanamahEventoCaixaValoresDeclarados> valoresDeclarados;
-
-    public java.util.List<PanamahEventoCaixaValoresDeclarados> getValoresDeclarados() {
-        return valoresDeclarados;
+    
+    public java.util.List<PanamahEventoCaixaValoresDeclarados> getValoresDeclarados(){ 
+      return valoresDeclarados;
     }
 
     public void setValoresDeclarados(java.util.List<PanamahEventoCaixaValoresDeclarados> valoresDeclarados) {
-        this.valoresDeclarados = valoresDeclarados;
+      this.valoresDeclarados = valoresDeclarados;
     }
 
-}
+    
+  }
+  

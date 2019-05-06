@@ -1,136 +1,140 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahProduto {
+  public class PanamahProduto {
+      
 
     private PanamahProdutoComposicao composicao;
 
-    public PanamahProdutoComposicao getComposicao() {
-        return composicao;
+    
+    public PanamahProdutoComposicao getComposicao(){ 
+      return composicao;
     }
 
-    public void setComposicao(PanamahProdutoComposicao composicao) {
-        this.composicao = composicao;
+    public void setComposicao(PanamahProdutoComposicao composicao){
+      this.composicao = composicao;
     }
+    
+  private String tipoComposicao;
 
-    private String tipoComposicao;
+  public String getTipoComposicao(){
+    return tipoComposicao;
+  }
 
-    public String getTipoComposicao() {
-        return tipoComposicao;
-    }
+  public void setTipoComposicao(String tipoComposicao){
+    this.tipoComposicao = tipoComposicao;
+  }
+  
+  private String descricao;
 
-    public void setTipoComposicao(String tipoComposicao) {
-        this.tipoComposicao = tipoComposicao;
-    }
+  public String getDescricao(){
+    return descricao;
+  }
 
-    private String descricao;
+  public void setDescricao(String descricao){
+    this.descricao = descricao;
+  }
+  
+  private java.util.Date dataInclusao;
 
-    public String getDescricao() {
-        return descricao;
-    }
+  public java.util.Date getDataInclusao(){
+    return dataInclusao;
+  }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+  public void setDataInclusao(java.util.Date dataInclusao){
+    this.dataInclusao = dataInclusao;
+  }
+  
+  private String finalidade;
 
-    private java.util.Date dataInclusao;
+  public String getFinalidade(){
+    return finalidade;
+  }
 
-    public java.util.Date getDataInclusao() {
-        return dataInclusao;
-    }
+  public void setFinalidade(String finalidade){
+    this.finalidade = finalidade;
+  }
+  
+  private Boolean ativo;
 
-    public void setDataInclusao(java.util.Date dataInclusao) {
-        this.dataInclusao = dataInclusao;
-    }
+  public Boolean getAtivo(){
+    return ativo;
+  }
 
-    private String finalidade;
+  public void setAtivo(Boolean ativo){
+    this.ativo = ativo;
+  }
+  
+  private String grupoId;
 
-    public String getFinalidade() {
-        return finalidade;
-    }
+  public String getGrupoId(){
+    return grupoId;
+  }
 
-    public void setFinalidade(String finalidade) {
-        this.finalidade = finalidade;
-    }
+  public void setGrupoId(String grupoId){
+    this.grupoId = grupoId;
+  }
+  
+  private String id;
 
-    private Boolean ativo;
+  public String getId(){
+    return id;
+  }
 
-    public Boolean getAtivo() {
-        return ativo;
-    }
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private Boolean pesoVariavel;
 
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
-    }
+  public Boolean getPesoVariavel(){
+    return pesoVariavel;
+  }
 
-    private String grupoId;
+  public void setPesoVariavel(Boolean pesoVariavel){
+    this.pesoVariavel = pesoVariavel;
+  }
+  
+  private Double quantidadeItensEmbalagem;
 
-    public String getGrupoId() {
-        return grupoId;
-    }
+  public Double getQuantidadeItensEmbalagem(){
+    return quantidadeItensEmbalagem;
+  }
 
-    public void setGrupoId(String grupoId) {
-        this.grupoId = grupoId;
-    }
+  public void setQuantidadeItensEmbalagem(Double quantidadeItensEmbalagem){
+    this.quantidadeItensEmbalagem = quantidadeItensEmbalagem;
+  }
+  
+  private String secaoId;
 
-    private String id;
+  public String getSecaoId(){
+    return secaoId;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public void setSecaoId(String secaoId){
+    this.secaoId = secaoId;
+  }
+  
+  private String subgrupoId;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public String getSubgrupoId(){
+    return subgrupoId;
+  }
 
-    private Boolean pesoVariavel;
-
-    public Boolean getPesoVariavel() {
-        return pesoVariavel;
-    }
-
-    public void setPesoVariavel(Boolean pesoVariavel) {
-        this.pesoVariavel = pesoVariavel;
-    }
-
-    private Double quantidadeItensEmbalagem;
-
-    public Double getQuantidadeItensEmbalagem() {
-        return quantidadeItensEmbalagem;
-    }
-
-    public void setQuantidadeItensEmbalagem(Double quantidadeItensEmbalagem) {
-        this.quantidadeItensEmbalagem = quantidadeItensEmbalagem;
-    }
-
-    private String secaoId;
-
-    public String getSecaoId() {
-        return secaoId;
-    }
-
-    public void setSecaoId(String secaoId) {
-        this.secaoId = secaoId;
-    }
-
-    private String subgrupoId;
-
-    public String getSubgrupoId() {
-        return subgrupoId;
-    }
-
-    public void setSubgrupoId(String subgrupoId) {
-        this.subgrupoId = subgrupoId;
-    }
-
+  public void setSubgrupoId(String subgrupoId){
+    this.subgrupoId = subgrupoId;
+  }
+  
     private java.util.List<PanamahProdutoFornecedores> fornecedores;
-
-    public java.util.List<PanamahProdutoFornecedores> getFornecedores() {
-        return fornecedores;
+    
+    public java.util.List<PanamahProdutoFornecedores> getFornecedores(){ 
+      return fornecedores;
     }
 
     public void setFornecedores(java.util.List<PanamahProdutoFornecedores> fornecedores) {
-        this.fornecedores = fornecedores;
+      this.fornecedores = fornecedores;
     }
 
-}
+    
+  }
+  

@@ -1,86 +1,88 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahEstoqueMovimentacao {
+  public class PanamahEstoqueMovimentacao {
+      
 
-    private String id;
+  private String id;
 
-    public String getId() {
-        return id;
-    }
+  public String getId(){
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private String localEstoqueId;
 
-    private String localEstoqueId;
+  public String getLocalEstoqueId(){
+    return localEstoqueId;
+  }
 
-    public String getLocalEstoqueId() {
-        return localEstoqueId;
-    }
+  public void setLocalEstoqueId(String localEstoqueId){
+    this.localEstoqueId = localEstoqueId;
+  }
+  
+  private java.util.Date dataHora;
 
-    public void setLocalEstoqueId(String localEstoqueId) {
-        this.localEstoqueId = localEstoqueId;
-    }
+  public java.util.Date getDataHora(){
+    return dataHora;
+  }
 
-    private java.util.Date dataHora;
+  public void setDataHora(java.util.Date dataHora){
+    this.dataHora = dataHora;
+  }
+  
+  private String produtoId;
 
-    public java.util.Date getDataHora() {
-        return dataHora;
-    }
+  public String getProdutoId(){
+    return produtoId;
+  }
 
-    public void setDataHora(java.util.Date dataHora) {
-        this.dataHora = dataHora;
-    }
+  public void setProdutoId(String produtoId){
+    this.produtoId = produtoId;
+  }
+  
+  private Double quantidade;
 
-    private String produtoId;
+  public Double getQuantidade(){
+    return quantidade;
+  }
 
-    public String getProdutoId() {
-        return produtoId;
-    }
+  public void setQuantidade(Double quantidade){
+    this.quantidade = quantidade;
+  }
+  
+  private Double custo;
 
-    public void setProdutoId(String produtoId) {
-        this.produtoId = produtoId;
-    }
+  public Double getCusto(){
+    return custo;
+  }
 
-    private Double quantidade;
+  public void setCusto(Double custo){
+    this.custo = custo;
+  }
+  
+  private Double preco;
 
-    public Double getQuantidade() {
-        return quantidade;
-    }
+  public Double getPreco(){
+    return preco;
+  }
 
-    public void setQuantidade(Double quantidade) {
-        this.quantidade = quantidade;
-    }
+  public void setPreco(Double preco){
+    this.preco = preco;
+  }
+  
+  private Double markup;
 
-    private Double custo;
+  public Double getMarkup(){
+    return markup;
+  }
 
-    public Double getCusto() {
-        return custo;
-    }
-
-    public void setCusto(Double custo) {
-        this.custo = custo;
-    }
-
-    private Double preco;
-
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
-    }
-
-    private Double markup;
-
-    public Double getMarkup() {
-        return markup;
-    }
-
-    public void setMarkup(Double markup) {
-        this.markup = markup;
-    }
-
-}
+  public void setMarkup(Double markup){
+    this.markup = markup;
+  }
+  
+  }
+  

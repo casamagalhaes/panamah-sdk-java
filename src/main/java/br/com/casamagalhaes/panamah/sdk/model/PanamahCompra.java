@@ -1,146 +1,149 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahCompra {
+  public class PanamahCompra {
+      
 
-    private String id;
+  private String id;
 
-    public String getId() {
-        return id;
-    }
+  public String getId(){
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private String lojaId;
 
-    private String lojaId;
+  public String getLojaId(){
+    return lojaId;
+  }
 
-    public String getLojaId() {
-        return lojaId;
-    }
+  public void setLojaId(String lojaId){
+    this.lojaId = lojaId;
+  }
+  
+  private String fornecedorId;
 
-    public void setLojaId(String lojaId) {
-        this.lojaId = lojaId;
-    }
+  public String getFornecedorId(){
+    return fornecedorId;
+  }
 
-    private String fornecedorId;
+  public void setFornecedorId(String fornecedorId){
+    this.fornecedorId = fornecedorId;
+  }
+  
+  private String funcionarioId;
 
-    public String getFornecedorId() {
-        return fornecedorId;
-    }
+  public String getFuncionarioId(){
+    return funcionarioId;
+  }
 
-    public void setFornecedorId(String fornecedorId) {
-        this.fornecedorId = fornecedorId;
-    }
+  public void setFuncionarioId(String funcionarioId){
+    this.funcionarioId = funcionarioId;
+  }
+  
+  private java.util.Date dataEntrada;
 
-    private String funcionarioId;
+  public java.util.Date getDataEntrada(){
+    return dataEntrada;
+  }
 
-    public String getFuncionarioId() {
-        return funcionarioId;
-    }
+  public void setDataEntrada(java.util.Date dataEntrada){
+    this.dataEntrada = dataEntrada;
+  }
+  
+  private java.util.Date dataEmissao;
 
-    public void setFuncionarioId(String funcionarioId) {
-        this.funcionarioId = funcionarioId;
-    }
+  public java.util.Date getDataEmissao(){
+    return dataEmissao;
+  }
 
-    private java.util.Date dataEntrada;
+  public void setDataEmissao(java.util.Date dataEmissao){
+    this.dataEmissao = dataEmissao;
+  }
+  
+  private java.util.Date dataHoraCompra;
 
-    public java.util.Date getDataEntrada() {
-        return dataEntrada;
-    }
+  public java.util.Date getDataHoraCompra(){
+    return dataHoraCompra;
+  }
 
-    public void setDataEntrada(java.util.Date dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
+  public void setDataHoraCompra(java.util.Date dataHoraCompra){
+    this.dataHoraCompra = dataHoraCompra;
+  }
+  
+  private Double desconto;
 
-    private java.util.Date dataEmissao;
+  public Double getDesconto(){
+    return desconto;
+  }
 
-    public java.util.Date getDataEmissao() {
-        return dataEmissao;
-    }
+  public void setDesconto(Double desconto){
+    this.desconto = desconto;
+  }
+  
+  private Boolean efetiva;
 
-    public void setDataEmissao(java.util.Date dataEmissao) {
-        this.dataEmissao = dataEmissao;
-    }
+  public Boolean getEfetiva(){
+    return efetiva;
+  }
 
-    private java.util.Date dataHoraCompra;
+  public void setEfetiva(Boolean efetiva){
+    this.efetiva = efetiva;
+  }
+  
+  private Double quantidadeItens;
 
-    public java.util.Date getDataHoraCompra() {
-        return dataHoraCompra;
-    }
+  public Double getQuantidadeItens(){
+    return quantidadeItens;
+  }
 
-    public void setDataHoraCompra(java.util.Date dataHoraCompra) {
-        this.dataHoraCompra = dataHoraCompra;
-    }
+  public void setQuantidadeItens(Double quantidadeItens){
+    this.quantidadeItens = quantidadeItens;
+  }
+  
+  private String tipoDesconto;
 
-    private Double desconto;
+  public String getTipoDesconto(){
+    return tipoDesconto;
+  }
 
-    public Double getDesconto() {
-        return desconto;
-    }
+  public void setTipoDesconto(String tipoDesconto){
+    this.tipoDesconto = tipoDesconto;
+  }
+  
+  private Double valor;
 
-    public void setDesconto(Double desconto) {
-        this.desconto = desconto;
-    }
+  public Double getValor(){
+    return valor;
+  }
 
-    private Boolean efetiva;
+  public void setValor(Double valor){
+    this.valor = valor;
+  }
+  
+  private Double acrescimo;
 
-    public Boolean getEfetiva() {
-        return efetiva;
-    }
+  public Double getAcrescimo(){
+    return acrescimo;
+  }
 
-    public void setEfetiva(Boolean efetiva) {
-        this.efetiva = efetiva;
-    }
-
-    private Double quantidadeItens;
-
-    public Double getQuantidadeItens() {
-        return quantidadeItens;
-    }
-
-    public void setQuantidadeItens(Double quantidadeItens) {
-        this.quantidadeItens = quantidadeItens;
-    }
-
-    private String tipoDesconto;
-
-    public String getTipoDesconto() {
-        return tipoDesconto;
-    }
-
-    public void setTipoDesconto(String tipoDesconto) {
-        this.tipoDesconto = tipoDesconto;
-    }
-
-    private Double valor;
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
-    private Double acrescimo;
-
-    public Double getAcrescimo() {
-        return acrescimo;
-    }
-
-    public void setAcrescimo(Double acrescimo) {
-        this.acrescimo = acrescimo;
-    }
-
+  public void setAcrescimo(Double acrescimo){
+    this.acrescimo = acrescimo;
+  }
+  
     private java.util.List<PanamahCompraItens> itens;
-
-    public java.util.List<PanamahCompraItens> getItens() {
-        return itens;
+    
+    public java.util.List<PanamahCompraItens> getItens(){ 
+      return itens;
     }
 
     public void setItens(java.util.List<PanamahCompraItens> itens) {
-        this.itens = itens;
+      this.itens = itens;
     }
 
-}
+    
+  }
+  

@@ -1,56 +1,58 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahSubgrupo {
+  public class PanamahSubgrupo {
+      
 
-    private String id;
+  private String id;
 
-    public String getId() {
-        return id;
-    }
+  public String getId(){
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private String codigo;
 
-    private String codigo;
+  public String getCodigo(){
+    return codigo;
+  }
 
-    public String getCodigo() {
-        return codigo;
-    }
+  public void setCodigo(String codigo){
+    this.codigo = codigo;
+  }
+  
+  private String descricao;
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
+  public String getDescricao(){
+    return descricao;
+  }
 
-    private String descricao;
+  public void setDescricao(String descricao){
+    this.descricao = descricao;
+  }
+  
+  private String secaoId;
 
-    public String getDescricao() {
-        return descricao;
-    }
+  public String getSecaoId(){
+    return secaoId;
+  }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+  public void setSecaoId(String secaoId){
+    this.secaoId = secaoId;
+  }
+  
+  private String grupoId;
 
-    private String secaoId;
+  public String getGrupoId(){
+    return grupoId;
+  }
 
-    public String getSecaoId() {
-        return secaoId;
-    }
-
-    public void setSecaoId(String secaoId) {
-        this.secaoId = secaoId;
-    }
-
-    private String grupoId;
-
-    public String getGrupoId() {
-        return grupoId;
-    }
-
-    public void setGrupoId(String grupoId) {
-        this.grupoId = grupoId;
-    }
-
-}
+  public void setGrupoId(String grupoId){
+    this.grupoId = grupoId;
+  }
+  
+  }
+  

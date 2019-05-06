@@ -1,36 +1,38 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahVendaPagamentos {
+  public class PanamahVendaPagamentos {
+      
 
-    private String formaPagamentoId;
+  private String formaPagamentoId;
 
-    public String getFormaPagamentoId() {
-        return formaPagamentoId;
-    }
+  public String getFormaPagamentoId(){
+    return formaPagamentoId;
+  }
 
-    public void setFormaPagamentoId(String formaPagamentoId) {
-        this.formaPagamentoId = formaPagamentoId;
-    }
+  public void setFormaPagamentoId(String formaPagamentoId){
+    this.formaPagamentoId = formaPagamentoId;
+  }
+  
+  private String sequencial;
 
-    private String sequencial;
+  public String getSequencial(){
+    return sequencial;
+  }
 
-    public String getSequencial() {
-        return sequencial;
-    }
+  public void setSequencial(String sequencial){
+    this.sequencial = sequencial;
+  }
+  
+  private Double valor;
 
-    public void setSequencial(String sequencial) {
-        this.sequencial = sequencial;
-    }
+  public Double getValor(){
+    return valor;
+  }
 
-    private Double valor;
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
-}
+  public void setValor(Double valor){
+    this.valor = valor;
+  }
+  
+  }
+  

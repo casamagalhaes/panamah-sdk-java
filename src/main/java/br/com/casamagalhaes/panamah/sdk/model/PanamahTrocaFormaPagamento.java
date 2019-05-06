@@ -1,116 +1,118 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahTrocaFormaPagamento {
+  public class PanamahTrocaFormaPagamento {
+      
 
-    private String autorizadorId;
+  private String autorizadorId;
 
-    public String getAutorizadorId() {
-        return autorizadorId;
-    }
+  public String getAutorizadorId(){
+    return autorizadorId;
+  }
 
-    public void setAutorizadorId(String autorizadorId) {
-        this.autorizadorId = autorizadorId;
-    }
+  public void setAutorizadorId(String autorizadorId){
+    this.autorizadorId = autorizadorId;
+  }
+  
+  private java.util.Date data;
 
-    private java.util.Date data;
+  public java.util.Date getData(){
+    return data;
+  }
 
-    public java.util.Date getData() {
-        return data;
-    }
+  public void setData(java.util.Date data){
+    this.data = data;
+  }
+  
+  private String formaPagamentoDestinoId;
 
-    public void setData(java.util.Date data) {
-        this.data = data;
-    }
+  public String getFormaPagamentoDestinoId(){
+    return formaPagamentoDestinoId;
+  }
 
-    private String formaPagamentoDestinoId;
+  public void setFormaPagamentoDestinoId(String formaPagamentoDestinoId){
+    this.formaPagamentoDestinoId = formaPagamentoDestinoId;
+  }
+  
+  private String formaPagamentoOrigemId;
 
-    public String getFormaPagamentoDestinoId() {
-        return formaPagamentoDestinoId;
-    }
+  public String getFormaPagamentoOrigemId(){
+    return formaPagamentoOrigemId;
+  }
 
-    public void setFormaPagamentoDestinoId(String formaPagamentoDestinoId) {
-        this.formaPagamentoDestinoId = formaPagamentoDestinoId;
-    }
+  public void setFormaPagamentoOrigemId(String formaPagamentoOrigemId){
+    this.formaPagamentoOrigemId = formaPagamentoOrigemId;
+  }
+  
+  private String id;
 
-    private String formaPagamentoOrigemId;
+  public String getId(){
+    return id;
+  }
 
-    public String getFormaPagamentoOrigemId() {
-        return formaPagamentoOrigemId;
-    }
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private String lojaId;
 
-    public void setFormaPagamentoOrigemId(String formaPagamentoOrigemId) {
-        this.formaPagamentoOrigemId = formaPagamentoOrigemId;
-    }
+  public String getLojaId(){
+    return lojaId;
+  }
 
-    private String id;
+  public void setLojaId(String lojaId){
+    this.lojaId = lojaId;
+  }
+  
+  private String vendaId;
 
-    public String getId() {
-        return id;
-    }
+  public String getVendaId(){
+    return vendaId;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setVendaId(String vendaId){
+    this.vendaId = vendaId;
+  }
+  
+  private String operadorId;
 
-    private String lojaId;
+  public String getOperadorId(){
+    return operadorId;
+  }
 
-    public String getLojaId() {
-        return lojaId;
-    }
+  public void setOperadorId(String operadorId){
+    this.operadorId = operadorId;
+  }
+  
+  private String sequencialPagamento;
 
-    public void setLojaId(String lojaId) {
-        this.lojaId = lojaId;
-    }
+  public String getSequencialPagamento(){
+    return sequencialPagamento;
+  }
 
-    private String vendaId;
+  public void setSequencialPagamento(String sequencialPagamento){
+    this.sequencialPagamento = sequencialPagamento;
+  }
+  
+  private Double valor;
 
-    public String getVendaId() {
-        return vendaId;
-    }
+  public Double getValor(){
+    return valor;
+  }
 
-    public void setVendaId(String vendaId) {
-        this.vendaId = vendaId;
-    }
+  public void setValor(Double valor){
+    this.valor = valor;
+  }
+  
+  private Double valorContraValeOuTroco;
 
-    private String operadorId;
+  public Double getValorContraValeOuTroco(){
+    return valorContraValeOuTroco;
+  }
 
-    public String getOperadorId() {
-        return operadorId;
-    }
-
-    public void setOperadorId(String operadorId) {
-        this.operadorId = operadorId;
-    }
-
-    private String sequencialPagamento;
-
-    public String getSequencialPagamento() {
-        return sequencialPagamento;
-    }
-
-    public void setSequencialPagamento(String sequencialPagamento) {
-        this.sequencialPagamento = sequencialPagamento;
-    }
-
-    private Double valor;
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
-    private Double valorContraValeOuTroco;
-
-    public Double getValorContraValeOuTroco() {
-        return valorContraValeOuTroco;
-    }
-
-    public void setValorContraValeOuTroco(Double valorContraValeOuTroco) {
-        this.valorContraValeOuTroco = valorContraValeOuTroco;
-    }
-
-}
+  public void setValorContraValeOuTroco(Double valorContraValeOuTroco){
+    this.valorContraValeOuTroco = valorContraValeOuTroco;
+  }
+  
+  }
+  

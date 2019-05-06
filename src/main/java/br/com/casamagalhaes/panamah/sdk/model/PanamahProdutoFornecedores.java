@@ -1,26 +1,28 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahProdutoFornecedores {
+  public class PanamahProdutoFornecedores {
+      
 
-    private String id;
+  private String id;
 
-    public String getId() {
-        return id;
-    }
+  public String getId(){
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private Boolean principal;
 
-    private Boolean principal;
+  public Boolean getPrincipal(){
+    return principal;
+  }
 
-    public Boolean getPrincipal() {
-        return principal;
-    }
-
-    public void setPrincipal(Boolean principal) {
-        this.principal = principal;
-    }
-
-}
+  public void setPrincipal(Boolean principal){
+    this.principal = principal;
+  }
+  
+  }
+  

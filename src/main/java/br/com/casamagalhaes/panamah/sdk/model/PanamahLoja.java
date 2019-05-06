@@ -1,196 +1,198 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahLoja {
+  public class PanamahLoja {
+      
 
-    private Boolean ativa;
+  private Boolean ativa;
 
-    public Boolean getAtiva() {
-        return ativa;
-    }
+  public Boolean getAtiva(){
+    return ativa;
+  }
 
-    public void setAtiva(Boolean ativa) {
-        this.ativa = ativa;
-    }
+  public void setAtiva(Boolean ativa){
+    this.ativa = ativa;
+  }
+  
+  private String id;
 
-    private String id;
+  public String getId(){
+    return id;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private String descricao;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public String getDescricao(){
+    return descricao;
+  }
 
-    private String descricao;
+  public void setDescricao(String descricao){
+    this.descricao = descricao;
+  }
+  
+  private String numeroDocumento;
 
-    public String getDescricao() {
-        return descricao;
-    }
+  public String getNumeroDocumento(){
+    return numeroDocumento;
+  }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+  public void setNumeroDocumento(String numeroDocumento){
+    this.numeroDocumento = numeroDocumento;
+  }
+  
+  private Boolean matriz;
 
-    private String numeroDocumento;
+  public Boolean getMatriz(){
+    return matriz;
+  }
 
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
+  public void setMatriz(Boolean matriz){
+    this.matriz = matriz;
+  }
+  
+  private String holdingId;
 
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }
+  public String getHoldingId(){
+    return holdingId;
+  }
 
-    private Boolean matriz;
+  public void setHoldingId(String holdingId){
+    this.holdingId = holdingId;
+  }
+  
+  private String ramo;
 
-    public Boolean getMatriz() {
-        return matriz;
-    }
+  public String getRamo(){
+    return ramo;
+  }
 
-    public void setMatriz(Boolean matriz) {
-        this.matriz = matriz;
-    }
+  public void setRamo(String ramo){
+    this.ramo = ramo;
+  }
+  
+  private String logradouro;
 
-    private String holdingId;
+  public String getLogradouro(){
+    return logradouro;
+  }
 
-    public String getHoldingId() {
-        return holdingId;
-    }
+  public void setLogradouro(String logradouro){
+    this.logradouro = logradouro;
+  }
+  
+  private String numero;
 
-    public void setHoldingId(String holdingId) {
-        this.holdingId = holdingId;
-    }
+  public String getNumero(){
+    return numero;
+  }
 
-    private String ramo;
+  public void setNumero(String numero){
+    this.numero = numero;
+  }
+  
+  private String uf;
 
-    public String getRamo() {
-        return ramo;
-    }
+  public String getUf(){
+    return uf;
+  }
 
-    public void setRamo(String ramo) {
-        this.ramo = ramo;
-    }
+  public void setUf(String uf){
+    this.uf = uf;
+  }
+  
+  private String cidade;
 
-    private String logradouro;
+  public String getCidade(){
+    return cidade;
+  }
 
-    public String getLogradouro() {
-        return logradouro;
-    }
+  public void setCidade(String cidade){
+    this.cidade = cidade;
+  }
+  
+  private String bairro;
 
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
+  public String getBairro(){
+    return bairro;
+  }
 
-    private String numero;
+  public void setBairro(String bairro){
+    this.bairro = bairro;
+  }
+  
+  private String cep;
 
-    public String getNumero() {
-        return numero;
-    }
+  public String getCep(){
+    return cep;
+  }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
+  public void setCep(String cep){
+    this.cep = cep;
+  }
+  
+  private String distrito;
 
-    private String uf;
+  public String getDistrito(){
+    return distrito;
+  }
 
-    public String getUf() {
-        return uf;
-    }
+  public void setDistrito(String distrito){
+    this.distrito = distrito;
+  }
+  
+  private String complemento;
 
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
+  public String getComplemento(){
+    return complemento;
+  }
 
-    private String cidade;
+  public void setComplemento(String complemento){
+    this.complemento = complemento;
+  }
+  
+  private String telefone;
 
-    public String getCidade() {
-        return cidade;
-    }
+  public String getTelefone(){
+    return telefone;
+  }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
+  public void setTelefone(String telefone){
+    this.telefone = telefone;
+  }
+  
+  private Double qtdCheckouts;
 
-    private String bairro;
+  public Double getQtdCheckouts(){
+    return qtdCheckouts;
+  }
 
-    public String getBairro() {
-        return bairro;
-    }
+  public void setQtdCheckouts(Double qtdCheckouts){
+    this.qtdCheckouts = qtdCheckouts;
+  }
+  
+  private Double areaM2;
 
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
+  public Double getAreaM2(){
+    return areaM2;
+  }
 
-    private String cep;
+  public void setAreaM2(Double areaM2){
+    this.areaM2 = areaM2;
+  }
+  
+  private Double qtdFuncionarios;
 
-    public String getCep() {
-        return cep;
-    }
+  public Double getQtdFuncionarios(){
+    return qtdFuncionarios;
+  }
 
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    private String distrito;
-
-    public String getDistrito() {
-        return distrito;
-    }
-
-    public void setDistrito(String distrito) {
-        this.distrito = distrito;
-    }
-
-    private String complemento;
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    private String telefone;
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    private Double qtdCheckouts;
-
-    public Double getQtdCheckouts() {
-        return qtdCheckouts;
-    }
-
-    public void setQtdCheckouts(Double qtdCheckouts) {
-        this.qtdCheckouts = qtdCheckouts;
-    }
-
-    private Double areaM2;
-
-    public Double getAreaM2() {
-        return areaM2;
-    }
-
-    public void setAreaM2(Double areaM2) {
-        this.areaM2 = areaM2;
-    }
-
-    private Double qtdFuncionarios;
-
-    public Double getQtdFuncionarios() {
-        return qtdFuncionarios;
-    }
-
-    public void setQtdFuncionarios(Double qtdFuncionarios) {
-        this.qtdFuncionarios = qtdFuncionarios;
-    }
-
-}
+  public void setQtdFuncionarios(Double qtdFuncionarios){
+    this.qtdFuncionarios = qtdFuncionarios;
+  }
+  
+  }
+  

@@ -1,66 +1,68 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahTrocaDevolucaoItens {
+  public class PanamahTrocaDevolucaoItens {
+      
 
-    private Double desconto;
+  private Double desconto;
 
-    public Double getDesconto() {
-        return desconto;
-    }
+  public Double getDesconto(){
+    return desconto;
+  }
 
-    public void setDesconto(Double desconto) {
-        this.desconto = desconto;
-    }
+  public void setDesconto(Double desconto){
+    this.desconto = desconto;
+  }
+  
+  private String produtoId;
 
-    private String produtoId;
+  public String getProdutoId(){
+    return produtoId;
+  }
 
-    public String getProdutoId() {
-        return produtoId;
-    }
+  public void setProdutoId(String produtoId){
+    this.produtoId = produtoId;
+  }
+  
+  private Double quantidade;
 
-    public void setProdutoId(String produtoId) {
-        this.produtoId = produtoId;
-    }
+  public Double getQuantidade(){
+    return quantidade;
+  }
 
-    private Double quantidade;
+  public void setQuantidade(Double quantidade){
+    this.quantidade = quantidade;
+  }
+  
+  private Double valorTotal;
 
-    public Double getQuantidade() {
-        return quantidade;
-    }
+  public Double getValorTotal(){
+    return valorTotal;
+  }
 
-    public void setQuantidade(Double quantidade) {
-        this.quantidade = quantidade;
-    }
+  public void setValorTotal(Double valorTotal){
+    this.valorTotal = valorTotal;
+  }
+  
+  private Double valorUnitario;
 
-    private Double valorTotal;
+  public Double getValorUnitario(){
+    return valorUnitario;
+  }
 
-    public Double getValorTotal() {
-        return valorTotal;
-    }
+  public void setValorUnitario(Double valorUnitario){
+    this.valorUnitario = valorUnitario;
+  }
+  
+  private String vendedorId;
 
-    public void setValorTotal(Double valorTotal) {
-        this.valorTotal = valorTotal;
-    }
+  public String getVendedorId(){
+    return vendedorId;
+  }
 
-    private Double valorUnitario;
-
-    public Double getValorUnitario() {
-        return valorUnitario;
-    }
-
-    public void setValorUnitario(Double valorUnitario) {
-        this.valorUnitario = valorUnitario;
-    }
-
-    private String vendedorId;
-
-    public String getVendedorId() {
-        return vendedorId;
-    }
-
-    public void setVendedorId(String vendedorId) {
-        this.vendedorId = vendedorId;
-    }
-
-}
+  public void setVendedorId(String vendedorId){
+    this.vendedorId = vendedorId;
+  }
+  
+  }
+  

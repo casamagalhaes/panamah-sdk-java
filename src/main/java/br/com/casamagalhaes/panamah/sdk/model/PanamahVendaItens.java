@@ -1,166 +1,168 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahVendaItens {
+  public class PanamahVendaItens {
+      
 
-    private Double acrescimo;
+  private Double acrescimo;
 
-    public Double getAcrescimo() {
-        return acrescimo;
-    }
+  public Double getAcrescimo(){
+    return acrescimo;
+  }
 
-    public void setAcrescimo(Double acrescimo) {
-        this.acrescimo = acrescimo;
-    }
+  public void setAcrescimo(Double acrescimo){
+    this.acrescimo = acrescimo;
+  }
+  
+  private Double desconto;
 
-    private Double desconto;
+  public Double getDesconto(){
+    return desconto;
+  }
 
-    public Double getDesconto() {
-        return desconto;
-    }
+  public void setDesconto(Double desconto){
+    this.desconto = desconto;
+  }
+  
+  private Boolean efetivo;
 
-    public void setDesconto(Double desconto) {
-        this.desconto = desconto;
-    }
+  public Boolean getEfetivo(){
+    return efetivo;
+  }
 
-    private Boolean efetivo;
+  public void setEfetivo(Boolean efetivo){
+    this.efetivo = efetivo;
+  }
+  
+  private String funcionarioId;
 
-    public Boolean getEfetivo() {
-        return efetivo;
-    }
+  public String getFuncionarioId(){
+    return funcionarioId;
+  }
 
-    public void setEfetivo(Boolean efetivo) {
-        this.efetivo = efetivo;
-    }
+  public void setFuncionarioId(String funcionarioId){
+    this.funcionarioId = funcionarioId;
+  }
+  
+  private Double preco;
 
-    private String funcionarioId;
+  public Double getPreco(){
+    return preco;
+  }
 
-    public String getFuncionarioId() {
-        return funcionarioId;
-    }
+  public void setPreco(Double preco){
+    this.preco = preco;
+  }
+  
+  private String produtoId;
 
-    public void setFuncionarioId(String funcionarioId) {
-        this.funcionarioId = funcionarioId;
-    }
+  public String getProdutoId(){
+    return produtoId;
+  }
 
-    private Double preco;
+  public void setProdutoId(String produtoId){
+    this.produtoId = produtoId;
+  }
+  
+  private String codigoRegistrado;
 
-    public Double getPreco() {
-        return preco;
-    }
+  public String getCodigoRegistrado(){
+    return codigoRegistrado;
+  }
 
-    public void setPreco(Double preco) {
-        this.preco = preco;
-    }
+  public void setCodigoRegistrado(String codigoRegistrado){
+    this.codigoRegistrado = codigoRegistrado;
+  }
+  
+  private Boolean promocao;
 
-    private String produtoId;
+  public Boolean getPromocao(){
+    return promocao;
+  }
 
-    public String getProdutoId() {
-        return produtoId;
-    }
+  public void setPromocao(Boolean promocao){
+    this.promocao = promocao;
+  }
+  
+  private Double quantidade;
 
-    public void setProdutoId(String produtoId) {
-        this.produtoId = produtoId;
-    }
+  public Double getQuantidade(){
+    return quantidade;
+  }
 
-    private String codigoRegistrado;
+  public void setQuantidade(Double quantidade){
+    this.quantidade = quantidade;
+  }
+  
+  private Double servico;
 
-    public String getCodigoRegistrado() {
-        return codigoRegistrado;
-    }
+  public Double getServico(){
+    return servico;
+  }
 
-    public void setCodigoRegistrado(String codigoRegistrado) {
-        this.codigoRegistrado = codigoRegistrado;
-    }
+  public void setServico(Double servico){
+    this.servico = servico;
+  }
+  
+  private Double valorTotal;
 
-    private Boolean promocao;
+  public Double getValorTotal(){
+    return valorTotal;
+  }
 
-    public Boolean getPromocao() {
-        return promocao;
-    }
+  public void setValorTotal(Double valorTotal){
+    this.valorTotal = valorTotal;
+  }
+  
+  private Double valorUnitario;
 
-    public void setPromocao(Boolean promocao) {
-        this.promocao = promocao;
-    }
+  public Double getValorUnitario(){
+    return valorUnitario;
+  }
 
-    private Double quantidade;
+  public void setValorUnitario(Double valorUnitario){
+    this.valorUnitario = valorUnitario;
+  }
+  
+  private String tipoPreco;
 
-    public Double getQuantidade() {
-        return quantidade;
-    }
+  public String getTipoPreco(){
+    return tipoPreco;
+  }
 
-    public void setQuantidade(Double quantidade) {
-        this.quantidade = quantidade;
-    }
+  public void setTipoPreco(String tipoPreco){
+    this.tipoPreco = tipoPreco;
+  }
+  
+  private Double custo;
 
-    private Double servico;
+  public Double getCusto(){
+    return custo;
+  }
 
-    public Double getServico() {
-        return servico;
-    }
+  public void setCusto(Double custo){
+    this.custo = custo;
+  }
+  
+  private Double markup;
 
-    public void setServico(Double servico) {
-        this.servico = servico;
-    }
+  public Double getMarkup(){
+    return markup;
+  }
 
-    private Double valorTotal;
+  public void setMarkup(Double markup){
+    this.markup = markup;
+  }
+  
+  private Double lucro;
 
-    public Double getValorTotal() {
-        return valorTotal;
-    }
+  public Double getLucro(){
+    return lucro;
+  }
 
-    public void setValorTotal(Double valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    private Double valorUnitario;
-
-    public Double getValorUnitario() {
-        return valorUnitario;
-    }
-
-    public void setValorUnitario(Double valorUnitario) {
-        this.valorUnitario = valorUnitario;
-    }
-
-    private String tipoPreco;
-
-    public String getTipoPreco() {
-        return tipoPreco;
-    }
-
-    public void setTipoPreco(String tipoPreco) {
-        this.tipoPreco = tipoPreco;
-    }
-
-    private Double custo;
-
-    public Double getCusto() {
-        return custo;
-    }
-
-    public void setCusto(Double custo) {
-        this.custo = custo;
-    }
-
-    private Double markup;
-
-    public Double getMarkup() {
-        return markup;
-    }
-
-    public void setMarkup(Double markup) {
-        this.markup = markup;
-    }
-
-    private Double lucro;
-
-    public Double getLucro() {
-        return lucro;
-    }
-
-    public void setLucro(Double lucro) {
-        this.lucro = lucro;
-    }
-
-}
+  public void setLucro(Double lucro){
+    this.lucro = lucro;
+  }
+  
+  }
+  

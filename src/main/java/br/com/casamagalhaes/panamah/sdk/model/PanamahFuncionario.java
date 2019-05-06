@@ -1,86 +1,88 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahFuncionario {
+  public class PanamahFuncionario {
+      
 
-    private java.util.Date dataNascimento;
+  private java.util.Date dataNascimento;
 
-    public java.util.Date getDataNascimento() {
-        return dataNascimento;
-    }
+  public java.util.Date getDataNascimento(){
+    return dataNascimento;
+  }
 
-    public void setDataNascimento(java.util.Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
+  public void setDataNascimento(java.util.Date dataNascimento){
+    this.dataNascimento = dataNascimento;
+  }
+  
+  private String id;
 
-    private String id;
+  public String getId(){
+    return id;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private String login;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public String getLogin(){
+    return login;
+  }
 
-    private String login;
+  public void setLogin(String login){
+    this.login = login;
+  }
+  
+  private String nome;
 
-    public String getLogin() {
-        return login;
-    }
+  public String getNome(){
+    return nome;
+  }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+  public void setNome(String nome){
+    this.nome = nome;
+  }
+  
+  private String numeroDocumento;
 
-    private String nome;
+  public String getNumeroDocumento(){
+    return numeroDocumento;
+  }
 
-    public String getNome() {
-        return nome;
-    }
+  public void setNumeroDocumento(String numeroDocumento){
+    this.numeroDocumento = numeroDocumento;
+  }
+  
+  private Boolean ativo;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+  public Boolean getAtivo(){
+    return ativo;
+  }
 
-    private String numeroDocumento;
+  public void setAtivo(Boolean ativo){
+    this.ativo = ativo;
+  }
+  
+  private String senha;
 
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
+  public String getSenha(){
+    return senha;
+  }
 
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }
+  public void setSenha(String senha){
+    this.senha = senha;
+  }
+  
+      private java.util.List<String> lojaIds;
 
-    private Boolean ativo;
-
-    public Boolean getAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
-    }
-
-    private String senha;
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    private java.util.List<String> lojaIds;
-
-    public java.util.List<String> getLojaIds() {
+      public java.util.List<String> getLojaIds(){ 
         return lojaIds;
-    }
+      }
 
-    public void setLojaIds(java.util.List<String> lojaIds) {
+      public void setLojaIds(java.util.List<String> lojaIds) {
         this.lojaIds = lojaIds;
-    }
-
-}
+      }
+      
+  }
+  
