@@ -61,10 +61,11 @@ public class PanamahLote {
 	private List<PanamahVenda> vendas;
 
 	public boolean isVelho(PanamahConfig config) {
-		return new Date().getTime() - criacao.getTime() > config.getMaxAge();
+		return new Date().getTime() > criacao.getTime() + config.getMaxAge();
 	}
 
 	public boolean isCheio(PanamahConfig config) {
+		
 		return false;
 	}
 

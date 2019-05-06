@@ -3,6 +3,7 @@ package br.com.casamagalhaes.panamah.sdk;
 public class PanamahConfig {
 
 	private String basePath;
+	private String addr;
 	private long delay;
 	private long maxAge;
 
@@ -19,9 +20,14 @@ public class PanamahConfig {
 	}
 
 	public PanamahConfig(String basePath, long delay, long maxAge) {
+		this(basePath, delay, maxAge, "http://127.0.0.1:7780/record");
+	}
+
+	public PanamahConfig(String basePath, long delay, long maxAge, String addr) {
 		this.basePath = basePath;
 		this.delay = delay;
 		this.maxAge = maxAge;
+		this.addr = addr;
 	}
 
 	public String getBasePath() {
@@ -30,6 +36,14 @@ public class PanamahConfig {
 
 	public void setBasePath(String basePath) {
 		this.basePath = basePath;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public long getDelay() {
