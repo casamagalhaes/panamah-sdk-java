@@ -3,8 +3,12 @@ package br.com.casamagalhaes.panamah.sdk;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
 import java.util.Date;
 
+import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahAcesso;
@@ -35,6 +39,15 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 public class BasePanamahTest {
 
 	private PanamahConfig c = new PanamahConfig();
+
+	private String r(String json) throws Exception {
+		StringWriter w = new StringWriter();
+		try (Reader reader = new InputStreamReader(
+				BasePanamahTest.class.getResourceAsStream("resources/" + json + ".json"))) {
+			IOUtils.copy(reader, w);
+		}
+		return w.toString();
+	}
 
 	@Test
 	public void shouldInit() throws Exception {
@@ -69,7 +82,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendAcesso() throws Exception {
-		PanamahAcesso model = new PanamahAcesso();
+		PanamahAcesso model = PanamahUtil.buildGson().fromJson(r("acesso"), PanamahAcesso.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -78,7 +91,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendAssinante() throws Exception {
-		PanamahAssinante model = new PanamahAssinante();
+		PanamahAssinante model = PanamahUtil.buildGson().fromJson(r("assinante"), PanamahAssinante.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -87,7 +100,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendCliente() throws Exception {
-		PanamahCliente model = new PanamahCliente();
+		PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -96,7 +109,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendCompra() throws Exception {
-		PanamahCompra model = new PanamahCompra();
+		PanamahCompra model = PanamahUtil.buildGson().fromJson(r("compra"), PanamahCompra.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -114,7 +127,8 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendEstoqueMovimentacao() throws Exception {
-		PanamahEstoqueMovimentacao model = new PanamahEstoqueMovimentacao();
+		PanamahEstoqueMovimentacao model = PanamahUtil.buildGson().fromJson(r("estoque-movimentacao"),
+				PanamahEstoqueMovimentacao.class);
 		model.setId("teste");
 		model.setLocalEstoqueId("teste");
 		model.setDataHora(new Date());
