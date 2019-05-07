@@ -226,5 +226,9 @@
     }
 
     
+
+      public boolean isValid(){
+        return this.id != null && this.lojaId != null && this.data != null && this.dataHoraVenda != null && this.efetiva != null && this.quantidadeItens != null && this.sequencial != null && this.tipoPreco != null && this.valor != null && this.itens != null && this.pagamentos != null;        
+      }
   }
   

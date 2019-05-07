@@ -44,5 +44,9 @@
     this.disponivelParaVenda = disponivelParaVenda;
   }
   
+
+      public boolean isValid(){
+        return this.id != null && this.lojaId != null && this.descricao != null && this.disponivelParaVenda != null;        
+      }
   }
   

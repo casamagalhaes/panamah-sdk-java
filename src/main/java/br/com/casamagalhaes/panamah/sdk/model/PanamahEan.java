@@ -34,5 +34,9 @@
     this.tributado = tributado;
   }
   
+
+      public boolean isValid(){
+        return this.id != null && this.produtoId != null;        
+      }
   }
   

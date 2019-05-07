@@ -44,5 +44,9 @@
     this.secaoId = secaoId;
   }
   
+
+      public boolean isValid(){
+        return this.id != null && this.codigo != null && this.descricao != null && this.secaoId != null;        
+      }
   }
   

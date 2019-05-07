@@ -24,5 +24,9 @@
     this.quantidade = quantidade;
   }
   
+
+      public boolean isValid(){
+        return this.produtoId != null && this.quantidade != null;        
+      }
   }
   

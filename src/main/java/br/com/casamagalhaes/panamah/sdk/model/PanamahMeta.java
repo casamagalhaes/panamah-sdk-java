@@ -64,5 +64,9 @@
     this.valor = valor;
   }
   
+
+      public boolean isValid(){
+        return this.id != null && this.mes != null && this.ano != null && this.lojaId != null && this.secaoId != null && this.valor != null;        
+      }
   }
   

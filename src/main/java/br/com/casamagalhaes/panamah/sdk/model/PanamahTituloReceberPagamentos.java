@@ -24,5 +24,9 @@
     this.valor = valor;
   }
   
+
+      public boolean isValid(){
+        return this.dataHora != null && this.valor != null;        
+      }
   }
   

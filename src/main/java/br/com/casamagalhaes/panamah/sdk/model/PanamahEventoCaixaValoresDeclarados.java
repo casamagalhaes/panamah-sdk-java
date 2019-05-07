@@ -24,5 +24,9 @@
     this.valor = valor;
   }
   
+
+      public boolean isValid(){
+        return this.formaPagamentoId != null && this.valor != null;        
+      }
   }
   

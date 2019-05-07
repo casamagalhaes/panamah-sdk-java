@@ -36,7 +36,7 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public void verificaEnvio() throws IOException {
-		if (new Date().getTime() > ultimoEnvio + config.getMaxAge()) {
+		if (new Date().getTime() > ultimoEnvio + config.getTtl()) {
 			ultimoEnvio = new Date().getTime();
 			enviaLote();
 		}
@@ -61,6 +61,15 @@ public class PanamahTask extends TimerTask {
 			try (Writer w = new BufferedWriter(new FileWriter(f))) {
 				w.write(PanamahUtil.buildGson().toJson(loteAtual));
 			}
+		}
+	}
+	
+	public void persisteLoteAtual() throws IOException {
+		if (!Paths.get(config.getBasePath(), "lotes").toFile().exists())
+			Paths.get(config.getBasePath(), "lotes").toFile().mkdirs();
+		File f = Paths.get(config.getBasePath(), "lotes", "loteatual.json").toFile();
+		try (Writer w = new BufferedWriter(new FileWriter(f))) {
+			w.write(PanamahUtil.buildGson().toJson(loteAtual));
 		}
 	}
 

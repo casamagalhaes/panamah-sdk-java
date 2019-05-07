@@ -75,5 +75,9 @@
     }
 
     
+
+      public boolean isValid(){
+        return this.id != null && this.lojaId != null && this.numeroCaixa != null && this.dataHora != null && this.tipo != null;        
+      }
   }
   

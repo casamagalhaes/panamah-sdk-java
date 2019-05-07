@@ -1,128 +1,132 @@
 
-  package br.com.casamagalhaes.panamah.sdk.model;
+package br.com.casamagalhaes.panamah.sdk.model;
 
-  public class PanamahAssinante {
-      
+public class PanamahAssinante {
 
-  private String id;
+	private String id;
 
-  public String getId(){
-    return id;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public void setId(String id){
-    this.id = id;
-  }
-  
-  private String nome;
+	public void setId(String id) {
+		this.id = id;
+	}
 
-  public String getNome(){
-    return nome;
-  }
+	private String nome;
 
-  public void setNome(String nome){
-    this.nome = nome;
-  }
-  
-  private String fantasia;
+	public String getNome() {
+		return nome;
+	}
 
-  public String getFantasia(){
-    return fantasia;
-  }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-  public void setFantasia(String fantasia){
-    this.fantasia = fantasia;
-  }
-  
-  private String ramo;
+	private String fantasia;
 
-  public String getRamo(){
-    return ramo;
-  }
+	public String getFantasia() {
+		return fantasia;
+	}
 
-  public void setRamo(String ramo){
-    this.ramo = ramo;
-  }
-  
-  private String uf;
+	public void setFantasia(String fantasia) {
+		this.fantasia = fantasia;
+	}
 
-  public String getUf(){
-    return uf;
-  }
+	private String ramo;
 
-  public void setUf(String uf){
-    this.uf = uf;
-  }
-  
-  private String cidade;
+	public String getRamo() {
+		return ramo;
+	}
 
-  public String getCidade(){
-    return cidade;
-  }
+	public void setRamo(String ramo) {
+		this.ramo = ramo;
+	}
 
-  public void setCidade(String cidade){
-    this.cidade = cidade;
-  }
-  
-  private String revendaId;
+	private String uf;
 
-  public String getRevendaId(){
-    return revendaId;
-  }
+	public String getUf() {
+		return uf;
+	}
 
-  public void setRevendaId(String revendaId){
-    this.revendaId = revendaId;
-  }
-  
-  private String bairro;
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
 
-  public String getBairro(){
-    return bairro;
-  }
+	private String cidade;
 
-  public void setBairro(String bairro){
-    this.bairro = bairro;
-  }
-  
-      private java.util.List<PanamahAssinanteSoftwaresAtivos> softwaresAtivos;
+	public String getCidade() {
+		return cidade;
+	}
 
-      public java.util.List<PanamahAssinanteSoftwaresAtivos> getSoftwaresAtivos(){ 
-        return softwaresAtivos;
-      }
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
 
-      public void setSoftwaresAtivos(java.util.List<PanamahAssinanteSoftwaresAtivos> softwaresAtivos) {
-        this.softwaresAtivos = softwaresAtivos;
-      }
-      
-      private java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> softwaresEmContratosDeManutencao;
+	private String revendaId;
 
-      public java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> getSoftwaresEmContratosDeManutencao(){ 
-        return softwaresEmContratosDeManutencao;
-      }
+	public String getRevendaId() {
+		return revendaId;
+	}
 
-      public void setSoftwaresEmContratosDeManutencao(java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> softwaresEmContratosDeManutencao) {
-        this.softwaresEmContratosDeManutencao = softwaresEmContratosDeManutencao;
-      }
-      
-      private java.util.List<String> series;
+	public void setRevendaId(String revendaId) {
+		this.revendaId = revendaId;
+	}
 
-      public java.util.List<String> getSeries(){ 
-        return series;
-      }
+	private String bairro;
 
-      public void setSeries(java.util.List<String> series) {
-        this.series = series;
-      }
-      
-  private Boolean ativo;
+	public String getBairro() {
+		return bairro;
+	}
 
-  public Boolean getAtivo(){
-    return ativo;
-  }
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
 
-  public void setAtivo(Boolean ativo){
-    this.ativo = ativo;
-  }
-  
-  }
-  
+	private java.util.List<PanamahAssinanteSoftwaresAtivos> softwaresAtivos;
+
+	public java.util.List<PanamahAssinanteSoftwaresAtivos> getSoftwaresAtivos() {
+		return softwaresAtivos;
+	}
+
+	public void setSoftwaresAtivos(java.util.List<PanamahAssinanteSoftwaresAtivos> softwaresAtivos) {
+		this.softwaresAtivos = softwaresAtivos;
+	}
+
+	private java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> softwaresEmContratosDeManutencao;
+
+	public java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> getSoftwaresEmContratosDeManutencao() {
+		return softwaresEmContratosDeManutencao;
+	}
+
+	public void setSoftwaresEmContratosDeManutencao(
+			java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> softwaresEmContratosDeManutencao) {
+		this.softwaresEmContratosDeManutencao = softwaresEmContratosDeManutencao;
+	}
+
+	private java.util.List<String> series;
+
+	public java.util.List<String> getSeries() {
+		return series;
+	}
+
+	public void setSeries(java.util.List<String> series) {
+		this.series = series;
+	}
+
+	private Boolean ativo;
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
+	public boolean isValid() {
+		return this.id != null && this.nome != null && this.fantasia != null && this.ramo != null && this.uf != null
+				&& this.cidade != null && this.bairro != null && this.softwaresAtivos != null
+				&& this.softwaresEmContratosDeManutencao != null && this.ativo != null;
+	}
+}

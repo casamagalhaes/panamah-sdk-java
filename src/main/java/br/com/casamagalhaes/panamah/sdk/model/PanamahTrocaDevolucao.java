@@ -115,5 +115,9 @@
     this.vendedorId = vendedorId;
   }
   
+
+      public boolean isValid(){
+        return this.data != null && this.id != null && this.itens != null && this.lojaId != null && this.valor != null;        
+      }
   }
   

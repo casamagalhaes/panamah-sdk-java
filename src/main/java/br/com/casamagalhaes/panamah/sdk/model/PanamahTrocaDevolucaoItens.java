@@ -64,5 +64,9 @@
     this.vendedorId = vendedorId;
   }
   
+
+      public boolean isValid(){
+        return this.produtoId != null && this.quantidade != null && this.valorTotal != null && this.valorUnitario != null;        
+      }
   }
   

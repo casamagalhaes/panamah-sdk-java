@@ -24,5 +24,9 @@
     this.principal = principal;
   }
   
+
+      public boolean isValid(){
+        return this.id != null && this.principal != null;        
+      }
   }
   

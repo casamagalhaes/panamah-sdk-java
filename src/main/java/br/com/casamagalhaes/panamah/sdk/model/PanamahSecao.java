@@ -34,5 +34,9 @@
     this.descricao = descricao;
   }
   
+
+      public boolean isValid(){
+        return this.id != null && this.codigo != null && this.descricao != null;        
+      }
   }
   

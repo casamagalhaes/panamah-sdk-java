@@ -194,5 +194,9 @@
     this.qtdFuncionarios = qtdFuncionarios;
   }
   
+
+      public boolean isValid(){
+        return this.ativa != null && this.id != null && this.descricao != null && this.numeroDocumento != null && this.matriz != null && this.holdingId != null && this.ramo != null && this.uf != null && this.cidade != null && this.bairro != null;        
+      }
   }
   

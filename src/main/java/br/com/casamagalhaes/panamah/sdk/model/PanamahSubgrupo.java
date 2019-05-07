@@ -54,5 +54,9 @@
     this.grupoId = grupoId;
   }
   
+
+      public boolean isValid(){
+        return this.id != null && this.codigo != null && this.descricao != null && this.secaoId != null && this.grupoId != null;        
+      }
   }
   

@@ -3,7 +3,6 @@ package br.com.casamagalhaes.panamah.sdk;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahAcesso;
@@ -32,15 +31,8 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaFormaPagamento;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 
 public class BasePanamahTest {
-	
 
 	private PanamahConfig c = new PanamahConfig();
-	
-	@BeforeClass
-	public static void mockService() {
-//		PanamahUtil spy = 
-//		when(PanamahUtil.send(null,null)).thenReturn("OK");
-	}
 
 	@Test
 	public void shouldInit() throws Exception {

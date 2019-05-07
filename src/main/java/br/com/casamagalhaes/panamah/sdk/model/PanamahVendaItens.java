@@ -164,5 +164,9 @@
     this.lucro = lucro;
   }
   
+
+      public boolean isValid(){
+        return this.efetivo != null && this.preco != null && this.produtoId != null && this.quantidade != null && this.valorTotal != null && this.valorUnitario != null && this.tipoPreco != null;        
+      }
   }
   

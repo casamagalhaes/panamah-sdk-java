@@ -24,5 +24,9 @@
     this.descricao = descricao;
   }
   
+
+      public boolean isValid(){
+        return this.id != null && this.descricao != null;        
+      }
   }
   

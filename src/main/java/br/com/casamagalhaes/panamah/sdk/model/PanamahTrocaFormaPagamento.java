@@ -114,5 +114,9 @@
     this.valorContraValeOuTroco = valorContraValeOuTroco;
   }
   
+
+      public boolean isValid(){
+        return this.data != null && this.formaPagamentoDestinoId != null && this.formaPagamentoOrigemId != null && this.id != null && this.lojaId != null && this.sequencialPagamento != null && this.valor != null;        
+      }
   }
   

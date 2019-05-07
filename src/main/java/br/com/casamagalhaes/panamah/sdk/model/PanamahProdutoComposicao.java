@@ -25,5 +25,9 @@
     this.quantidade = quantidade;
   }
   
+
+      public boolean isValid(){
+        return this.quantidade != null;        
+      }
   }
   

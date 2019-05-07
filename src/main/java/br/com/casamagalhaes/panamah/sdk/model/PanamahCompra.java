@@ -145,5 +145,9 @@
     }
 
     
+
+      public boolean isValid(){
+        return this.id != null && this.lojaId != null && this.dataEntrada != null && this.dataEmissao != null && this.dataHoraCompra != null && this.efetiva != null && this.quantidadeItens != null && this.valor != null && this.itens != null;        
+      }
   }
   

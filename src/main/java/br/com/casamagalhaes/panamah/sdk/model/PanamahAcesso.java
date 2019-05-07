@@ -24,5 +24,9 @@
         this.funcionarioIds = funcionarioIds;
       }
       
+
+      public boolean isValid(){
+        return this.id != null && this.funcionarioIds != null;        
+      }
   }
   

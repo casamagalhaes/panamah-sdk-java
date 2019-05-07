@@ -136,5 +136,9 @@
     }
 
     
+
+      public boolean isValid(){
+        return this.descricao != null && this.id != null && this.secaoId != null;        
+      }
   }
   

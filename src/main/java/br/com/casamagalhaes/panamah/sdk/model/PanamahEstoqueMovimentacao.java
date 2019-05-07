@@ -84,5 +84,9 @@
     this.markup = markup;
   }
   
+
+      public boolean isValid(){
+        return this.id != null && this.localEstoqueId != null && this.dataHora != null && this.produtoId != null && this.quantidade != null && this.custo != null && this.preco != null;        
+      }
   }
   

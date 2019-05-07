@@ -74,5 +74,9 @@
     this.bairro = bairro;
   }
   
+
+      public boolean isValid(){
+        return this.id != null && this.nome != null && this.numeroDocumento != null && this.ramo != null && this.uf != null && this.cidade != null && this.bairro != null;        
+      }
   }
   

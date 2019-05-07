@@ -84,5 +84,9 @@
         this.lojaIds = lojaIds;
       }
       
+
+      public boolean isValid(){
+        return this.id != null && this.nome != null && this.ativo != null;        
+      }
   }
   

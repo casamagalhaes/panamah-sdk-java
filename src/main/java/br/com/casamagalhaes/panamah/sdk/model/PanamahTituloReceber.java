@@ -125,5 +125,9 @@
     }
 
     
+
+      public boolean isValid(){
+        return this.id != null && this.lojaId != null && this.clienteId != null && this.documento != null && this.valorNominal != null && this.valorJuros != null && this.valorMulta != null && this.valorDevido != null && this.valorPago != null && this.dataEmissao != null && this.dataVencimento != null && this.pagamentos != null;        
+      }
   }
   

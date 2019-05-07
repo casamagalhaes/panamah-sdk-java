@@ -16,7 +16,11 @@ Implementação java do panamah sdk
 
 ## Testando
 
-Roda os testes unitários e gerar a cobertura.
+Para é preciso ter o 
+[servidor de testes](https://github.com/casamagalhaes/panamah-test-server)
+rodando para executar corretamente os testes.
+
+O comando abaixo roda os testes unitários e gerar a cobertura.
 
 ```bash
 mvn test
