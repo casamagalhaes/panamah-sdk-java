@@ -26,8 +26,8 @@
   }
   
 
-      public boolean isValid(){
-        return this.quantidade != null;        
+      public void validate() throws Exception {
+        if(this.quantidade == null) throw new Exception("quantidade não pode ser nulo!");        
       }
   }
   

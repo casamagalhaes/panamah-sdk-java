@@ -76,8 +76,12 @@
 
     
 
-      public boolean isValid(){
-        return this.id != null && this.lojaId != null && this.numeroCaixa != null && this.dataHora != null && this.tipo != null;        
+      public void validate() throws Exception {
+        if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.lojaId == null) throw new Exception("lojaId não pode ser nulo!");
+	if(this.numeroCaixa == null) throw new Exception("numeroCaixa não pode ser nulo!");
+	if(this.dataHora == null) throw new Exception("dataHora não pode ser nulo!");
+	if(this.tipo == null) throw new Exception("tipo não pode ser nulo!");        
       }
   }
   

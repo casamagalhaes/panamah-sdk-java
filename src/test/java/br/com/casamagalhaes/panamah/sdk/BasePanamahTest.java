@@ -3,6 +3,8 @@ package br.com.casamagalhaes.panamah.sdk;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Date;
+
 import org.junit.Test;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahAcesso;
@@ -113,6 +115,10 @@ public class BasePanamahTest {
 	@Test
 	public void shouldSendEstoqueMovimentacao() throws Exception {
 		PanamahEstoqueMovimentacao model = new PanamahEstoqueMovimentacao();
+		model.setId("teste");
+		model.setLocalEstoqueId("teste");
+		model.setDataHora(new Date());
+		model.setProdutoId("teste");
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -140,6 +146,13 @@ public class BasePanamahTest {
 	@Test
 	public void shouldSendFornecedor() throws Exception {
 		PanamahFornecedor model = new PanamahFornecedor();
+		model.setId("teste");
+		model.setNome("teste");
+		model.setNumeroDocumento("teste");
+		model.setRamo("teste");
+		model.setUf("teste");
+		model.setCidade("teste");
+		model.setBairro("teste");
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();

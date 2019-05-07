@@ -25,8 +25,9 @@
       }
       
 
-      public boolean isValid(){
-        return this.id != null && this.funcionarioIds != null;        
+      public void validate() throws Exception {
+        if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.funcionarioIds == null) throw new Exception("funcionarioIds não pode ser nulo!");        
       }
   }
   

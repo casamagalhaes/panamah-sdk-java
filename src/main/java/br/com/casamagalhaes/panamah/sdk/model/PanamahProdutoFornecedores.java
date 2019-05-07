@@ -25,8 +25,9 @@
   }
   
 
-      public boolean isValid(){
-        return this.id != null && this.principal != null;        
+      public void validate() throws Exception {
+        if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.principal == null) throw new Exception("principal não pode ser nulo!");        
       }
   }
   

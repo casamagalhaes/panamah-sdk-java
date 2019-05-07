@@ -75,8 +75,14 @@
   }
   
 
-      public boolean isValid(){
-        return this.id != null && this.nome != null && this.numeroDocumento != null && this.ramo != null && this.uf != null && this.cidade != null && this.bairro != null;        
+      public void validate() throws Exception {
+        if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.nome == null) throw new Exception("nome não pode ser nulo!");
+	if(this.numeroDocumento == null) throw new Exception("numeroDocumento não pode ser nulo!");
+	if(this.ramo == null) throw new Exception("ramo não pode ser nulo!");
+	if(this.uf == null) throw new Exception("uf não pode ser nulo!");
+	if(this.cidade == null) throw new Exception("cidade não pode ser nulo!");
+	if(this.bairro == null) throw new Exception("bairro não pode ser nulo!");        
       }
   }
   

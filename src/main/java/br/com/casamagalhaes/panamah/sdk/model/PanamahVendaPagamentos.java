@@ -35,8 +35,10 @@
   }
   
 
-      public boolean isValid(){
-        return this.formaPagamentoId != null && this.sequencial != null && this.valor != null;        
+      public void validate() throws Exception {
+        if(this.formaPagamentoId == null) throw new Exception("formaPagamentoId não pode ser nulo!");
+	if(this.sequencial == null) throw new Exception("sequencial não pode ser nulo!");
+	if(this.valor == null) throw new Exception("valor não pode ser nulo!");        
       }
   }
   

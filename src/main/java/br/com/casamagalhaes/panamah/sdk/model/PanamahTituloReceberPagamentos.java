@@ -25,8 +25,9 @@
   }
   
 
-      public boolean isValid(){
-        return this.dataHora != null && this.valor != null;        
+      public void validate() throws Exception {
+        if(this.dataHora == null) throw new Exception("dataHora não pode ser nulo!");
+	if(this.valor == null) throw new Exception("valor não pode ser nulo!");        
       }
   }
   

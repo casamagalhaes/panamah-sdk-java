@@ -165,8 +165,14 @@
   }
   
 
-      public boolean isValid(){
-        return this.efetivo != null && this.preco != null && this.produtoId != null && this.quantidade != null && this.valorTotal != null && this.valorUnitario != null && this.tipoPreco != null;        
+      public void validate() throws Exception {
+        if(this.efetivo == null) throw new Exception("efetivo não pode ser nulo!");
+	if(this.preco == null) throw new Exception("preco não pode ser nulo!");
+	if(this.produtoId == null) throw new Exception("produtoId não pode ser nulo!");
+	if(this.quantidade == null) throw new Exception("quantidade não pode ser nulo!");
+	if(this.valorTotal == null) throw new Exception("valorTotal não pode ser nulo!");
+	if(this.valorUnitario == null) throw new Exception("valorUnitario não pode ser nulo!");
+	if(this.tipoPreco == null) throw new Exception("tipoPreco não pode ser nulo!");        
       }
   }
   

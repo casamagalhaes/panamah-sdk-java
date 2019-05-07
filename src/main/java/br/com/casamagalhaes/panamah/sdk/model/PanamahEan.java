@@ -35,8 +35,9 @@
   }
   
 
-      public boolean isValid(){
-        return this.id != null && this.produtoId != null;        
+      public void validate() throws Exception {
+        if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.produtoId == null) throw new Exception("produtoId não pode ser nulo!");        
       }
   }
   

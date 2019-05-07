@@ -64,11 +64,6 @@ public class PanamahLote {
 		return new Date().getTime() > criacao.getTime() + config.getTtl();
 	}
 
-	public boolean isCheio(PanamahConfig config) {
-		
-		return false;
-	}
-
 	public PanamahStatusLote getStatus() {
 		return status;
 	}
@@ -434,10 +429,13 @@ public class PanamahLote {
 	 *
 	 * @param acesso acesso
 	 */
-	public void add(PanamahAcesso acesso) {
+	public void add(PanamahAcesso acesso) throws Exception {
 		if (this.acessos == null) {
 			this.acessos = new ArrayList<PanamahAcesso>();
 		}
+		if (acesso == null)
+			throw new NullPointerException("acesso não pode ser nulo");
+		acesso.validate();
 		this.acessos.add(acesso);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -447,10 +445,13 @@ public class PanamahLote {
 	 *
 	 * @param assinante assinante
 	 */
-	public void add(PanamahAssinante assinante) {
+	public void add(PanamahAssinante assinante) throws Exception {
 		if (this.assinantes == null) {
 			this.assinantes = new ArrayList<PanamahAssinante>();
 		}
+		if (assinante == null)
+			throw new NullPointerException("acesso não pode ser nulo");
+		assinante.validate();
 		this.assinantes.add(assinante);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -460,10 +461,13 @@ public class PanamahLote {
 	 *
 	 * @param cliente cliente
 	 */
-	public void add(PanamahCliente cliente) {
+	public void add(PanamahCliente cliente) throws Exception {
 		if (this.clientes == null) {
 			this.clientes = new ArrayList<PanamahCliente>();
 		}
+		if (cliente == null)
+			throw new NullPointerException("cliente não pode ser nulo");
+		cliente.validate();
 		this.clientes.add(cliente);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -473,10 +477,13 @@ public class PanamahLote {
 	 *
 	 * @param compra compra
 	 */
-	public void add(PanamahCompra compra) {
+	public void add(PanamahCompra compra) throws Exception {
 		if (this.compras == null) {
 			this.compras = new ArrayList<PanamahCompra>();
 		}
+		if (compra == null)
+			throw new NullPointerException("compra não pode ser nulo");
+		compra.validate();
 		this.compras.add(compra);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -486,10 +493,13 @@ public class PanamahLote {
 	 *
 	 * @param ean ean
 	 */
-	public void add(PanamahEan ean) {
+	public void add(PanamahEan ean) throws Exception {
 		if (this.eans == null) {
 			this.eans = new ArrayList<PanamahEan>();
 		}
+		if (ean == null)
+			throw new NullPointerException("ean não pode ser nulo");
+		ean.validate();
 		this.eans.add(ean);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -499,10 +509,13 @@ public class PanamahLote {
 	 *
 	 * @param estoqueMovimentacao estoqueMovimentacao
 	 */
-	public void add(PanamahEstoqueMovimentacao estoqueMovimentacao) {
+	public void add(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
 		if (this.estoqueMovimentacoes == null) {
 			this.estoqueMovimentacoes = new ArrayList<PanamahEstoqueMovimentacao>();
 		}
+		if (estoqueMovimentacao == null)
+			throw new NullPointerException("estoqueMovimentacao não pode ser nulo");
+		estoqueMovimentacao.validate();
 		this.estoqueMovimentacoes.add(estoqueMovimentacao);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -512,10 +525,13 @@ public class PanamahLote {
 	 *
 	 * @param eventoCaixa eventoCaixa
 	 */
-	public void add(PanamahEventoCaixa eventoCaixa) {
+	public void add(PanamahEventoCaixa eventoCaixa) throws Exception {
 		if (this.eventosCaixa == null) {
 			this.eventosCaixa = new ArrayList<PanamahEventoCaixa>();
 		}
+		if (eventoCaixa == null)
+			throw new NullPointerException("eventoCaixa não pode ser nulo");
+		eventoCaixa.validate();
 		this.eventosCaixa.add(eventoCaixa);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -525,10 +541,13 @@ public class PanamahLote {
 	 *
 	 * @param formaPagamento formaPagamento
 	 */
-	public void add(PanamahFormaPagamento formaPagamento) {
+	public void add(PanamahFormaPagamento formaPagamento) throws Exception {
 		if (this.formasPagamento == null) {
 			this.formasPagamento = new ArrayList<PanamahFormaPagamento>();
 		}
+		if (formaPagamento == null)
+			throw new NullPointerException("formaPagamento não pode ser nulo");
+		formaPagamento.validate();
 		this.formasPagamento.add(formaPagamento);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -538,10 +557,13 @@ public class PanamahLote {
 	 *
 	 * @param fornecedor fornecedor
 	 */
-	public void add(PanamahFornecedor fornecedor) {
+	public void add(PanamahFornecedor fornecedor) throws Exception {
 		if (this.fornecedores == null) {
 			this.fornecedores = new ArrayList<PanamahFornecedor>();
 		}
+		if (fornecedor == null)
+			throw new NullPointerException("fornecedor não pode ser nulo");
+		fornecedor.validate();
 		this.fornecedores.add(fornecedor);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -551,10 +573,13 @@ public class PanamahLote {
 	 *
 	 * @param funcionario funcionario
 	 */
-	public void add(PanamahFuncionario funcionario) {
+	public void add(PanamahFuncionario funcionario) throws Exception {
 		if (this.funcionarios == null) {
 			this.funcionarios = new ArrayList<PanamahFuncionario>();
 		}
+		if (funcionario == null)
+			throw new NullPointerException("funcionario não pode ser nulo");
+		funcionario.validate();
 		this.funcionarios.add(funcionario);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -564,10 +589,13 @@ public class PanamahLote {
 	 *
 	 * @param grupo grupo
 	 */
-	public void add(PanamahGrupo grupo) {
+	public void add(PanamahGrupo grupo) throws Exception {
 		if (this.grupos == null) {
 			this.grupos = new ArrayList<PanamahGrupo>();
 		}
+		if (grupo == null)
+			throw new NullPointerException("grupo não pode ser nulo");
+		grupo.validate();
 		this.grupos.add(grupo);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -577,10 +605,13 @@ public class PanamahLote {
 	 *
 	 * @param holding holding
 	 */
-	public void add(PanamahHolding holding) {
+	public void add(PanamahHolding holding) throws Exception {
 		if (this.holdings == null) {
 			this.holdings = new ArrayList<PanamahHolding>();
 		}
+		if (holding == null)
+			throw new NullPointerException("holding não pode ser nulo");
+		holding.validate();
 		this.holdings.add(holding);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -590,10 +621,13 @@ public class PanamahLote {
 	 *
 	 * @param localEstoque localEstoque
 	 */
-	public void add(PanamahLocalEstoque localEstoque) {
+	public void add(PanamahLocalEstoque localEstoque) throws Exception {
 		if (this.locaisEstoque == null) {
 			this.locaisEstoque = new ArrayList<PanamahLocalEstoque>();
 		}
+		if (localEstoque == null)
+			throw new NullPointerException("localEstoque não pode ser nulo");
+		localEstoque.validate();
 		this.locaisEstoque.add(localEstoque);
 		this.ultimaAtualizacao = new Date();
 	}
@@ -603,10 +637,13 @@ public class PanamahLote {
 	 *
 	 * @param loja loja
 	 */
-	public void add(PanamahLoja loja) {
+	public void add(PanamahLoja loja) throws Exception {
 		if (this.lojas == null) {
 			this.lojas = new ArrayList<PanamahLoja>();
 		}
+		if (loja == null)
+			throw new NullPointerException("loja não pode ser nulo");
+		loja.validate();
 		this.lojas.add(loja);
 		this.ultimaAtualizacao = new Date();
 
@@ -617,10 +654,13 @@ public class PanamahLote {
 	 *
 	 * @param meta meta
 	 */
-	public void add(PanamahMeta meta) {
+	public void add(PanamahMeta meta) throws Exception {
 		if (this.metas == null) {
 			this.metas = new ArrayList<PanamahMeta>();
 		}
+		if (meta == null)
+			throw new NullPointerException("meta não pode ser nulo");
+		meta.validate();
 		this.metas.add(meta);
 		this.ultimaAtualizacao = new Date();
 
@@ -631,10 +671,13 @@ public class PanamahLote {
 	 *
 	 * @param produto produto
 	 */
-	public void add(PanamahProduto produto) {
+	public void add(PanamahProduto produto) throws Exception {
 		if (this.produtos == null) {
 			this.produtos = new ArrayList<PanamahProduto>();
 		}
+		if (produto == null)
+			throw new NullPointerException("produto não pode ser nulo");
+		produto.validate();
 		this.produtos.add(produto);
 		this.ultimaAtualizacao = new Date();
 
@@ -645,10 +688,13 @@ public class PanamahLote {
 	 *
 	 * @param revenda revenda
 	 */
-	public void add(PanamahRevenda revenda) {
+	public void add(PanamahRevenda revenda) throws Exception {
 		if (this.revendas == null) {
 			this.revendas = new ArrayList<PanamahRevenda>();
 		}
+		if (revenda == null)
+			throw new NullPointerException("revenda não pode ser nulo");
+		revenda.validate();
 		this.revendas.add(revenda);
 		this.ultimaAtualizacao = new Date();
 
@@ -659,10 +705,13 @@ public class PanamahLote {
 	 *
 	 * @param secao secao
 	 */
-	public void add(PanamahSecao secao) {
+	public void add(PanamahSecao secao) throws Exception {
 		if (this.secoes == null) {
 			this.secoes = new ArrayList<PanamahSecao>();
 		}
+		if (secao == null)
+			throw new NullPointerException("secao não pode ser nulo");
+		secao.validate();
 		this.secoes.add(secao);
 		this.ultimaAtualizacao = new Date();
 
@@ -673,10 +722,13 @@ public class PanamahLote {
 	 *
 	 * @param subgrupo subgrupo
 	 */
-	public void add(PanamahSubgrupo subgrupo) {
+	public void add(PanamahSubgrupo subgrupo) throws Exception {
 		if (this.subgrupos == null) {
 			this.subgrupos = new ArrayList<PanamahSubgrupo>();
 		}
+		if (subgrupo == null)
+			throw new NullPointerException("subgrupo não pode ser nulo");
+		subgrupo.validate();
 		this.subgrupos.add(subgrupo);
 		this.ultimaAtualizacao = new Date();
 
@@ -687,10 +739,13 @@ public class PanamahLote {
 	 *
 	 * @param tituloPagar tituloPagar
 	 */
-	public void add(PanamahTituloPagar tituloPagar) {
+	public void add(PanamahTituloPagar tituloPagar) throws Exception {
 		if (this.titulosPagar == null) {
 			this.titulosPagar = new ArrayList<PanamahTituloPagar>();
 		}
+		if (tituloPagar == null)
+			throw new NullPointerException("tituloPagar não pode ser nulo");
+		tituloPagar.validate();
 		this.titulosPagar.add(tituloPagar);
 		this.ultimaAtualizacao = new Date();
 
@@ -701,10 +756,13 @@ public class PanamahLote {
 	 *
 	 * @param tituloReceber tituloReceber
 	 */
-	public void add(PanamahTituloReceber tituloReceber) {
+	public void add(PanamahTituloReceber tituloReceber) throws Exception {
 		if (this.titulosReceber == null) {
 			this.titulosReceber = new ArrayList<PanamahTituloReceber>();
 		}
+		if (tituloReceber == null)
+			throw new NullPointerException("tituloReceber não pode ser nulo");
+		tituloReceber.validate();
 		this.titulosReceber.add(tituloReceber);
 		this.ultimaAtualizacao = new Date();
 
@@ -715,10 +773,13 @@ public class PanamahLote {
 	 *
 	 * @param trocaDevolucao trocaDevolucao
 	 */
-	public void add(PanamahTrocaDevolucao trocaDevolucao) {
+	public void add(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
 		if (this.trocasDevolucoes == null) {
 			this.trocasDevolucoes = new ArrayList<PanamahTrocaDevolucao>();
 		}
+		if (trocaDevolucao == null)
+			throw new NullPointerException("trocaDevolucao não pode ser nulo");
+		trocaDevolucao.validate();
 		this.trocasDevolucoes.add(trocaDevolucao);
 		this.ultimaAtualizacao = new Date();
 
@@ -729,10 +790,13 @@ public class PanamahLote {
 	 *
 	 * @param trocaFormaPagamento trocaFormaPagamento
 	 */
-	public void add(PanamahTrocaFormaPagamento trocaFormaPagamento) {
+	public void add(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
 		if (this.trocaFormasPagamentos == null) {
 			this.trocaFormasPagamentos = new ArrayList<PanamahTrocaFormaPagamento>();
 		}
+		if (trocaFormaPagamento == null)
+			throw new NullPointerException("trocaFormaPagamento não pode ser nulo");
+		trocaFormaPagamento.validate();
 		this.trocaFormasPagamentos.add(trocaFormaPagamento);
 		this.ultimaAtualizacao = new Date();
 
@@ -742,11 +806,15 @@ public class PanamahLote {
 	 * enviar venda para o lote
 	 *
 	 * @param venda venda
+	 * @throws Exception
 	 */
-	public void add(PanamahVenda venda) {
+	public void add(PanamahVenda venda) throws Exception {
 		if (this.vendas == null) {
 			this.vendas = new ArrayList<PanamahVenda>();
 		}
+		if (venda == null)
+			throw new NullPointerException("venda não pode ser nulo");
+		venda.validate();
 		this.vendas.add(venda);
 		this.ultimaAtualizacao = new Date();
 

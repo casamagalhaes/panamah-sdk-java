@@ -45,8 +45,11 @@
   }
   
 
-      public boolean isValid(){
-        return this.id != null && this.lojaId != null && this.descricao != null && this.disponivelParaVenda != null;        
+      public void validate() throws Exception {
+        if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.lojaId == null) throw new Exception("lojaId não pode ser nulo!");
+	if(this.descricao == null) throw new Exception("descricao não pode ser nulo!");
+	if(this.disponivelParaVenda == null) throw new Exception("disponivelParaVenda não pode ser nulo!");        
       }
   }
   

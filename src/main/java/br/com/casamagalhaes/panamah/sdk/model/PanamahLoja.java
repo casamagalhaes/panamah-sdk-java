@@ -195,8 +195,17 @@
   }
   
 
-      public boolean isValid(){
-        return this.ativa != null && this.id != null && this.descricao != null && this.numeroDocumento != null && this.matriz != null && this.holdingId != null && this.ramo != null && this.uf != null && this.cidade != null && this.bairro != null;        
+      public void validate() throws Exception {
+        if(this.ativa == null) throw new Exception("ativa não pode ser nulo!");
+	if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.descricao == null) throw new Exception("descricao não pode ser nulo!");
+	if(this.numeroDocumento == null) throw new Exception("numeroDocumento não pode ser nulo!");
+	if(this.matriz == null) throw new Exception("matriz não pode ser nulo!");
+	if(this.holdingId == null) throw new Exception("holdingId não pode ser nulo!");
+	if(this.ramo == null) throw new Exception("ramo não pode ser nulo!");
+	if(this.uf == null) throw new Exception("uf não pode ser nulo!");
+	if(this.cidade == null) throw new Exception("cidade não pode ser nulo!");
+	if(this.bairro == null) throw new Exception("bairro não pode ser nulo!");        
       }
   }
   

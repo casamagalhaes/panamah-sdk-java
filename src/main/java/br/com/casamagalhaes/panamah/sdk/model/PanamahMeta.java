@@ -65,8 +65,13 @@
   }
   
 
-      public boolean isValid(){
-        return this.id != null && this.mes != null && this.ano != null && this.lojaId != null && this.secaoId != null && this.valor != null;        
+      public void validate() throws Exception {
+        if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.mes == null) throw new Exception("mes não pode ser nulo!");
+	if(this.ano == null) throw new Exception("ano não pode ser nulo!");
+	if(this.lojaId == null) throw new Exception("lojaId não pode ser nulo!");
+	if(this.secaoId == null) throw new Exception("secaoId não pode ser nulo!");
+	if(this.valor == null) throw new Exception("valor não pode ser nulo!");        
       }
   }
   

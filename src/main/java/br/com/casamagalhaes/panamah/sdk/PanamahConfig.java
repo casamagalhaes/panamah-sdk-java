@@ -10,6 +10,7 @@ public class PanamahConfig {
 	private String accessToken;
 	private String refreshToken;
 	private String authAddr;
+	private long maxBytes;
 
 	public PanamahConfig() {
 		this(".");
@@ -32,11 +33,16 @@ public class PanamahConfig {
 	}
 
 	public PanamahConfig(String basePath, long delay, long ttl, String addr, String authAddr) {
+		this(basePath, delay, ttl, addr, authAddr, 500 * 1024);
+	}
+
+	public PanamahConfig(String basePath, long delay, long ttl, String addr, String authAddr, int maxBytes) {
 		this.basePath = basePath;
 		this.delay = delay;
 		this.ttl = ttl;
 		this.addr = addr;
 		this.authAddr = authAddr;
+		this.maxBytes = maxBytes;
 	}
 
 	public String getBasePath() {
@@ -101,5 +107,13 @@ public class PanamahConfig {
 
 	public void setAuthAddr(String authAddr) {
 		this.authAddr = authAddr;
+	}
+
+	public long getMaxBytes() {
+		return maxBytes;
+	}
+
+	public void setMaxBytes(long maxBytes) {
+		this.maxBytes = maxBytes;
 	}
 }

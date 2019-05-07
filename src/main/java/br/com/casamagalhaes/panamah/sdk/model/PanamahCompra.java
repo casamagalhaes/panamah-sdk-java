@@ -146,8 +146,16 @@
 
     
 
-      public boolean isValid(){
-        return this.id != null && this.lojaId != null && this.dataEntrada != null && this.dataEmissao != null && this.dataHoraCompra != null && this.efetiva != null && this.quantidadeItens != null && this.valor != null && this.itens != null;        
+      public void validate() throws Exception {
+        if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.lojaId == null) throw new Exception("lojaId não pode ser nulo!");
+	if(this.dataEntrada == null) throw new Exception("dataEntrada não pode ser nulo!");
+	if(this.dataEmissao == null) throw new Exception("dataEmissao não pode ser nulo!");
+	if(this.dataHoraCompra == null) throw new Exception("dataHoraCompra não pode ser nulo!");
+	if(this.efetiva == null) throw new Exception("efetiva não pode ser nulo!");
+	if(this.quantidadeItens == null) throw new Exception("quantidadeItens não pode ser nulo!");
+	if(this.valor == null) throw new Exception("valor não pode ser nulo!");
+	if(this.itens == null) throw new Exception("itens não pode ser nulo!");        
       }
   }
   

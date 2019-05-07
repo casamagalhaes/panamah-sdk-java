@@ -1,92 +1,102 @@
 
-  package br.com.casamagalhaes.panamah.sdk.model;
+package br.com.casamagalhaes.panamah.sdk.model;
 
-  public class PanamahEstoqueMovimentacao {
-      
+public class PanamahEstoqueMovimentacao {
 
-  private String id;
+	private String id;
 
-  public String getId(){
-    return id;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public void setId(String id){
-    this.id = id;
-  }
-  
-  private String localEstoqueId;
+	public void setId(String id) {
+		this.id = id;
+	}
 
-  public String getLocalEstoqueId(){
-    return localEstoqueId;
-  }
+	private String localEstoqueId;
 
-  public void setLocalEstoqueId(String localEstoqueId){
-    this.localEstoqueId = localEstoqueId;
-  }
-  
-  private java.util.Date dataHora;
+	public String getLocalEstoqueId() {
+		return localEstoqueId;
+	}
 
-  public java.util.Date getDataHora(){
-    return dataHora;
-  }
+	public void setLocalEstoqueId(String localEstoqueId) {
+		this.localEstoqueId = localEstoqueId;
+	}
 
-  public void setDataHora(java.util.Date dataHora){
-    this.dataHora = dataHora;
-  }
-  
-  private String produtoId;
+	private java.util.Date dataHora;
 
-  public String getProdutoId(){
-    return produtoId;
-  }
+	public java.util.Date getDataHora() {
+		return dataHora;
+	}
 
-  public void setProdutoId(String produtoId){
-    this.produtoId = produtoId;
-  }
-  
-  private Double quantidade;
+	public void setDataHora(java.util.Date dataHora) {
+		this.dataHora = dataHora;
+	}
 
-  public Double getQuantidade(){
-    return quantidade;
-  }
+	private String produtoId;
 
-  public void setQuantidade(Double quantidade){
-    this.quantidade = quantidade;
-  }
-  
-  private Double custo;
+	public String getProdutoId() {
+		return produtoId;
+	}
 
-  public Double getCusto(){
-    return custo;
-  }
+	public void setProdutoId(String produtoId) {
+		this.produtoId = produtoId;
+	}
 
-  public void setCusto(Double custo){
-    this.custo = custo;
-  }
-  
-  private Double preco;
+	private Double quantidade;
 
-  public Double getPreco(){
-    return preco;
-  }
+	public Double getQuantidade() {
+		return quantidade;
+	}
 
-  public void setPreco(Double preco){
-    this.preco = preco;
-  }
-  
-  private Double markup;
+	public void setQuantidade(Double quantidade) {
+		this.quantidade = quantidade;
+	}
 
-  public Double getMarkup(){
-    return markup;
-  }
+	private Double custo;
 
-  public void setMarkup(Double markup){
-    this.markup = markup;
-  }
-  
+	public Double getCusto() {
+		return custo;
+	}
 
-      public boolean isValid(){
-        return this.id != null && this.localEstoqueId != null && this.dataHora != null && this.produtoId != null && this.quantidade != null && this.custo != null && this.preco != null;        
-      }
-  }
-  
+	public void setCusto(Double custo) {
+		this.custo = custo;
+	}
+
+	private Double preco;
+
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	private Double markup;
+
+	public Double getMarkup() {
+		return markup;
+	}
+
+	public void setMarkup(Double markup) {
+		this.markup = markup;
+	}
+
+	public void validate() throws Exception {
+		if (this.id == null)
+			throw new Exception("id não pode ser nulo!");
+		if (this.localEstoqueId == null)
+			throw new Exception("localEstoqueId não pode ser nulo!");
+		if (this.dataHora == null)
+			throw new Exception("dataHora não pode ser nulo!");
+		if (this.produtoId == null)
+			throw new Exception("produtoId não pode ser nulo!");
+		if (this.quantidade == null)
+			throw new Exception("quantidade não pode ser nulo!");
+		if (this.custo == null)
+			throw new Exception("custo não pode ser nulo!");
+		if (this.preco == null)
+			throw new Exception("preco não pode ser nulo!");
+	}
+}

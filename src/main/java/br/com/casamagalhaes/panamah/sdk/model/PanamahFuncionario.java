@@ -85,8 +85,10 @@
       }
       
 
-      public boolean isValid(){
-        return this.id != null && this.nome != null && this.ativo != null;        
+      public void validate() throws Exception {
+        if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.nome == null) throw new Exception("nome não pode ser nulo!");
+	if(this.ativo == null) throw new Exception("ativo não pode ser nulo!");        
       }
   }
   

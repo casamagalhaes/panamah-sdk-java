@@ -227,8 +227,18 @@
 
     
 
-      public boolean isValid(){
-        return this.id != null && this.lojaId != null && this.data != null && this.dataHoraVenda != null && this.efetiva != null && this.quantidadeItens != null && this.sequencial != null && this.tipoPreco != null && this.valor != null && this.itens != null && this.pagamentos != null;        
+      public void validate() throws Exception {
+        if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.lojaId == null) throw new Exception("lojaId não pode ser nulo!");
+	if(this.data == null) throw new Exception("data não pode ser nulo!");
+	if(this.dataHoraVenda == null) throw new Exception("dataHoraVenda não pode ser nulo!");
+	if(this.efetiva == null) throw new Exception("efetiva não pode ser nulo!");
+	if(this.quantidadeItens == null) throw new Exception("quantidadeItens não pode ser nulo!");
+	if(this.sequencial == null) throw new Exception("sequencial não pode ser nulo!");
+	if(this.tipoPreco == null) throw new Exception("tipoPreco não pode ser nulo!");
+	if(this.valor == null) throw new Exception("valor não pode ser nulo!");
+	if(this.itens == null) throw new Exception("itens não pode ser nulo!");
+	if(this.pagamentos == null) throw new Exception("pagamentos não pode ser nulo!");        
       }
   }
   

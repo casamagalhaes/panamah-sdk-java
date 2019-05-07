@@ -115,8 +115,14 @@
   }
   
 
-      public boolean isValid(){
-        return this.data != null && this.formaPagamentoDestinoId != null && this.formaPagamentoOrigemId != null && this.id != null && this.lojaId != null && this.sequencialPagamento != null && this.valor != null;        
+      public void validate() throws Exception {
+        if(this.data == null) throw new Exception("data não pode ser nulo!");
+	if(this.formaPagamentoDestinoId == null) throw new Exception("formaPagamentoDestinoId não pode ser nulo!");
+	if(this.formaPagamentoOrigemId == null) throw new Exception("formaPagamentoOrigemId não pode ser nulo!");
+	if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.lojaId == null) throw new Exception("lojaId não pode ser nulo!");
+	if(this.sequencialPagamento == null) throw new Exception("sequencialPagamento não pode ser nulo!");
+	if(this.valor == null) throw new Exception("valor não pode ser nulo!");        
       }
   }
   

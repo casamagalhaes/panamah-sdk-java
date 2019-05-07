@@ -37,13 +37,12 @@ public class PanamahTask extends TimerTask {
 
 	public void verificaEnvio() throws IOException {
 		if (new Date().getTime() > ultimoEnvio + config.getTtl()) {
-			ultimoEnvio = new Date().getTime();
 			enviaLote();
 		}
 	}
 
 	public void verificaFechamento() throws FileNotFoundException, IOException {
-		if (loteAtual.isCheio(config) || loteAtual.isVelho(config)) {
+		if (loteAtual.isVelho(config)) {
 			fechaLoteAtual();
 			abreNovoLote();
 		}
@@ -63,7 +62,7 @@ public class PanamahTask extends TimerTask {
 			}
 		}
 	}
-	
+
 	public void persisteLoteAtual() throws IOException {
 		if (!Paths.get(config.getBasePath(), "lotes").toFile().exists())
 			Paths.get(config.getBasePath(), "lotes").toFile().mkdirs();
@@ -93,6 +92,8 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public void enviaLote() throws IOException {
+		// atualiza primeiro pra não ficar jogando erros o tempo todo
+		ultimoEnvio = new Date().getTime();
 		if (!Paths.get(config.getBasePath(), "lotes", "enviados").toFile().exists())
 			Paths.get(config.getBasePath(), "lotes", "enviados").toFile().mkdirs();
 		File[] files = Paths.get(config.getBasePath(), "lotes", "fechados").toFile()//
@@ -121,6 +122,11 @@ public class PanamahTask extends TimerTask {
 
 	public PanamahLote getLoteAtual() {
 		return loteAtual;
+	}
+
+	public boolean isLoteAtualCheio() {
+		int len = PanamahUtil.buildGson().toJson(loteAtual).getBytes().length;
+		return len >= config.getMaxBytes();
 	}
 
 }

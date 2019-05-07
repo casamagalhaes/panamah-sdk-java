@@ -65,8 +65,11 @@
   }
   
 
-      public boolean isValid(){
-        return this.produtoId != null && this.quantidade != null && this.valorTotal != null && this.valorUnitario != null;        
+      public void validate() throws Exception {
+        if(this.produtoId == null) throw new Exception("produtoId não pode ser nulo!");
+	if(this.quantidade == null) throw new Exception("quantidade não pode ser nulo!");
+	if(this.valorTotal == null) throw new Exception("valorTotal não pode ser nulo!");
+	if(this.valorUnitario == null) throw new Exception("valorUnitario não pode ser nulo!");        
       }
   }
   
