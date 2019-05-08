@@ -1,0 +1,13 @@
+{
+	"id": "1234",
+	"lojaId": "111",
+	"data": "2019-05-07T21:35:40.706Z",
+	"dataHoraVenda": "2019-05-07T21:35:40.706Z",
+	"efetiva": "true",
+	"quantidadeItens": "1234",
+	"sequencial": "1234",
+	"tipoPreco": "1",
+	"valor": "1234",
+	"itens": [],
+	"pagamentos": []
+}
