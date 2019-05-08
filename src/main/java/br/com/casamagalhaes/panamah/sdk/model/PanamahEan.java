@@ -1,43 +1,42 @@
 
-  package br.com.casamagalhaes.panamah.sdk.model;
+package br.com.casamagalhaes.panamah.sdk.model;
 
-  public class PanamahEan {
-      
+public class PanamahEan {
 
-  private String id;
+	private String id;
 
-  public String getId(){
-    return id;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public void setId(String id){
-    this.id = id;
-  }
-  
-  private String produtoId;
+	public void setId(String id) {
+		this.id = id;
+	}
 
-  public String getProdutoId(){
-    return produtoId;
-  }
+	private String produtoId;
 
-  public void setProdutoId(String produtoId){
-    this.produtoId = produtoId;
-  }
-  
-  private Boolean tributado;
+	public String getProdutoId() {
+		return produtoId;
+	}
 
-  public Boolean getTributado(){
-    return tributado;
-  }
+	public void setProdutoId(String produtoId) {
+		this.produtoId = produtoId;
+	}
 
-  public void setTributado(Boolean tributado){
-    this.tributado = tributado;
-  }
-  
+	private Boolean tributado;
 
-      public void validate() throws Exception {
-        if(this.id == null) throw new Exception("id não pode ser nulo!");
-	if(this.produtoId == null) throw new Exception("produtoId não pode ser nulo!");        
-      }
-  }
-  
+	public Boolean getTributado() {
+		return tributado;
+	}
+
+	public void setTributado(Boolean tributado) {
+		this.tributado = tributado;
+	}
+
+	public void validate() throws Exception {
+		if (this.id == null)
+			throw new Exception("id não pode ser nulo!");
+		if (this.produtoId == null)
+			throw new Exception("produtoId não pode ser nulo!");
+	}
+}

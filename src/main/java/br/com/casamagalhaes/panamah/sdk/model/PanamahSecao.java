@@ -1,44 +1,44 @@
 
-  package br.com.casamagalhaes.panamah.sdk.model;
+package br.com.casamagalhaes.panamah.sdk.model;
 
-  public class PanamahSecao {
-      
+public class PanamahSecao {
 
-  private String id;
+	private String id;
 
-  public String getId(){
-    return id;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public void setId(String id){
-    this.id = id;
-  }
-  
-  private String codigo;
+	public void setId(String id) {
+		this.id = id;
+	}
 
-  public String getCodigo(){
-    return codigo;
-  }
+	private String codigo;
 
-  public void setCodigo(String codigo){
-    this.codigo = codigo;
-  }
-  
-  private String descricao;
+	public String getCodigo() {
+		return codigo;
+	}
 
-  public String getDescricao(){
-    return descricao;
-  }
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
 
-  public void setDescricao(String descricao){
-    this.descricao = descricao;
-  }
-  
+	private String descricao;
 
-      public void validate() throws Exception {
-        if(this.id == null) throw new Exception("id não pode ser nulo!");
-	if(this.codigo == null) throw new Exception("codigo não pode ser nulo!");
-	if(this.descricao == null) throw new Exception("descricao não pode ser nulo!");        
-      }
-  }
-  
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public void validate() throws Exception {
+		if (this.id == null)
+			throw new Exception("id não pode ser nulo!");
+		if (this.codigo == null)
+			throw new Exception("codigo não pode ser nulo!");
+		if (this.descricao == null)
+			throw new Exception("descricao não pode ser nulo!");
+	}
+}

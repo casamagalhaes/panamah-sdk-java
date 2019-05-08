@@ -1,88 +1,92 @@
 
-  package br.com.casamagalhaes.panamah.sdk.model;
+package br.com.casamagalhaes.panamah.sdk.model;
 
-  public class PanamahRevenda {
-      
+public class PanamahRevenda {
 
-  private String id;
+	private String id;
 
-  public String getId(){
-    return id;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public void setId(String id){
-    this.id = id;
-  }
-  
-  private String nome;
+	public void setId(String id) {
+		this.id = id;
+	}
 
-  public String getNome(){
-    return nome;
-  }
+	private String nome;
 
-  public void setNome(String nome){
-    this.nome = nome;
-  }
-  
-  private String fantasia;
+	public String getNome() {
+		return nome;
+	}
 
-  public String getFantasia(){
-    return fantasia;
-  }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-  public void setFantasia(String fantasia){
-    this.fantasia = fantasia;
-  }
-  
-  private String ramo;
+	private String fantasia;
 
-  public String getRamo(){
-    return ramo;
-  }
+	public String getFantasia() {
+		return fantasia;
+	}
 
-  public void setRamo(String ramo){
-    this.ramo = ramo;
-  }
-  
-  private String uf;
+	public void setFantasia(String fantasia) {
+		this.fantasia = fantasia;
+	}
 
-  public String getUf(){
-    return uf;
-  }
+	private String ramo;
 
-  public void setUf(String uf){
-    this.uf = uf;
-  }
-  
-  private String cidade;
+	public String getRamo() {
+		return ramo;
+	}
 
-  public String getCidade(){
-    return cidade;
-  }
+	public void setRamo(String ramo) {
+		this.ramo = ramo;
+	}
 
-  public void setCidade(String cidade){
-    this.cidade = cidade;
-  }
-  
-  private String bairro;
+	private String uf;
 
-  public String getBairro(){
-    return bairro;
-  }
+	public String getUf() {
+		return uf;
+	}
 
-  public void setBairro(String bairro){
-    this.bairro = bairro;
-  }
-  
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
 
-      public void validate() throws Exception {
-        if(this.id == null) throw new Exception("id não pode ser nulo!");
-	if(this.nome == null) throw new Exception("nome não pode ser nulo!");
-	if(this.fantasia == null) throw new Exception("fantasia não pode ser nulo!");
-	if(this.ramo == null) throw new Exception("ramo não pode ser nulo!");
-	if(this.uf == null) throw new Exception("uf não pode ser nulo!");
-	if(this.cidade == null) throw new Exception("cidade não pode ser nulo!");
-	if(this.bairro == null) throw new Exception("bairro não pode ser nulo!");        
-      }
-  }
-  
+	private String cidade;
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	private String bairro;
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public void validate() throws Exception {
+		if (this.id == null)
+			throw new Exception("id não pode ser nulo!");
+		if (this.nome == null)
+			throw new Exception("nome não pode ser nulo!");
+		if (this.fantasia == null)
+			throw new Exception("fantasia não pode ser nulo!");
+		if (this.ramo == null)
+			throw new Exception("ramo não pode ser nulo!");
+		if (this.uf == null)
+			throw new Exception("uf não pode ser nulo!");
+		if (this.cidade == null)
+			throw new Exception("cidade não pode ser nulo!");
+		if (this.bairro == null)
+			throw new Exception("bairro não pode ser nulo!");
+	}
+}

@@ -1,55 +1,56 @@
 
-  package br.com.casamagalhaes.panamah.sdk.model;
+package br.com.casamagalhaes.panamah.sdk.model;
 
-  public class PanamahLocalEstoque {
-      
+public class PanamahLocalEstoque {
 
-  private String id;
+	private String id;
 
-  public String getId(){
-    return id;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public void setId(String id){
-    this.id = id;
-  }
-  
-  private String lojaId;
+	public void setId(String id) {
+		this.id = id;
+	}
 
-  public String getLojaId(){
-    return lojaId;
-  }
+	private String lojaId;
 
-  public void setLojaId(String lojaId){
-    this.lojaId = lojaId;
-  }
-  
-  private String descricao;
+	public String getLojaId() {
+		return lojaId;
+	}
 
-  public String getDescricao(){
-    return descricao;
-  }
+	public void setLojaId(String lojaId) {
+		this.lojaId = lojaId;
+	}
 
-  public void setDescricao(String descricao){
-    this.descricao = descricao;
-  }
-  
-  private Boolean disponivelParaVenda;
+	private String descricao;
 
-  public Boolean getDisponivelParaVenda(){
-    return disponivelParaVenda;
-  }
+	public String getDescricao() {
+		return descricao;
+	}
 
-  public void setDisponivelParaVenda(Boolean disponivelParaVenda){
-    this.disponivelParaVenda = disponivelParaVenda;
-  }
-  
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
-      public void validate() throws Exception {
-        if(this.id == null) throw new Exception("id não pode ser nulo!");
-	if(this.lojaId == null) throw new Exception("lojaId não pode ser nulo!");
-	if(this.descricao == null) throw new Exception("descricao não pode ser nulo!");
-	if(this.disponivelParaVenda == null) throw new Exception("disponivelParaVenda não pode ser nulo!");        
-      }
-  }
-  
+	private Boolean disponivelParaVenda;
+
+	public Boolean getDisponivelParaVenda() {
+		return disponivelParaVenda;
+	}
+
+	public void setDisponivelParaVenda(Boolean disponivelParaVenda) {
+		this.disponivelParaVenda = disponivelParaVenda;
+	}
+
+	public void validate() throws Exception {
+		if (this.id == null)
+			throw new Exception("id não pode ser nulo!");
+		if (this.lojaId == null)
+			throw new Exception("lojaId não pode ser nulo!");
+		if (this.descricao == null)
+			throw new Exception("descricao não pode ser nulo!");
+		if (this.disponivelParaVenda == null)
+			throw new Exception("disponivelParaVenda não pode ser nulo!");
+	}
+}

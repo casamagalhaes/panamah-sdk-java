@@ -1,77 +1,80 @@
 
-  package br.com.casamagalhaes.panamah.sdk.model;
+package br.com.casamagalhaes.panamah.sdk.model;
 
-  public class PanamahMeta {
-      
+public class PanamahMeta {
 
-  private String id;
+	private String id;
 
-  public String getId(){
-    return id;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public void setId(String id){
-    this.id = id;
-  }
-  
-  private Double mes;
+	public void setId(String id) {
+		this.id = id;
+	}
 
-  public Double getMes(){
-    return mes;
-  }
+	private Double mes;
 
-  public void setMes(Double mes){
-    this.mes = mes;
-  }
-  
-  private Double ano;
+	public Double getMes() {
+		return mes;
+	}
 
-  public Double getAno(){
-    return ano;
-  }
+	public void setMes(Double mes) {
+		this.mes = mes;
+	}
 
-  public void setAno(Double ano){
-    this.ano = ano;
-  }
-  
-  private String lojaId;
+	private Double ano;
 
-  public String getLojaId(){
-    return lojaId;
-  }
+	public Double getAno() {
+		return ano;
+	}
 
-  public void setLojaId(String lojaId){
-    this.lojaId = lojaId;
-  }
-  
-  private String secaoId;
+	public void setAno(Double ano) {
+		this.ano = ano;
+	}
 
-  public String getSecaoId(){
-    return secaoId;
-  }
+	private String lojaId;
 
-  public void setSecaoId(String secaoId){
-    this.secaoId = secaoId;
-  }
-  
-  private Double valor;
+	public String getLojaId() {
+		return lojaId;
+	}
 
-  public Double getValor(){
-    return valor;
-  }
+	public void setLojaId(String lojaId) {
+		this.lojaId = lojaId;
+	}
 
-  public void setValor(Double valor){
-    this.valor = valor;
-  }
-  
+	private String secaoId;
 
-      public void validate() throws Exception {
-        if(this.id == null) throw new Exception("id não pode ser nulo!");
-	if(this.mes == null) throw new Exception("mes não pode ser nulo!");
-	if(this.ano == null) throw new Exception("ano não pode ser nulo!");
-	if(this.lojaId == null) throw new Exception("lojaId não pode ser nulo!");
-	if(this.secaoId == null) throw new Exception("secaoId não pode ser nulo!");
-	if(this.valor == null) throw new Exception("valor não pode ser nulo!");        
-      }
-  }
-  
+	public String getSecaoId() {
+		return secaoId;
+	}
+
+	public void setSecaoId(String secaoId) {
+		this.secaoId = secaoId;
+	}
+
+	private Double valor;
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public void validate() throws Exception {
+		if (this.id == null)
+			throw new Exception("id não pode ser nulo!");
+		if (this.mes == null)
+			throw new Exception("mes não pode ser nulo!");
+		if (this.ano == null)
+			throw new Exception("ano não pode ser nulo!");
+		if (this.lojaId == null)
+			throw new Exception("lojaId não pode ser nulo!");
+		if (this.secaoId == null)
+			throw new Exception("secaoId não pode ser nulo!");
+		if (this.valor == null)
+			throw new Exception("valor não pode ser nulo!");
+	}
+}

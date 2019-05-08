@@ -118,7 +118,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendEan() throws Exception {
-		PanamahEan model = new PanamahEan();
+		PanamahEan model = PanamahUtil.buildGson().fromJson(r("ean"), PanamahEan.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -141,7 +141,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendEventoCaixa() throws Exception {
-		PanamahEventoCaixa model = new PanamahEventoCaixa();
+		PanamahEventoCaixa model = PanamahUtil.buildGson().fromJson(r("evento-caixa"), PanamahEventoCaixa.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -150,7 +150,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendFormaPagamento() throws Exception {
-		PanamahFormaPagamento model = new PanamahFormaPagamento();
+		PanamahFormaPagamento model = PanamahUtil.buildGson().fromJson(r("forma-pagamento"), PanamahFormaPagamento.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -159,14 +159,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendFornecedor() throws Exception {
-		PanamahFornecedor model = new PanamahFornecedor();
-		model.setId("teste");
-		model.setNome("teste");
-		model.setNumeroDocumento("teste");
-		model.setRamo("teste");
-		model.setUf("teste");
-		model.setCidade("teste");
-		model.setBairro("teste");
+		PanamahFornecedor model = PanamahUtil.buildGson().fromJson(r("fornecedor"), PanamahFornecedor.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -175,7 +168,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendFuncionario() throws Exception {
-		PanamahFuncionario model = new PanamahFuncionario();
+		PanamahFuncionario model = PanamahUtil.buildGson().fromJson(r("funcionario"), PanamahFuncionario.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -184,7 +177,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendGrupo() throws Exception {
-		PanamahGrupo model = new PanamahGrupo();
+		PanamahGrupo model = PanamahUtil.buildGson().fromJson(r("grupo"), PanamahGrupo.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		assertTrue(true);
@@ -192,7 +185,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendHolding() throws Exception {
-		PanamahHolding model = new PanamahHolding();
+		PanamahHolding model = PanamahUtil.buildGson().fromJson(r("holding"), PanamahHolding.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -201,7 +194,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendLocalEstoque() throws Exception {
-		PanamahLocalEstoque model = new PanamahLocalEstoque();
+		PanamahLocalEstoque model = PanamahUtil.buildGson().fromJson(r("local-estoque"), PanamahLocalEstoque.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -210,7 +203,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendLoja() throws Exception {
-		PanamahLoja model = new PanamahLoja();
+		PanamahLoja model = PanamahUtil.buildGson().fromJson(r("loja"), PanamahLoja.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -219,7 +212,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendMeta() throws Exception {
-		PanamahMeta model = new PanamahMeta();
+		PanamahMeta model = PanamahUtil.buildGson().fromJson(r("meta"), PanamahMeta.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -228,7 +221,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendProduto() throws Exception {
-		PanamahProduto model = new PanamahProduto();
+		PanamahProduto model = PanamahUtil.buildGson().fromJson(r("produto"), PanamahProduto.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -237,7 +230,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendRevenda() throws Exception {
-		PanamahRevenda model = new PanamahRevenda();
+		PanamahRevenda model = PanamahUtil.buildGson().fromJson(r("revenda"), PanamahRevenda.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -246,7 +239,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendSecao() throws Exception {
-		PanamahSecao model = new PanamahSecao();
+		PanamahSecao model = PanamahUtil.buildGson().fromJson(r("secao"), PanamahSecao.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -255,7 +248,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendSubgrupo() throws Exception {
-		PanamahSubgrupo model = new PanamahSubgrupo();
+		PanamahSubgrupo model = PanamahUtil.buildGson().fromJson(r("subgrupo"), PanamahSubgrupo.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
@@ -264,7 +257,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldSendTituloPagar() throws Exception {
-		PanamahTituloPagar model = new PanamahTituloPagar();
+		PanamahTituloPagar model = PanamahUtil.buildGson().fromJson(r("titulo-pagar"), PanamahTituloPagar.class);
 		Panamah p = Panamah.init(c);
 		p.send(model);
 		p.flush();
