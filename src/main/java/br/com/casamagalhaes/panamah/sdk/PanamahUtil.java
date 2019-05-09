@@ -10,6 +10,9 @@ import org.apache.http.entity.ContentType;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.thoughtworks.xstream.XStream;
+
+import br.com.casamagalhaes.panamah.sdk.nfe.Evento;
 
 public class PanamahUtil {
 
@@ -38,5 +41,11 @@ public class PanamahUtil {
 		PanamahAuth auth = buildGson().fromJson(res, PanamahAuth.class);
 		config.setAccessToken(auth.getAccessToken());
 		config.setRefreshToken(auth.getRefreshToken());
+	}
+	
+	public static XStream buildXtream() throws Exception {
+		XStream x = new XStream();
+		x.alias("evento", Evento.class);
+		return x;
 	}
 }

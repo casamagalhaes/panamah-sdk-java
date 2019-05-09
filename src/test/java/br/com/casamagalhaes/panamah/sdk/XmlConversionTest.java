@@ -17,17 +17,15 @@ public class XmlConversionTest {
 	@Test
 	public void shouldWriteEvento() throws Exception {
 		Evento e = new Evento();
-		XStream x = new XStream();
-		x.alias("evento", Evento.class);
+		XStream x = PanamahUtil.buildXtream();
 		String xml = x.toXML(e);
 		System.out.println(xml);
 	}
-	
+
 	@Test
 	public void shoudReadEvento() throws Exception {
-		try(InputStream in = x("ID1101111319050712894500013265508100000090100000004001")){
-			XStream x = new XStream();
-			x.alias("evento", Evento.class);
+		try (InputStream in = x("ID1101111319050712894500013265508100000090100000004001")) {
+			XStream x = PanamahUtil.buildXtream();
 			Evento e = (Evento) x.fromXML(in);
 			System.out.println(e);
 		}
