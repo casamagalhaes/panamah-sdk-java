@@ -38,13 +38,3 @@ PanamahVenda venda = new PanamahVenda();
 panamah.send(venda);
 ```
 
-## Gerando as classes java a partir dos xsd's da nota fiscal eletrônica
-
-Abra um terminal dentro da pasta **nfe** e use o comando abaixo
-
-```bash
-xjc -p br.com.casamagalhaes.panamah.sdk.nfe.venda procNFe_v4.00.xsd -d ../src/main/java
-xjc -p br.com.casamagalhaes.panamah.sdk.nfe.inutilizacao procInutNFe_v4.00.xsd -d ../src/main/java
-xjc -p br.com.casamagalhaes.panamah.sdk.nfe.eventocancelamento eventoCancSubst_v1.00.xsd -d ../src/main/java
-```
-
