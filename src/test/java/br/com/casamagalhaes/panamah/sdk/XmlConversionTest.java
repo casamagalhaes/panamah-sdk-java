@@ -22,4 +22,14 @@ public class XmlConversionTest {
 		String xml = x.toXML(e);
 		System.out.println(xml);
 	}
+	
+	@Test
+	public void shoudReadEvento() throws Exception {
+		try(InputStream in = x("ID1101111319050712894500013265508100000090100000004001")){
+			XStream x = new XStream();
+			x.alias("evento", Evento.class);
+			Evento e = (Evento) x.fromXML(in);
+			System.out.println(e);
+		}
+	}
 }
