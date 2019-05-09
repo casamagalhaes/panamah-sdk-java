@@ -281,16 +281,5 @@
 			</KeyInfo>
 		</Signature>
 	</NFe>
-	<protNFe versao="4.00">
-		<infProt>
-			<tpAmb>2</tpAmb>
-			<verAplic>AM3.10-NAC</verAplic>
-			<chNFe>13190507128945000132650340000000111000000099</chNFe>
-			<dhRecbto>2019-05-03T17:56:37-04:00</dhRecbto>
-			<nProt>113190007099824</nProt>
-			<digVal>EFb2sAuBISavvwAyWA9PtMMHh/Q=</digVal>
-			<cStat>100</cStat>
-			<xMotivo>Autorizado o uso da NF-e</xMotivo>
-		</infProt>
-	</protNFe>
+	
 </nfeProc>

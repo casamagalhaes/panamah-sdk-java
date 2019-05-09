@@ -43,6 +43,6 @@ panamah.send(venda);
 Abra um terminal dentro da pasta **nfe** e use o comando abaixo
 
 ```bash
-xjc -p br.com.casamagalhaes.panamah.sdk.nfe leiauteNFe_v4.00.xsd -d ../src/main/java
+xjc -p br.com.casamagalhaes.panamah.sdk.nfe procNFe_v4.00.xsd -d ../src/main/java
 ```
 
