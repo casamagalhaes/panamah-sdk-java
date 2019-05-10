@@ -43,9 +43,10 @@ public class PanamahUtil {
 		config.setRefreshToken(auth.getRefreshToken());
 	}
 	
-	public static XStream buildXtream() throws Exception {
+	public static XStream buildXStream() throws Exception {
 		XStream x = new XStream();
 		x.alias("evento", Evento.class);
+		x.registerConverter(new XStreamISODateConverter());
 		return x;
 	}
 }

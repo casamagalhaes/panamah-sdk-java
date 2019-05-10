@@ -12,6 +12,8 @@ public class InfEvento {
 	private Integer tpEvento;
 	private Integer nSeqEvento;
 	private Double verEvento;
+	private DetEvento detEvento;
+	
 	/**
 	 * @return the cOrgao
 	 */
@@ -109,5 +111,12 @@ public class InfEvento {
 		this.verEvento = verEvento;
 	}
 	
+	public DetEvento getDetEvento() {
+		return detEvento;
+	}
+	
+	public void setDetEvento(DetEvento detEvento) {
+		this.detEvento = detEvento;
+	}
 	
 }

@@ -17,7 +17,7 @@ public class XmlConversionTest {
 	@Test
 	public void shouldWriteEvento() throws Exception {
 		Evento e = new Evento();
-		XStream x = PanamahUtil.buildXtream();
+		XStream x = PanamahUtil.buildXStream();
 		String xml = x.toXML(e);
 		System.out.println(xml);
 	}
@@ -25,7 +25,7 @@ public class XmlConversionTest {
 	@Test
 	public void shoudReadEvento() throws Exception {
 		try (InputStream in = x("ID1101111319050712894500013265508100000090100000004001")) {
-			XStream x = PanamahUtil.buildXtream();
+			XStream x = PanamahUtil.buildXStream();
 			Evento e = (Evento) x.fromXML(in);
 			System.out.println(e);
 		}
