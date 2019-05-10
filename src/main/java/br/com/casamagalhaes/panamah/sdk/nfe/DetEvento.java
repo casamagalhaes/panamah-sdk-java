@@ -1,10 +1,13 @@
 package br.com.casamagalhaes.panamah.sdk.nfe;
 
+import java.util.List;
+
 public class DetEvento {
 	
 	private String descEvento;
 	private String nProt;
 	private String xJust;
+	private List<Det>det;
 
 	/**
 	 * @return the descEvento

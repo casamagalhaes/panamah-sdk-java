@@ -12,8 +12,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 
+import br.com.casamagalhaes.panamah.sdk.nfe.Det;
+import br.com.casamagalhaes.panamah.sdk.nfe.Emit;
 import br.com.casamagalhaes.panamah.sdk.nfe.Evento;
 import br.com.casamagalhaes.panamah.sdk.nfe.InfEvento;
+import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
+import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
 
 public class PanamahUtil {
 
@@ -46,6 +50,21 @@ public class PanamahUtil {
 
 	public static XStream buildXStream() throws Exception {
 		XStream x = new XStream();
+		// NFe
+		x.alias("NFe", NFe.class);
+		// NFeProc
+		x.alias("nfeProc", NFeProc.class);
+		x.aliasField("NFe", NFeProc.class, "nfe");
+		x.aliasField("CNPJ", Emit.class, "cnpj");
+		x.aliasField("IE", Emit.class, "ie");
+		x.aliasField("IM", Emit.class, "im");
+		x.aliasField("CRT", Emit.class, "crt");
+		x.alias("det", Det.class);
+		x.addImplicitCollection(Det.class, "det");
+		x.useAttributeFor(Det.class, "nItem");
+		
+		
+		// evento
 		x.alias("evento", Evento.class);
 		x.useAttributeFor(InfEvento.class, "id");
 		x.aliasAttribute(InfEvento.class, "id", "Id");
