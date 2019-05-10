@@ -19,9 +19,11 @@ import br.com.casamagalhaes.panamah.sdk.nfe.Icms;
 import br.com.casamagalhaes.panamah.sdk.nfe.IcmsSn102;
 import br.com.casamagalhaes.panamah.sdk.nfe.Imposto;
 import br.com.casamagalhaes.panamah.sdk.nfe.InfEvento;
+import br.com.casamagalhaes.panamah.sdk.nfe.InfNFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.KeyInfo;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
+import br.com.casamagalhaes.panamah.sdk.nfe.Prod;
 import br.com.casamagalhaes.panamah.sdk.nfe.Reference;
 import br.com.casamagalhaes.panamah.sdk.nfe.Signature;
 import br.com.casamagalhaes.panamah.sdk.nfe.SignedInfo;
@@ -64,14 +66,22 @@ public class PanamahUtil {
 		// NFe
 		x.alias("NFe", NFe.class);
 		// NFeProc
+		x.useAttributeFor(NFeProc.class, "versao");
+		x.useAttributeFor(NFeProc.class, "xmlns");
 		x.alias("nfeProc", NFeProc.class);
 		x.aliasField("NFe", NFeProc.class, "nfe");
+		x.useAttributeFor(NFe.class, "xmlns");
+		x.useAttributeFor(InfNFe.class, "id");
+		x.aliasAttribute(InfNFe.class, "id", "Id");
+		x.useAttributeFor(InfNFe.class, "versao");
 		x.aliasField("CNPJ", Emit.class, "cnpj");
 		x.aliasField("IE", Emit.class, "ie");
 		x.aliasField("IM", Emit.class, "im");
 		x.aliasField("CRT", Emit.class, "crt");
+		x.addImplicitCollection(InfNFe.class, "det");
 		x.alias("det", Det.class);
-		x.addImplicitCollection(Det.class, "det");
+		x.alias("prod", Prod.class);
+		x.alias("imposto", Imposto.class);
 		x.useAttributeFor(Det.class, "nItem");
 		x.aliasField("ICMS", Imposto.class, "icms");
 		x.aliasField("ICMSSN102", Icms.class, "icmsSn102");

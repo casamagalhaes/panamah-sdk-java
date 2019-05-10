@@ -1,12 +1,33 @@
 package br.com.casamagalhaes.panamah.sdk.nfe;
 
+import java.util.List;
+
 public class InfNFe {
 
+	private String id;
+	private String versao;
 	private Ide ide;
 	private Emit emit;
 	private Total total;
 	private Transp transp;
 	private Pag pag;
+	private List<Det>det;
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getVersao() {
+		return versao;
+	}
+
+	public void setVersao(String versao) {
+		this.versao = versao;
+	}
 
 	public Ide getIde() {
 		return ide;
@@ -46,6 +67,14 @@ public class InfNFe {
 
 	public void setPag(Pag pag) {
 		this.pag = pag;
+	}
+	
+	public List<Det> getDet() {
+		return det;
+	}
+	
+	public void setDet(List<Det> det) {
+		this.det = det;
 	}
 
 }
