@@ -1,5 +1,7 @@
 package br.com.casamagalhaes.panamah.sdk;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.joda.time.format.DateTimeFormatter;
@@ -13,7 +15,12 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 
 public class XStreamISODateConverter implements Converter {
 
-	DateTimeFormatter parser = ISODateTimeFormat.dateTimeParser();
+	private final DateTimeFormatter parser = ISODateTimeFormat.dateTimeParser();
+	private final DateFormat dateFormat;
+
+	public XStreamISODateConverter() {
+		dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+	}
 
 	@Override
 	public boolean canConvert(@SuppressWarnings("rawtypes") Class type) {
@@ -23,7 +30,7 @@ public class XStreamISODateConverter implements Converter {
 	@Override
 	public void marshal(Object source, HierarchicalStreamWriter writer, MarshallingContext context) {
 		Date date = (Date) source;
-		writer.setValue(parser.print(date.getTime()));
+		writer.setValue(dateFormat.format(date));
 	}
 
 	@Override

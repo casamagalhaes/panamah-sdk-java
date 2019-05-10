@@ -13,6 +13,7 @@ import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 
 import br.com.casamagalhaes.panamah.sdk.nfe.Evento;
+import br.com.casamagalhaes.panamah.sdk.nfe.InfEvento;
 
 public class PanamahUtil {
 
@@ -42,10 +43,12 @@ public class PanamahUtil {
 		config.setAccessToken(auth.getAccessToken());
 		config.setRefreshToken(auth.getRefreshToken());
 	}
-	
+
 	public static XStream buildXStream() throws Exception {
 		XStream x = new XStream();
 		x.alias("evento", Evento.class);
+		x.useAttributeFor(InfEvento.class, "id");
+		x.aliasAttribute(InfEvento.class, "id", "Id");
 		x.registerConverter(new XStreamISODateConverter());
 		return x;
 	}

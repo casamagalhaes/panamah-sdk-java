@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class InfEvento {
 	
+	private String id;
 	private Integer cOrgao;
 	private Integer tpAmb;
 	private String CNPJ;
@@ -13,6 +14,14 @@ public class InfEvento {
 	private Integer nSeqEvento;
 	private Double verEvento;
 	private DetEvento detEvento;
+	
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 	/**
 	 * @return the cOrgao
