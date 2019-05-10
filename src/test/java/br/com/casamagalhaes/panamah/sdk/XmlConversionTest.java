@@ -12,6 +12,7 @@ import com.thoughtworks.xstream.XStream;
 
 import br.com.casamagalhaes.panamah.sdk.nfe.Evento;
 import br.com.casamagalhaes.panamah.sdk.nfe.InfEvento;
+import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
 
 public class XmlConversionTest {
@@ -41,14 +42,25 @@ public class XmlConversionTest {
 		String xml = x.toXML(e);
 		assertNotNull(xml);
 	}
-	
+
 	@Test
 	public void shouldReadNfeProc() throws Exception {
 		String proc = "NFe13190507128945000132652340000000099000000079";
 		try (InputStream in = x(proc)) {
 			XStream x = PanamahUtil.buildXStream();
 			NFeProc procNfe = (NFeProc) x.fromXML(in);
-			
+			assertEquals("07128945000132", procNfe.getNfe().getInfNFe().getEmit().getCnpj());
 		}
+	}
+
+	@Test
+	public void shouldWriteNfeProc() throws Exception {
+		NFeProc procNfe = new NFeProc();
+		procNfe.setNfe(new NFe());
+
+		XStream x = PanamahUtil.buildXStream();
+		String xml = x.toXML(procNfe);
+		assertNotNull(xml);
+		System.out.println(xml);
 	}
 }

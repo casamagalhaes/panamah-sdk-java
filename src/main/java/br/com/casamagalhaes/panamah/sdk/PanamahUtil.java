@@ -15,9 +15,20 @@ import com.thoughtworks.xstream.XStream;
 import br.com.casamagalhaes.panamah.sdk.nfe.Det;
 import br.com.casamagalhaes.panamah.sdk.nfe.Emit;
 import br.com.casamagalhaes.panamah.sdk.nfe.Evento;
+import br.com.casamagalhaes.panamah.sdk.nfe.Icms;
+import br.com.casamagalhaes.panamah.sdk.nfe.IcmsSn102;
+import br.com.casamagalhaes.panamah.sdk.nfe.Imposto;
 import br.com.casamagalhaes.panamah.sdk.nfe.InfEvento;
+import br.com.casamagalhaes.panamah.sdk.nfe.KeyInfo;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
+import br.com.casamagalhaes.panamah.sdk.nfe.Reference;
+import br.com.casamagalhaes.panamah.sdk.nfe.Signature;
+import br.com.casamagalhaes.panamah.sdk.nfe.SignedInfo;
+import br.com.casamagalhaes.panamah.sdk.nfe.Total;
+import br.com.casamagalhaes.panamah.sdk.nfe.Transform;
+import br.com.casamagalhaes.panamah.sdk.nfe.Transforms;
+import br.com.casamagalhaes.panamah.sdk.nfe.X509Data;
 
 public class PanamahUtil {
 
@@ -62,8 +73,24 @@ public class PanamahUtil {
 		x.alias("det", Det.class);
 		x.addImplicitCollection(Det.class, "det");
 		x.useAttributeFor(Det.class, "nItem");
-		
-		
+		x.aliasField("ICMS", Imposto.class, "icms");
+		x.aliasField("ICMSSN102", Icms.class, "icmsSn102");
+		x.aliasField("CSOSN", IcmsSn102.class, "csosn");
+		x.aliasField("ICMSTot", Total.class, "icmsTot");
+		x.aliasField("Signature", NFe.class, "signature");
+		x.aliasField("SignedInfo", Signature.class, "signedInfo");
+		x.aliasField("CanonicalizationMethod", SignedInfo.class, "canonicalizationMethod");
+		x.aliasField("SignatureMethod", SignedInfo.class, "signatureMethod");
+		x.aliasField("Reference", SignedInfo.class, "reference");
+		x.aliasField("Transforms", Reference.class, "transforms");
+		x.addImplicitCollection(Transforms.class, "transform", "Transform", Transform.class);
+		x.aliasField("DigestMethod", Reference.class, "digestMethod");
+		x.aliasField("DigestValue", Reference.class, "digestValue");
+		x.aliasField("SignatureValue", Signature.class, "signatureValue");
+		x.aliasField("KeyInfo", Signature.class, "keyInfo");
+		x.aliasField("X509Data", KeyInfo.class, "x509Data");
+		x.aliasField("X509Certificate", X509Data.class, "x509Certificate");
+
 		// evento
 		x.alias("evento", Evento.class);
 		x.useAttributeFor(InfEvento.class, "id");
