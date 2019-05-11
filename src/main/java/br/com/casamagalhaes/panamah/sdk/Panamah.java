@@ -93,7 +93,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahAcesso acesso) throws Exception {
-		task.getLoteAtual().add(acesso);
+		task.getLoteAtual().update(acesso);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -108,7 +108,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahAssinante assinante) throws Exception {
-		task.getLoteAtual().add(assinante);
+		task.getLoteAtual().update(assinante);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -123,7 +123,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahCliente cliente) throws Exception {
-		task.getLoteAtual().add(cliente);
+		task.getLoteAtual().update(cliente);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -138,7 +138,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahCompra compra) throws Exception {
-		task.getLoteAtual().add(compra);
+		task.getLoteAtual().update(compra);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -153,7 +153,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahEan ean) throws Exception {
-		task.getLoteAtual().add(ean);
+		task.getLoteAtual().update(ean);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -168,7 +168,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
-		task.getLoteAtual().add(estoqueMovimentacao);
+		task.getLoteAtual().update(estoqueMovimentacao);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -183,7 +183,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahEventoCaixa eventoCaixa) throws Exception {
-		task.getLoteAtual().add(eventoCaixa);
+		task.getLoteAtual().update(eventoCaixa);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -198,7 +198,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahFormaPagamento formaPagamento) throws Exception {
-		task.getLoteAtual().add(formaPagamento);
+		task.getLoteAtual().update(formaPagamento);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -213,7 +213,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahFornecedor fornecedor) throws Exception {
-		task.getLoteAtual().add(fornecedor);
+		task.getLoteAtual().update(fornecedor);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -228,7 +228,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahFuncionario funcionario) throws Exception {
-		task.getLoteAtual().add(funcionario);
+		task.getLoteAtual().update(funcionario);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -243,7 +243,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahGrupo grupo) throws Exception {
-		task.getLoteAtual().add(grupo);
+		task.getLoteAtual().update(grupo);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -258,7 +258,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahHolding holding) throws Exception {
-		task.getLoteAtual().add(holding);
+		task.getLoteAtual().update(holding);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -273,7 +273,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahLocalEstoque localEstoque) throws Exception {
-		task.getLoteAtual().add(localEstoque);
+		task.getLoteAtual().update(localEstoque);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -288,7 +288,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahLoja loja) throws Exception {
-		task.getLoteAtual().add(loja);
+		task.getLoteAtual().update(loja);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -303,7 +303,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahMeta meta) throws Exception {
-		task.getLoteAtual().add(meta);
+		task.getLoteAtual().update(meta);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -318,7 +318,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahProduto produto) throws Exception {
-		task.getLoteAtual().add(produto);
+		task.getLoteAtual().update(produto);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -333,7 +333,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahRevenda revenda) throws Exception {
-		task.getLoteAtual().add(revenda);
+		task.getLoteAtual().update(revenda);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -348,7 +348,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahSecao secao) throws Exception {
-		task.getLoteAtual().add(secao);
+		task.getLoteAtual().update(secao);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -363,7 +363,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahSubgrupo subgrupo) throws Exception {
-		task.getLoteAtual().add(subgrupo);
+		task.getLoteAtual().update(subgrupo);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -378,7 +378,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahTituloPagar tituloPagar) throws Exception {
-		task.getLoteAtual().add(tituloPagar);
+		task.getLoteAtual().update(tituloPagar);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -393,7 +393,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahTituloReceber tituloReceber) throws Exception {
-		task.getLoteAtual().add(tituloReceber);
+		task.getLoteAtual().update(tituloReceber);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -408,7 +408,7 @@ public class Panamah {
 	 * @throws Exception
 	 */
 	public void send(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
-		task.getLoteAtual().add(trocaDevolucao);
+		task.getLoteAtual().update(trocaDevolucao);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -423,7 +423,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
-		task.getLoteAtual().add(trocaFormaPagamento);
+		task.getLoteAtual().update(trocaFormaPagamento);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -438,7 +438,7 @@ public class Panamah {
 	 * @throws IOException
 	 */
 	public void send(PanamahVenda venda) throws Exception {
-		task.getLoteAtual().add(venda);
+		task.getLoteAtual().update(venda);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
