@@ -5,7 +5,7 @@ public class Reference {
 	private String uri;
 	private Transforms transforms;
 	private DigestMethod digestMethod;
-	private DigestValue digestValue;
+	private String digestValue;
 
 	public String getUri() {
 		return uri;
@@ -31,11 +31,11 @@ public class Reference {
 		this.digestMethod = digestMethod;
 	}
 
-	public DigestValue getDigestValue() {
+	public String getDigestValue() {
 		return digestValue;
 	}
 
-	public void setDigestValue(DigestValue digestValue) {
+	public void setDigestValue(String digestValue) {
 		this.digestValue = digestValue;
 	}
 

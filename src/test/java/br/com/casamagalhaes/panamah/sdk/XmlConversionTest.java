@@ -26,10 +26,13 @@ import br.com.casamagalhaes.panamah.sdk.nfe.Imposto;
 import br.com.casamagalhaes.panamah.sdk.nfe.InfEvento;
 import br.com.casamagalhaes.panamah.sdk.nfe.InfNFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.InfNFeSupl;
+import br.com.casamagalhaes.panamah.sdk.nfe.InfProt;
+import br.com.casamagalhaes.panamah.sdk.nfe.KeyInfo;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
 import br.com.casamagalhaes.panamah.sdk.nfe.Pag;
 import br.com.casamagalhaes.panamah.sdk.nfe.Prod;
+import br.com.casamagalhaes.panamah.sdk.nfe.ProtNFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.Reference;
 import br.com.casamagalhaes.panamah.sdk.nfe.Signature;
 import br.com.casamagalhaes.panamah.sdk.nfe.SignatureMethod;
@@ -38,6 +41,7 @@ import br.com.casamagalhaes.panamah.sdk.nfe.Total;
 import br.com.casamagalhaes.panamah.sdk.nfe.Transform;
 import br.com.casamagalhaes.panamah.sdk.nfe.Transforms;
 import br.com.casamagalhaes.panamah.sdk.nfe.Transp;
+import br.com.casamagalhaes.panamah.sdk.nfe.X509Data;
 
 public class XmlConversionTest {
 
@@ -134,6 +138,15 @@ public class XmlConversionTest {
 		p.getNfe().getSignature().getSignedInfo().getReference().getTransforms().getTransform().get(0)
 				.setAlgorithm("http://www.w3.org/2000/09/xmldsig#enveloped-signature");
 		p.getNfe().getSignature().getSignedInfo().getReference().setDigestMethod(new DigestMethod());
+		p.getNfe().getSignature().getSignedInfo().getReference().getDigestMethod().setAlgorithm("http://www.w3.org/2000/09/xmldsig#sha1");
+		p.getNfe().getSignature().getSignedInfo().getReference().setDigestValue("asdfsgsdgds");
+		p.getNfe().getSignature().setSignatureValue("dsafsdsdfgadsfsadf");
+		p.getNfe().getSignature().setKeyInfo(new KeyInfo());
+		p.getNfe().getSignature().getKeyInfo().setX509Data(new X509Data());
+		p.getNfe().getSignature().getKeyInfo().getX509Data().setX509Certificate("ssdfgsgsdgsdg");
+		p.setProtNFe(new ProtNFe());
+		p.getProtNFe().setInfProt(new InfProt());
+		p.getProtNFe().getInfProt().setcStat(3);
 		
 		XStream x = PanamahUtil.buildXStream();
 		String xml = x.toXML(p);
