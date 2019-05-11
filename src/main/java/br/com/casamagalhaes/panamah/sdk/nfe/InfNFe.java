@@ -8,11 +8,11 @@ public class InfNFe {
 	private String versao;
 	private Ide ide;
 	private Emit emit;
+	private List<Det> det;
 	private Total total;
 	private Transp transp;
 	private Pag pag;
-	private List<Det>det;
-	
+
 	public String getId() {
 		return id;
 	}
@@ -45,6 +45,14 @@ public class InfNFe {
 		this.emit = emit;
 	}
 
+	public List<Det> getDet() {
+		return det;
+	}
+
+	public void setDet(List<Det> det) {
+		this.det = det;
+	}
+
 	public Total getTotal() {
 		return total;
 	}
@@ -67,14 +75,6 @@ public class InfNFe {
 
 	public void setPag(Pag pag) {
 		this.pag = pag;
-	}
-	
-	public List<Det> getDet() {
-		return det;
-	}
-	
-	public void setDet(List<Det> det) {
-		this.det = det;
 	}
 
 }
