@@ -48,8 +48,8 @@ public class PanamahOperacao {
 	private PanamahSubgrupo subgrupo;
 	private PanamahTituloPagar tituloPagar;
 	private PanamahTituloReceber tituloReceber;
-	private PanamahTrocaDevolucao trocasDevolucao;
-	private PanamahTrocaFormaPagamento trocaFormasPagamento;
+	private PanamahTrocaDevolucao trocaDevolucao;
+	private PanamahTrocaFormaPagamento trocaFormaPagamento;
 	private PanamahVenda venda;
 
 	private PanamahTipoOperacao tipo;
@@ -222,20 +222,20 @@ public class PanamahOperacao {
 		this.tituloReceber = tituloReceber;
 	}
 
-	public PanamahTrocaDevolucao getTrocasDevolucao() {
-		return trocasDevolucao;
+	public PanamahTrocaDevolucao getTrocaDevolucao() {
+		return trocaDevolucao;
 	}
 
-	public void setTrocasDevolucao(PanamahTrocaDevolucao trocasDevolucao) {
-		this.trocasDevolucao = trocasDevolucao;
+	public void setTrocaDevolucao(PanamahTrocaDevolucao trocasDevolucao) {
+		this.trocaDevolucao = trocasDevolucao;
 	}
 
-	public PanamahTrocaFormaPagamento getTrocaFormasPagamento() {
-		return trocaFormasPagamento;
+	public PanamahTrocaFormaPagamento getTrocaFormaPagamento() {
+		return trocaFormaPagamento;
 	}
 
-	public void setTrocaFormasPagamento(PanamahTrocaFormaPagamento trocaFormasPagamento) {
-		this.trocaFormasPagamento = trocaFormasPagamento;
+	public void setTrocaFormaPagamento(PanamahTrocaFormaPagamento trocaFormaPagamento) {
+		this.trocaFormaPagamento = trocaFormaPagamento;
 	}
 
 	public PanamahVenda getVenda() {
