@@ -48,11 +48,11 @@ public class PanamahLote {
 	public void setStatus(PanamahStatusLote status) {
 		this.status = status;
 	}
-	
+
 	public List<PanamahOperacao<?>> getOperacoes() {
 		return operacoes;
 	}
-	
+
 	public void setOperacoes(List<PanamahOperacao<?>> operacoes) {
 		this.operacoes = operacoes;
 	}
@@ -79,8 +79,9 @@ public class PanamahLote {
 		cliente.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahCliente>op = new PanamahOperacao<PanamahCliente>();
+		PanamahOperacao<PanamahCliente> op = new PanamahOperacao<PanamahCliente>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("cliente".toUpperCase());
 		op.setData(cliente);
 		operacoes.add(op);
 	}
@@ -91,8 +92,9 @@ public class PanamahLote {
 		cliente.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahCliente>op = new PanamahOperacao<PanamahCliente>();
+		PanamahOperacao<PanamahCliente> op = new PanamahOperacao<PanamahCliente>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("cliente".toUpperCase());
 		op.setData(cliente);
 		operacoes.add(op);
 	}
@@ -103,8 +105,9 @@ public class PanamahLote {
 		compra.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahCompra>op = new PanamahOperacao<PanamahCompra>();
+		PanamahOperacao<PanamahCompra> op = new PanamahOperacao<PanamahCompra>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("compra".toUpperCase());
 		op.setData(compra);
 		operacoes.add(op);
 	}
@@ -115,8 +118,9 @@ public class PanamahLote {
 		compra.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahCompra>op = new PanamahOperacao<PanamahCompra>();
+		PanamahOperacao<PanamahCompra> op = new PanamahOperacao<PanamahCompra>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("compra".toUpperCase());
 		op.setData(compra);
 		operacoes.add(op);
 	}
@@ -127,8 +131,9 @@ public class PanamahLote {
 		assinante.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahAssinante>op = new PanamahOperacao<PanamahAssinante>();
+		PanamahOperacao<PanamahAssinante> op = new PanamahOperacao<PanamahAssinante>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("assinante".toUpperCase());
 		op.setData(assinante);
 		operacoes.add(op);
 	}
@@ -139,8 +144,9 @@ public class PanamahLote {
 		assinante.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahAssinante>op = new PanamahOperacao<PanamahAssinante>();
+		PanamahOperacao<PanamahAssinante> op = new PanamahOperacao<PanamahAssinante>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("assinante".toUpperCase());
 		op.setData(assinante);
 		operacoes.add(op);
 	}
@@ -151,8 +157,9 @@ public class PanamahLote {
 		acesso.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahAcesso>op = new PanamahOperacao<PanamahAcesso>();
+		PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("acesso".toUpperCase());
 		op.setData(acesso);
 		operacoes.add(op);
 	}
@@ -163,8 +170,9 @@ public class PanamahLote {
 		acesso.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahAcesso>op = new PanamahOperacao<PanamahAcesso>();
+		PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("acesso".toUpperCase());
 		op.setData(acesso);
 		operacoes.add(op);
 	}
@@ -175,8 +183,9 @@ public class PanamahLote {
 		ean.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahEan>op = new PanamahOperacao<PanamahEan>();
+		PanamahOperacao<PanamahEan> op = new PanamahOperacao<PanamahEan>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("ean".toUpperCase());
 		op.setData(ean);
 		operacoes.add(op);
 	}
@@ -187,8 +196,9 @@ public class PanamahLote {
 		ean.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahEan>op = new PanamahOperacao<PanamahEan>();
+		PanamahOperacao<PanamahEan> op = new PanamahOperacao<PanamahEan>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("ean".toUpperCase());
 		op.setData(ean);
 		operacoes.add(op);
 
@@ -200,8 +210,9 @@ public class PanamahLote {
 		estoqueMovimentacao.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahEstoqueMovimentacao>op = new PanamahOperacao<PanamahEstoqueMovimentacao>();
+		PanamahOperacao<PanamahEstoqueMovimentacao> op = new PanamahOperacao<PanamahEstoqueMovimentacao>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("estoqueMovimentacao".toUpperCase());
 		op.setData(estoqueMovimentacao);
 		operacoes.add(op);
 	}
@@ -212,8 +223,9 @@ public class PanamahLote {
 		estoqueMovimentacao.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahEstoqueMovimentacao>op = new PanamahOperacao<PanamahEstoqueMovimentacao>();
+		PanamahOperacao<PanamahEstoqueMovimentacao> op = new PanamahOperacao<PanamahEstoqueMovimentacao>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("estoqueMovimentacao".toUpperCase());
 		op.setData(estoqueMovimentacao);
 		operacoes.add(op);
 	}
@@ -224,8 +236,9 @@ public class PanamahLote {
 		eventoCaixa.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahEventoCaixa>op = new PanamahOperacao<PanamahEventoCaixa>();
+		PanamahOperacao<PanamahEventoCaixa> op = new PanamahOperacao<PanamahEventoCaixa>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("eventoCaixa".toUpperCase());
 		op.setData(eventoCaixa);
 		operacoes.add(op);
 	}
@@ -236,8 +249,9 @@ public class PanamahLote {
 		eventoCaixa.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahEventoCaixa>op = new PanamahOperacao<PanamahEventoCaixa>();
+		PanamahOperacao<PanamahEventoCaixa> op = new PanamahOperacao<PanamahEventoCaixa>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("eventoCaixa".toUpperCase());
 		op.setData(eventoCaixa);
 		operacoes.add(op);
 	}
@@ -248,8 +262,9 @@ public class PanamahLote {
 		formaPagamento.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahFormaPagamento>op = new PanamahOperacao<PanamahFormaPagamento>();
+		PanamahOperacao<PanamahFormaPagamento> op = new PanamahOperacao<PanamahFormaPagamento>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("formaPagamento".toUpperCase());
 		op.setData(formaPagamento);
 		operacoes.add(op);
 	}
@@ -260,8 +275,9 @@ public class PanamahLote {
 		formaPagamento.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahFormaPagamento>op = new PanamahOperacao<PanamahFormaPagamento>();
+		PanamahOperacao<PanamahFormaPagamento> op = new PanamahOperacao<PanamahFormaPagamento>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("formaPagamento".toUpperCase());
 		op.setData(formaPagamento);
 		operacoes.add(op);
 	}
@@ -272,8 +288,9 @@ public class PanamahLote {
 		fornecedor.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahFornecedor>op = new PanamahOperacao<PanamahFornecedor>();
+		PanamahOperacao<PanamahFornecedor> op = new PanamahOperacao<PanamahFornecedor>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("fornecedor".toUpperCase());
 		op.setData(fornecedor);
 		operacoes.add(op);
 	}
@@ -284,8 +301,9 @@ public class PanamahLote {
 		fornecedor.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahFornecedor>op = new PanamahOperacao<PanamahFornecedor>();
+		PanamahOperacao<PanamahFornecedor> op = new PanamahOperacao<PanamahFornecedor>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("fornecedor".toUpperCase());
 		op.setData(fornecedor);
 		operacoes.add(op);
 
@@ -297,8 +315,9 @@ public class PanamahLote {
 		funcionario.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahFuncionario>op = new PanamahOperacao<PanamahFuncionario>();
+		PanamahOperacao<PanamahFuncionario> op = new PanamahOperacao<PanamahFuncionario>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("funcionario".toUpperCase());
 		op.setData(funcionario);
 		operacoes.add(op);
 	}
@@ -309,8 +328,9 @@ public class PanamahLote {
 		funcionario.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahFuncionario>op = new PanamahOperacao<PanamahFuncionario>();
+		PanamahOperacao<PanamahFuncionario> op = new PanamahOperacao<PanamahFuncionario>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("funcionario".toUpperCase());
 		op.setData(funcionario);
 		operacoes.add(op);
 	}
@@ -321,8 +341,9 @@ public class PanamahLote {
 		grupo.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahGrupo>op = new PanamahOperacao<PanamahGrupo>();
+		PanamahOperacao<PanamahGrupo> op = new PanamahOperacao<PanamahGrupo>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("grupo".toUpperCase());
 		op.setData(grupo);
 		operacoes.add(op);
 	}
@@ -333,9 +354,10 @@ public class PanamahLote {
 		grupo.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahGrupo>op = new PanamahOperacao<PanamahGrupo>();
+
+		PanamahOperacao<PanamahGrupo> op = new PanamahOperacao<PanamahGrupo>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("grupo".toUpperCase());
 		op.setData(grupo);
 		operacoes.add(op);
 	}
@@ -346,9 +368,10 @@ public class PanamahLote {
 		holding.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahHolding>op = new PanamahOperacao<PanamahHolding>();
+
+		PanamahOperacao<PanamahHolding> op = new PanamahOperacao<PanamahHolding>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("holding".toUpperCase());
 		op.setData(holding);
 		operacoes.add(op);
 	}
@@ -359,9 +382,10 @@ public class PanamahLote {
 		holding.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahHolding>op = new PanamahOperacao<PanamahHolding>();
+
+		PanamahOperacao<PanamahHolding> op = new PanamahOperacao<PanamahHolding>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("holding".toUpperCase());
 		op.setData(holding);
 		operacoes.add(op);
 	}
@@ -372,9 +396,10 @@ public class PanamahLote {
 		localEstoque.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahLocalEstoque>op = new PanamahOperacao<PanamahLocalEstoque>();
+
+		PanamahOperacao<PanamahLocalEstoque> op = new PanamahOperacao<PanamahLocalEstoque>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("localEstoque".toUpperCase());
 		op.setData(localEstoque);
 		operacoes.add(op);
 	}
@@ -385,9 +410,10 @@ public class PanamahLote {
 		localEstoque.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahLocalEstoque>op = new PanamahOperacao<PanamahLocalEstoque>();
+
+		PanamahOperacao<PanamahLocalEstoque> op = new PanamahOperacao<PanamahLocalEstoque>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("localEstoque".toUpperCase());
 		op.setData(localEstoque);
 		operacoes.add(op);
 	}
@@ -398,9 +424,10 @@ public class PanamahLote {
 		loja.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahLoja>op = new PanamahOperacao<PanamahLoja>();
+
+		PanamahOperacao<PanamahLoja> op = new PanamahOperacao<PanamahLoja>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("loja".toUpperCase());
 		op.setData(loja);
 		operacoes.add(op);
 	}
@@ -411,9 +438,10 @@ public class PanamahLote {
 		loja.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahLoja>op = new PanamahOperacao<PanamahLoja>();
+
+		PanamahOperacao<PanamahLoja> op = new PanamahOperacao<PanamahLoja>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("loja".toUpperCase());
 		op.setData(loja);
 		operacoes.add(op);
 	}
@@ -424,9 +452,10 @@ public class PanamahLote {
 		meta.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahMeta>op = new PanamahOperacao<PanamahMeta>();
+
+		PanamahOperacao<PanamahMeta> op = new PanamahOperacao<PanamahMeta>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("meta".toUpperCase());
 		op.setData(meta);
 		operacoes.add(op);
 
@@ -438,9 +467,10 @@ public class PanamahLote {
 		meta.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahMeta>op = new PanamahOperacao<PanamahMeta>();
+
+		PanamahOperacao<PanamahMeta> op = new PanamahOperacao<PanamahMeta>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("meta".toUpperCase());
 		op.setData(meta);
 		operacoes.add(op);
 
@@ -452,9 +482,10 @@ public class PanamahLote {
 		produto.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahProduto>op = new PanamahOperacao<PanamahProduto>();
+
+		PanamahOperacao<PanamahProduto> op = new PanamahOperacao<PanamahProduto>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("produto".toUpperCase());
 		op.setData(produto);
 		operacoes.add(op);
 
@@ -466,9 +497,10 @@ public class PanamahLote {
 		produto.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahProduto>op = new PanamahOperacao<PanamahProduto>();
+
+		PanamahOperacao<PanamahProduto> op = new PanamahOperacao<PanamahProduto>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("produto".toUpperCase());
 		op.setData(produto);
 		operacoes.add(op);
 
@@ -480,9 +512,10 @@ public class PanamahLote {
 		revenda.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahRevenda>op = new PanamahOperacao<PanamahRevenda>();
+
+		PanamahOperacao<PanamahRevenda> op = new PanamahOperacao<PanamahRevenda>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("revenda".toUpperCase());
 		op.setData(revenda);
 		operacoes.add(op);
 
@@ -494,9 +527,10 @@ public class PanamahLote {
 		revenda.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahRevenda>op = new PanamahOperacao<PanamahRevenda>();
+
+		PanamahOperacao<PanamahRevenda> op = new PanamahOperacao<PanamahRevenda>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("revenda".toUpperCase());
 		op.setData(revenda);
 		operacoes.add(op);
 
@@ -508,9 +542,10 @@ public class PanamahLote {
 		secao.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahSecao>op = new PanamahOperacao<PanamahSecao>();
+
+		PanamahOperacao<PanamahSecao> op = new PanamahOperacao<PanamahSecao>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("secao".toUpperCase());
 		op.setData(secao);
 		operacoes.add(op);
 
@@ -522,9 +557,10 @@ public class PanamahLote {
 		secao.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahSecao>op = new PanamahOperacao<PanamahSecao>();
+
+		PanamahOperacao<PanamahSecao> op = new PanamahOperacao<PanamahSecao>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("secao".toUpperCase());
 		op.setData(secao);
 		operacoes.add(op);
 
@@ -536,9 +572,10 @@ public class PanamahLote {
 		subgrupo.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahSubgrupo>op = new PanamahOperacao<PanamahSubgrupo>();
+
+		PanamahOperacao<PanamahSubgrupo> op = new PanamahOperacao<PanamahSubgrupo>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("subgrupo".toUpperCase());
 		op.setData(subgrupo);
 		operacoes.add(op);
 
@@ -550,9 +587,10 @@ public class PanamahLote {
 		subgrupo.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahSubgrupo>op = new PanamahOperacao<PanamahSubgrupo>();
+
+		PanamahOperacao<PanamahSubgrupo> op = new PanamahOperacao<PanamahSubgrupo>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("subgrupo".toUpperCase());
 		op.setData(subgrupo);
 		operacoes.add(op);
 
@@ -564,9 +602,10 @@ public class PanamahLote {
 		tituloPagar.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahTituloPagar>op = new PanamahOperacao<PanamahTituloPagar>();
+
+		PanamahOperacao<PanamahTituloPagar> op = new PanamahOperacao<PanamahTituloPagar>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("tituloPagar".toUpperCase());
 		op.setData(tituloPagar);
 		operacoes.add(op);
 
@@ -578,9 +617,10 @@ public class PanamahLote {
 		tituloPagar.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahTituloPagar>op = new PanamahOperacao<PanamahTituloPagar>();
+
+		PanamahOperacao<PanamahTituloPagar> op = new PanamahOperacao<PanamahTituloPagar>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("tituloPagar".toUpperCase());
 		op.setData(tituloPagar);
 		operacoes.add(op);
 	}
@@ -591,9 +631,10 @@ public class PanamahLote {
 		tituloReceber.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahTituloReceber>op = new PanamahOperacao<PanamahTituloReceber>();
+
+		PanamahOperacao<PanamahTituloReceber> op = new PanamahOperacao<PanamahTituloReceber>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("tituloReceber".toUpperCase());
 		op.setData(tituloReceber);
 		operacoes.add(op);
 	}
@@ -604,9 +645,10 @@ public class PanamahLote {
 		tituloReceber.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		
-		PanamahOperacao<PanamahTituloReceber>op = new PanamahOperacao<PanamahTituloReceber>();
+
+		PanamahOperacao<PanamahTituloReceber> op = new PanamahOperacao<PanamahTituloReceber>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("tituloReceber".toUpperCase());
 		op.setData(tituloReceber);
 		operacoes.add(op);
 	}
@@ -617,8 +659,9 @@ public class PanamahLote {
 		trocaDevolucao.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahTrocaDevolucao>op = new PanamahOperacao<PanamahTrocaDevolucao>();
+		PanamahOperacao<PanamahTrocaDevolucao> op = new PanamahOperacao<PanamahTrocaDevolucao>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("trocaDevolucao".toUpperCase());
 		op.setData(trocaDevolucao);
 		operacoes.add(op);
 	}
@@ -629,8 +672,9 @@ public class PanamahLote {
 		trocaDevolucao.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahTrocaDevolucao>op = new PanamahOperacao<PanamahTrocaDevolucao>();
+		PanamahOperacao<PanamahTrocaDevolucao> op = new PanamahOperacao<PanamahTrocaDevolucao>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("trocaDevolucao".toUpperCase());
 		op.setData(trocaDevolucao);
 		operacoes.add(op);
 	}
@@ -641,8 +685,9 @@ public class PanamahLote {
 		trocaFormaPagamento.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahTrocaFormaPagamento>op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
+		PanamahOperacao<PanamahTrocaFormaPagamento> op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("trocaFormaPagamento".toUpperCase());
 		op.setData(trocaFormaPagamento);
 		operacoes.add(op);
 	}
@@ -653,8 +698,9 @@ public class PanamahLote {
 		trocaFormaPagamento.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahTrocaFormaPagamento>op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
+		PanamahOperacao<PanamahTrocaFormaPagamento> op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("trocaFormaPagamento".toUpperCase());
 		op.setData(trocaFormaPagamento);
 		operacoes.add(op);
 	}
@@ -665,8 +711,9 @@ public class PanamahLote {
 		venda.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahVenda>op = new PanamahOperacao<PanamahVenda>();
+		PanamahOperacao<PanamahVenda> op = new PanamahOperacao<PanamahVenda>();
 		op.setOp(PanamahTipoOperacao.SAVE);
+		op.setTipoIdentificador("venda".toUpperCase());
 		op.setData(venda);
 		operacoes.add(op);
 	}
@@ -677,8 +724,9 @@ public class PanamahLote {
 		venda.validate();
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
-		PanamahOperacao<PanamahVenda>op = new PanamahOperacao<PanamahVenda>();
+		PanamahOperacao<PanamahVenda> op = new PanamahOperacao<PanamahVenda>();
 		op.setOp(PanamahTipoOperacao.DELETE);
+		op.setTipoIdentificador("venda".toUpperCase());
 		op.setData(venda);
 		operacoes.add(op);
 	}
