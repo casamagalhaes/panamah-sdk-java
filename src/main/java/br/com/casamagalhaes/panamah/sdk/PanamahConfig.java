@@ -6,11 +6,13 @@ public class PanamahConfig {
 	private String addr;
 	private long delay;
 	private long ttl;
-	private String apiKey;
+	private String apiKey = "xpto";
 	private String accessToken;
 	private String refreshToken;
 	private String authAddr;
 	private long maxBytes;
+	
+	private PanamahAuth auth = new PanamahAuth();
 
 	public PanamahConfig() {
 		this(".");
@@ -29,7 +31,7 @@ public class PanamahConfig {
 	}
 
 	public PanamahConfig(String basePath, long delay, long ttl, String addr) {
-		this(basePath, delay, ttl, addr, "http://127.0.0.1:7780/api/auth");
+		this(basePath, delay, ttl, addr, "http://127.0.0.1:7780/stream/login");
 	}
 
 	public PanamahConfig(String basePath, long delay, long ttl, String addr, String authAddr) {
@@ -115,5 +117,13 @@ public class PanamahConfig {
 
 	public void setMaxBytes(long maxBytes) {
 		this.maxBytes = maxBytes;
+	}
+
+	public PanamahAuth getAuth() {
+		return auth;
+	}
+	
+	public void setAuth(PanamahAuth auth) {
+		this.auth = auth;
 	}
 }

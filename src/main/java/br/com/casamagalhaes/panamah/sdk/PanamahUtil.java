@@ -50,18 +50,17 @@ public class PanamahUtil {
 		String res = Request.Post(config.getAddr())//
 				.bodyString(buildGson().toJson(lote), ContentType.APPLICATION_JSON)//
 				.addHeader("x-api-key", config.getApiKey())//
-				.addHeader("x-api-access-token", config.getAccessToken())//
+				.addHeader("x-api-access-token", config.getAuth().getAccessToken())//
 				.execute().returnContent().asString();
 		return res;
 	}
 
 	public static void auth(PanamahConfig config) throws ClientProtocolException, IOException {
 		String res = Request.Post(config.getAuthAddr())//
-				.bodyString("{\"apiKey\":\"" + config.getApiKey() + "\"}", ContentType.APPLICATION_JSON)//
+				.bodyString(buildGson().toJson(config.getAuth()), ContentType.APPLICATION_JSON)//
 				.execute().returnContent().asString();
 		PanamahAuth auth = buildGson().fromJson(res, PanamahAuth.class);
-		config.setAccessToken(auth.getAccessToken());
-		config.setRefreshToken(auth.getRefreshToken());
+		config.setAuth(auth);
 	}
 
 	public static XStream buildXStream() throws Exception {
