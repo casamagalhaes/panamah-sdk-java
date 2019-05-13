@@ -48,7 +48,7 @@ public class PanamahUtil {
 	// https://hc.apache.org/httpcomponents-client-ga/tutorial/html/fluent.html
 	public static String send(PanamahConfig config, PanamahLote lote) throws ClientProtocolException, IOException {
 		String res = Request.Post(config.getAddr())//
-				.bodyString(buildGson().toJson(lote), ContentType.APPLICATION_JSON)//
+				.bodyString(buildGson().toJson(lote.getOperacoes()), ContentType.APPLICATION_JSON)//
 				.addHeader("x-api-key", config.getApiKey())//
 				.addHeader("x-api-access-token", config.getAuth().getAccessToken())//
 				.execute().returnContent().asString();
