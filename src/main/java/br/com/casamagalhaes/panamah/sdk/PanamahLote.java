@@ -1,5 +1,6 @@
 package br.com.casamagalhaes.panamah.sdk;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -64,242 +65,248 @@ public class PanamahLote {
 		this.ultimaAtualizacao = ultimaAtualizacao;
 	}
 
-	public void update(PanamahCliente cliente) {
+	public void save(PanamahCliente cliente) throws Exception {
+		if (cliente == null)
+			throw new RuntimeException("cliente não pode ser nulo!");
+		cliente.validate();
+		if (operacoes == null)
+			operacoes = new ArrayList<PanamahOperacao>();
+		PanamahOperacao op = new PanamahOperacao();
+		op.setTipo(PanamahTipoOperacao.SAVE);
+		op.setCliente(cliente);
+	}
+
+	public void save(PanamahCompra compra) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahCompra compra) {
+	public void save(PanamahAssinante assinante) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahAssinante assinante) {
+	public void save(PanamahAcesso acesso) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahAcesso acesso) {
+	public void save(PanamahEan ean) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahEan ean) {
+	public void save(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahEstoqueMovimentacao estoqueMovimentacao) {
+	public void save(PanamahEventoCaixa eventoCaixa) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahEventoCaixa eventoCaixa) {
+	public void save(PanamahFormaPagamento formaPagamento) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahFormaPagamento formaPagamento) {
+	public void save(PanamahFornecedor fornecedor) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahFornecedor fornecedor) {
+	public void save(PanamahFuncionario funcionario) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahFuncionario funcionario) {
+	public void save(PanamahGrupo grupo) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahGrupo grupo) {
+	public void save(PanamahHolding holding) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahHolding holding) {
+	public void save(PanamahLocalEstoque localEstoque) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahLocalEstoque localEstoque) {
+	public void save(PanamahLoja loja) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahLoja loja) {
+	public void save(PanamahMeta meta) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahMeta meta) {
+	public void save(PanamahProduto produto) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahProduto produto) {
+	public void save(PanamahRevenda revenda) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahRevenda revenda) {
+	public void save(PanamahSecao secao) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahSecao secao) {
+	public void save(PanamahSubgrupo subgrupo) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahSubgrupo subgrupo) {
+	public void save(PanamahTituloPagar tituloPagar) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahTituloPagar tituloPagar) {
+	public void save(PanamahTituloReceber tituloReceber) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahTituloReceber tituloReceber) {
+	public void save(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahTrocaDevolucao trocaDevolucao) {
+	public void save(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahTrocaFormaPagamento trocaFormaPagamento) {
+	public void save(PanamahVenda venda) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(PanamahVenda venda) {
+	public void del(PanamahCliente cliente) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahCliente cliente) {
+	public void del(PanamahCompra compra) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahCompra compra) {
+	public void del(PanamahAssinante assinante) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahAssinante assinante) {
+	public void del(PanamahAcesso acesso) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahAcesso acesso) {
+	public void del(PanamahEan ean) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahEan ean) {
+	public void del(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahEstoqueMovimentacao estoqueMovimentacao) {
+	public void del(PanamahEventoCaixa eventoCaixa) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahEventoCaixa eventoCaixa) {
+	public void del(PanamahFormaPagamento formaPagamento) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahFormaPagamento formaPagamento) {
+	public void del(PanamahFornecedor fornecedor) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahFornecedor fornecedor) {
+	public void del(PanamahFuncionario funcionario) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahFuncionario funcionario) {
+	public void del(PanamahGrupo grupo) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahGrupo grupo) {
+	public void del(PanamahHolding holding) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahHolding holding) {
+	public void del(PanamahLocalEstoque localEstoque) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahLocalEstoque localEstoque) {
+	public void del(PanamahLoja loja) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahLoja loja) {
+	public void del(PanamahMeta meta) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahMeta meta) {
+	public void del(PanamahProduto produto) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahProduto produto) {
+	public void del(PanamahRevenda revenda) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahRevenda revenda) {
+	public void del(PanamahSecao secao) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahSecao secao) {
+	public void del(PanamahSubgrupo subgrupo) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahSubgrupo subgrupo) {
+	public void del(PanamahTituloPagar tituloPagar) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahTituloPagar tituloPagar) {
+	public void del(PanamahTituloReceber tituloReceber) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahTituloReceber tituloReceber) {
+	public void del(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahTrocaDevolucao trocaDevolucao) {
+	public void del(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void del(PanamahTrocaFormaPagamento trocaFormaPagamento) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void del(PanamahVenda venda) {
+	public void del(PanamahVenda venda) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
