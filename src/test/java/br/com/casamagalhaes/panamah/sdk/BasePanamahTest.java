@@ -51,14 +51,14 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldInit() throws Exception {
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.flush();
 		assertNotNull(p);
 	}
 
 	@Test
 	public void shouldProgress() throws Exception {
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.progress();
 		p.flush();
 		assertNotNull(p);
@@ -66,7 +66,7 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldVerifyFechamento() throws Exception {
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.getTask().verificaFechamento();
 		p.flush();
 		assertNotNull(p);
@@ -74,231 +74,454 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldRun() throws Exception {
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.getTask().run();
 		p.flush();
 		assertNotNull(p);
 	}
 
 	@Test
-	public void shouldSendAcesso() throws Exception {
+	public void shouldSaveAcesso() throws Exception {
 		PanamahAcesso model = PanamahUtil.buildGson().fromJson(r("acesso"), PanamahAcesso.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendAssinante() throws Exception {
+	public void shouldSaveAssinante() throws Exception {
 		PanamahAssinante model = PanamahUtil.buildGson().fromJson(r("assinante"), PanamahAssinante.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendCliente() throws Exception {
+	public void shouldSaveCliente() throws Exception {
 		PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendCompra() throws Exception {
+	public void shouldSaveCompra() throws Exception {
 		PanamahCompra model = PanamahUtil.buildGson().fromJson(r("compra"), PanamahCompra.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendEan() throws Exception {
+	public void shouldSaveEan() throws Exception {
 		PanamahEan model = PanamahUtil.buildGson().fromJson(r("ean"), PanamahEan.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendEstoqueMovimentacao() throws Exception {
+	public void shouldSaveEstoqueMovimentacao() throws Exception {
 		PanamahEstoqueMovimentacao model = PanamahUtil.buildGson().fromJson(r("estoque-movimentacao"),
 				PanamahEstoqueMovimentacao.class);
 		model.setId("teste");
 		model.setLocalEstoqueId("teste");
 		model.setDataHora(new Date());
 		model.setProdutoId("teste");
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendEventoCaixa() throws Exception {
+	public void shouldSaveEventoCaixa() throws Exception {
 		PanamahEventoCaixa model = PanamahUtil.buildGson().fromJson(r("evento-caixa"), PanamahEventoCaixa.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendFormaPagamento() throws Exception {
+	public void shouldSaveFormaPagamento() throws Exception {
 		PanamahFormaPagamento model = PanamahUtil.buildGson().fromJson(r("forma-pagamento"),
 				PanamahFormaPagamento.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendFornecedor() throws Exception {
+	public void shouldSaveFornecedor() throws Exception {
 		PanamahFornecedor model = PanamahUtil.buildGson().fromJson(r("fornecedor"), PanamahFornecedor.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendFuncionario() throws Exception {
+	public void shouldSaveFuncionario() throws Exception {
 		PanamahFuncionario model = PanamahUtil.buildGson().fromJson(r("funcionario"), PanamahFuncionario.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendGrupo() throws Exception {
+	public void shouldSaveGrupo() throws Exception {
 		PanamahGrupo model = PanamahUtil.buildGson().fromJson(r("grupo"), PanamahGrupo.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendHolding() throws Exception {
+	public void shouldSaveHolding() throws Exception {
 		PanamahHolding model = PanamahUtil.buildGson().fromJson(r("holding"), PanamahHolding.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendLocalEstoque() throws Exception {
+	public void shouldSaveLocalEstoque() throws Exception {
 		PanamahLocalEstoque model = PanamahUtil.buildGson().fromJson(r("local-estoque"), PanamahLocalEstoque.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendLoja() throws Exception {
+	public void shouldSaveLoja() throws Exception {
 		PanamahLoja model = PanamahUtil.buildGson().fromJson(r("loja"), PanamahLoja.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendMeta() throws Exception {
+	public void shouldSaveMeta() throws Exception {
 		PanamahMeta model = PanamahUtil.buildGson().fromJson(r("meta"), PanamahMeta.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendProduto() throws Exception {
+	public void shouldSaveProduto() throws Exception {
 		PanamahProduto model = PanamahUtil.buildGson().fromJson(r("produto"), PanamahProduto.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendRevenda() throws Exception {
+	public void shouldSaveRevenda() throws Exception {
 		PanamahRevenda model = PanamahUtil.buildGson().fromJson(r("revenda"), PanamahRevenda.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendSecao() throws Exception {
+	public void shouldSaveSecao() throws Exception {
 		PanamahSecao model = PanamahUtil.buildGson().fromJson(r("secao"), PanamahSecao.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendSubgrupo() throws Exception {
+	public void shouldSaveSubgrupo() throws Exception {
 		PanamahSubgrupo model = PanamahUtil.buildGson().fromJson(r("subgrupo"), PanamahSubgrupo.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendTituloPagar() throws Exception {
+	public void shouldSaveTituloPagar() throws Exception {
 		PanamahTituloPagar model = PanamahUtil.buildGson().fromJson(r("titulo-pagar"), PanamahTituloPagar.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendTituloReceber() throws Exception {
+	public void shouldSaveTituloReceber() throws Exception {
 		PanamahTituloReceber model = PanamahUtil.buildGson().fromJson(r("titulo-receber"), PanamahTituloReceber.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendTrocaDevolucao() throws Exception {
+	public void shouldSaveTrocaDevolucao() throws Exception {
 		PanamahTrocaDevolucao model = PanamahUtil.buildGson().fromJson(r("troca-devolucao"),
 				PanamahTrocaDevolucao.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendTrocaFormaPagamento() throws Exception {
+	public void shouldSaveTrocaFormaPagamento() throws Exception {
 		PanamahTrocaFormaPagamento model = PanamahUtil.buildGson().fromJson(r("troca-forma-pagamento"),
 				PanamahTrocaFormaPagamento.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
 		p.flush();
 		assertTrue(true);
 	}
 
 	@Test
-	public void shouldSendVenda() throws Exception {
+	public void shouldSaveVenda() throws Exception {
 		PanamahVenda model = PanamahUtil.buildGson().fromJson(r("venda"), PanamahVenda.class);
-		Panamah p = Panamah.init(c);
+		PanamahStream p = PanamahStream.init(c);
 		p.save(model);
+		p.flush();
+		assertTrue(true);
+	}
+	
+	@Test
+	public void shouldDelAcesso() throws Exception {
+		PanamahAcesso model = PanamahUtil.buildGson().fromJson(r("acesso"), PanamahAcesso.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelAssinante() throws Exception {
+		PanamahAssinante model = PanamahUtil.buildGson().fromJson(r("assinante"), PanamahAssinante.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelCliente() throws Exception {
+		PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelCompra() throws Exception {
+		PanamahCompra model = PanamahUtil.buildGson().fromJson(r("compra"), PanamahCompra.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelEan() throws Exception {
+		PanamahEan model = PanamahUtil.buildGson().fromJson(r("ean"), PanamahEan.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelEstoqueMovimentacao() throws Exception {
+		PanamahEstoqueMovimentacao model = PanamahUtil.buildGson().fromJson(r("estoque-movimentacao"),
+				PanamahEstoqueMovimentacao.class);
+		model.setId("teste");
+		model.setLocalEstoqueId("teste");
+		model.setDataHora(new Date());
+		model.setProdutoId("teste");
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelEventoCaixa() throws Exception {
+		PanamahEventoCaixa model = PanamahUtil.buildGson().fromJson(r("evento-caixa"), PanamahEventoCaixa.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelFormaPagamento() throws Exception {
+		PanamahFormaPagamento model = PanamahUtil.buildGson().fromJson(r("forma-pagamento"),
+				PanamahFormaPagamento.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelFornecedor() throws Exception {
+		PanamahFornecedor model = PanamahUtil.buildGson().fromJson(r("fornecedor"), PanamahFornecedor.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelFuncionario() throws Exception {
+		PanamahFuncionario model = PanamahUtil.buildGson().fromJson(r("funcionario"), PanamahFuncionario.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelGrupo() throws Exception {
+		PanamahGrupo model = PanamahUtil.buildGson().fromJson(r("grupo"), PanamahGrupo.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelHolding() throws Exception {
+		PanamahHolding model = PanamahUtil.buildGson().fromJson(r("holding"), PanamahHolding.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelLocalEstoque() throws Exception {
+		PanamahLocalEstoque model = PanamahUtil.buildGson().fromJson(r("local-estoque"), PanamahLocalEstoque.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelLoja() throws Exception {
+		PanamahLoja model = PanamahUtil.buildGson().fromJson(r("loja"), PanamahLoja.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelMeta() throws Exception {
+		PanamahMeta model = PanamahUtil.buildGson().fromJson(r("meta"), PanamahMeta.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelProduto() throws Exception {
+		PanamahProduto model = PanamahUtil.buildGson().fromJson(r("produto"), PanamahProduto.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelRevenda() throws Exception {
+		PanamahRevenda model = PanamahUtil.buildGson().fromJson(r("revenda"), PanamahRevenda.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelSecao() throws Exception {
+		PanamahSecao model = PanamahUtil.buildGson().fromJson(r("secao"), PanamahSecao.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelSubgrupo() throws Exception {
+		PanamahSubgrupo model = PanamahUtil.buildGson().fromJson(r("subgrupo"), PanamahSubgrupo.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelTituloPagar() throws Exception {
+		PanamahTituloPagar model = PanamahUtil.buildGson().fromJson(r("titulo-pagar"), PanamahTituloPagar.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelTituloReceber() throws Exception {
+		PanamahTituloReceber model = PanamahUtil.buildGson().fromJson(r("titulo-receber"), PanamahTituloReceber.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelTrocaDevolucao() throws Exception {
+		PanamahTrocaDevolucao model = PanamahUtil.buildGson().fromJson(r("troca-devolucao"),
+				PanamahTrocaDevolucao.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelTrocaFormaPagamento() throws Exception {
+		PanamahTrocaFormaPagamento model = PanamahUtil.buildGson().fromJson(r("troca-forma-pagamento"),
+				PanamahTrocaFormaPagamento.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldDelVenda() throws Exception {
+		PanamahVenda model = PanamahUtil.buildGson().fromJson(r("venda"), PanamahVenda.class);
+		PanamahStream p = PanamahStream.init(c);
+		p.del(model);
 		p.flush();
 		assertTrue(true);
 	}

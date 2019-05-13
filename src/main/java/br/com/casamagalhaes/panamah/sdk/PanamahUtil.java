@@ -66,9 +66,8 @@ public class PanamahUtil {
 
 	public static XStream buildXStream() throws Exception {
 		XStream x = new XStream();
-		// NFe
-		x.alias("NFe", NFe.class);
 		// NFeProc
+		x.alias("NFe", NFe.class);
 		x.useAttributeFor(NFeProc.class, "versao");
 		x.useAttributeFor(NFeProc.class, "xmlns");
 		x.alias("nfeProc", NFeProc.class);

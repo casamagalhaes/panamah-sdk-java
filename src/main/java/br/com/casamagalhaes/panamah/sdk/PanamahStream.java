@@ -30,20 +30,20 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaFormaPagamento;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 
 /**
- * Panamah client
+ * PanamahStream client
  *
  * @author Casa Magalhães
  *
  */
-public class Panamah {
+public class PanamahStream {
 
-	private static Panamah instance;
+	private static PanamahStream instance;
 	private Timer timer;
 	private PanamahTask task;
 
-	private Panamah(PanamahConfig config) throws FileNotFoundException, IOException {
+	private PanamahStream(PanamahConfig config) throws FileNotFoundException, IOException {
 		PanamahUtil.auth(config);
-		timer = new Timer("Panamah", true);
+		timer = new Timer("PanamahStream", true);
 		task = new PanamahTask(config);
 		timer.schedule(task, config.getDelay());
 	}
@@ -55,9 +55,9 @@ public class Panamah {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	public synchronized static Panamah init(PanamahConfig config) throws FileNotFoundException, IOException {
+	public synchronized static PanamahStream init(PanamahConfig config) throws FileNotFoundException, IOException {
 		if (instance == null) {
-			instance = new Panamah(config);
+			instance = new PanamahStream(config);
 		}
 		return instance;
 	}
@@ -72,7 +72,7 @@ public class Panamah {
 		task.fechaLoteAtual();
 		task.enviaLote();
 		timer.cancel();
-		Panamah.instance = null;
+		PanamahStream.instance = null;
 	}
 
 	PanamahTask getTask() {
@@ -439,6 +439,366 @@ public class Panamah {
 	 */
 	public void save(PanamahVenda venda) throws Exception {
 		task.getLoteAtual().save(venda);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar acesso para o lote
+	 *
+	 * @param acesso acesso
+	 * @throws IOException
+	 */
+	public void del(PanamahAcesso acesso) throws Exception {
+		task.getLoteAtual().del(acesso);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar assinante para o lote
+	 *
+	 * @param assinante assinante
+	 * @throws IOException
+	 */
+	public void del(PanamahAssinante assinante) throws Exception {
+		task.getLoteAtual().del(assinante);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar cliente para o lote
+	 *
+	 * @param cliente cliente
+	 * @throws IOException
+	 */
+	public void del(PanamahCliente cliente) throws Exception {
+		task.getLoteAtual().del(cliente);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar compra para o lote
+	 *
+	 * @param compra compra
+	 * @throws IOException
+	 */
+	public void del(PanamahCompra compra) throws Exception {
+		task.getLoteAtual().del(compra);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar ean para o lote
+	 *
+	 * @param ean ean
+	 * @throws IOException
+	 */
+	public void del(PanamahEan ean) throws Exception {
+		task.getLoteAtual().del(ean);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar movimentação de estoque para o lote
+	 *
+	 * @param estoqueMovimentacao estoqueMovimentacao
+	 * @throws IOException
+	 */
+	public void del(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
+		task.getLoteAtual().del(estoqueMovimentacao);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar evento de caixa para o lote
+	 *
+	 * @param eventoCaixa eventoCaixa
+	 * @throws IOException
+	 */
+	public void del(PanamahEventoCaixa eventoCaixa) throws Exception {
+		task.getLoteAtual().del(eventoCaixa);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar formaPagamento para o lote
+	 *
+	 * @param formaPagamento formaPagamento
+	 * @throws IOException
+	 */
+	public void del(PanamahFormaPagamento formaPagamento) throws Exception {
+		task.getLoteAtual().del(formaPagamento);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar fornecedor para o lote
+	 *
+	 * @param fornecedor fornecedor
+	 * @throws IOException
+	 */
+	public void del(PanamahFornecedor fornecedor) throws Exception {
+		task.getLoteAtual().del(fornecedor);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar funcionario para o lote
+	 *
+	 * @param funcionario funcionario
+	 * @throws IOException
+	 */
+	public void del(PanamahFuncionario funcionario) throws Exception {
+		task.getLoteAtual().del(funcionario);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar grupo para o lote
+	 *
+	 * @param grupo grupo
+	 * @throws IOException
+	 */
+	public void del(PanamahGrupo grupo) throws Exception {
+		task.getLoteAtual().del(grupo);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar holding para o lote
+	 *
+	 * @param holding holding
+	 * @throws IOException
+	 */
+	public void del(PanamahHolding holding) throws Exception {
+		task.getLoteAtual().del(holding);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar localEstoque para o lote
+	 *
+	 * @param localEstoque localEstoque
+	 * @throws IOException
+	 */
+	public void del(PanamahLocalEstoque localEstoque) throws Exception {
+		task.getLoteAtual().del(localEstoque);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar loja para o lote
+	 *
+	 * @param loja loja
+	 * @throws IOException
+	 */
+	public void del(PanamahLoja loja) throws Exception {
+		task.getLoteAtual().del(loja);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar meta para o lote
+	 *
+	 * @param meta meta
+	 * @throws IOException
+	 */
+	public void del(PanamahMeta meta) throws Exception {
+		task.getLoteAtual().del(meta);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar produto para o lote
+	 *
+	 * @param produto produto
+	 * @throws IOException
+	 */
+	public void del(PanamahProduto produto) throws Exception {
+		task.getLoteAtual().del(produto);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar revenda para o lote
+	 *
+	 * @param revenda revenda
+	 * @throws IOException
+	 */
+	public void del(PanamahRevenda revenda) throws Exception {
+		task.getLoteAtual().del(revenda);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar secao para o lote
+	 *
+	 * @param secao secao
+	 * @throws IOException
+	 */
+	public void del(PanamahSecao secao) throws Exception {
+		task.getLoteAtual().del(secao);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar subgrupo para o lote
+	 *
+	 * @param subgrupo subgrupo
+	 * @throws IOException
+	 */
+	public void del(PanamahSubgrupo subgrupo) throws Exception {
+		task.getLoteAtual().del(subgrupo);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar tituloPagar para o lote
+	 *
+	 * @param tituloPagar tituloPagar
+	 * @throws IOException
+	 */
+	public void del(PanamahTituloPagar tituloPagar) throws Exception {
+		task.getLoteAtual().del(tituloPagar);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar tituloReceber para o lote
+	 *
+	 * @param tituloReceber tituloReceber
+	 * @throws IOException
+	 */
+	public void del(PanamahTituloReceber tituloReceber) throws Exception {
+		task.getLoteAtual().del(tituloReceber);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar trocaDevolucao para o lote
+	 *
+	 * @param trocaDevolucao trocaDevolucao
+	 * @throws Exception
+	 */
+	public void del(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
+		task.getLoteAtual().del(trocaDevolucao);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar trocaFormaPagamento para o lote
+	 *
+	 * @param trocaFormaPagamento trocaFormaPagamento
+	 * @throws IOException
+	 */
+	public void del(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
+		task.getLoteAtual().del(trocaFormaPagamento);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
+
+	/**
+	 * enviar venda para o lote
+	 *
+	 * @param venda venda
+	 * @throws IOException
+	 */
+	public void del(PanamahVenda venda) throws Exception {
+		task.getLoteAtual().del(venda);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
