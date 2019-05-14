@@ -5,7 +5,7 @@ public class PanamahOperacao<T>{
 	private T data;
 
 	private PanamahTipoOperacao op;
-	private String tipoIdentificador;
+	private String tipo;
 
 	public T getData() {
 		return data;
@@ -23,12 +23,12 @@ public class PanamahOperacao<T>{
 		this.op = tipo;
 	}
 	
-	public String getTipoIdentificador() {
-		return tipoIdentificador;
+	public String getTipo() {
+		return tipo;
 	}
 	
-	public void setTipoIdentificador(String tipoIdentificador) {
-		this.tipoIdentificador = tipoIdentificador;
+	public void setTipo(String tipoIdentificador) {
+		this.tipo = tipoIdentificador;
 	}
 
 }

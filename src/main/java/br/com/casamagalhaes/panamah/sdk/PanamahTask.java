@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.TimerTask;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahCliente;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahFornecedor;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahLoja;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
@@ -169,13 +170,19 @@ public class PanamahTask extends TimerTask {
 		PanamahCliente cliente = new PanamahCliente();
 		cliente.setId(nfe.getInfNFe().getDest().getCpf());
 		cliente.setNome(nfe.getInfNFe().getDest().getxNome());
+		loteAtual.save(cliente);
+		
 		// Fornecedor
+//		PanamahFornecedor fornecedor = new PanamahFornecedor();
+//		fornecedor.setId(nfe.getInfNFe().g);
+		
 		// Produto
 		// Venda
 	}
 
 	private void processNFeProc(String s) throws Exception {
 		NFeProc proc = (NFeProc) PanamahUtil.buildXStream().fromXML(s);
+//		NFe nfe = 
 	}
 
 }
