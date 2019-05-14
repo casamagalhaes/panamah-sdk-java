@@ -547,5 +547,11 @@ public class BasePanamahTest {
 		p.flush();
 		assertTrue(true);
 	}
+	
+	public void shouldCreateAssinante() {
+		PanamahConfig config = new PanamahConfig();
+		
+	}
+	
 
 }

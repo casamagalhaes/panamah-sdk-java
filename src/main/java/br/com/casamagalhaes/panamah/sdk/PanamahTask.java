@@ -16,7 +16,6 @@ import java.util.Date;
 import java.util.TimerTask;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahCliente;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahFornecedor;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahLoja;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
