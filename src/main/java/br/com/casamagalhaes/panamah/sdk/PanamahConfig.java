@@ -72,6 +72,7 @@ public class PanamahConfig {
 		case "development":
 			c.addr = "http://127.0.0.1:7780";
 			c.auth.setAuthorizationToken(System.getenv("DEV_PANAMAH_AUTHORIZATION_TOKEN"));
+			
 			break;
 		case "staging":
 			c.addr = "https://panamah.io/api/v2";

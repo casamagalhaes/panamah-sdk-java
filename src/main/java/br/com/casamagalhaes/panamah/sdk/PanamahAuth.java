@@ -7,7 +7,7 @@ public class PanamahAuth {
 	private String accessToken;
 	private String refreshToken;
 	private String authorizationToken;
-	private PanamahAssinante assinante;
+	private PanamahAssinante assinante = new PanamahAssinante();
 	private long ts = System.currentTimeMillis();
 
 	public String getAccessToken() {

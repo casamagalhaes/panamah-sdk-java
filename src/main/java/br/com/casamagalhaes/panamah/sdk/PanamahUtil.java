@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 
+import br.com.casamagalhaes.panamah.sdk.model.PanamahAssinante;
 import br.com.casamagalhaes.panamah.sdk.nfe.CanonicalizationMethod;
 import br.com.casamagalhaes.panamah.sdk.nfe.Dest;
 import br.com.casamagalhaes.panamah.sdk.nfe.Det;
@@ -49,8 +50,9 @@ public class PanamahUtil {
 
 	// https://hc.apache.org/httpcomponents-client-ga/tutorial/html/fluent.html
 	public static String send(PanamahConfig config, PanamahLote lote) throws ClientProtocolException, IOException {
+		String req = buildGson().toJson(lote.getOperacoes());
 		String res = Request.Post(config.getAddr() + "/stream/data")//
-				.bodyString(buildGson().toJson(lote.getOperacoes()), ContentType.APPLICATION_JSON)//
+				.bodyString(req, ContentType.APPLICATION_JSON)//
 				.addHeader("x-api-key", config.getApiKey())//
 				.addHeader("x-api-access-token", config.getAuth().getAccessToken())//
 				.execute().returnContent().asString();
@@ -58,23 +60,28 @@ public class PanamahUtil {
 	}
 
 	public static void auth(PanamahConfig config) throws ClientProtocolException, IOException {
+		String req = buildGson().toJson(config.getAuth());
 		String res = Request.Post(config.getAddr() + "/stream/auth")//
-				.bodyString(buildGson().toJson(config.getAuth()), ContentType.APPLICATION_JSON)//
+				.bodyString(req, ContentType.APPLICATION_JSON)//
 				.execute().returnContent().asString();
 		PanamahAuth auth = buildGson().fromJson(res, PanamahAuth.class);
 		config.setAuth(auth);
 	}
 
-	public static PanamahConfig create(PanamahConfig config) throws ClientProtocolException, IOException {
-		String res = Request.Post(config.getAddr() + "/admin/assinante")//
-				.bodyString(buildGson().toJson(config.getAuth().getAssinante()), ContentType.APPLICATION_JSON)//
+	public static void createAssinante(PanamahConfig config) throws ClientProtocolException, IOException {
+		String req = buildGson().toJson(config.getAuth().getAssinante());
+		String res = Request.Post(config.getAddr() + "/admin/assinantes")//
+				.bodyString(req, ContentType.APPLICATION_JSON)//
 				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
 				.execute().returnContent().asString();
-		PanamahAuth auth = buildGson().fromJson(res, PanamahAuth.class);
-		config.setAuth(auth);
-		return config;
+		PanamahAssinante assinante = buildGson().fromJson(res, PanamahAssinante.class);
+		config.getAuth().setAssinante(assinante);
 	}
-
+	
+	public static void getAssinante(PanamahConfig config) throws ClientProtocolException, IOException {
+		
+	}
+	
 	public static XStream buildXStream() throws Exception {
 		XStream x = new XStream();
 		// NFeProc
