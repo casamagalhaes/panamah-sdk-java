@@ -2,50 +2,13 @@ package br.com.casamagalhaes.panamah.sdk;
 
 public class PanamahConfig {
 
-	private String basePath;
 	private String addr;
-	private long delay;
-	private long ttl;
+	private long delay = 5000;
+	private String basePath = ".";
+	private long ttl = 5 * 60 * 1000;;
 	private String apiKey = "xpto";
-	private String accessToken;
-	private String refreshToken;
-	private String authAddr;
-	private long maxBytes;
-	
+	private long maxBytes = 500 * 1024;
 	private PanamahAuth auth = new PanamahAuth();
-
-	public PanamahConfig() {
-		this(".");
-	}
-
-	public PanamahConfig(String basePath) {
-		this(basePath, 5000);
-	}
-
-	public PanamahConfig(String basePath, long delay) {
-		this(basePath, delay, 5 * 60 * 1000);
-	}
-
-	public PanamahConfig(String basePath, long delay, long ttl) {
-		this(basePath, delay, ttl, "http://127.0.0.1:7780/stream/data");
-	}
-
-	public PanamahConfig(String basePath, long delay, long ttl, String addr) {
-		this(basePath, delay, ttl, addr, "http://127.0.0.1:7780/stream/auth");
-	}
-
-	public PanamahConfig(String basePath, long delay, long ttl, String addr, String authAddr) {
-		this(basePath, delay, ttl, addr, authAddr, 500 * 1024);
-	}
-
-	public PanamahConfig(String basePath, long delay, long ttl, String addr, String authAddr, int maxBytes) {
-		this.basePath = basePath;
-		this.delay = delay;
-		this.ttl = ttl;
-		this.addr = addr;
-		this.authAddr = authAddr;
-		this.maxBytes = maxBytes;
-	}
 
 	public String getBasePath() {
 		return basePath;
@@ -87,30 +50,6 @@ public class PanamahConfig {
 		this.apiKey = apiKey;
 	}
 
-	public String getAccessToken() {
-		return accessToken;
-	}
-
-	public void setAccessToken(String accessToken) {
-		this.accessToken = accessToken;
-	}
-
-	public String getRefreshToken() {
-		return refreshToken;
-	}
-
-	public void setRefreshToken(String refreshToken) {
-		this.refreshToken = refreshToken;
-	}
-
-	public String getAuthAddr() {
-		return authAddr;
-	}
-
-	public void setAuthAddr(String authAddr) {
-		this.authAddr = authAddr;
-	}
-
 	public long getMaxBytes() {
 		return maxBytes;
 	}
@@ -122,8 +61,27 @@ public class PanamahConfig {
 	public PanamahAuth getAuth() {
 		return auth;
 	}
-	
+
 	public void setAuth(PanamahAuth auth) {
 		this.auth = auth;
+	}
+
+	public static PanamahConfig fromEnv(String env) {
+		PanamahConfig c = new PanamahConfig();
+		switch (env) {
+		case "development":
+			c.addr = "http://127.0.0.1:7780";
+			break;
+		case "staging":
+			c.addr = "https://panamah.io/api/v2";
+			break;
+		default: // production
+			c.basePath = System.getenv("PANAMAH_ENV_BASE_PATH");
+			c.delay = Long.parseLong(System.getenv("PANAMAH_ENV_DELAY"));
+			c.ttl = Long.parseLong(System.getenv("PANAMAH_ENV_TTL"));
+			c.addr = System.getenv("PANAMAH_ENV_ADDR");
+			break;
+		}
+		return c;
 	}
 }

@@ -38,7 +38,7 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 
 public class BasePanamahTest {
 
-	private PanamahConfig c = new PanamahConfig();
+	private PanamahConfig c = PanamahConfig.fromEnv("development");
 
 	private String r(String json) throws Exception {
 		StringWriter w = new StringWriter();
@@ -548,8 +548,11 @@ public class BasePanamahTest {
 		assertTrue(true);
 	}
 	
-	public void shouldCreateAssinante() {
-		PanamahConfig config = new PanamahConfig();
+	@Test
+	public void shouldSaveAssinanteAdmin() {
+		PanamahConfig config = PanamahConfig.fromEnv("staging");
+		PanamahAdmin.getInstance().saveAssinante(config);
+		System.out.println(config);
 		
 	}
 	

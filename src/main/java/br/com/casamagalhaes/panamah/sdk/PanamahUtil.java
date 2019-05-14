@@ -49,7 +49,7 @@ public class PanamahUtil {
 
 	// https://hc.apache.org/httpcomponents-client-ga/tutorial/html/fluent.html
 	public static String send(PanamahConfig config, PanamahLote lote) throws ClientProtocolException, IOException {
-		String res = Request.Post(config.getAddr())//
+		String res = Request.Post(config.getAddr() + "/stream/data")//
 				.bodyString(buildGson().toJson(lote.getOperacoes()), ContentType.APPLICATION_JSON)//
 				.addHeader("x-api-key", config.getApiKey())//
 				.addHeader("x-api-access-token", config.getAuth().getAccessToken())//
@@ -58,11 +58,15 @@ public class PanamahUtil {
 	}
 
 	public static void auth(PanamahConfig config) throws ClientProtocolException, IOException {
-		String res = Request.Post(config.getAuthAddr())//
+		String res = Request.Post(config.getAddr() + "/stream/auth")//
 				.bodyString(buildGson().toJson(config.getAuth()), ContentType.APPLICATION_JSON)//
 				.execute().returnContent().asString();
 		PanamahAuth auth = buildGson().fromJson(res, PanamahAuth.class);
 		config.setAuth(auth);
+	}
+
+	public static void create(PanamahConfig config) {
+
 	}
 
 	public static XStream buildXStream() throws Exception {
