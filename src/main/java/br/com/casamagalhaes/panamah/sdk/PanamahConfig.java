@@ -80,7 +80,7 @@ public class PanamahConfig {
 		default: // production
 			c.basePath = System.getenv("PANAMAH_ENV_BASE_PATH");
 			c.addr = System.getenv("PANAMAH_ENV_ADDR");
-			c.auth.setAuthorizationToken(System.getenv("HOM_PANAMAH_AUTHORIZATION_TOKEN"));
+			c.auth.setAuthorizationToken(System.getenv("PANAMAH_AUTHORIZATION_TOKEN"));
 			break;
 		}
 		return c;
