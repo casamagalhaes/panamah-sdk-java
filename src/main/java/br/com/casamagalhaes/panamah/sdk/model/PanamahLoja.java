@@ -1,218 +1,216 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahLoja {
+  public class PanamahLoja {
 
-	private Boolean ativa;
+      public PanamahLoja () {}
 
-	public Boolean getAtiva() {
-		return ativa;
-	}
+      public PanamahLoja (String id) { this.id = id; }
+      
+      
 
-	public void setAtiva(Boolean ativa) {
-		this.ativa = ativa;
-	}
+  private Boolean ativa;
 
-	private String id;
+  public Boolean getAtiva(){
+    return ativa;
+  }
 
-	public String getId() {
-		return id;
-	}
+  public void setAtiva(Boolean ativa){
+    this.ativa = ativa;
+  }
+  
+  private String id;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  public String getId(){
+    return id;
+  }
 
-	private String descricao;
+  public void setId(String id){
+    this.id = id;
+  }
+  
+  private String descricao;
 
-	public String getDescricao() {
-		return descricao;
-	}
+  public String getDescricao(){
+    return descricao;
+  }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+  public void setDescricao(String descricao){
+    this.descricao = descricao;
+  }
+  
+  private String numeroDocumento;
 
-	private String numeroDocumento;
+  public String getNumeroDocumento(){
+    return numeroDocumento;
+  }
 
-	public String getNumeroDocumento() {
-		return numeroDocumento;
-	}
+  public void setNumeroDocumento(String numeroDocumento){
+    this.numeroDocumento = numeroDocumento;
+  }
+  
+  private Boolean matriz;
 
-	public void setNumeroDocumento(String numeroDocumento) {
-		this.numeroDocumento = numeroDocumento;
-	}
+  public Boolean getMatriz(){
+    return matriz;
+  }
 
-	private Boolean matriz;
+  public void setMatriz(Boolean matriz){
+    this.matriz = matriz;
+  }
+  
+  private String holdingId;
 
-	public Boolean getMatriz() {
-		return matriz;
-	}
+  public String getHoldingId(){
+    return holdingId;
+  }
 
-	public void setMatriz(Boolean matriz) {
-		this.matriz = matriz;
-	}
+  public void setHoldingId(String holdingId){
+    this.holdingId = holdingId;
+  }
+  
+  private String ramo;
 
-	private String holdingId;
+  public String getRamo(){
+    return ramo;
+  }
 
-	public String getHoldingId() {
-		return holdingId;
-	}
+  public void setRamo(String ramo){
+    this.ramo = ramo;
+  }
+  
+  private String logradouro;
 
-	public void setHoldingId(String holdingId) {
-		this.holdingId = holdingId;
-	}
+  public String getLogradouro(){
+    return logradouro;
+  }
 
-	private String ramo;
+  public void setLogradouro(String logradouro){
+    this.logradouro = logradouro;
+  }
+  
+  private String numero;
 
-	public String getRamo() {
-		return ramo;
-	}
+  public String getNumero(){
+    return numero;
+  }
 
-	public void setRamo(String ramo) {
-		this.ramo = ramo;
-	}
+  public void setNumero(String numero){
+    this.numero = numero;
+  }
+  
+  private String uf;
 
-	private String logradouro;
+  public String getUf(){
+    return uf;
+  }
 
-	public String getLogradouro() {
-		return logradouro;
-	}
+  public void setUf(String uf){
+    this.uf = uf;
+  }
+  
+  private String cidade;
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
+  public String getCidade(){
+    return cidade;
+  }
 
-	private String numero;
+  public void setCidade(String cidade){
+    this.cidade = cidade;
+  }
+  
+  private String bairro;
 
-	public String getNumero() {
-		return numero;
-	}
+  public String getBairro(){
+    return bairro;
+  }
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+  public void setBairro(String bairro){
+    this.bairro = bairro;
+  }
+  
+  private String cep;
 
-	private String uf;
+  public String getCep(){
+    return cep;
+  }
 
-	public String getUf() {
-		return uf;
-	}
+  public void setCep(String cep){
+    this.cep = cep;
+  }
+  
+  private String distrito;
 
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
+  public String getDistrito(){
+    return distrito;
+  }
 
-	private String cidade;
+  public void setDistrito(String distrito){
+    this.distrito = distrito;
+  }
+  
+  private String complemento;
 
-	public String getCidade() {
-		return cidade;
-	}
+  public String getComplemento(){
+    return complemento;
+  }
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+  public void setComplemento(String complemento){
+    this.complemento = complemento;
+  }
+  
+  private String telefone;
 
-	private String bairro;
+  public String getTelefone(){
+    return telefone;
+  }
 
-	public String getBairro() {
-		return bairro;
-	}
+  public void setTelefone(String telefone){
+    this.telefone = telefone;
+  }
+  
+  private Double qtdCheckouts;
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
+  public Double getQtdCheckouts(){
+    return qtdCheckouts;
+  }
 
-	private String cep;
+  public void setQtdCheckouts(Double qtdCheckouts){
+    this.qtdCheckouts = qtdCheckouts;
+  }
+  
+  private Double areaM2;
 
-	public String getCep() {
-		return cep;
-	}
+  public Double getAreaM2(){
+    return areaM2;
+  }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
+  public void setAreaM2(Double areaM2){
+    this.areaM2 = areaM2;
+  }
+  
+  private Double qtdFuncionarios;
 
-	private String distrito;
+  public Double getQtdFuncionarios(){
+    return qtdFuncionarios;
+  }
 
-	public String getDistrito() {
-		return distrito;
-	}
+  public void setQtdFuncionarios(Double qtdFuncionarios){
+    this.qtdFuncionarios = qtdFuncionarios;
+  }
+  
 
-	public void setDistrito(String distrito) {
-		this.distrito = distrito;
-	}
-
-	private String complemento;
-
-	public String getComplemento() {
-		return complemento;
-	}
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
-	private String telefone;
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	private Double qtdCheckouts;
-
-	public Double getQtdCheckouts() {
-		return qtdCheckouts;
-	}
-
-	public void setQtdCheckouts(Double qtdCheckouts) {
-		this.qtdCheckouts = qtdCheckouts;
-	}
-
-	private Double areaM2;
-
-	public Double getAreaM2() {
-		return areaM2;
-	}
-
-	public void setAreaM2(Double areaM2) {
-		this.areaM2 = areaM2;
-	}
-
-	private Double qtdFuncionarios;
-
-	public Double getQtdFuncionarios() {
-		return qtdFuncionarios;
-	}
-
-	public void setQtdFuncionarios(Double qtdFuncionarios) {
-		this.qtdFuncionarios = qtdFuncionarios;
-	}
-
-	public void validate() throws Exception {
-		if (this.ativa == null)
-			throw new Exception("ativa não pode ser nulo!");
-		if (this.id == null)
-			throw new Exception("id não pode ser nulo!");
-		if (this.descricao == null)
-			throw new Exception("descricao não pode ser nulo!");
-		if (this.numeroDocumento == null)
-			throw new Exception("numeroDocumento não pode ser nulo!");
-		if (this.matriz == null)
-			throw new Exception("matriz não pode ser nulo!");
-		if (this.holdingId == null)
-			throw new Exception("holdingId não pode ser nulo!");
-		if (this.ramo == null)
-			throw new Exception("ramo não pode ser nulo!");
-		if (this.uf == null)
-			throw new Exception("uf não pode ser nulo!");
-		if (this.cidade == null)
-			throw new Exception("cidade não pode ser nulo!");
-		if (this.bairro == null)
-			throw new Exception("bairro não pode ser nulo!");
-	}
-}
+      public void validate() throws Exception {
+        if(this.ativa == null) throw new Exception("ativa não pode ser nulo!");
+	if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.descricao == null) throw new Exception("descricao não pode ser nulo!");
+	if(this.numeroDocumento == null) throw new Exception("numeroDocumento não pode ser nulo!");
+	if(this.matriz == null) throw new Exception("matriz não pode ser nulo!");
+	if(this.holdingId == null) throw new Exception("holdingId não pode ser nulo!");
+	if(this.ramo == null) throw new Exception("ramo não pode ser nulo!");
+	if(this.uf == null) throw new Exception("uf não pode ser nulo!");
+	if(this.cidade == null) throw new Exception("cidade não pode ser nulo!");
+	if(this.bairro == null) throw new Exception("bairro não pode ser nulo!");        
+      }
+  }
+  

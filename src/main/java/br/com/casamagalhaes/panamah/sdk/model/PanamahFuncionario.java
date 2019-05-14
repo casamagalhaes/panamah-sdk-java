@@ -2,6 +2,11 @@
   package br.com.casamagalhaes.panamah.sdk.model;
 
   public class PanamahFuncionario {
+
+      public PanamahFuncionario () {}
+
+      public PanamahFuncionario (String id) { this.id = id; }
+      
       
 
   private java.util.Date dataNascimento;

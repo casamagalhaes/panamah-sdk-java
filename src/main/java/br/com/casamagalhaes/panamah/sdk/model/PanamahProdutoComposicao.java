@@ -2,6 +2,9 @@
   package br.com.casamagalhaes.panamah.sdk.model;
 
   public class PanamahProdutoComposicao {
+
+      public PanamahProdutoComposicao () {}
+
       
 
     private java.util.List<PanamahProdutoComposicaoItens> itens;

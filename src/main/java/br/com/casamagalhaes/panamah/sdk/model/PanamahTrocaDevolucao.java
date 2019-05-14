@@ -1,128 +1,132 @@
 
-package br.com.casamagalhaes.panamah.sdk.model;
+  package br.com.casamagalhaes.panamah.sdk.model;
 
-public class PanamahTrocaDevolucao {
+  public class PanamahTrocaDevolucao {
 
-	private String autorizadorId;
+      public PanamahTrocaDevolucao () {}
 
-	public String getAutorizadorId() {
-		return autorizadorId;
-	}
+      public PanamahTrocaDevolucao (String id) { this.id = id; }
+      
+      
 
-	public void setAutorizadorId(String autorizadorId) {
-		this.autorizadorId = autorizadorId;
-	}
+  private String autorizadorId;
 
-	private java.util.Date data;
+  public String getAutorizadorId(){
+    return autorizadorId;
+  }
 
-	public java.util.Date getData() {
-		return data;
-	}
+  public void setAutorizadorId(String autorizadorId){
+    this.autorizadorId = autorizadorId;
+  }
+  
+  private java.util.Date data;
 
-	public void setData(java.util.Date data) {
-		this.data = data;
-	}
+  public java.util.Date getData(){
+    return data;
+  }
 
-	private String vendaId;
+  public void setData(java.util.Date data){
+    this.data = data;
+  }
+  
+  private String vendaId;
 
-	public String getVendaId() {
-		return vendaId;
-	}
+  public String getVendaId(){
+    return vendaId;
+  }
 
-	public void setVendaId(String vendaId) {
-		this.vendaId = vendaId;
-	}
+  public void setVendaId(String vendaId){
+    this.vendaId = vendaId;
+  }
+  
+  private String id;
 
-	private String id;
+  public String getId(){
+    return id;
+  }
 
-	public String getId() {
-		return id;
-	}
+  public void setId(String id){
+    this.id = id;
+  }
+  
+    private java.util.List<PanamahTrocaDevolucaoItens> itens;
+    
+    public java.util.List<PanamahTrocaDevolucaoItens> getItens(){ 
+      return itens;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setItens(java.util.List<PanamahTrocaDevolucaoItens> itens) {
+      this.itens = itens;
+    }
 
-	private java.util.List<PanamahTrocaDevolucaoItens> itens;
+    
+  private String lojaId;
 
-	public java.util.List<PanamahTrocaDevolucaoItens> getItens() {
-		return itens;
-	}
+  public String getLojaId(){
+    return lojaId;
+  }
 
-	public void setItens(java.util.List<PanamahTrocaDevolucaoItens> itens) {
-		this.itens = itens;
-	}
+  public void setLojaId(String lojaId){
+    this.lojaId = lojaId;
+  }
+  
+  private String numeroCaixa;
 
-	private String lojaId;
+  public String getNumeroCaixa(){
+    return numeroCaixa;
+  }
 
-	public String getLojaId() {
-		return lojaId;
-	}
+  public void setNumeroCaixa(String numeroCaixa){
+    this.numeroCaixa = numeroCaixa;
+  }
+  
+  private String operadorId;
 
-	public void setLojaId(String lojaId) {
-		this.lojaId = lojaId;
-	}
+  public String getOperadorId(){
+    return operadorId;
+  }
 
-	private String numeroCaixa;
+  public void setOperadorId(String operadorId){
+    this.operadorId = operadorId;
+  }
+  
+  private String sequencial;
 
-	public String getNumeroCaixa() {
-		return numeroCaixa;
-	}
+  public String getSequencial(){
+    return sequencial;
+  }
 
-	public void setNumeroCaixa(String numeroCaixa) {
-		this.numeroCaixa = numeroCaixa;
-	}
+  public void setSequencial(String sequencial){
+    this.sequencial = sequencial;
+  }
+  
+  private Double valor;
 
-	private String operadorId;
+  public Double getValor(){
+    return valor;
+  }
 
-	public String getOperadorId() {
-		return operadorId;
-	}
+  public void setValor(Double valor){
+    this.valor = valor;
+  }
+  
+  private String vendedorId;
 
-	public void setOperadorId(String operadorId) {
-		this.operadorId = operadorId;
-	}
+  public String getVendedorId(){
+    return vendedorId;
+  }
 
-	private String sequencial;
+  public void setVendedorId(String vendedorId){
+    this.vendedorId = vendedorId;
+  }
+  
 
-	public String getSequencial() {
-		return sequencial;
-	}
-
-	public void setSequencial(String sequencial) {
-		this.sequencial = sequencial;
-	}
-
-	private Double valor;
-
-	public Double getValor() {
-		return valor;
-	}
-
-	public void setValor(Double valor) {
-		this.valor = valor;
-	}
-
-	private String vendedorId;
-
-	public String getVendedorId() {
-		return vendedorId;
-	}
-
-	public void setVendedorId(String vendedorId) {
-		this.vendedorId = vendedorId;
-	}
-
-	public void validate() throws Exception {
-		if (this.data == null)
-			throw new Exception("data não pode ser nulo!");
-		if (this.id == null)
-			throw new Exception("id não pode ser nulo!");
-		if (this.itens == null)
-			throw new Exception("itens não pode ser nulo!");
-		if (this.lojaId == null)
-			throw new Exception("lojaId não pode ser nulo!");
-		if (this.valor == null)
-			throw new Exception("valor não pode ser nulo!");
-	}
-}
+      public void validate() throws Exception {
+        if(this.data == null) throw new Exception("data não pode ser nulo!");
+	if(this.id == null) throw new Exception("id não pode ser nulo!");
+	if(this.itens == null) throw new Exception("itens não pode ser nulo!");
+	if(this.lojaId == null) throw new Exception("lojaId não pode ser nulo!");
+	if(this.valor == null) throw new Exception("valor não pode ser nulo!");        
+      }
+  }
+  

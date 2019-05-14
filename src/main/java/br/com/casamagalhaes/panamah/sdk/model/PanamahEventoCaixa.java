@@ -2,6 +2,11 @@
   package br.com.casamagalhaes.panamah.sdk.model;
 
   public class PanamahEventoCaixa {
+
+      public PanamahEventoCaixa () {}
+
+      public PanamahEventoCaixa (String id) { this.id = id; }
+      
       
 
   private String id;

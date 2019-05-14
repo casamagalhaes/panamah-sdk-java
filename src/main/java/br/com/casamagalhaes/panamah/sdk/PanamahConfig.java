@@ -27,11 +27,11 @@ public class PanamahConfig {
 	}
 
 	public PanamahConfig(String basePath, long delay, long ttl) {
-		this(basePath, delay, ttl, "http://127.0.0.1:7780/record");
+		this(basePath, delay, ttl, "http://127.0.0.1:7780/stream/data");
 	}
 
 	public PanamahConfig(String basePath, long delay, long ttl, String addr) {
-		this(basePath, delay, ttl, addr, "http://127.0.0.1:7780/stream/login");
+		this(basePath, delay, ttl, addr, "http://127.0.0.1:7780/stream/auth");
 	}
 
 	public PanamahConfig(String basePath, long delay, long ttl, String addr, String authAddr) {

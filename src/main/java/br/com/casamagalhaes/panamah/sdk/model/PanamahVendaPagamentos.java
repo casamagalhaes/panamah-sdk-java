@@ -2,6 +2,10 @@
   package br.com.casamagalhaes.panamah.sdk.model;
 
   public class PanamahVendaPagamentos {
+
+      public PanamahVendaPagamentos () {}
+
+      
       
 
   private String formaPagamentoId;

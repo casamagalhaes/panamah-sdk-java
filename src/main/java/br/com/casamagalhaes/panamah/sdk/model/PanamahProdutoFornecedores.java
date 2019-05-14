@@ -2,6 +2,11 @@
   package br.com.casamagalhaes.panamah.sdk.model;
 
   public class PanamahProdutoFornecedores {
+
+      public PanamahProdutoFornecedores () {}
+
+      public PanamahProdutoFornecedores (String id) { this.id = id; }
+      
       
 
   private String id;

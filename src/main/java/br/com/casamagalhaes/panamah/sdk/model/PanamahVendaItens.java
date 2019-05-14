@@ -2,6 +2,9 @@
   package br.com.casamagalhaes.panamah.sdk.model;
 
   public class PanamahVendaItens {
+
+      public PanamahVendaItens () {}
+
       
 
   private Double acrescimo;

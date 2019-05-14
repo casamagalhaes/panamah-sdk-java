@@ -2,6 +2,10 @@
   package br.com.casamagalhaes.panamah.sdk.model;
 
   public class PanamahTituloReceberPagamentos {
+
+      public PanamahTituloReceberPagamentos () {}
+
+      
       
 
   private java.util.Date dataHora;

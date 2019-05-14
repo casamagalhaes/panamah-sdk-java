@@ -2,6 +2,10 @@
   package br.com.casamagalhaes.panamah.sdk.model;
 
   public class PanamahProdutoComposicaoItens {
+
+      public PanamahProdutoComposicaoItens () {}
+
+      
       
 
   private String produtoId;
