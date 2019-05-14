@@ -147,8 +147,17 @@ public class PanamahTask extends TimerTask {
 
 	}
 
+	private void processNFeProc(String s) throws Exception {
+		NFeProc proc = (NFeProc) PanamahUtil.buildXStream().fromXML(s);
+		proccessNFe(proc.getNfe());
+	}
+
 	private void processNFe(String s) throws Exception {
 		NFe nfe = (NFe) PanamahUtil.buildXStream().fromXML(s);
+		proccessNFe(nfe);
+	}
+
+	private void proccessNFe(NFe nfe) throws Exception {
 		// Loja a partir do emitente
 		PanamahLoja loja = new PanamahLoja();
 		loja.setId(nfe.getInfNFe().getEmit().getCnpj());
@@ -167,22 +176,25 @@ public class PanamahTask extends TimerTask {
 		loteAtual.save(loja);
 
 		// Cliente
-		PanamahCliente cliente = new PanamahCliente();
-		cliente.setId(nfe.getInfNFe().getDest().getCpf());
-		cliente.setNome(nfe.getInfNFe().getDest().getxNome());
-		loteAtual.save(cliente);
-		
+		if (nfe.getInfNFe().getDest() != null) {
+
+			PanamahCliente cliente = new PanamahCliente();
+			cliente.setId(nfe.getInfNFe().getDest().getCpf());
+			cliente.setNumeroDocumento(nfe.getInfNFe().getDest().getCpf());
+			cliente.setNome(nfe.getInfNFe().getDest().getxNome());
+			cliente.setRamo("");
+			cliente.setUf(nfe.getInfNFe().getDest().getEnderDest().getUf());
+			cliente.setCidade(nfe.getInfNFe().getDest().getEnderDest().getxMun());
+			cliente.setBairro(nfe.getInfNFe().getDest().getEnderDest().getxBairro());
+			loteAtual.save(cliente);
+		}
+
 		// Fornecedor
-//		PanamahFornecedor fornecedor = new PanamahFornecedor();
-//		fornecedor.setId(nfe.getInfNFe().g);
-		
+		// PanamahFornecedor fornecedor = new PanamahFornecedor();
+		// fornecedor.setId(nfe.getInfNFe().g);
+
 		// Produto
 		// Venda
-	}
-
-	private void processNFeProc(String s) throws Exception {
-		NFeProc proc = (NFeProc) PanamahUtil.buildXStream().fromXML(s);
-//		NFe nfe = 
 	}
 
 }
