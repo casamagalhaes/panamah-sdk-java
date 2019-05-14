@@ -117,6 +117,7 @@ public class PanamahUtil {
 		x.alias("evento", Evento.class);
 		x.useAttributeFor(InfEvento.class, "id");
 		x.aliasAttribute(InfEvento.class, "id", "Id");
+//		x.aliasField("detEvento", InfEvento.class,"detEvento");
 		x.registerConverter(new XStreamISODateConverter());
 		return x;
 	}

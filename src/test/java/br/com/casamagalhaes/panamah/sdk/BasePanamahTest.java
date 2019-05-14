@@ -302,7 +302,7 @@ public class BasePanamahTest {
 		p.flush();
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void shouldDelAcesso() throws Exception {
 		PanamahAcesso model = PanamahUtil.buildGson().fromJson(r("acesso"), PanamahAcesso.class);
@@ -522,6 +522,39 @@ public class BasePanamahTest {
 		PanamahVenda model = PanamahUtil.buildGson().fromJson(r("venda"), PanamahVenda.class);
 		PanamahStream p = PanamahStream.init(c);
 		p.del(model);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldReadNFeProc() throws Exception {
+		PanamahStream p = PanamahStream.init(c);
+		String path = "src/test/java/br/com/casamagalhaes/";
+		path += "panamah/sdk/resources/xml/";
+		path += "NFe13190507128945000132652340000000129000000104.xml";
+		p.readNFe(path);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldReadNFe() throws Exception {
+		PanamahStream p = PanamahStream.init(c);
+		String path = "src/test/java/br/com/casamagalhaes/";
+		path += "panamah/sdk/resources/xml/";
+		path += "NFe13190507128945000132655081000000901000000040.xml";
+		p.readNFe(path);
+		p.flush();
+		assertTrue(true);
+	}
+
+	@Test
+	public void shouldReadEvento() throws Exception {
+		PanamahStream p = PanamahStream.init(c);
+		String path = "src/test/java/br/com/casamagalhaes/";
+		path += "panamah/sdk/resources/xml/";
+		path += "ID1101111319050712894500013265508100000090100000004001.xml";
+		p.readNFe(path);
 		p.flush();
 		assertTrue(true);
 	}

@@ -805,4 +805,13 @@ public class PanamahStream {
 			task.verificaEnvio();
 		}
 	}
+	
+	public void readNFe(String filePath) throws Exception {
+		task.readNFe(filePath);
+		task.persisteLoteAtual();
+		if (task.isLoteAtualCheio()) {
+			task.fechaLoteAtual();
+			task.verificaEnvio();
+		}
+	}
 }

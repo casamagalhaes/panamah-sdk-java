@@ -10,9 +10,14 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Date;
 import java.util.TimerTask;
+
+import br.com.casamagalhaes.panamah.sdk.nfe.Evento;
+import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
+import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
 
 public class PanamahTask extends TimerTask {
 
@@ -127,6 +132,31 @@ public class PanamahTask extends TimerTask {
 	public boolean isLoteAtualCheio() {
 		int len = PanamahUtil.buildGson().toJson(loteAtual).getBytes().length;
 		return len >= config.getMaxBytes();
+	}
+
+	public void readNFe(String filePath) throws Exception {
+		String s = new String(Files.readAllBytes(Paths.get(filePath)));
+		if (s == null || "".equals(s))
+			throw new Exception("invalid filePath");
+		if (s.indexOf("nfeProc") > -1)
+			processNFeProc(s);
+		else if (s.indexOf("evento") > -1)
+			processEvento(s);
+		else if (s.indexOf("NFe") > -1)
+			processNFe(s);
+
+	}
+
+	private void processEvento(String s) throws Exception {
+		Evento ev = (Evento) PanamahUtil.buildXStream().fromXML(s);
+	}
+
+	private void processNFe(String s) throws Exception {
+		NFe nfe = (NFe) PanamahUtil.buildXStream().fromXML(s);
+	}
+
+	private void processNFeProc(String s) throws Exception {
+		NFeProc proc = (NFeProc) PanamahUtil.buildXStream().fromXML(s);
 	}
 
 }
