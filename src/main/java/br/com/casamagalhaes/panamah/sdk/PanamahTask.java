@@ -15,7 +15,8 @@ import java.nio.file.Paths;
 import java.util.Date;
 import java.util.TimerTask;
 
-import br.com.casamagalhaes.panamah.sdk.nfe.Evento;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahCliente;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahLoja;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
 
@@ -140,19 +141,37 @@ public class PanamahTask extends TimerTask {
 			throw new Exception("invalid filePath");
 		if (s.indexOf("nfeProc") > -1)
 			processNFeProc(s);
-		else if (s.indexOf("evento") > -1)
-			processEvento(s);
 		else if (s.indexOf("NFe") > -1)
 			processNFe(s);
 
 	}
 
-	private void processEvento(String s) throws Exception {
-		Evento ev = (Evento) PanamahUtil.buildXStream().fromXML(s);
-	}
-
 	private void processNFe(String s) throws Exception {
 		NFe nfe = (NFe) PanamahUtil.buildXStream().fromXML(s);
+		// Loja a partir do emitente
+		PanamahLoja loja = new PanamahLoja();
+		loja.setId(nfe.getInfNFe().getEmit().getCnpj());
+		loja.setNumeroDocumento(nfe.getInfNFe().getEmit().getCnpj());
+		loja.setDescricao(nfe.getInfNFe().getEmit().getxNome());
+		loja.setBairro(nfe.getInfNFe().getEmit().getEnderEmit().getxBairro());
+		loja.setCidade(nfe.getInfNFe().getEmit().getEnderEmit().getxMun());
+		loja.setUf(nfe.getInfNFe().getEmit().getEnderEmit().getUF());
+		loja.setLogradouro(nfe.getInfNFe().getEmit().getEnderEmit().getxLgr());
+		loja.setNumero("" + nfe.getInfNFe().getEmit().getEnderEmit().getNro());
+		loja.setComplemento(nfe.getInfNFe().getEmit().getEnderEmit().getxCpl());
+		loja.setAtiva(true);
+		loja.setMatriz(true);
+		loja.setHoldingId("");
+		loja.setRamo("");
+		loteAtual.save(loja);
+
+		// Cliente
+		PanamahCliente cliente = new PanamahCliente();
+		cliente.setId(nfe.getInfNFe().getDest().getCpf());
+		cliente.setNome(nfe.getInfNFe().getDest().getxNome());
+		// Fornecedor
+		// Produto
+		// Venda
 	}
 
 	private void processNFeProc(String s) throws Exception {

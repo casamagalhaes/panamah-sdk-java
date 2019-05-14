@@ -548,15 +548,4 @@ public class BasePanamahTest {
 		assertTrue(true);
 	}
 
-	@Test
-	public void shouldReadEvento() throws Exception {
-		PanamahStream p = PanamahStream.init(c);
-		String path = "src/test/java/br/com/casamagalhaes/";
-		path += "panamah/sdk/resources/xml/";
-		path += "ID1101111319050712894500013265508100000090100000004001.xml";
-		p.readNFe(path);
-		p.flush();
-		assertTrue(true);
-	}
-
 }

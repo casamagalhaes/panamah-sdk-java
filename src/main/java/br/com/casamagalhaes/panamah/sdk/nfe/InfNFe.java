@@ -8,6 +8,7 @@ public class InfNFe {
 	private String versao;
 	private Ide ide;
 	private Emit emit;
+	private Dest dest;
 	private List<Det> det;
 	private Total total;
 	private Transp transp;
@@ -43,6 +44,14 @@ public class InfNFe {
 
 	public void setEmit(Emit emit) {
 		this.emit = emit;
+	}
+	
+	public Dest getDest() {
+		return dest;
+	}
+	
+	public void setDest(Dest dest) {
+		this.dest = dest;
 	}
 
 	public List<Det> getDet() {

@@ -13,9 +13,11 @@ import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 
 import br.com.casamagalhaes.panamah.sdk.nfe.CanonicalizationMethod;
+import br.com.casamagalhaes.panamah.sdk.nfe.Dest;
 import br.com.casamagalhaes.panamah.sdk.nfe.Det;
 import br.com.casamagalhaes.panamah.sdk.nfe.DigestMethod;
 import br.com.casamagalhaes.panamah.sdk.nfe.Emit;
+import br.com.casamagalhaes.panamah.sdk.nfe.EnderDest;
 import br.com.casamagalhaes.panamah.sdk.nfe.Evento;
 import br.com.casamagalhaes.panamah.sdk.nfe.Icms;
 import br.com.casamagalhaes.panamah.sdk.nfe.IcmsSn102;
@@ -76,9 +78,13 @@ public class PanamahUtil {
 		x.aliasAttribute(InfNFe.class, "id", "Id");
 		x.useAttributeFor(InfNFe.class, "versao");
 		x.aliasField("CNPJ", Emit.class, "cnpj");
+		x.aliasField("CPF", Emit.class, "cpf");
 		x.aliasField("IE", Emit.class, "ie");
 		x.aliasField("IM", Emit.class, "im");
 		x.aliasField("CRT", Emit.class, "crt");
+		x.aliasField("CNPJ", Dest.class, "cnpj");
+		x.aliasField("CPF", Dest.class, "cpf");
+		x.aliasField("UF", EnderDest.class, "uf");
 		x.addImplicitCollection(InfNFe.class, "det");
 		x.alias("det", Det.class);
 		x.alias("prod", Prod.class);
