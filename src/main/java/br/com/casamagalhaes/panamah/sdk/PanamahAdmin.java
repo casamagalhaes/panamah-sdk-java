@@ -13,7 +13,7 @@ public class PanamahAdmin {
 		return instance;
 	}
 
-	public PanamahConfig saveAssinante(PanamahConfig config) {
+	public PanamahConfig createAssinante(PanamahConfig config) throws Exception {
 		PanamahUtil.create(config);
 		return config;
 	}

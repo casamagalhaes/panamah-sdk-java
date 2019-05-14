@@ -1,146 +1,156 @@
 
-  package br.com.casamagalhaes.panamah.sdk.model;
+package br.com.casamagalhaes.panamah.sdk.model;
 
-  public class PanamahAssinante {
+public class PanamahAssinante {
 
-      public PanamahAssinante () {}
+	public PanamahAssinante() {
+	}
 
-      public PanamahAssinante (String id) { this.id = id; }
-      
-      
+	public PanamahAssinante(String id) {
+		this.id = id;
+	}
 
-  private String id;
+	private String id;
 
-  public String getId(){
-    return id;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public void setId(String id){
-    this.id = id;
-  }
-  
-  private String nome;
+	public void setId(String id) {
+		this.id = id;
+	}
 
-  public String getNome(){
-    return nome;
-  }
+	private String nome;
 
-  public void setNome(String nome){
-    this.nome = nome;
-  }
-  
-  private String fantasia;
+	public String getNome() {
+		return nome;
+	}
 
-  public String getFantasia(){
-    return fantasia;
-  }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-  public void setFantasia(String fantasia){
-    this.fantasia = fantasia;
-  }
-  
-  private String ramo;
+	private String fantasia;
 
-  public String getRamo(){
-    return ramo;
-  }
+	public String getFantasia() {
+		return fantasia;
+	}
 
-  public void setRamo(String ramo){
-    this.ramo = ramo;
-  }
-  
-  private String uf;
+	public void setFantasia(String fantasia) {
+		this.fantasia = fantasia;
+	}
 
-  public String getUf(){
-    return uf;
-  }
+	private String ramo;
 
-  public void setUf(String uf){
-    this.uf = uf;
-  }
-  
-  private String cidade;
+	public String getRamo() {
+		return ramo;
+	}
 
-  public String getCidade(){
-    return cidade;
-  }
+	public void setRamo(String ramo) {
+		this.ramo = ramo;
+	}
 
-  public void setCidade(String cidade){
-    this.cidade = cidade;
-  }
-  
-  private String revendaId;
+	private String uf;
 
-  public String getRevendaId(){
-    return revendaId;
-  }
+	public String getUf() {
+		return uf;
+	}
 
-  public void setRevendaId(String revendaId){
-    this.revendaId = revendaId;
-  }
-  
-  private String bairro;
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
 
-  public String getBairro(){
-    return bairro;
-  }
+	private String cidade;
 
-  public void setBairro(String bairro){
-    this.bairro = bairro;
-  }
-  
-      private java.util.List<PanamahAssinanteSoftwaresAtivos> softwaresAtivos;
+	public String getCidade() {
+		return cidade;
+	}
 
-      public java.util.List<PanamahAssinanteSoftwaresAtivos> getSoftwaresAtivos(){ 
-        return softwaresAtivos;
-      }
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
 
-      public void setSoftwaresAtivos(java.util.List<PanamahAssinanteSoftwaresAtivos> softwaresAtivos) {
-        this.softwaresAtivos = softwaresAtivos;
-      }
-      
-      private java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> softwaresEmContratosDeManutencao;
+	private String revendaId;
 
-      public java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> getSoftwaresEmContratosDeManutencao(){ 
-        return softwaresEmContratosDeManutencao;
-      }
+	public String getRevendaId() {
+		return revendaId;
+	}
 
-      public void setSoftwaresEmContratosDeManutencao(java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> softwaresEmContratosDeManutencao) {
-        this.softwaresEmContratosDeManutencao = softwaresEmContratosDeManutencao;
-      }
-      
-      private java.util.List<String> series;
+	public void setRevendaId(String revendaId) {
+		this.revendaId = revendaId;
+	}
 
-      public java.util.List<String> getSeries(){ 
-        return series;
-      }
+	private String bairro;
 
-      public void setSeries(java.util.List<String> series) {
-        this.series = series;
-      }
-      
-  private Boolean ativo;
+	public String getBairro() {
+		return bairro;
+	}
 
-  public Boolean getAtivo(){
-    return ativo;
-  }
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
 
-  public void setAtivo(Boolean ativo){
-    this.ativo = ativo;
-  }
-  
+	private java.util.List<PanamahAssinanteSoftwaresAtivos> softwaresAtivos;
 
-      public void validate() throws Exception {
-        if(this.id == null) throw new Exception("id não pode ser nulo!");
-	if(this.nome == null) throw new Exception("nome não pode ser nulo!");
-	if(this.fantasia == null) throw new Exception("fantasia não pode ser nulo!");
-	if(this.ramo == null) throw new Exception("ramo não pode ser nulo!");
-	if(this.uf == null) throw new Exception("uf não pode ser nulo!");
-	if(this.cidade == null) throw new Exception("cidade não pode ser nulo!");
-	if(this.bairro == null) throw new Exception("bairro não pode ser nulo!");
-	if(this.softwaresAtivos == null) throw new Exception("softwaresAtivos não pode ser nulo!");
-	if(this.softwaresEmContratosDeManutencao == null) throw new Exception("softwaresEmContratosDeManutencao não pode ser nulo!");
-	if(this.ativo == null) throw new Exception("ativo não pode ser nulo!");        
-      }
-  }
-  
+	public java.util.List<PanamahAssinanteSoftwaresAtivos> getSoftwaresAtivos() {
+		return softwaresAtivos;
+	}
+
+	public void setSoftwaresAtivos(java.util.List<PanamahAssinanteSoftwaresAtivos> softwaresAtivos) {
+		this.softwaresAtivos = softwaresAtivos;
+	}
+
+	private java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> softwaresEmContratosDeManutencao;
+
+	public java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> getSoftwaresEmContratosDeManutencao() {
+		return softwaresEmContratosDeManutencao;
+	}
+
+	public void setSoftwaresEmContratosDeManutencao(
+			java.util.List<PanamahAssinanteSoftwaresEmContratosDeManutencao> softwaresEmContratosDeManutencao) {
+		this.softwaresEmContratosDeManutencao = softwaresEmContratosDeManutencao;
+	}
+
+	private java.util.List<String> series;
+
+	public java.util.List<String> getSeries() {
+		return series;
+	}
+
+	public void setSeries(java.util.List<String> series) {
+		this.series = series;
+	}
+
+	private Boolean ativo;
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
+	public void validate() throws Exception {
+		if (this.id == null)
+			throw new Exception("id não pode ser nulo!");
+		if (this.nome == null)
+			throw new Exception("nome não pode ser nulo!");
+		if (this.fantasia == null)
+			throw new Exception("fantasia não pode ser nulo!");
+		if (this.ramo == null)
+			throw new Exception("ramo não pode ser nulo!");
+		if (this.uf == null)
+			throw new Exception("uf não pode ser nulo!");
+		if (this.cidade == null)
+			throw new Exception("cidade não pode ser nulo!");
+		if (this.bairro == null)
+			throw new Exception("bairro não pode ser nulo!");
+		if (this.softwaresAtivos == null)
+			throw new Exception("softwaresAtivos não pode ser nulo!");
+		if (this.softwaresEmContratosDeManutencao == null)
+			throw new Exception("softwaresEmContratosDeManutencao não pode ser nulo!");
+		if (this.ativo == null)
+			throw new Exception("ativo não pode ser nulo!");
+	}
+}

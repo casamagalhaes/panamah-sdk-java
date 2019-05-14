@@ -547,14 +547,14 @@ public class BasePanamahTest {
 		p.flush();
 		assertTrue(true);
 	}
-	
+
 	@Test
-	public void shouldSaveAssinanteAdmin() {
+	public void shouldSaveAssinanteAdmin() throws Exception {
 		PanamahConfig config = PanamahConfig.fromEnv("staging");
-		PanamahAdmin.getInstance().saveAssinante(config);
-		System.out.println(config);
-		
+		PanamahAdmin.getInstance().createAssinante(config);
+
+		assertTrue(true);
+
 	}
-	
 
 }

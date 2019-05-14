@@ -71,15 +71,16 @@ public class PanamahConfig {
 		switch (env) {
 		case "development":
 			c.addr = "http://127.0.0.1:7780";
+			c.auth.setAuthorizationToken(System.getenv("DEV_PANAMAH_AUTHORIZATION_TOKEN"));
 			break;
 		case "staging":
 			c.addr = "https://panamah.io/api/v2";
+			c.auth.setAuthorizationToken(System.getenv("HOM_PANAMAH_AUTHORIZATION_TOKEN"));
 			break;
 		default: // production
 			c.basePath = System.getenv("PANAMAH_ENV_BASE_PATH");
-			c.delay = Long.parseLong(System.getenv("PANAMAH_ENV_DELAY"));
-			c.ttl = Long.parseLong(System.getenv("PANAMAH_ENV_TTL"));
 			c.addr = System.getenv("PANAMAH_ENV_ADDR");
+			c.auth.setAuthorizationToken(System.getenv("HOM_PANAMAH_AUTHORIZATION_TOKEN"));
 			break;
 		}
 		return c;

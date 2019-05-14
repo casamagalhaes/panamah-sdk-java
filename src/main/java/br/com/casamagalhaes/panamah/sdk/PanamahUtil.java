@@ -65,8 +65,14 @@ public class PanamahUtil {
 		config.setAuth(auth);
 	}
 
-	public static void create(PanamahConfig config) {
-
+	public static PanamahConfig create(PanamahConfig config) throws ClientProtocolException, IOException {
+		String res = Request.Post(config.getAddr() + "/admin/assinante")//
+				.bodyString(buildGson().toJson(config.getAuth().getAssinante()), ContentType.APPLICATION_JSON)//
+				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
+				.execute().returnContent().asString();
+		PanamahAuth auth = buildGson().fromJson(res, PanamahAuth.class);
+		config.setAuth(auth);
+		return config;
 	}
 
 	public static XStream buildXStream() throws Exception {

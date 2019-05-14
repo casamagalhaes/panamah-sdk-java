@@ -1,11 +1,13 @@
 package br.com.casamagalhaes.panamah.sdk;
 
+import br.com.casamagalhaes.panamah.sdk.model.PanamahAssinante;
+
 public class PanamahAuth {
 
 	private String accessToken;
 	private String refreshToken;
-	private String asinanteId;
-	private String key;
+	private String authorizationToken;
+	private PanamahAssinante assinante;
 	private long ts = System.currentTimeMillis();
 
 	public String getAccessToken() {
@@ -24,22 +26,23 @@ public class PanamahAuth {
 		this.refreshToken = refreshToken;
 	}
 
-	public String getAsinanteId() {
-		return asinanteId;
+	
+	public String getAuthorizationToken() {
+		return authorizationToken;
+	}
+	
+	public void setAuthorizationToken(String authorizationToken) {
+		this.authorizationToken = authorizationToken;
 	}
 
-	public void setAsinanteId(String asinanteId) {
-		this.asinanteId = asinanteId;
+	public PanamahAssinante getAssinante() {
+		return assinante;
 	}
-
-	public String getKey() {
-		return key;
+	
+	public void setAssinante(PanamahAssinante assinante) {
+		this.assinante = assinante;
 	}
-
-	public void setKey(String key) {
-		this.key = key;
-	}
-
+	
 	public long getTs() {
 		return ts;
 	}
