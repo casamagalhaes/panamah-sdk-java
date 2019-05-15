@@ -1,9 +1,11 @@
 package br.com.casamagalhaes.panamah.sdk;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.entity.ContentType;
@@ -53,18 +55,30 @@ public class PanamahUtil {
 		String req = buildGson().toJson(lote.getOperacoes());
 		String res = Request.Post(config.getAddr() + "/stream/data")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
-				.addHeader("x-api-key", config.getApiKey())//
-				.addHeader("x-api-access-token", config.getAuth().getAccessToken())//
+//				.addHeader("x-api-key", config.getAuth().getKey())//
+//				.addHeader("x-api-access-token", config.getAuth().getAccessToken())//
+				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
 				.execute().returnContent().asString();
 		return res;
 	}
 
-	public static void auth(PanamahConfig config) throws ClientProtocolException, IOException {
+	public static void auth(PanamahConfig config) throws ClientProtocolException, IOException, PanamahException {
 		String req = buildGson().toJson(config.getAuth());
-		String res = Request.Post(config.getAddr() + "/stream/auth")//
+
+		HttpResponse re = Request.Post(config.getAddr() + "/stream/auth")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
 				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
-				.execute().returnContent().asString();
+				.execute().returnResponse();
+
+		String res = null;
+		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+			re.getEntity().writeTo(baos);
+			res = baos.toString();
+		}
+		int status = re.getStatusLine().getStatusCode();
+		if (status >= 400)
+			throw new PanamahException(status, res);
+
 		PanamahAuth auth = buildGson().fromJson(res, PanamahAuth.class);
 		config.setAuth(auth);
 	}

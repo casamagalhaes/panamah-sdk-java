@@ -41,7 +41,7 @@ public class PanamahStream {
 	private Timer timer;
 	private PanamahTask task;
 
-	private PanamahStream(PanamahConfig config) throws FileNotFoundException, IOException {
+	private PanamahStream(PanamahConfig config) throws Exception {
 		PanamahUtil.auth(config);
 		timer = new Timer("PanamahStream", true);
 		task = new PanamahTask(config);
@@ -52,10 +52,9 @@ public class PanamahStream {
 	 * configuração inicial
 	 *
 	 * @return instância singleton
-	 * @throws IOException
-	 * @throws FileNotFoundException
+	 * @throws Exception 
 	 */
-	public synchronized static PanamahStream init(PanamahConfig config) throws FileNotFoundException, IOException {
+	public synchronized static PanamahStream init(PanamahConfig config) throws Exception {
 		if (instance == null) {
 			instance = new PanamahStream(config);
 		}

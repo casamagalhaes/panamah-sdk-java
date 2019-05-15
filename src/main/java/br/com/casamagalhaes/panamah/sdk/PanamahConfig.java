@@ -6,7 +6,6 @@ public class PanamahConfig {
 	private long delay = 5000;
 	private String basePath = ".";
 	private long ttl = 5 * 60 * 1000;;
-	private String apiKey = "xpto";
 	private long maxBytes = 500 * 1024;
 	private PanamahAuth auth = new PanamahAuth();
 
@@ -40,14 +39,6 @@ public class PanamahConfig {
 
 	public void setTtl(long maxAge) {
 		this.ttl = maxAge;
-	}
-
-	public String getApiKey() {
-		return apiKey;
-	}
-
-	public void setApiKey(String apiKey) {
-		this.apiKey = apiKey;
 	}
 
 	public long getMaxBytes() {
