@@ -138,7 +138,8 @@ public class XmlConversionTest {
 		p.getNfe().getSignature().getSignedInfo().getReference().getTransforms().getTransform().get(0)
 				.setAlgorithm("http://www.w3.org/2000/09/xmldsig#enveloped-signature");
 		p.getNfe().getSignature().getSignedInfo().getReference().setDigestMethod(new DigestMethod());
-		p.getNfe().getSignature().getSignedInfo().getReference().getDigestMethod().setAlgorithm("http://www.w3.org/2000/09/xmldsig#sha1");
+		p.getNfe().getSignature().getSignedInfo().getReference().getDigestMethod()
+				.setAlgorithm("http://www.w3.org/2000/09/xmldsig#sha1");
 		p.getNfe().getSignature().getSignedInfo().getReference().setDigestValue("asdfsgsdgds");
 		p.getNfe().getSignature().setSignatureValue("dsafsdsdfgadsfsadf");
 		p.getNfe().getSignature().setKeyInfo(new KeyInfo());
@@ -147,7 +148,7 @@ public class XmlConversionTest {
 		p.setProtNFe(new ProtNFe());
 		p.getProtNFe().setInfProt(new InfProt());
 		p.getProtNFe().getInfProt().setcStat(3);
-		
+
 		XStream x = PanamahUtil.buildXStream();
 		String xml = x.toXML(p);
 		assertNotNull(xml);
@@ -157,5 +158,67 @@ public class XmlConversionTest {
 	@Test
 	public void shouldReadNfe() throws Exception {
 
+		NFe n = new NFe();
+		n.setInfNFe(new InfNFe());
+		n.getInfNFe().setId("NFe13190507128945000132652340000000099000000079");
+		n.getInfNFe().setVersao("4.00");
+		n.getInfNFe().setIde(new Ide());
+		n.getInfNFe().getIde().setcDV(9);
+		n.getInfNFe().getIde().setcUF(13);
+		n.getInfNFe().setEmit(new Emit());
+		n.getInfNFe().getEmit().setCnpj("07128945000132");
+		n.getInfNFe().getEmit().setEnderEmit(new EnderEmit());
+		n.getInfNFe().getEmit().getEnderEmit().setUF("AM");
+		n.getInfNFe().getEmit().getEnderEmit().setCEP("69028302");
+		n.getInfNFe().getEmit().setCrt("1");
+		n.getInfNFe().setDet(new ArrayList<Det>());
+		n.getInfNFe().getDet().add(new Det());
+		n.getInfNFe().getDet().get(0).setnItem(1);
+		n.getInfNFe().getDet().add(new Det());
+		n.getInfNFe().getDet().get(1).setnItem(2);
+		n.getInfNFe().getDet().get(1).setProd(new Prod());
+		n.getInfNFe().getDet().get(1).getProd().setcEAN("SEM GTIN");
+		n.getInfNFe().getDet().get(1).setImposto(new Imposto());
+		n.getInfNFe().getDet().get(1).getImposto().setvTotTrib(1.2);
+		n.getInfNFe().getDet().get(1).getImposto().setIcms(new Icms());
+		n.getInfNFe().getDet().get(1).getImposto().getIcms().setIcmsSn102(new IcmsSn102());
+		n.getInfNFe().getDet().get(1).getImposto().getIcms().getIcmsSn102().setCsosn(1);
+		n.getInfNFe().getDet().get(1).getImposto().getIcms().getIcmsSn102().setOrig(1);
+		n.getInfNFe().setTotal(new Total());
+		n.getInfNFe().getTotal().setIcmsTot(new IcmsTot());
+		n.getInfNFe().getTotal().getIcmsTot().setvBCST(1.1);
+		n.getInfNFe().setTransp(new Transp());
+		n.getInfNFe().getTransp().setModFrete(1);
+		n.getInfNFe().setPag(new Pag());
+		n.getInfNFe().getPag().setvTroco(1.1);
+		n.getInfNFe().getPag().setDetPag(new DetPag());
+		n.getInfNFe().getPag().getDetPag().settPag("aaa");
+		n.getInfNFe().getPag().getDetPag().setvPag(1.1);
+		n.setInfNFeSupl(new InfNFeSupl());
+		n.getInfNFeSupl().setQrCode("");
+		n.setSignature(new Signature());
+		n.getSignature().setSignedInfo(new SignedInfo());
+		n.getSignature().getSignedInfo().setCanonicalizationMethod(new CanonicalizationMethod());
+		n.getSignature().getSignedInfo().setSignatureMethod(new SignatureMethod());
+		n.getSignature().getSignedInfo().setReference(new Reference());
+		n.getSignature().getSignedInfo().getReference().setUri("#NFe13190507128945000132652340000000099000000079");
+		n.getSignature().getSignedInfo().getReference().setTransforms(new Transforms());
+		n.getSignature().getSignedInfo().getReference().getTransforms().setTransform(new ArrayList<Transform>());
+		n.getSignature().getSignedInfo().getReference().getTransforms().getTransform().add(new Transform());
+		n.getSignature().getSignedInfo().getReference().getTransforms().getTransform().get(0)
+				.setAlgorithm("http://www.w3.org/2000/09/xmldsig#enveloped-signature");
+		n.getSignature().getSignedInfo().getReference().setDigestMethod(new DigestMethod());
+		n.getSignature().getSignedInfo().getReference().getDigestMethod()
+				.setAlgorithm("http://www.w3.org/2000/09/xmldsig#sha1");
+		n.getSignature().getSignedInfo().getReference().setDigestValue("asdfsgsdgds");
+		n.getSignature().setSignatureValue("dsafsdsdfgadsfsadf");
+		n.getSignature().setKeyInfo(new KeyInfo());
+		n.getSignature().getKeyInfo().setX509Data(new X509Data());
+		n.getSignature().getKeyInfo().getX509Data().setX509Certificate("ssdfgsgsdgsdg");
+
+		XStream x = PanamahUtil.buildXStream();
+		String xml = x.toXML(n);
+		assertNotNull(xml);
+//		System.out.println(xml);
 	}
 }
