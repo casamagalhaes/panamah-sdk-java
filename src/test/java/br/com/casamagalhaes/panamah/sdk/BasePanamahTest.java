@@ -567,5 +567,11 @@ public class BasePanamahTest {
 		PanamahAdmin.getInstance().retrieveAssinante(config,"00934509022");
 		assertNotNull(config.getAuth().getAssinante().getNome());
 	}
+	
+	@Test 
+	public void shouldLoginStream() throws Exception {
+		PanamahConfig config = PanamahConfig.fromEnv("staging");
+		PanamahUtil.auth(config);
+	}
 
 }

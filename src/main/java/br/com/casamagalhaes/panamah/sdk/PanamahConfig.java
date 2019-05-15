@@ -66,22 +66,28 @@ public class PanamahConfig {
 		this.auth = auth;
 	}
 
+	public static PanamahConfig fromEnv() {
+		return fromEnv(System.getenv("PANAMAH_ENV"));
+	}
+	
 	public static PanamahConfig fromEnv(String env) {
 		PanamahConfig c = new PanamahConfig();
 		switch (env) {
 		case "development":
 			c.addr = "http://127.0.0.1:7780";
 			c.auth.setAuthorizationToken(System.getenv("DEV_PANAMAH_AUTHORIZATION_TOKEN"));
-			
+			c.auth.setKey(System.getenv("DEV_PANAMAH_KEY"));
 			break;
 		case "staging":
 			c.addr = "https://panamah.io/api/v2";
 			c.auth.setAuthorizationToken(System.getenv("HOM_PANAMAH_AUTHORIZATION_TOKEN"));
+			c.auth.setKey(System.getenv("HOM_PANAMAH_KEY"));
 			break;
 		default: // production
 			c.basePath = System.getenv("PANAMAH_ENV_BASE_PATH");
 			c.addr = System.getenv("PANAMAH_ENV_ADDR");
 			c.auth.setAuthorizationToken(System.getenv("PANAMAH_AUTHORIZATION_TOKEN"));
+			c.auth.setKey(System.getenv("PANAMAH_KEY"));
 			break;
 		}
 		return c;

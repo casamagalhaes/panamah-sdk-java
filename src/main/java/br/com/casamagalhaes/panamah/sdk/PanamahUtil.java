@@ -63,6 +63,7 @@ public class PanamahUtil {
 		String req = buildGson().toJson(config.getAuth());
 		String res = Request.Post(config.getAddr() + "/stream/auth")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
+				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
 				.execute().returnContent().asString();
 		PanamahAuth auth = buildGson().fromJson(res, PanamahAuth.class);
 		config.setAuth(auth);

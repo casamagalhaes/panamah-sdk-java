@@ -4,12 +4,21 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahAssinante;
 
 public class PanamahAuth {
 
+	private String key;
 	private String accessToken;
 	private String refreshToken;
 	private String authorizationToken;
 	private PanamahAssinante assinante = new PanamahAssinante();
 	private long ts = System.currentTimeMillis();
 
+	public String getKey() {
+		return key;
+	}
+	
+	public void setKey(String key) {
+		this.key = key;
+	}
+	
 	public String getAccessToken() {
 		return accessToken;
 	}
