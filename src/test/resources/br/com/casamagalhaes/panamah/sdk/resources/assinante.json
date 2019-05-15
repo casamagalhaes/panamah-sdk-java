@@ -6,7 +6,7 @@
 	"uf":"teste",
 	"cidade":"teste",
 	"bairro":"teste",
-	"softwaresAtivos":["teste","teste"],
-	"softwaresEmContratosDeManutencao":["teste","teste"],
+	"softwaresAtivos":["MILENIO"],
+	"softwaresEmContratosDeManutencao":["MILENIO"],
 	"ativo":"false"
 }

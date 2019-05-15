@@ -2,8 +2,16 @@ package br.com.casamagalhaes.panamah.sdk;
 
 public class PanamahResponseAuth {
 
+	private String refreshToken;
 	private String accessToken;
-	private String authToken;
+
+	public String getRefreshToken() {
+		return refreshToken;
+	}
+
+	public void setRefreshToken(String refreshToken) {
+		this.refreshToken = refreshToken;
+	}
 
 	public String getAccessToken() {
 		return accessToken;
@@ -12,13 +20,4 @@ public class PanamahResponseAuth {
 	public void setAccessToken(String accessToken) {
 		this.accessToken = accessToken;
 	}
-
-	public String getAuthToken() {
-		return authToken;
-	}
-
-	public void setAuthToken(String authToken) {
-		this.authToken = authToken;
-	}
-
 }

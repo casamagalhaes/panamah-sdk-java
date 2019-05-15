@@ -53,6 +53,7 @@ public class PanamahUtil {
 	// https://hc.apache.org/httpcomponents-client-ga/tutorial/html/fluent.html
 	public static String send(PanamahConfig config, PanamahLote lote) throws ClientProtocolException, IOException, PanamahException {
 		String req = buildGson().toJson(lote.getOperacoes());
+		System.out.println(req);
 		HttpResponse re = Request.Post(config.getAddr() + "/stream/data")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
 				.addHeader("Authorization", config.getResponseAuth().getAccessToken())//
@@ -63,17 +64,17 @@ public class PanamahUtil {
 			res = baos.toString();
 		}
 		
+		System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status >= 400)
 			throw new PanamahException(status, res);
-		
 		return res;
 	}
 
 	public static void auth(PanamahConfig config) throws ClientProtocolException, IOException, PanamahException {
 		
 		String req = config.getAuth().buildAuth(); //buildGson().toJson(config.getAuth());
-
+		System.out.println(req);
 		HttpResponse re = Request.Post(config.getAddr() + "/stream/auth")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
 				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
@@ -85,6 +86,7 @@ public class PanamahUtil {
 			res = baos.toString();
 		}
 		
+		System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status >= 400)
 			throw new PanamahException(status, res);
@@ -93,13 +95,27 @@ public class PanamahUtil {
 		config.setResponseAuth(resAuth);
 	}
 
-	public static void createAssinante(PanamahConfig config) throws ClientProtocolException, IOException {
+	public static void createAssinante(PanamahConfig config) throws Exception {
 		String req = buildGson().toJson(config.getAuth().getAssinante());
-		String res = Request.Post(config.getAddr() + "/admin/assinantes")//
+		System.out.println(req);
+		HttpResponse re = Request.Post(config.getAddr() + "/admin/assinantes")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
 				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
-				.execute().returnContent().asString();
+				.execute().returnResponse();
+		
+		String res = null;
+		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+			re.getEntity().writeTo(baos);
+			res = baos.toString();
+		}
+		
+		System.out.println(res);
+		int status = re.getStatusLine().getStatusCode();
+		if (status >= 400)
+			throw new PanamahException(status, res);
+		
 		PanamahAssinante assinante = buildGson().fromJson(res, PanamahAssinante.class);
+		
 		config.getAuth().setAssinante(assinante);
 	}
 
@@ -108,6 +124,7 @@ public class PanamahUtil {
 		String res = Request.Get(config.getAddr() + "/admin/assinantes/" + assinanteId)//
 				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
 				.execute().returnContent().asString();
+		System.out.println(res);
 		PanamahAssinante assinante = buildGson().fromJson(res, PanamahAssinante.class);
 		config.getAuth().setAssinante(assinante);
 	}

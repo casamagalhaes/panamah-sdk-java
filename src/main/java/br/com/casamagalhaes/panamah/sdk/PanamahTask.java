@@ -196,4 +196,9 @@ public class PanamahTask extends TimerTask {
 		// Venda
 	}
 
+	public void deletaLoteAtual() throws Exception {
+		Files.delete(Paths.get(config.getBasePath(), "loteatual.json"));
+
+	}
+
 }

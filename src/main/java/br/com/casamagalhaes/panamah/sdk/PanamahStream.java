@@ -64,11 +64,18 @@ public class PanamahStream {
 	 * chamada para forçar o fechamento e envio do lote atual
 	 * 
 	 */
-	public void flush() throws Exception {
+	public void flush(boolean dispose) throws Exception {
 		task.fechaLoteAtual();
 		task.enviaLote();
 		timer.cancel();
 		PanamahStream.instance = null;
+		if(dispose) {
+			task.deletaLoteAtual();
+		}
+	}
+	
+	public void flush() throws Exception {
+		flush(false);
 	}
 
 	PanamahTask getTask() {
