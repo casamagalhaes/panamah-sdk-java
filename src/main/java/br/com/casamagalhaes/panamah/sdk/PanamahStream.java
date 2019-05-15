@@ -1,6 +1,5 @@
 package br.com.casamagalhaes.panamah.sdk;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Timer;
 
@@ -64,10 +63,8 @@ public class PanamahStream {
 	/**
 	 * chamada para forçar o fechamento e envio do lote atual
 	 * 
-	 * @throws IOException
-	 * @throws FileNotFoundException
 	 */
-	public void flush() throws FileNotFoundException, IOException {
+	public void flush() throws Exception {
 		task.fechaLoteAtual();
 		task.enviaLote();
 		timer.cancel();

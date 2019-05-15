@@ -35,6 +35,6 @@ Panamah panamah = Panamah.init(config);
 
 // envio dos modelos
 PanamahVenda venda = new PanamahVenda();
-panamah.send(venda);
+panamah.save(venda);
 ```
 

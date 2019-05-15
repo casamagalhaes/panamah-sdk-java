@@ -41,7 +41,7 @@ public class PanamahTask extends TimerTask {
 		}
 	}
 
-	public void verificaEnvio() throws IOException {
+	public void verificaEnvio() throws Exception {
 		if (new Date().getTime() > ultimoEnvio + config.getTtl()) {
 			enviaLote();
 		}
@@ -97,7 +97,7 @@ public class PanamahTask extends TimerTask {
 		}
 	}
 
-	public void enviaLote() throws IOException {
+	public void enviaLote() throws Exception {
 		// atualiza primeiro pra não ficar jogando erros o tempo todo
 		ultimoEnvio = new Date().getTime();
 		if (!Paths.get(config.getBasePath(), "lotes", "enviados").toFile().exists())

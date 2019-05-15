@@ -51,19 +51,28 @@ public class PanamahUtil {
 	}
 
 	// https://hc.apache.org/httpcomponents-client-ga/tutorial/html/fluent.html
-	public static String send(PanamahConfig config, PanamahLote lote) throws ClientProtocolException, IOException {
+	public static String send(PanamahConfig config, PanamahLote lote) throws ClientProtocolException, IOException, PanamahException {
 		String req = buildGson().toJson(lote.getOperacoes());
-		String res = Request.Post(config.getAddr() + "/stream/data")//
+		HttpResponse re = Request.Post(config.getAddr() + "/stream/data")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
-//				.addHeader("x-api-key", config.getAuth().getKey())//
-//				.addHeader("x-api-access-token", config.getAuth().getAccessToken())//
-				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
-				.execute().returnContent().asString();
+				.addHeader("Authorization", config.getResponseAuth().getAccessToken())//
+				.execute().returnResponse();
+		String res = null;
+		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+			re.getEntity().writeTo(baos);
+			res = baos.toString();
+		}
+		
+		int status = re.getStatusLine().getStatusCode();
+		if (status >= 400)
+			throw new PanamahException(status, res);
+		
 		return res;
 	}
 
 	public static void auth(PanamahConfig config) throws ClientProtocolException, IOException, PanamahException {
-		String req = buildGson().toJson(config.getAuth());
+		
+		String req = config.getAuth().buildAuth(); //buildGson().toJson(config.getAuth());
 
 		HttpResponse re = Request.Post(config.getAddr() + "/stream/auth")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
@@ -75,12 +84,13 @@ public class PanamahUtil {
 			re.getEntity().writeTo(baos);
 			res = baos.toString();
 		}
+		
 		int status = re.getStatusLine().getStatusCode();
 		if (status >= 400)
 			throw new PanamahException(status, res);
 
-		PanamahAuth auth = buildGson().fromJson(res, PanamahAuth.class);
-		config.setAuth(auth);
+		PanamahResponseAuth resAuth = buildGson().fromJson(res, PanamahResponseAuth.class);
+		config.setResponseAuth(resAuth);
 	}
 
 	public static void createAssinante(PanamahConfig config) throws ClientProtocolException, IOException {

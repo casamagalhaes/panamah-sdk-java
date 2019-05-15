@@ -539,7 +539,8 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldReadNFe() throws Exception {
-		PanamahStream p = PanamahStream.init(c);
+		PanamahConfig config = PanamahConfig.fromEnv("staging");
+		PanamahStream p = PanamahStream.init(config);
 		String path = "src/test/resources/br/com/casamagalhaes/";
 		path += "panamah/sdk/resources/xml/";
 		path += "NFe13190507128945000132655081000000901000000040.xml";
