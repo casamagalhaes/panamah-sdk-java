@@ -77,11 +77,16 @@ public class PanamahUtil {
 		PanamahAssinante assinante = buildGson().fromJson(res, PanamahAssinante.class);
 		config.getAuth().setAssinante(assinante);
 	}
-	
-	public static void getAssinante(PanamahConfig config) throws ClientProtocolException, IOException {
-		
+
+	public static void retrieveAssinante(PanamahConfig config, String assinanteId)
+			throws ClientProtocolException, IOException {
+		String res = Request.Get(config.getAddr() + "/admin/assinantes/" + assinanteId)//
+				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
+				.execute().returnContent().asString();
+		PanamahAssinante assinante = buildGson().fromJson(res, PanamahAssinante.class);
+		config.getAuth().setAssinante(assinante);
 	}
-	
+
 	public static XStream buildXStream() throws Exception {
 		XStream x = new XStream();
 		// NFeProc

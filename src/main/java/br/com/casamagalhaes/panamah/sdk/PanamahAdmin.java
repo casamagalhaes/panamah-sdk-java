@@ -16,4 +16,8 @@ public class PanamahAdmin {
 	public void createAssinante(PanamahConfig config) throws Exception {
 		PanamahUtil.createAssinante(config);
 	}
+
+	public void retrieveAssinante(PanamahConfig config, String assinanteId) throws Exception {
+		PanamahUtil.retrieveAssinante(config, assinanteId);
+	}
 }

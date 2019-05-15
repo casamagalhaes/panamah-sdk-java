@@ -548,18 +548,25 @@ public class BasePanamahTest {
 		assertTrue(true);
 	}
 
-//	@Test
-//	public void shouldSaveAssinanteTeste() throws Exception {
-//		PanamahConfig config = PanamahConfig.fromEnv("staging");
-//		config.getAuth().getAssinante().setId("00934509022");
-//		config.getAuth().getAssinante().setNome("teste assinante");
-//		config.getAuth().getAssinante().setFantasia("teste assinante");
-//		config.getAuth().getAssinante().setBairro("Benfica");
-//		config.getAuth().getAssinante().setCidade("Fortaleza");
-//		config.getAuth().getAssinante().setRamo("");
-//		config.getAuth().getAssinante().setUf("CE");
-//		PanamahAdmin.getInstance().createAssinante(config);
-//		assertTrue(true);
-//	}
+	@Test
+	public void shouldSaveAssinanteTeste() throws Exception {
+		PanamahConfig config = PanamahConfig.fromEnv("staging");
+		config.getAuth().getAssinante().setId("00934509022");
+		config.getAuth().getAssinante().setNome("teste assinante");
+		config.getAuth().getAssinante().setFantasia("teste assinante");
+		config.getAuth().getAssinante().setBairro("Benfica");
+		config.getAuth().getAssinante().setCidade("Fortaleza");
+		config.getAuth().getAssinante().setRamo("");
+		config.getAuth().getAssinante().setUf("CE");
+		PanamahAdmin.getInstance().createAssinante(config);
+		assertTrue(true);
+	}
+	
+	@Test 
+	public void shouldGetAssinanteTeste() throws Exception {
+		PanamahConfig config = PanamahConfig.fromEnv("staging");
+		PanamahAdmin.getInstance().retrieveAssinante(config,"00934509022");
+		assertNotNull(config.getAuth().getAssinante().getNome());
+	}
 
 }
