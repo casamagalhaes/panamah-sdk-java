@@ -39,7 +39,9 @@ public class PanamahStream {
 	private static PanamahStream instance;
 	private Timer timer;
 	private PanamahTask task;
-
+	private PanamahListener onSave;
+	private PanamahListener onDel;
+	
 	private PanamahStream(PanamahConfig config) throws Exception {
 		PanamahUtil.auth(config);
 		timer = new Timer("PanamahStream", true);
@@ -47,12 +49,6 @@ public class PanamahStream {
 		timer.schedule(task, config.getDelay());
 	}
 
-	/**
-	 * configuração inicial
-	 *
-	 * @return instância singleton
-	 * @throws Exception 
-	 */
 	public synchronized static PanamahStream init(PanamahConfig config) throws Exception {
 		if (instance == null) {
 			instance = new PanamahStream(config);
@@ -60,43 +56,63 @@ public class PanamahStream {
 		return instance;
 	}
 
-	/**
-	 * chamada para forçar o fechamento e envio do lote atual
-	 * 
-	 */
 	public void flush(boolean dispose) throws Exception {
 		task.fechaLoteAtual();
 		task.enviaLote();
 		timer.cancel();
 		PanamahStream.instance = null;
-		if(dispose) {
+		if (dispose) {
 			task.deletaLoteAtual();
 		}
 	}
-	
+
 	public void flush() throws Exception {
 		flush(false);
 	}
 
-	PanamahTask getTask() {
+	public PanamahTask getTask() {
 		return this.task;
 	}
 
-	/**
-	 * chamada para saber o status geral dos lotes
-	 */
 	public void progress() {
 
 	}
 
+	public PanamahListener getOnSave() {
+		return onSave;
+	}
+
+	public void setOnSave(PanamahListener onSave) {
+		this.onSave = onSave;
+	}
+
+	public PanamahListener getOnDel() {
+		return onDel;
+	}
+
+	public void setOnDel(PanamahListener onDel) {
+		this.onDel = onDel;
+	}
+
 	/**
 	 * enviar acesso para o lote
 	 *
 	 * @param acesso acesso
 	 * @throws IOException
 	 */
-	public void save(PanamahAcesso acesso) throws Exception {
-		task.getLoteAtual().save(acesso);
+	public void save(PanamahAcesso model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
+			op.setData(model);
+			op.setTipo("ACESSO");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -110,8 +126,19 @@ public class PanamahStream {
 	 * @param assinante assinante
 	 * @throws IOException
 	 */
-	public void save(PanamahAssinante assinante) throws Exception {
-		task.getLoteAtual().save(assinante);
+	public void save(PanamahAssinante model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahAssinante> op = new PanamahOperacao<PanamahAssinante>();
+			op.setData(model);
+			op.setTipo("ASSINANTE");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -125,8 +152,19 @@ public class PanamahStream {
 	 * @param cliente cliente
 	 * @throws IOException
 	 */
-	public void save(PanamahCliente cliente) throws Exception {
-		task.getLoteAtual().save(cliente);
+	public void save(PanamahCliente model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahCliente> op = new PanamahOperacao<PanamahCliente>();
+			op.setData(model);
+			op.setTipo("CLIENTE");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -140,8 +178,19 @@ public class PanamahStream {
 	 * @param compra compra
 	 * @throws IOException
 	 */
-	public void save(PanamahCompra compra) throws Exception {
-		task.getLoteAtual().save(compra);
+	public void save(PanamahCompra model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahCompra> op = new PanamahOperacao<PanamahCompra>();
+			op.setData(model);
+			op.setTipo("COMPRA");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -155,8 +204,19 @@ public class PanamahStream {
 	 * @param ean ean
 	 * @throws IOException
 	 */
-	public void save(PanamahEan ean) throws Exception {
-		task.getLoteAtual().save(ean);
+	public void save(PanamahEan model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahEan> op = new PanamahOperacao<PanamahEan>();
+			op.setData(model);
+			op.setTipo("EAN");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -170,8 +230,19 @@ public class PanamahStream {
 	 * @param estoqueMovimentacao estoqueMovimentacao
 	 * @throws IOException
 	 */
-	public void save(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
-		task.getLoteAtual().save(estoqueMovimentacao);
+	public void save(PanamahEstoqueMovimentacao model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahEstoqueMovimentacao> op = new PanamahOperacao<PanamahEstoqueMovimentacao>();
+			op.setData(model);
+			op.setTipo("ESTOQUE_MOVIMENTACAO");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -185,8 +256,19 @@ public class PanamahStream {
 	 * @param eventoCaixa eventoCaixa
 	 * @throws IOException
 	 */
-	public void save(PanamahEventoCaixa eventoCaixa) throws Exception {
-		task.getLoteAtual().save(eventoCaixa);
+	public void save(PanamahEventoCaixa model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahEventoCaixa> op = new PanamahOperacao<PanamahEventoCaixa>();
+			op.setData(model);
+			op.setTipo("EVENTO_CAIXA");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -200,8 +282,19 @@ public class PanamahStream {
 	 * @param formaPagamento formaPagamento
 	 * @throws IOException
 	 */
-	public void save(PanamahFormaPagamento formaPagamento) throws Exception {
-		task.getLoteAtual().save(formaPagamento);
+	public void save(PanamahFormaPagamento model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahFormaPagamento> op = new PanamahOperacao<PanamahFormaPagamento>();
+			op.setData(model);
+			op.setTipo("FORMA_PAGAMENTO");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -215,8 +308,19 @@ public class PanamahStream {
 	 * @param fornecedor fornecedor
 	 * @throws IOException
 	 */
-	public void save(PanamahFornecedor fornecedor) throws Exception {
-		task.getLoteAtual().save(fornecedor);
+	public void save(PanamahFornecedor model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahFornecedor> op = new PanamahOperacao<PanamahFornecedor>();
+			op.setData(model);
+			op.setTipo("FORNECEDOR");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -230,8 +334,19 @@ public class PanamahStream {
 	 * @param funcionario funcionario
 	 * @throws IOException
 	 */
-	public void save(PanamahFuncionario funcionario) throws Exception {
-		task.getLoteAtual().save(funcionario);
+	public void save(PanamahFuncionario model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahFuncionario> op = new PanamahOperacao<PanamahFuncionario>();
+			op.setData(model);
+			op.setTipo("FUNCIONARIO");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -245,8 +360,19 @@ public class PanamahStream {
 	 * @param grupo grupo
 	 * @throws IOException
 	 */
-	public void save(PanamahGrupo grupo) throws Exception {
-		task.getLoteAtual().save(grupo);
+	public void save(PanamahGrupo model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahGrupo> op = new PanamahOperacao<PanamahGrupo>();
+			op.setData(model);
+			op.setTipo("GRUPO");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -260,8 +386,19 @@ public class PanamahStream {
 	 * @param holding holding
 	 * @throws IOException
 	 */
-	public void save(PanamahHolding holding) throws Exception {
-		task.getLoteAtual().save(holding);
+	public void save(PanamahHolding model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahHolding> op = new PanamahOperacao<PanamahHolding>();
+			op.setData(model);
+			op.setTipo("HOLDING");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -275,8 +412,19 @@ public class PanamahStream {
 	 * @param localEstoque localEstoque
 	 * @throws IOException
 	 */
-	public void save(PanamahLocalEstoque localEstoque) throws Exception {
-		task.getLoteAtual().save(localEstoque);
+	public void save(PanamahLocalEstoque model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahLocalEstoque> op = new PanamahOperacao<PanamahLocalEstoque>();
+			op.setData(model);
+			op.setTipo("LOCAL_ESTOQUE");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -290,8 +438,19 @@ public class PanamahStream {
 	 * @param loja loja
 	 * @throws IOException
 	 */
-	public void save(PanamahLoja loja) throws Exception {
-		task.getLoteAtual().save(loja);
+	public void save(PanamahLoja model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahLoja> op = new PanamahOperacao<PanamahLoja>();
+			op.setData(model);
+			op.setTipo("LOJA");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -305,8 +464,19 @@ public class PanamahStream {
 	 * @param meta meta
 	 * @throws IOException
 	 */
-	public void save(PanamahMeta meta) throws Exception {
-		task.getLoteAtual().save(meta);
+	public void save(PanamahMeta model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahMeta> op = new PanamahOperacao<PanamahMeta>();
+			op.setData(model);
+			op.setTipo("META");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -320,8 +490,19 @@ public class PanamahStream {
 	 * @param produto produto
 	 * @throws IOException
 	 */
-	public void save(PanamahProduto produto) throws Exception {
-		task.getLoteAtual().save(produto);
+	public void save(PanamahProduto model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahProduto> op = new PanamahOperacao<PanamahProduto>();
+			op.setData(model);
+			op.setTipo("PRODUTO");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -335,8 +516,19 @@ public class PanamahStream {
 	 * @param revenda revenda
 	 * @throws IOException
 	 */
-	public void save(PanamahRevenda revenda) throws Exception {
-		task.getLoteAtual().save(revenda);
+	public void save(PanamahRevenda model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahRevenda> op = new PanamahOperacao<PanamahRevenda>();
+			op.setData(model);
+			op.setTipo("REVENDA");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -350,8 +542,19 @@ public class PanamahStream {
 	 * @param secao secao
 	 * @throws IOException
 	 */
-	public void save(PanamahSecao secao) throws Exception {
-		task.getLoteAtual().save(secao);
+	public void save(PanamahSecao model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahSecao> op = new PanamahOperacao<PanamahSecao>();
+			op.setData(model);
+			op.setTipo("SECAO");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -365,8 +568,19 @@ public class PanamahStream {
 	 * @param subgrupo subgrupo
 	 * @throws IOException
 	 */
-	public void save(PanamahSubgrupo subgrupo) throws Exception {
-		task.getLoteAtual().save(subgrupo);
+	public void save(PanamahSubgrupo model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahSubgrupo> op = new PanamahOperacao<PanamahSubgrupo>();
+			op.setData(model);
+			op.setTipo("SUBGRUPO");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -380,8 +594,19 @@ public class PanamahStream {
 	 * @param tituloPagar tituloPagar
 	 * @throws IOException
 	 */
-	public void save(PanamahTituloPagar tituloPagar) throws Exception {
-		task.getLoteAtual().save(tituloPagar);
+	public void save(PanamahTituloPagar model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahTituloPagar> op = new PanamahOperacao<PanamahTituloPagar>();
+			op.setData(model);
+			op.setTipo("TITULO_PAGAR");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -395,8 +620,19 @@ public class PanamahStream {
 	 * @param tituloReceber tituloReceber
 	 * @throws IOException
 	 */
-	public void save(PanamahTituloReceber tituloReceber) throws Exception {
-		task.getLoteAtual().save(tituloReceber);
+	public void save(PanamahTituloReceber model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahTituloReceber> op = new PanamahOperacao<PanamahTituloReceber>();
+			op.setData(model);
+			op.setTipo("TITULO_RECEBER");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -410,8 +646,19 @@ public class PanamahStream {
 	 * @param trocaDevolucao trocaDevolucao
 	 * @throws Exception
 	 */
-	public void save(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
-		task.getLoteAtual().save(trocaDevolucao);
+	public void save(PanamahTrocaDevolucao model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahTrocaDevolucao> op = new PanamahOperacao<PanamahTrocaDevolucao>();
+			op.setData(model);
+			op.setTipo("TROCA_DEVOLUCAO");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -425,8 +672,19 @@ public class PanamahStream {
 	 * @param trocaFormaPagamento trocaFormaPagamento
 	 * @throws IOException
 	 */
-	public void save(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
-		task.getLoteAtual().save(trocaFormaPagamento);
+	public void save(PanamahTrocaFormaPagamento model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahTrocaFormaPagamento> op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
+			op.setData(model);
+			op.setTipo("TROCA_FORMA_PAGAMENTO");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -440,8 +698,19 @@ public class PanamahStream {
 	 * @param venda venda
 	 * @throws IOException
 	 */
-	public void save(PanamahVenda venda) throws Exception {
-		task.getLoteAtual().save(venda);
+	public void save(PanamahVenda model) throws Exception {
+		PanamahEvent ev = null;
+		if (onSave != null) {
+			PanamahOperacao<PanamahVenda> op = new PanamahOperacao<PanamahVenda>();
+			op.setData(model);
+			op.setTipo("venda");
+			op.setOp(PanamahTipoOperacao.UPDATE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onSave.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -455,8 +724,19 @@ public class PanamahStream {
 	 * @param acesso acesso
 	 * @throws IOException
 	 */
-	public void del(PanamahAcesso acesso) throws Exception {
-		task.getLoteAtual().del(acesso);
+	public void del(PanamahAcesso model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
+			op.setData(model);
+			op.setTipo("ACESSO");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -470,8 +750,19 @@ public class PanamahStream {
 	 * @param assinante assinante
 	 * @throws IOException
 	 */
-	public void del(PanamahAssinante assinante) throws Exception {
-		task.getLoteAtual().del(assinante);
+	public void del(PanamahAssinante model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahAssinante> op = new PanamahOperacao<PanamahAssinante>();
+			op.setData(model);
+			op.setTipo("ASSINANTE");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -485,8 +776,19 @@ public class PanamahStream {
 	 * @param cliente cliente
 	 * @throws IOException
 	 */
-	public void del(PanamahCliente cliente) throws Exception {
-		task.getLoteAtual().del(cliente);
+	public void del(PanamahCliente model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahCliente> op = new PanamahOperacao<PanamahCliente>();
+			op.setData(model);
+			op.setTipo("CLIENTE");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -500,8 +802,19 @@ public class PanamahStream {
 	 * @param compra compra
 	 * @throws IOException
 	 */
-	public void del(PanamahCompra compra) throws Exception {
-		task.getLoteAtual().del(compra);
+	public void del(PanamahCompra model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahCompra> op = new PanamahOperacao<PanamahCompra>();
+			op.setData(model);
+			op.setTipo("COMPRA");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -515,8 +828,19 @@ public class PanamahStream {
 	 * @param ean ean
 	 * @throws IOException
 	 */
-	public void del(PanamahEan ean) throws Exception {
-		task.getLoteAtual().del(ean);
+	public void del(PanamahEan model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahEan> op = new PanamahOperacao<PanamahEan>();
+			op.setData(model);
+			op.setTipo("EAN");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -530,8 +854,19 @@ public class PanamahStream {
 	 * @param estoqueMovimentacao estoqueMovimentacao
 	 * @throws IOException
 	 */
-	public void del(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
-		task.getLoteAtual().del(estoqueMovimentacao);
+	public void del(PanamahEstoqueMovimentacao model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahEstoqueMovimentacao> op = new PanamahOperacao<PanamahEstoqueMovimentacao>();
+			op.setData(model);
+			op.setTipo("ESTOQUE_MOVIMENTACAO");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -545,8 +880,19 @@ public class PanamahStream {
 	 * @param eventoCaixa eventoCaixa
 	 * @throws IOException
 	 */
-	public void del(PanamahEventoCaixa eventoCaixa) throws Exception {
-		task.getLoteAtual().del(eventoCaixa);
+	public void del(PanamahEventoCaixa model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahEventoCaixa> op = new PanamahOperacao<PanamahEventoCaixa>();
+			op.setData(model);
+			op.setTipo("EVENTO_CAIXA");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -560,8 +906,19 @@ public class PanamahStream {
 	 * @param formaPagamento formaPagamento
 	 * @throws IOException
 	 */
-	public void del(PanamahFormaPagamento formaPagamento) throws Exception {
-		task.getLoteAtual().del(formaPagamento);
+	public void del(PanamahFormaPagamento model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahFormaPagamento> op = new PanamahOperacao<PanamahFormaPagamento>();
+			op.setData(model);
+			op.setTipo("FORMA_PAGAMENTO");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -575,8 +932,19 @@ public class PanamahStream {
 	 * @param fornecedor fornecedor
 	 * @throws IOException
 	 */
-	public void del(PanamahFornecedor fornecedor) throws Exception {
-		task.getLoteAtual().del(fornecedor);
+	public void del(PanamahFornecedor model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahFornecedor> op = new PanamahOperacao<PanamahFornecedor>();
+			op.setData(model);
+			op.setTipo("FORNECEDOR");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -590,8 +958,19 @@ public class PanamahStream {
 	 * @param funcionario funcionario
 	 * @throws IOException
 	 */
-	public void del(PanamahFuncionario funcionario) throws Exception {
-		task.getLoteAtual().del(funcionario);
+	public void del(PanamahFuncionario model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahFuncionario> op = new PanamahOperacao<PanamahFuncionario>();
+			op.setData(model);
+			op.setTipo("FUNCIONARIO");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -605,8 +984,19 @@ public class PanamahStream {
 	 * @param grupo grupo
 	 * @throws IOException
 	 */
-	public void del(PanamahGrupo grupo) throws Exception {
-		task.getLoteAtual().del(grupo);
+	public void del(PanamahGrupo model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahGrupo> op = new PanamahOperacao<PanamahGrupo>();
+			op.setData(model);
+			op.setTipo("GRUPO");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -620,8 +1010,19 @@ public class PanamahStream {
 	 * @param holding holding
 	 * @throws IOException
 	 */
-	public void del(PanamahHolding holding) throws Exception {
-		task.getLoteAtual().del(holding);
+	public void del(PanamahHolding model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahHolding> op = new PanamahOperacao<PanamahHolding>();
+			op.setData(model);
+			op.setTipo("HOLDING");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -635,8 +1036,19 @@ public class PanamahStream {
 	 * @param localEstoque localEstoque
 	 * @throws IOException
 	 */
-	public void del(PanamahLocalEstoque localEstoque) throws Exception {
-		task.getLoteAtual().del(localEstoque);
+	public void del(PanamahLocalEstoque model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahLocalEstoque> op = new PanamahOperacao<PanamahLocalEstoque>();
+			op.setData(model);
+			op.setTipo("LOCAL_ESTOQUE");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -650,8 +1062,19 @@ public class PanamahStream {
 	 * @param loja loja
 	 * @throws IOException
 	 */
-	public void del(PanamahLoja loja) throws Exception {
-		task.getLoteAtual().del(loja);
+	public void del(PanamahLoja model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahLoja> op = new PanamahOperacao<PanamahLoja>();
+			op.setData(model);
+			op.setTipo("LOJA");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -665,8 +1088,19 @@ public class PanamahStream {
 	 * @param meta meta
 	 * @throws IOException
 	 */
-	public void del(PanamahMeta meta) throws Exception {
-		task.getLoteAtual().del(meta);
+	public void del(PanamahMeta model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahMeta> op = new PanamahOperacao<PanamahMeta>();
+			op.setData(model);
+			op.setTipo("META");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -680,8 +1114,19 @@ public class PanamahStream {
 	 * @param produto produto
 	 * @throws IOException
 	 */
-	public void del(PanamahProduto produto) throws Exception {
-		task.getLoteAtual().del(produto);
+	public void del(PanamahProduto model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahProduto> op = new PanamahOperacao<PanamahProduto>();
+			op.setData(model);
+			op.setTipo("PRODUTO");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -695,8 +1140,19 @@ public class PanamahStream {
 	 * @param revenda revenda
 	 * @throws IOException
 	 */
-	public void del(PanamahRevenda revenda) throws Exception {
-		task.getLoteAtual().del(revenda);
+	public void del(PanamahRevenda model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahRevenda> op = new PanamahOperacao<PanamahRevenda>();
+			op.setData(model);
+			op.setTipo("REVENDA");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -710,8 +1166,19 @@ public class PanamahStream {
 	 * @param secao secao
 	 * @throws IOException
 	 */
-	public void del(PanamahSecao secao) throws Exception {
-		task.getLoteAtual().del(secao);
+	public void del(PanamahSecao model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahSecao> op = new PanamahOperacao<PanamahSecao>();
+			op.setData(model);
+			op.setTipo("SECAO");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -725,8 +1192,19 @@ public class PanamahStream {
 	 * @param subgrupo subgrupo
 	 * @throws IOException
 	 */
-	public void del(PanamahSubgrupo subgrupo) throws Exception {
-		task.getLoteAtual().del(subgrupo);
+	public void del(PanamahSubgrupo model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahSubgrupo> op = new PanamahOperacao<PanamahSubgrupo>();
+			op.setData(model);
+			op.setTipo("SUBGRUPO");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -740,8 +1218,19 @@ public class PanamahStream {
 	 * @param tituloPagar tituloPagar
 	 * @throws IOException
 	 */
-	public void del(PanamahTituloPagar tituloPagar) throws Exception {
-		task.getLoteAtual().del(tituloPagar);
+	public void del(PanamahTituloPagar model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahTituloPagar> op = new PanamahOperacao<PanamahTituloPagar>();
+			op.setData(model);
+			op.setTipo("TITULO_PAGAR");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -755,8 +1244,19 @@ public class PanamahStream {
 	 * @param tituloReceber tituloReceber
 	 * @throws IOException
 	 */
-	public void del(PanamahTituloReceber tituloReceber) throws Exception {
-		task.getLoteAtual().del(tituloReceber);
+	public void del(PanamahTituloReceber model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahTituloReceber> op = new PanamahOperacao<PanamahTituloReceber>();
+			op.setData(model);
+			op.setTipo("TITULO_RECEBER");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -770,8 +1270,19 @@ public class PanamahStream {
 	 * @param trocaDevolucao trocaDevolucao
 	 * @throws Exception
 	 */
-	public void del(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
-		task.getLoteAtual().del(trocaDevolucao);
+	public void del(PanamahTrocaDevolucao model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahTrocaDevolucao> op = new PanamahOperacao<PanamahTrocaDevolucao>();
+			op.setData(model);
+			op.setTipo("TROCA_DEVOLUCAO");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -785,8 +1296,19 @@ public class PanamahStream {
 	 * @param trocaFormaPagamento trocaFormaPagamento
 	 * @throws IOException
 	 */
-	public void del(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
-		task.getLoteAtual().del(trocaFormaPagamento);
+	public void del(PanamahTrocaFormaPagamento model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahTrocaFormaPagamento> op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
+			op.setData(model);
+			op.setTipo("TROCA_FORMA_PAGAMENTO");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -800,15 +1322,26 @@ public class PanamahStream {
 	 * @param venda venda
 	 * @throws IOException
 	 */
-	public void del(PanamahVenda venda) throws Exception {
-		task.getLoteAtual().del(venda);
+	public void del(PanamahVenda model) throws Exception {
+		PanamahEvent ev = null;
+		if (onDel != null) {
+			PanamahOperacao<PanamahVenda> op = new PanamahOperacao<PanamahVenda>();
+			op.setData(model);
+			op.setTipo("VENDA");
+			op.setOp(PanamahTipoOperacao.DELETE);
+			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+			onDel.notify(ev);
+		}
+		if (ev != null && ev.isCancelled())
+			return;
+		task.getLoteAtual().del(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
 			task.verificaEnvio();
 		}
 	}
-	
+
 	public void readNFe(String filePath) throws Exception {
 		task.readNFe(filePath);
 		task.persisteLoteAtual();

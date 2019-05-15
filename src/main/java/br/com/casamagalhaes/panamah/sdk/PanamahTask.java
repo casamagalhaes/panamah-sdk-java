@@ -25,6 +25,7 @@ public class PanamahTask extends TimerTask {
 	private PanamahConfig config;
 	private PanamahLote loteAtual = new PanamahLote();
 	private long ultimoEnvio = new Date().getTime();
+	private PanamahListener onError;	
 
 	public PanamahTask(PanamahConfig config) throws FileNotFoundException, IOException {
 		this.config = config;
@@ -37,10 +38,20 @@ public class PanamahTask extends TimerTask {
 			verificaFechamento();
 			verificaEnvio();
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			if (onError != null)
+				onError.notify(new PanamahEvent(config, loteAtual, null, e));
+			e.printStackTrace();
 		}
 	}
 
+	public PanamahListener getOnError() {
+		return onError;
+	}
+	
+	public void setOnError(PanamahListener onError) {
+		this.onError = onError;
+	}
+	
 	public void verificaEnvio() throws Exception {
 		if (new Date().getTime() > ultimoEnvio + config.getTtl()) {
 			enviaLote();
@@ -122,7 +133,6 @@ public class PanamahTask extends TimerTask {
 				}
 				toSend.delete();
 			}
-
 		}
 	}
 
@@ -143,7 +153,6 @@ public class PanamahTask extends TimerTask {
 			processNFeProc(s);
 		else if (s.indexOf("NFe") > -1)
 			processNFe(s);
-
 	}
 
 	private void processNFeProc(String s) throws Exception {
@@ -170,8 +179,8 @@ public class PanamahTask extends TimerTask {
 		loja.setComplemento(nfe.getInfNFe().getEmit().getEnderEmit().getxCpl());
 		loja.setAtiva(true);
 		loja.setMatriz(true);
-		loja.setHoldingId("");
-		loja.setRamo("");
+		loja.setHoldingId(nfe.getInfNFe().getEmit().getCnpj());
+		loja.setRamo(nfe.getInfNFe().getEmit().getCnpj());
 		loteAtual.save(loja);
 
 		// Cliente
@@ -181,7 +190,7 @@ public class PanamahTask extends TimerTask {
 			cliente.setId(nfe.getInfNFe().getDest().getCpf());
 			cliente.setNumeroDocumento(nfe.getInfNFe().getDest().getCpf());
 			cliente.setNome(nfe.getInfNFe().getDest().getxNome());
-			cliente.setRamo("");
+			cliente.setRamo(nfe.getInfNFe().getDest().getCpf());
 			cliente.setUf(nfe.getInfNFe().getDest().getEnderDest().getUf());
 			cliente.setCidade(nfe.getInfNFe().getDest().getEnderDest().getxMun());
 			cliente.setBairro(nfe.getInfNFe().getDest().getEnderDest().getxBairro());
@@ -199,6 +208,10 @@ public class PanamahTask extends TimerTask {
 	public void deletaLoteAtual() throws Exception {
 		Files.delete(Paths.get(config.getBasePath(), "loteatual.json"));
 
+	}
+
+	public PanamahConfig getConfig() {
+		return config;
 	}
 
 }

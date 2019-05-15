@@ -159,7 +159,7 @@ public class PanamahLote {
 			operacoes = new ArrayList<PanamahOperacao<?>>();
 		PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
 		op.setOp(PanamahTipoOperacao.UPDATE);
-		op.setTipo("acesso".toUpperCase());
+		op.setTipo("ACESSO");
 		op.setData(acesso);
 		operacoes.add(op);
 	}
@@ -172,7 +172,7 @@ public class PanamahLote {
 			operacoes = new ArrayList<PanamahOperacao<?>>();
 		PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
 		op.setOp(PanamahTipoOperacao.DELETE);
-		op.setTipo("acesso".toUpperCase());
+		op.setTipo("ACESSO");
 		op.setData(new PanamahAcesso(acesso.getId()));
 		operacoes.add(op);
 	}
@@ -185,7 +185,7 @@ public class PanamahLote {
 			operacoes = new ArrayList<PanamahOperacao<?>>();
 		PanamahOperacao<PanamahEan> op = new PanamahOperacao<PanamahEan>();
 		op.setOp(PanamahTipoOperacao.UPDATE);
-		op.setTipo("ean".toUpperCase());
+		op.setTipo("EAN");
 		op.setData(ean);
 		operacoes.add(op);
 	}
@@ -198,10 +198,9 @@ public class PanamahLote {
 			operacoes = new ArrayList<PanamahOperacao<?>>();
 		PanamahOperacao<PanamahEan> op = new PanamahOperacao<PanamahEan>();
 		op.setOp(PanamahTipoOperacao.DELETE);
-		op.setTipo("ean".toUpperCase());
+		op.setTipo("EAN");
 		op.setData(new PanamahEan(ean.getId()));
 		operacoes.add(op);
-
 	}
 
 	public void save(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
