@@ -16,7 +16,7 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 
 public class EventsPanamahTest {
 
-	private PanamahConfig config = PanamahConfig.fromEnv("staging");
+	private PanamahConfig config = PanamahConfig.fromEnv();
 
 	private String r(String json) throws Exception {
 		StringWriter w = new StringWriter();

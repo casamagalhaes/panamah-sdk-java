@@ -13,8 +13,11 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimerTask;
+
+import com.google.gson.internal.LinkedTreeMap;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahCliente;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahLoja;
@@ -149,19 +152,42 @@ public class PanamahTask extends TimerTask {
 				if (lote.getOperacoes() != null && lote.getOperacoes().size() > 0) {
 					PanamahRetornoLote ret = PanamahUtil.buildGson()//
 							.fromJson(PanamahUtil.send(config, lote), PanamahRetornoLote.class);
+
 					lote.setStatus(PanamahStatusLote.ENVIADO);
+
 					File toWrite = Paths.get(config.getBasePath(), "lotes", "enviados", toSend.getName()).toFile();
+
 					try (Writer w = new BufferedWriter(new FileWriter(toWrite))) {
 						w.write(PanamahUtil.buildGson().toJson(lote));
 					}
+
+					if (ret != null && ret.getFalhas() != null)
+						trataFalhas(lote, ret);
+
 					if (onSendSuccess != null) {
 						PanamahEvent e = new PanamahEvent(config, lote, ret);
 						onSendSuccess.notify(e);
 					}
 				} else
-				toSend.delete();
+					toSend.delete();
 			}
 		}
+	}
+
+	private void trataFalhas(PanamahLote lote, PanamahRetornoLote ret) {
+		ArrayList<String> idsfalhas = new ArrayList<String>();
+		for (PanamahRetornoItem item : ret.getFalhas().getItens())
+			idsfalhas.add(item.getId());
+
+		ArrayList<PanamahOperacao<?>> ops = new ArrayList<PanamahOperacao<?>>();
+		for (PanamahOperacao<?> op : lote.getOperacoes()) {
+			@SuppressWarnings("unchecked")
+			LinkedTreeMap<String, String> m = (LinkedTreeMap<String, String>) op.getData();
+			String id = (String) m.get("id");
+			if (idsfalhas.indexOf(id) > -1)
+				ops.add(op);
+		}
+		loteAtual.addFalhas(ops);
 	}
 
 	public PanamahLote getLoteAtual() {

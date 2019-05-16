@@ -700,7 +700,7 @@ public class PanamahLote {
 		PanamahOperacao<PanamahTrocaFormaPagamento> op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.TROCA_FORMA_PAGAMENTO);
-		op.setData(new PanamahTrocaFormaPagamento(trocaFormaPagamento.getId())); 
+		op.setData(new PanamahTrocaFormaPagamento(trocaFormaPagamento.getId()));
 		operacoes.add(op);
 	}
 
@@ -728,6 +728,12 @@ public class PanamahLote {
 		op.setTipo(PanamahTipoModel.VENDA);
 		op.setData(new PanamahVenda(venda.getId()));
 		operacoes.add(op);
+	}
+
+	public void addFalhas(ArrayList<PanamahOperacao<?>> ops) {
+		if (operacoes == null)
+			operacoes = new ArrayList<PanamahOperacao<?>>();
+		operacoes.addAll(ops);
 	}
 
 }

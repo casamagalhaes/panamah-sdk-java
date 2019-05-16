@@ -1,7 +1,9 @@
 
   package br.com.casamagalhaes.panamah.sdk.model;
 
-  public class PanamahRevenda {
+  import br.com.casamagalhaes.panamah.sdk.IPanamahModel;
+
+  public class PanamahRevenda implements IPanamahModel {
 
       public PanamahRevenda () {}
 

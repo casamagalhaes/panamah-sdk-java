@@ -2,14 +2,23 @@ package br.com.casamagalhaes.panamah.sdk;
 
 public class PanamahRetornoLote {
 
-	private PanamahSucessos sucessos;
+	private PanamahResults sucessos;
+	private PanamahResults falhas;
 
-	public PanamahSucessos getSucessos() {
+	public PanamahResults getSucessos() {
 		return sucessos;
 	}
 
-	public void setSucessos(PanamahSucessos sucessos) {
+	public void setSucessos(PanamahResults sucessos) {
 		this.sucessos = sucessos;
+	}
+	
+	public PanamahResults getFalhas() {
+		return falhas;
+	}
+	
+	public void setFalhas(PanamahResults falhas) {
+		this.falhas = falhas;
 	}
 
 }
