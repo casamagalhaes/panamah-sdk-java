@@ -26,6 +26,7 @@ public class PanamahTask extends TimerTask {
 	private PanamahConfig config;
 	private PanamahLote loteAtual = new PanamahLote();
 	private long ultimoEnvio = new Date().getTime();
+	private PanamahListener onSendSuccess;
 	private PanamahListener onError;
 
 	public PanamahTask(PanamahConfig config) throws FileNotFoundException, IOException {
@@ -38,6 +39,14 @@ public class PanamahTask extends TimerTask {
 		System.out.println("verificando status do lote");
 		verificaFechamento();
 		verificaEnvio();
+	}
+
+	public PanamahListener getOnSendSuccess() {
+		return onSendSuccess;
+	}
+
+	public void setOnSendSuccess(PanamahListener onSendSuccess) {
+		this.onSendSuccess = onSendSuccess;
 	}
 
 	public PanamahListener getOnError() {
@@ -55,7 +64,7 @@ public class PanamahTask extends TimerTask {
 			}
 		} catch (Exception e) {
 			if (onError != null)
-				onError.notify(new PanamahEvent(config, loteAtual, null, e));
+				onError.notify(new PanamahEvent(config, loteAtual, e));
 			e.printStackTrace();
 		}
 	}
@@ -68,7 +77,7 @@ public class PanamahTask extends TimerTask {
 			}
 		} catch (Exception e) {
 			if (onError != null) {
-				PanamahEvent ev = new PanamahEvent(config, loteAtual, null, e);
+				PanamahEvent ev = new PanamahEvent(config, loteAtual, e);
 				onError.notify(ev);
 				e.printStackTrace();
 			}
@@ -140,11 +149,16 @@ public class PanamahTask extends TimerTask {
 				PanamahLote lote = PanamahUtil.buildGson().fromJson(r, PanamahLote.class);
 				// ignorar lote vazio
 				if (lote.getOperacoes() != null && lote.getOperacoes().size() > 0) {
-					PanamahUtil.send(config, lote);
+					PanamahRetornoLote ret = PanamahUtil.buildGson()//
+							.fromJson(PanamahUtil.send(config, lote), PanamahRetornoLote.class);
 					lote.setStatus(PanamahStatusLote.ENVIADO);
 					File toWrite = Paths.get(config.getBasePath(), "lotes", "enviados", toSend.getName()).toFile();
 					try (Writer w = new BufferedWriter(new FileWriter(toWrite))) {
 						w.write(PanamahUtil.buildGson().toJson(lote));
+					}
+					if (onSendSuccess != null) {
+						PanamahEvent e = new PanamahEvent(config, lote, ret);
+						onSendSuccess.notify(e);
 					}
 				} else
 					System.out.println("lote fechou vazio");
