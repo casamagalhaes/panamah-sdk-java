@@ -106,7 +106,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
 			op.setData(model);
-			op.setTipo("ACESSO");
+			op.setTipo(PanamahTipoModel.ACESSO);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -132,7 +132,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahAssinante> op = new PanamahOperacao<PanamahAssinante>();
 			op.setData(model);
-			op.setTipo("ASSINANTE");
+			op.setTipo(PanamahTipoModel.ASSINANTE);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -158,7 +158,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahCliente> op = new PanamahOperacao<PanamahCliente>();
 			op.setData(model);
-			op.setTipo("CLIENTE");
+			op.setTipo(PanamahTipoModel.CLIENTE);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -184,7 +184,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahCompra> op = new PanamahOperacao<PanamahCompra>();
 			op.setData(model);
-			op.setTipo("COMPRA");
+			op.setTipo(PanamahTipoModel.COMPRA);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -210,7 +210,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahEan> op = new PanamahOperacao<PanamahEan>();
 			op.setData(model);
-			op.setTipo("EAN");
+			op.setTipo(PanamahTipoModel.EAN);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -237,7 +237,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahEstoqueMovimentacao> op = new PanamahOperacao<PanamahEstoqueMovimentacao>();
 			op.setData(model);
-			op.setTipo("ESTOQUE_MOVIMENTACAO");
+			op.setTipo(PanamahTipoModel.ESTOQUE_MOVIMENTACAO);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -263,7 +263,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahEventoCaixa> op = new PanamahOperacao<PanamahEventoCaixa>();
 			op.setData(model);
-			op.setTipo("EVENTO_CAIXA");
+			op.setTipo(PanamahTipoModel.EVENTO_CAIXA);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -289,7 +289,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahFormaPagamento> op = new PanamahOperacao<PanamahFormaPagamento>();
 			op.setData(model);
-			op.setTipo("FORMA_PAGAMENTO");
+			op.setTipo(PanamahTipoModel.FORMA_PAGAMENTO);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -315,7 +315,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahFornecedor> op = new PanamahOperacao<PanamahFornecedor>();
 			op.setData(model);
-			op.setTipo("FORNECEDOR");
+			op.setTipo(PanamahTipoModel.FORNECEDOR);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -341,7 +341,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahFuncionario> op = new PanamahOperacao<PanamahFuncionario>();
 			op.setData(model);
-			op.setTipo("FUNCIONARIO");
+			op.setTipo(PanamahTipoModel.FUNCIONARIO);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -367,7 +367,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahGrupo> op = new PanamahOperacao<PanamahGrupo>();
 			op.setData(model);
-			op.setTipo("GRUPO");
+			op.setTipo(PanamahTipoModel.GRUPO);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -393,7 +393,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahHolding> op = new PanamahOperacao<PanamahHolding>();
 			op.setData(model);
-			op.setTipo("HOLDING");
+			op.setTipo(PanamahTipoModel.HOLDING);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -419,7 +419,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahLocalEstoque> op = new PanamahOperacao<PanamahLocalEstoque>();
 			op.setData(model);
-			op.setTipo("LOCAL_ESTOQUE");
+			op.setTipo(PanamahTipoModel.LOCAL_ESTOQUE);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -445,7 +445,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahLoja> op = new PanamahOperacao<PanamahLoja>();
 			op.setData(model);
-			op.setTipo("LOJA");
+			op.setTipo(PanamahTipoModel.LOJA);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -471,7 +471,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahMeta> op = new PanamahOperacao<PanamahMeta>();
 			op.setData(model);
-			op.setTipo("META");
+			op.setTipo(PanamahTipoModel.META);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -497,7 +497,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahProduto> op = new PanamahOperacao<PanamahProduto>();
 			op.setData(model);
-			op.setTipo("PRODUTO");
+			op.setTipo(PanamahTipoModel.PRODUTO);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -523,7 +523,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahRevenda> op = new PanamahOperacao<PanamahRevenda>();
 			op.setData(model);
-			op.setTipo("REVENDA");
+			op.setTipo(PanamahTipoModel.REVENDA);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -549,7 +549,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahSecao> op = new PanamahOperacao<PanamahSecao>();
 			op.setData(model);
-			op.setTipo("SECAO");
+			op.setTipo(PanamahTipoModel.SECAO);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -575,7 +575,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahSubgrupo> op = new PanamahOperacao<PanamahSubgrupo>();
 			op.setData(model);
-			op.setTipo("SUBGRUPO");
+			op.setTipo(PanamahTipoModel.SUBGRUPO);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -601,7 +601,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahTituloPagar> op = new PanamahOperacao<PanamahTituloPagar>();
 			op.setData(model);
-			op.setTipo("TITULO_PAGAR");
+			op.setTipo(PanamahTipoModel.TITULO_PAGAR);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -627,7 +627,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahTituloReceber> op = new PanamahOperacao<PanamahTituloReceber>();
 			op.setData(model);
-			op.setTipo("TITULO_RECEBER");
+			op.setTipo(PanamahTipoModel.TITULO_RECEBER);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -653,7 +653,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahTrocaDevolucao> op = new PanamahOperacao<PanamahTrocaDevolucao>();
 			op.setData(model);
-			op.setTipo("TROCA_DEVOLUCAO");
+			op.setTipo(PanamahTipoModel.TROCA_DEVOLUCAO);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -679,7 +679,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahTrocaFormaPagamento> op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
 			op.setData(model);
-			op.setTipo("TROCA_FORMA_PAGAMENTO");
+			op.setTipo(PanamahTipoModel.TROCA_FORMA_PAGAMENTO);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -705,7 +705,7 @@ public class PanamahStream {
 		if (onSave != null) {
 			PanamahOperacao<PanamahVenda> op = new PanamahOperacao<PanamahVenda>();
 			op.setData(model);
-			op.setTipo("venda");
+			op.setTipo(PanamahTipoModel.VENDA);
 			op.setOp(PanamahTipoOperacao.UPDATE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onSave.notify(ev);
@@ -731,7 +731,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
 			op.setData(model);
-			op.setTipo("ACESSO");
+			op.setTipo(PanamahTipoModel.ACESSO);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -757,7 +757,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahAssinante> op = new PanamahOperacao<PanamahAssinante>();
 			op.setData(model);
-			op.setTipo("ASSINANTE");
+			op.setTipo(PanamahTipoModel.ASSINANTE);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -783,7 +783,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahCliente> op = new PanamahOperacao<PanamahCliente>();
 			op.setData(model);
-			op.setTipo("CLIENTE");
+			op.setTipo(PanamahTipoModel.CLIENTE);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -809,7 +809,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahCompra> op = new PanamahOperacao<PanamahCompra>();
 			op.setData(model);
-			op.setTipo("COMPRA");
+			op.setTipo(PanamahTipoModel.COMPRA);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -835,7 +835,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahEan> op = new PanamahOperacao<PanamahEan>();
 			op.setData(model);
-			op.setTipo("EAN");
+			op.setTipo(PanamahTipoModel.EAN);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -861,7 +861,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahEstoqueMovimentacao> op = new PanamahOperacao<PanamahEstoqueMovimentacao>();
 			op.setData(model);
-			op.setTipo("ESTOQUE_MOVIMENTACAO");
+			op.setTipo(PanamahTipoModel.ESTOQUE_MOVIMENTACAO);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -887,7 +887,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahEventoCaixa> op = new PanamahOperacao<PanamahEventoCaixa>();
 			op.setData(model);
-			op.setTipo("EVENTO_CAIXA");
+			op.setTipo(PanamahTipoModel.EVENTO_CAIXA);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -913,7 +913,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahFormaPagamento> op = new PanamahOperacao<PanamahFormaPagamento>();
 			op.setData(model);
-			op.setTipo("FORMA_PAGAMENTO");
+			op.setTipo(PanamahTipoModel.FORMA_PAGAMENTO);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -939,7 +939,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahFornecedor> op = new PanamahOperacao<PanamahFornecedor>();
 			op.setData(model);
-			op.setTipo("FORNECEDOR");
+			op.setTipo(PanamahTipoModel.FORNECEDOR);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -965,7 +965,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahFuncionario> op = new PanamahOperacao<PanamahFuncionario>();
 			op.setData(model);
-			op.setTipo("FUNCIONARIO");
+			op.setTipo(PanamahTipoModel.FUNCIONARIO);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -991,7 +991,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahGrupo> op = new PanamahOperacao<PanamahGrupo>();
 			op.setData(model);
-			op.setTipo("GRUPO");
+			op.setTipo(PanamahTipoModel.GRUPO);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1017,7 +1017,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahHolding> op = new PanamahOperacao<PanamahHolding>();
 			op.setData(model);
-			op.setTipo("HOLDING");
+			op.setTipo(PanamahTipoModel.HOLDING);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1043,7 +1043,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahLocalEstoque> op = new PanamahOperacao<PanamahLocalEstoque>();
 			op.setData(model);
-			op.setTipo("LOCAL_ESTOQUE");
+			op.setTipo(PanamahTipoModel.LOCAL_ESTOQUE);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1069,7 +1069,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahLoja> op = new PanamahOperacao<PanamahLoja>();
 			op.setData(model);
-			op.setTipo("LOJA");
+			op.setTipo(PanamahTipoModel.LOJA);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1095,7 +1095,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahMeta> op = new PanamahOperacao<PanamahMeta>();
 			op.setData(model);
-			op.setTipo("META");
+			op.setTipo(PanamahTipoModel.META);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1121,7 +1121,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahProduto> op = new PanamahOperacao<PanamahProduto>();
 			op.setData(model);
-			op.setTipo("PRODUTO");
+			op.setTipo(PanamahTipoModel.PRODUTO);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1147,7 +1147,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahRevenda> op = new PanamahOperacao<PanamahRevenda>();
 			op.setData(model);
-			op.setTipo("REVENDA");
+			op.setTipo(PanamahTipoModel.REVENDA);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1173,7 +1173,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahSecao> op = new PanamahOperacao<PanamahSecao>();
 			op.setData(model);
-			op.setTipo("SECAO");
+			op.setTipo(PanamahTipoModel.SECAO);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1199,7 +1199,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahSubgrupo> op = new PanamahOperacao<PanamahSubgrupo>();
 			op.setData(model);
-			op.setTipo("SUBGRUPO");
+			op.setTipo(PanamahTipoModel.SUBGRUPO);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1225,7 +1225,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahTituloPagar> op = new PanamahOperacao<PanamahTituloPagar>();
 			op.setData(model);
-			op.setTipo("TITULO_PAGAR");
+			op.setTipo(PanamahTipoModel.TITULO_PAGAR);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1251,7 +1251,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahTituloReceber> op = new PanamahOperacao<PanamahTituloReceber>();
 			op.setData(model);
-			op.setTipo("TITULO_RECEBER");
+			op.setTipo(PanamahTipoModel.TITULO_RECEBER);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1277,7 +1277,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahTrocaDevolucao> op = new PanamahOperacao<PanamahTrocaDevolucao>();
 			op.setData(model);
-			op.setTipo("TROCA_DEVOLUCAO");
+			op.setTipo(PanamahTipoModel.TROCA_DEVOLUCAO);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1303,7 +1303,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahTrocaFormaPagamento> op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
 			op.setData(model);
-			op.setTipo("TROCA_FORMA_PAGAMENTO");
+			op.setTipo(PanamahTipoModel.TROCA_FORMA_PAGAMENTO);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
@@ -1329,7 +1329,7 @@ public class PanamahStream {
 		if (onDel != null) {
 			PanamahOperacao<PanamahVenda> op = new PanamahOperacao<PanamahVenda>();
 			op.setData(model);
-			op.setTipo("VENDA");
+			op.setTipo(PanamahTipoModel.VENDA);
 			op.setOp(PanamahTipoOperacao.DELETE);
 			ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
 			onDel.notify(ev);
