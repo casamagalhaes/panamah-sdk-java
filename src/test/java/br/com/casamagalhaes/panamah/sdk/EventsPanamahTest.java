@@ -28,15 +28,15 @@ public class EventsPanamahTest {
 	@Test
 	public void deveriaEspionarUmSalvamento() throws Exception {
 
+		final PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
 		PanamahStream p = PanamahStream.init(config);
 		p.setOnSave(new PanamahListener() {
 
 			@Override
 			public void notify(PanamahEvent panamahEvent) {
-				assertEquals(panamahEvent, null);
+				assertEquals(model, panamahEvent.getOp().getData());
 			}
 		});
-		PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
 		p.save(model);
 
 		p.flush(true);
@@ -46,6 +46,7 @@ public class EventsPanamahTest {
 	@Test
 	public void deveriaCancelarUmSalvamento() throws Exception {
 
+		final PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
 		PanamahStream p = PanamahStream.init(config);
 		p.setOnSave(new PanamahListener() {
 
@@ -54,10 +55,52 @@ public class EventsPanamahTest {
 				panamahEvent.setCancelled(true);
 			}
 		});
-		PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
+		p.getTask().deletaLoteAtual();
 		p.save(model);
-		assertNull(p.getTask().getLoteAtual());
+		assertNull(p.getTask().getLoteAtual().getOperacoes());
 		p.flush();
 
+	}
+
+	@Test
+	public void deveriaEspionarUmaDelecao() throws Exception {
+
+		final PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
+		PanamahStream p = PanamahStream.init(config);
+		p.setOnDel(new PanamahListener() {
+
+			@Override
+			public void notify(PanamahEvent panamahEvent) {
+				assertEquals(model, panamahEvent.getOp().getData());
+			}
+		});
+		p.del(model);
+
+		p.flush(true);
+
+	}
+
+	@Test
+	public void deveriaCancelarUmaDelecao() throws Exception {
+
+		final PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
+		PanamahStream p = PanamahStream.init(config);
+		p.setOnDel(new PanamahListener() {
+
+			@Override
+			public void notify(PanamahEvent panamahEvent) {
+				panamahEvent.setCancelled(true);
+			}
+		});
+		p.getTask().deletaLoteAtual();
+		p.del(model);
+		assertNull(p.getTask().getLoteAtual().getOperacoes());
+		p.flush(true);
+
+	}
+	
+	@Test
+	public void deveriaCapturarErro() throws Exception {
+				
 	}
 }

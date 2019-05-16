@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
 import java.util.TimerTask;
@@ -25,7 +26,7 @@ public class PanamahTask extends TimerTask {
 	private PanamahConfig config;
 	private PanamahLote loteAtual = new PanamahLote();
 	private long ultimoEnvio = new Date().getTime();
-	private PanamahListener onError;	
+	private PanamahListener onError;
 
 	public PanamahTask(PanamahConfig config) throws FileNotFoundException, IOException {
 		this.config = config;
@@ -34,9 +35,24 @@ public class PanamahTask extends TimerTask {
 
 	@Override
 	public void run() {
+		System.out.println("verificando status do lote");
+		verificaFechamento();
+		verificaEnvio();
+	}
+
+	public PanamahListener getOnError() {
+		return onError;
+	}
+
+	public void setOnError(PanamahListener onError) {
+		this.onError = onError;
+	}
+
+	public void verificaEnvio() {
 		try {
-			verificaFechamento();
-			verificaEnvio();
+			if (new Date().getTime() > ultimoEnvio + config.getTtl()) {
+				enviaLote();
+			}
 		} catch (Exception e) {
 			if (onError != null)
 				onError.notify(new PanamahEvent(config, loteAtual, null, e));
@@ -44,24 +60,18 @@ public class PanamahTask extends TimerTask {
 		}
 	}
 
-	public PanamahListener getOnError() {
-		return onError;
-	}
-	
-	public void setOnError(PanamahListener onError) {
-		this.onError = onError;
-	}
-	
-	public void verificaEnvio() throws Exception {
-		if (new Date().getTime() > ultimoEnvio + config.getTtl()) {
-			enviaLote();
-		}
-	}
-
-	public void verificaFechamento() throws FileNotFoundException, IOException {
-		if (loteAtual.isVelho(config)) {
-			fechaLoteAtual();
-			abreNovoLote();
+	public void verificaFechamento() {
+		try {
+			if (loteAtual.isVelho(config)) {
+				fechaLoteAtual();
+				abreNovoLote();
+			}
+		} catch (Exception e) {
+			if (onError != null) {
+				PanamahEvent ev = new PanamahEvent(config, loteAtual, null, e);
+				onError.notify(ev);
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -72,6 +82,8 @@ public class PanamahTask extends TimerTask {
 		if (f.exists()) {
 			try (Reader r = new FileReader(f)) {
 				loteAtual = PanamahUtil.buildGson().fromJson(r, PanamahLote.class);
+				if (loteAtual == null)
+					loteAtual = new PanamahLote(); // paranoia
 			}
 		} else {
 			try (Writer w = new BufferedWriter(new FileWriter(f))) {
@@ -109,6 +121,7 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public void enviaLote() throws Exception {
+		System.out.println("preparando envio");
 		// atualiza primeiro pra não ficar jogando erros o tempo todo
 		ultimoEnvio = new Date().getTime();
 		if (!Paths.get(config.getBasePath(), "lotes", "enviados").toFile().exists())
@@ -125,12 +138,16 @@ public class PanamahTask extends TimerTask {
 			File toSend = files[files.length - 1];
 			try (Reader r = new BufferedReader(new FileReader(toSend))) {
 				PanamahLote lote = PanamahUtil.buildGson().fromJson(r, PanamahLote.class);
-				PanamahUtil.send(config, lote);
-				lote.setStatus(PanamahStatusLote.ENVIADO);
-				File toWrite = Paths.get(config.getBasePath(), "lotes", "enviados", toSend.getName()).toFile();
-				try (Writer w = new BufferedWriter(new FileWriter(toWrite))) {
-					w.write(PanamahUtil.buildGson().toJson(lote));
-				}
+				// ignorar lote vazio
+				if (lote.getOperacoes() != null && lote.getOperacoes().size() > 0) {
+					PanamahUtil.send(config, lote);
+					lote.setStatus(PanamahStatusLote.ENVIADO);
+					File toWrite = Paths.get(config.getBasePath(), "lotes", "enviados", toSend.getName()).toFile();
+					try (Writer w = new BufferedWriter(new FileWriter(toWrite))) {
+						w.write(PanamahUtil.buildGson().toJson(lote));
+					}
+				} else
+					System.out.println("lote fechou vazio");
 				toSend.delete();
 			}
 		}
@@ -206,7 +223,10 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public void deletaLoteAtual() throws Exception {
-		Files.delete(Paths.get(config.getBasePath(), "loteatual.json"));
+		Path p = Paths.get(config.getBasePath(), "loteatual.json");
+		if (Files.exists(p))
+			Files.delete(p);
+		loteAtual = new PanamahLote();
 
 	}
 

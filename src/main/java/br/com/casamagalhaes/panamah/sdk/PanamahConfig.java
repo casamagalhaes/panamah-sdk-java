@@ -5,7 +5,7 @@ public class PanamahConfig {
 	private String addr;
 	private long delay = 5000;
 	private String basePath = ".";
-	private long ttl = 5 * 60 * 1000;;
+	private long ttl = 5 * 60 * 1000;
 	private long maxBytes = 500 * 1024;
 	private PanamahAuth auth = new PanamahAuth();
 	private PanamahResponseAuth responseAuth;

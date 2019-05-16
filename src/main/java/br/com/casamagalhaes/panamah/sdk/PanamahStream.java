@@ -1,6 +1,7 @@
 package br.com.casamagalhaes.panamah.sdk;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Timer;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahAcesso;
@@ -46,7 +47,7 @@ public class PanamahStream {
 		PanamahUtil.auth(config);
 		timer = new Timer("PanamahStream", true);
 		task = new PanamahTask(config);
-		timer.schedule(task, config.getDelay());
+		timer.scheduleAtFixedRate(task, new Date(), config.getDelay());
 	}
 
 	public synchronized static PanamahStream init(PanamahConfig config) throws Exception {
@@ -216,6 +217,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
+		System.out.println(task.getLoteAtual());
 		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
