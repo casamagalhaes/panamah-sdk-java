@@ -36,7 +36,6 @@ public class PanamahTask extends TimerTask {
 
 	@Override
 	public void run() {
-		System.out.println("verificando status do lote");
 		verificaFechamento();
 		verificaEnvio();
 	}
@@ -130,7 +129,6 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public void enviaLote() throws Exception {
-		System.out.println("preparando envio");
 		// atualiza primeiro pra não ficar jogando erros o tempo todo
 		ultimoEnvio = new Date().getTime();
 		if (!Paths.get(config.getBasePath(), "lotes", "enviados").toFile().exists())
@@ -161,7 +159,6 @@ public class PanamahTask extends TimerTask {
 						onSendSuccess.notify(e);
 					}
 				} else
-					System.out.println("lote fechou vazio");
 				toSend.delete();
 			}
 		}

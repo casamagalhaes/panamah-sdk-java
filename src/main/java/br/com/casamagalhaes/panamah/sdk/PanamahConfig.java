@@ -8,7 +8,6 @@ public class PanamahConfig {
 	private long ttl = 5 * 60 * 1000;
 	private long maxBytes = 500 * 1024;
 	private PanamahAuth auth = new PanamahAuth();
-	private PanamahResponseAuth responseAuth;
 
 	public String getBasePath() {
 		return basePath;
@@ -60,14 +59,6 @@ public class PanamahConfig {
 
 	public static PanamahConfig fromEnv() {
 		return fromEnv(System.getenv("PANAMAH_ENV"));
-	}
-
-	public PanamahResponseAuth getResponseAuth() {
-		return responseAuth;
-	}
-
-	public void setResponseAuth(PanamahResponseAuth responseAuth) {
-		this.responseAuth = responseAuth;
 	}
 
 	public static PanamahConfig fromEnv(String env) {

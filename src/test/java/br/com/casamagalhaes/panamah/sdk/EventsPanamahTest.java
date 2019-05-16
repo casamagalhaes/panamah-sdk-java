@@ -1,6 +1,7 @@
 package br.com.casamagalhaes.panamah.sdk;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import java.io.InputStreamReader;
@@ -11,6 +12,7 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahCliente;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 
 public class EventsPanamahTest {
 
@@ -98,9 +100,38 @@ public class EventsPanamahTest {
 		p.flush(true);
 
 	}
-	
+
+	@Test
+	public void deveriaCapturarSucesso() throws Exception {
+		final PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
+		PanamahStream p = PanamahStream.init(config);
+		p.getTask().setOnSendSuccess(new PanamahListener() {
+
+			@Override
+			public void notify(PanamahEvent panamahEvent) {
+				// System.out.println(panamahEvent);
+				assertNotNull(panamahEvent.getRetornoLote());
+			}
+		});
+		p.save(model);
+
+		p.flush(true);
+	}
+
 	@Test
 	public void deveriaCapturarErro() throws Exception {
-				
+		final PanamahVenda model = PanamahUtil.buildGson().fromJson(r("venda"), PanamahVenda.class);
+		PanamahStream p = PanamahStream.init(config);
+		p.getTask().setOnError(new PanamahListener() {
+
+			@Override
+			public void notify(PanamahEvent panamahEvent) {
+				// System.out.println(panamahEvent);
+				assertNotNull(panamahEvent.getEx());
+			}
+		});
+		p.save(model);
+
+		p.flush(true);
 	}
 }

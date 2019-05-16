@@ -3,7 +3,7 @@ package br.com.casamagalhaes.panamah.sdk;
 public class PanamahRetornoItem {
 
 	private PanamahTipoModel tipo;
-	private PanamahTipoOperacao op;
+	private String op;
 	private String id;
 
 	public PanamahTipoModel getTipo() {
@@ -14,11 +14,11 @@ public class PanamahRetornoItem {
 		this.tipo = tipo;
 	}
 
-	public PanamahTipoOperacao getOp() {
+	public String getOp() {
 		return op;
 	}
 
-	public void setOp(PanamahTipoOperacao op) {
+	public void setOp(String op) {
 		this.op = op;
 	}
 

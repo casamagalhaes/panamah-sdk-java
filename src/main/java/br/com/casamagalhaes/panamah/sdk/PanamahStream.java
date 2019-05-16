@@ -217,7 +217,6 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		System.out.println(task.getLoteAtual());
 		task.getLoteAtual().save(model);
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {

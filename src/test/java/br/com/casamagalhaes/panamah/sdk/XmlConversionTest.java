@@ -152,7 +152,7 @@ public class XmlConversionTest {
 		XStream x = PanamahUtil.buildXStream();
 		String xml = x.toXML(p);
 		assertNotNull(xml);
-//		System.out.println(xml);
+//		// System.out.println(xml);
 	}
 
 	@Test
@@ -219,6 +219,6 @@ public class XmlConversionTest {
 		XStream x = PanamahUtil.buildXStream();
 		String xml = x.toXML(n);
 		assertNotNull(xml);
-//		System.out.println(xml);
+//		// System.out.println(xml);
 	}
 }

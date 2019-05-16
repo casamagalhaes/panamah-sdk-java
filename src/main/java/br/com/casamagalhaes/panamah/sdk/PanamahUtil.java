@@ -51,29 +51,36 @@ public class PanamahUtil {
 	}
 
 	// https://hc.apache.org/httpcomponents-client-ga/tutorial/html/fluent.html
-	public static String send(PanamahConfig config, PanamahLote lote) throws ClientProtocolException, IOException, PanamahException {
+	public static String send(PanamahConfig config, PanamahLote lote)
+			throws ClientProtocolException, IOException, PanamahException {
 		String req = buildGson().toJson(lote.getOperacoes());
-		System.out.println(req);
+		// System.out.println(req);
 		HttpResponse re = Request.Post(config.getAddr() + "/stream/data")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
-				.addHeader("Authorization", config.getResponseAuth().getAccessToken())//
+				.addHeader("Authorization", config.getAuth().getAccessToken())//
 				.execute().returnResponse();
 		String res = null;
 		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
 			re.getEntity().writeTo(baos);
 			res = baos.toString();
 		}
-		
-		System.out.println(res);
+
+		// System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
+		if (status == 403) {
+			// System.out.println("token expirado!");
+			refresh(config);
+			return send(config, lote);
+		}
+
 		if (status >= 400)
 			throw new PanamahException(status, res);
 		return res;
 	}
 
 	public static void auth(PanamahConfig config) throws ClientProtocolException, IOException, PanamahException {
-		
-		String req = config.getAuth().buildAuth(); //buildGson().toJson(config.getAuth());
+
+		String req = config.getAuth().buildAuth(); // buildGson().toJson(config.getAuth());
 		System.out.println(req);
 		HttpResponse re = Request.Post(config.getAddr() + "/stream/auth")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
@@ -85,37 +92,60 @@ public class PanamahUtil {
 			re.getEntity().writeTo(baos);
 			res = baos.toString();
 		}
-		
+
 		System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status >= 400)
 			throw new PanamahException(status, res);
 
 		PanamahResponseAuth resAuth = buildGson().fromJson(res, PanamahResponseAuth.class);
-		config.setResponseAuth(resAuth);
+		config.getAuth().setAccessToken(resAuth.getAccessToken());
+		config.getAuth().setRefreshToken(resAuth.getRefreshToken());
 	}
 
-	public static void createAssinante(PanamahConfig config) throws Exception {
-		String req = buildGson().toJson(config.getAuth().getAssinante());
-		System.out.println(req);
-		HttpResponse re = Request.Post(config.getAddr() + "/admin/assinantes")//
-				.bodyString(req, ContentType.APPLICATION_JSON)//
-				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
+	public static void refresh(PanamahConfig config) throws ClientProtocolException, IOException, PanamahException {
+		System.out.println(config.getAuth().getRefreshToken());
+		HttpResponse re = Request.Get(config.getAddr() + "/stream/auth/refresh")//
+				.addHeader("Authorization", config.getAuth().getRefreshToken())//
 				.execute().returnResponse();
-		
+
 		String res = null;
 		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
 			re.getEntity().writeTo(baos);
 			res = baos.toString();
 		}
-		
+
 		System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status >= 400)
 			throw new PanamahException(status, res);
-		
+
+		PanamahResponseAuth resAuth = buildGson().fromJson(res, PanamahResponseAuth.class);
+		config.getAuth().setAccessToken(resAuth.getAccessToken());
+		config.getAuth().setRefreshToken(resAuth.getRefreshToken());
+	}
+
+	public static void createAssinante(PanamahConfig config) throws Exception {
+		String req = buildGson().toJson(config.getAuth().getAssinante());
+		// System.out.println(req);
+		HttpResponse re = Request.Post(config.getAddr() + "/admin/assinantes")//
+				.bodyString(req, ContentType.APPLICATION_JSON)//
+				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
+				.execute().returnResponse();
+
+		String res = null;
+		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+			re.getEntity().writeTo(baos);
+			res = baos.toString();
+		}
+
+		// System.out.println(res);
+		int status = re.getStatusLine().getStatusCode();
+		if (status >= 400)
+			throw new PanamahException(status, res);
+
 		PanamahAssinante assinante = buildGson().fromJson(res, PanamahAssinante.class);
-		
+
 		config.getAuth().setAssinante(assinante);
 	}
 
@@ -124,7 +154,7 @@ public class PanamahUtil {
 		String res = Request.Get(config.getAddr() + "/admin/assinantes/" + assinanteId)//
 				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
 				.execute().returnContent().asString();
-		System.out.println(res);
+		// System.out.println(res);
 		PanamahAssinante assinante = buildGson().fromJson(res, PanamahAssinante.class);
 		config.getAuth().setAssinante(assinante);
 	}
