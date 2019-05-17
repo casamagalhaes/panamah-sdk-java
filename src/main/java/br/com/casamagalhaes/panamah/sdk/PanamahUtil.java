@@ -184,7 +184,7 @@ public class PanamahUtil {
 		x.aliasField("CNPJ", Dest.class, "cnpj");
 		x.aliasField("CPF", Dest.class, "cpf");
 		x.aliasField("UF", EnderDest.class, "uf");
-		x.addImplicitCollection(InfNFe.class, "det");
+		x.addImplicitCollection(InfNFe.class, "det", Det.class);
 		x.alias("det", Det.class);
 		x.alias("prod", Prod.class);
 		x.alias("imposto", Imposto.class);

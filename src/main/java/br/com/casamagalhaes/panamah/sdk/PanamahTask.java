@@ -23,6 +23,7 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahCliente;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahLoja;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahVendaItens;
+import br.com.casamagalhaes.panamah.sdk.model.PanamahVendaPagamentos;
 import br.com.casamagalhaes.panamah.sdk.nfe.Det;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
@@ -264,15 +265,24 @@ public class PanamahTask extends TimerTask {
 		if (nfe.getInfNFe().getDet() != null) {
 			PanamahVenda venda = new PanamahVenda();
 			venda.setId(nfe.getInfNFe().getId());
-			venda.setClienteId(nfe.getInfNFe().getDest().getCpf());
+			venda.setLojaId(nfe.getInfNFe().getEmit().getCnpj());
+//			venda.setClienteId(nfe.getInfNFe().getDest().getCpf());
 			venda.setData(nfe.getInfNFe().getIde().getDhEmi());
+			venda.setDataHoraVenda(nfe.getInfNFe().getIde().getDhEmi());
 			venda.setItens(new ArrayList<PanamahVendaItens>());
+			venda.setEfetiva(true);
+			venda.setSequencial("" + nfe.getInfNFe().getIde().getSerie());
+			venda.setTipoPreco("" + nfe.getInfNFe().getIde().getMod());
+			venda.setValor(nfe.getInfNFe().getTotal().getIcmsTot().getvNF());
+			venda.setPagamentos(new ArrayList<PanamahVendaPagamentos>());
+			
 			for (Det d : nfe.getInfNFe().getDet()) {
 				PanamahVendaItens i = new PanamahVendaItens();
 				i.setPreco(d.getProd().getvProd());
 				i.setQuantidade(1.0 * d.getnItem());
 				venda.getItens().add(i);
 			}
+			venda.setQuantidadeItens(1.0 * nfe.getInfNFe().getDet().size());
 			loteAtual.save(venda);
 		}
 	}
