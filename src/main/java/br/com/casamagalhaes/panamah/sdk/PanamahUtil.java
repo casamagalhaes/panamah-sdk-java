@@ -42,6 +42,8 @@ import br.com.casamagalhaes.panamah.sdk.nfe.X509Data;
 
 public class PanamahUtil {
 
+	public static final String SDK_IDENTITY = "panamah-java-0.2.0";
+
 	public static String stamp(Date d) {
 		return new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS").format(d);
 	}
@@ -57,8 +59,7 @@ public class PanamahUtil {
 		// System.out.println(req);
 		HttpResponse re = Request.Post(config.getAddr() + "/stream/data")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
-				.addHeader("x-sdk-identity", "panamah-java-1.0.0")
-				.addHeader("Authorization", config.getAuth().getAccessToken())//
+				.addHeader("x-sdk-identity", SDK_IDENTITY).addHeader("Authorization", config.getAuth().getAccessToken())//
 				.execute().returnResponse();
 		String res = null;
 		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
@@ -82,10 +83,10 @@ public class PanamahUtil {
 	public static void auth(PanamahConfig config) throws ClientProtocolException, IOException, PanamahException {
 
 		String req = config.getAuth().buildAuth(); // buildGson().toJson(config.getAuth());
-//		System.out.println(req);
+		// System.out.println(req);
 		HttpResponse re = Request.Post(config.getAddr() + "/stream/auth")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
-				.addHeader("x-sdk-identity", "panamah-java-1.0.0")
+				.addHeader("x-sdk-identity", SDK_IDENTITY)
 				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
 				.execute().returnResponse();
 
@@ -95,7 +96,7 @@ public class PanamahUtil {
 			res = baos.toString();
 		}
 
-//		System.out.println(res);
+		// System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status >= 400)
 			throw new PanamahException(status, res);
@@ -108,7 +109,7 @@ public class PanamahUtil {
 	public static void refresh(PanamahConfig config) throws ClientProtocolException, IOException, PanamahException {
 		System.out.println(config.getAuth().getRefreshToken());
 		HttpResponse re = Request.Get(config.getAddr() + "/stream/auth/refresh")//
-				.addHeader("x-sdk-identity", "panamah-java-1.0.0")
+				.addHeader("x-sdk-identity", SDK_IDENTITY)
 				.addHeader("Authorization", config.getAuth().getRefreshToken())//
 				.execute().returnResponse();
 
@@ -128,12 +129,35 @@ public class PanamahUtil {
 		config.getAuth().setRefreshToken(resAuth.getRefreshToken());
 	}
 
+	public static String pending(PanamahConfig config, int start, int count)
+			throws ClientProtocolException, IOException, PanamahException {
+		System.out.println(config.getAuth().getRefreshToken());
+		HttpResponse re = Request.Get(config.getAddr() + "/stream/pending-resources?start=" + start + "&count=" + count)//
+				.addHeader("x-sdk-identity", SDK_IDENTITY)
+				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
+				.execute().returnResponse();
+
+		String res = null;
+		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+			re.getEntity().writeTo(baos);
+			res = baos.toString();
+		}
+
+		System.out.println(res);
+		int status = re.getStatusLine().getStatusCode();
+		if (status >= 400)
+			throw new PanamahException(status, res);
+
+		return res;
+
+	}
+
 	public static void createAssinante(PanamahConfig config) throws Exception {
 		String req = buildGson().toJson(config.getAuth().getAssinante());
 		// System.out.println(req);
 		HttpResponse re = Request.Post(config.getAddr() + "/admin/assinantes")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
-				.addHeader("x-sdk-identity", "panamah-java-1.0.0")
+				.addHeader("x-sdk-identity", SDK_IDENTITY)
 				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
 				.execute().returnResponse();
 
@@ -156,7 +180,7 @@ public class PanamahUtil {
 	public static void retrieveAssinante(PanamahConfig config, String assinanteId)
 			throws ClientProtocolException, IOException {
 		String res = Request.Get(config.getAddr() + "/admin/assinantes/" + assinanteId)//
-				.addHeader("x-sdk-identity", "panamah-java-1.0.0")
+				.addHeader("x-sdk-identity", SDK_IDENTITY)
 				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
 				.execute().returnContent().asString();
 		// System.out.println(res);
@@ -222,7 +246,7 @@ public class PanamahUtil {
 		x.alias("evento", Evento.class);
 		x.useAttributeFor(InfEvento.class, "id");
 		x.aliasAttribute(InfEvento.class, "id", "Id");
-//		x.aliasField("detEvento", InfEvento.class,"detEvento");
+		// x.aliasField("detEvento", InfEvento.class,"detEvento");
 		x.registerConverter(new XStreamISODateConverter());
 		return x;
 	}

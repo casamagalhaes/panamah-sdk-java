@@ -50,7 +50,7 @@ public class XmlConversionTest {
 	}
 
 	@Test
-	public void shoudReadEvento() throws Exception {
+	public void shouldReadEvento() throws Exception {
 		String id = "ID1101111319050712894500013265508100000090100000004001";
 		try (InputStream in = x(id)) {
 			XStream x = PanamahUtil.buildXStream();
@@ -152,7 +152,7 @@ public class XmlConversionTest {
 		XStream x = PanamahUtil.buildXStream();
 		String xml = x.toXML(p);
 		assertNotNull(xml);
-//		// System.out.println(xml);
+		// // System.out.println(xml);
 	}
 
 	@Test
@@ -219,6 +219,6 @@ public class XmlConversionTest {
 		XStream x = PanamahUtil.buildXStream();
 		String xml = x.toXML(n);
 		assertNotNull(xml);
-//		// System.out.println(xml);
+		// // System.out.println(xml);
 	}
 }

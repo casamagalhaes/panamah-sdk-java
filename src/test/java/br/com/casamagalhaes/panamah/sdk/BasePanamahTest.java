@@ -539,4 +539,10 @@ public class BasePanamahTest {
 		PanamahUtil.send(c, lote);
 	}
 
+	@Test
+	public void shouldListPendingResources() throws Exception {
+		String s = PanamahUtil.pending(c, 1, 10);
+		assertNotNull(s);
+	}
+
 }
