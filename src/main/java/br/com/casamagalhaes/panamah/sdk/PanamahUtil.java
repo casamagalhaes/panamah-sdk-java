@@ -129,9 +129,8 @@ public class PanamahUtil {
 		config.getAuth().setRefreshToken(resAuth.getRefreshToken());
 	}
 
-	public static String pending(PanamahConfig config, int start, int count)
+	public static PanamahPendencias pending(PanamahConfig config, int start, int count)
 			throws ClientProtocolException, IOException, PanamahException {
-		System.out.println(config.getAuth().getRefreshToken());
 		HttpResponse re = Request.Get(config.getAddr() + "/stream/pending-resources?start=" + start + "&count=" + count)//
 				.addHeader("x-sdk-identity", SDK_IDENTITY)
 				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
@@ -147,8 +146,8 @@ public class PanamahUtil {
 		int status = re.getStatusLine().getStatusCode();
 		if (status >= 400)
 			throw new PanamahException(status, res);
-
-		return res;
+		
+		return buildGson().fromJson(res, PanamahPendencias.class);
 
 	}
 

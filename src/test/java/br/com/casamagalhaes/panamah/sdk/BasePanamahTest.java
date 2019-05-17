@@ -541,7 +541,8 @@ public class BasePanamahTest {
 
 	@Test
 	public void shouldListPendingResources() throws Exception {
-		String s = PanamahUtil.pending(c, 1, 10);
+		PanamahUtil.auth(c);
+		PanamahPendencias s = PanamahUtil.pending(c, 1, 10);
 		assertNotNull(s);
 	}
 

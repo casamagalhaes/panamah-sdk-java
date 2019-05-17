@@ -79,6 +79,10 @@ public class PanamahStream {
 
 	}
 
+	public PanamahPendencias pending(int start,int count) throws Exception {
+		return this.task.pending(start, count);
+	}
+	
 	public PanamahListener getOnSave() {
 		return onSave;
 	}

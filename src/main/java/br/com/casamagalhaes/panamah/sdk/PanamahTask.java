@@ -275,7 +275,7 @@ public class PanamahTask extends TimerTask {
 			venda.setTipoPreco("" + nfe.getInfNFe().getIde().getMod());
 			venda.setValor(nfe.getInfNFe().getTotal().getIcmsTot().getvNF());
 			venda.setPagamentos(new ArrayList<PanamahVendaPagamentos>());
-			
+
 			for (Det d : nfe.getInfNFe().getDet()) {
 				PanamahVendaItens i = new PanamahVendaItens();
 				i.setPreco(d.getProd().getvProd());
@@ -297,6 +297,10 @@ public class PanamahTask extends TimerTask {
 
 	public PanamahConfig getConfig() {
 		return config;
+	}
+
+	public PanamahPendencias pending(int start, int count) throws Exception {
+		return PanamahUtil.pending(config, start, count);
 	}
 
 }
