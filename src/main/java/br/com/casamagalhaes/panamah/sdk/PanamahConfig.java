@@ -1,6 +1,7 @@
 package br.com.casamagalhaes.panamah.sdk;
 
-import java.util.ResourceBundle;
+import java.io.InputStream;
+import java.util.Properties;
 
 public class PanamahConfig {
 
@@ -110,13 +111,17 @@ public class PanamahConfig {
 
 	public static PanamahConfig fromProperties(String prop) throws Exception {
 		PanamahConfig c = new PanamahConfig();
-		ResourceBundle b = ResourceBundle.getBundle(prop);
-		c.env = b.getString("panamah.env");
-		c.basePath = b.getString("panamah." + c.env + ".basepath");
-		c.addr = b.getString("panamah." + c.env + ".addr");
-		c.auth.setAuthorizationToken(b.getString("panamah." + c.env + ".token"));
-		c.auth.getAssinante().setId(b.getString("panamah." + c.env + ".assinanteid"));
-		c.auth.setKey(b.getString("panamah." + c.env + ".key"));
+//		ResourceBundle b = ResourceBundle.getBundle(prop);
+		Properties p = new Properties();
+		try (InputStream in = PanamahConfig.class.getClassLoader().getResourceAsStream(prop + ".properties")) {
+			p.load(in);
+			c.env = p.getProperty("panamah.env");
+			c.basePath = p.getProperty("panamah." + c.env + ".basepath");
+			c.addr = p.getProperty("panamah." + c.env + ".addr");
+			c.auth.setAuthorizationToken(p.getProperty("panamah." + c.env + ".token"));
+			c.auth.getAssinante().setId(p.getProperty("panamah." + c.env + ".assinanteid"));
+			c.auth.setKey(p.getProperty("panamah." + c.env + ".key"));
+		}
 		return c;
 	}
 
