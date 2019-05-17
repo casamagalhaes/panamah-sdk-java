@@ -26,10 +26,31 @@ O comando abaixo roda os testes unitários e gerar a cobertura.
 mvn test
 ```
 
+## Usando em projetos gradle
+
+```groovy
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+    maven {
+		url  "https://casamagalhaes.bintray.com/panamah-sdk-java"
+	}
+}
+
+dependencies {
+    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:0.1.0'
+    testImplementation 'junit:junit:4.12'
+}
+```
+
 ## Uso básico
 
 ```java
 // init no daemon do panamah junto com o início da aplicação
+PanamahConfig config = PanamahConfig.autoConfigure();
 Panamah panamah = Panamah.init(config);
 //...
 
