@@ -46,6 +46,11 @@ dependencies {
 }
 ```
 
+## Usando em projetos maven
+
+Siga as instruções do link **set me up**
+[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/0.3.0?tab=overview)
+
 ## Uso básico
 
 ```java

@@ -20,11 +20,12 @@
 
 	<distributionManagement>
 		<repository>
-			<id>bintray-casamagalhaes-panamah-sdk-java</id>
-			<url>https://api.bintray.com/maven/casamagalhaes/maven-repo/panamah-java-sdk/;publish=1</url>
+			<id>bintray-casamagalhaes-panamah-java-sdk</id>
+			<name>casamagalhaes-panamah-java-sdk</name>
+			<url>https://api.bintray.com/maven/casamagalhaes/panamah-java-sdk/panamah-java-sdk/;publish=1</url>
 		</repository>
 	</distributionManagement>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
