@@ -7,7 +7,7 @@ Implementação java do panamah sdk
 
 ## Documentação
 
-[Aqui](https://casamagalhaes.github.io/panamah-sdk/)
+[Aqui](https://casamagalhaes.github.io/panamah-sdk/) e [Aqui](https://github.com/casamagalhaes/panamah-sdk-java/wiki/Exemplo-de-uso)
 
 ## Requisitos
 
