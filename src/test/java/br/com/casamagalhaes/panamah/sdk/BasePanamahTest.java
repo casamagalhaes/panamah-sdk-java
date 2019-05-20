@@ -11,7 +11,6 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahAcesso;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahAssinante;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahCliente;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahCompra;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahEan;
@@ -57,14 +56,14 @@ public class BasePanamahTest {
 		PanamahUtil.send(c, lote);
 	}
 
-	@Test
-	public void shouldSaveAssinante() throws Exception {
-		PanamahAssinante model = PanamahUtil.buildGson().fromJson(r("assinante"), PanamahAssinante.class);
-		PanamahUtil.auth(c);
-		PanamahLote lote = new PanamahLote();
-		lote.save(model);
-		PanamahUtil.send(c, lote);
-	}
+	// @Test
+	// public void shouldSaveAssinante() throws Exception {
+	// 	PanamahAssinante model = PanamahUtil.buildGson().fromJson(r("assinante"), PanamahAssinante.class);
+	// 	PanamahUtil.auth(c);
+	// 	PanamahLote lote = new PanamahLote();
+	// 	lote.save(model);
+	// 	PanamahUtil.send(c, lote);
+	// }
 
 	@Test
 	public void shouldSaveCliente() throws Exception {
@@ -328,14 +327,14 @@ public class BasePanamahTest {
 		PanamahUtil.send(c, lote);
 	}
 
-	@Test
-	public void shouldDelAssinante() throws Exception {
-		PanamahAssinante model = PanamahUtil.buildGson().fromJson(r("assinante"), PanamahAssinante.class);
-		PanamahUtil.auth(c);
-		PanamahLote lote = new PanamahLote();
-		lote.delete(model);
-		PanamahUtil.send(c, lote);
-	}
+	// @Test
+	// public void shouldDelAssinante() throws Exception {
+	// 	PanamahAssinante model = PanamahUtil.buildGson().fromJson(r("assinante"), PanamahAssinante.class);
+	// 	PanamahUtil.auth(c);
+	// 	PanamahLote lote = new PanamahLote();
+	// 	lote.delete(model);
+	// 	PanamahUtil.send(c, lote);
+	// }
 
 	@Test
 	public void shouldDelCliente() throws Exception {
