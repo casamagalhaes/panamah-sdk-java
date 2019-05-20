@@ -223,7 +223,8 @@ public class PanamahTask extends TimerTask {
 		proccessNFe(nfe);
 	}
 
-	private void proccessNFe(NFe nfe) throws Exception {
+	private PanamahNFeModel proccessNFe(NFe nfe) throws Exception {
+		PanamahNFeModel model = new PanamahNFeModel();
 		// Loja a partir do emitente
 		PanamahLoja loja = new PanamahLoja();
 		loja.setId(nfe.getInfNFe().getEmit().getCnpj());
@@ -239,20 +240,25 @@ public class PanamahTask extends TimerTask {
 		loja.setMatriz(true);
 		loja.setHoldingId(nfe.getInfNFe().getEmit().getCnpj());
 		loja.setRamo(nfe.getInfNFe().getEmit().getCnpj());
-		loteAtual.save(loja);
 
+		model.setLoja(loja);
+		
 		// Cliente
 		if (nfe.getInfNFe().getDest() != null) {
 
 			PanamahCliente cliente = new PanamahCliente();
 			cliente.setId(nfe.getInfNFe().getDest().getCpf());
-			cliente.setNumeroDocumento(nfe.getInfNFe().getDest().getCpf());
+			String doc = nfe.getInfNFe().getDest().getCpf();
+			if(doc == null) doc = nfe.getInfNFe().getDest().getCnpj();
+			cliente.setNumeroDocumento(doc);
 			cliente.setNome(nfe.getInfNFe().getDest().getxNome());
-			cliente.setRamo(nfe.getInfNFe().getDest().getCpf());
+			cliente.setRamo("");
 			cliente.setUf(nfe.getInfNFe().getDest().getEnderDest().getUf());
 			cliente.setCidade(nfe.getInfNFe().getDest().getEnderDest().getxMun());
 			cliente.setBairro(nfe.getInfNFe().getDest().getEnderDest().getxBairro());
-			loteAtual.save(cliente);
+			
+			model.setCliente(cliente);
+			
 		}
 
 		// Fornecedor
@@ -283,8 +289,10 @@ public class PanamahTask extends TimerTask {
 				venda.getItens().add(i);
 			}
 			venda.setQuantidadeItens(1.0 * nfe.getInfNFe().getDet().size());
-			loteAtual.save(venda);
+			
+			model.setVenda(venda);
 		}
+		return model;
 	}
 
 	public void deletaLoteAtual() throws Exception {
