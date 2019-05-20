@@ -76,7 +76,7 @@ public class EventsPanamahTest {
 				assertEquals(model, panamahEvent.getOp().getData());
 			}
 		});
-		p.del(model);
+		p.delete(model);
 
 		p.flush(true);
 
@@ -95,7 +95,7 @@ public class EventsPanamahTest {
 			}
 		});
 		p.getTask().deletaLoteAtual();
-		p.del(model);
+		p.delete(model);
 		assertNull(p.getTask().getLoteAtual().getOperacoes());
 		p.flush(true);
 

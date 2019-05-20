@@ -324,7 +324,7 @@ public class BasePanamahTest {
 		PanamahAcesso model = PanamahUtil.buildGson().fromJson(r("acesso"), PanamahAcesso.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -333,7 +333,7 @@ public class BasePanamahTest {
 		PanamahAssinante model = PanamahUtil.buildGson().fromJson(r("assinante"), PanamahAssinante.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -342,7 +342,7 @@ public class BasePanamahTest {
 		PanamahCliente model = PanamahUtil.buildGson().fromJson(r("cliente"), PanamahCliente.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -351,7 +351,7 @@ public class BasePanamahTest {
 		PanamahCompra model = PanamahUtil.buildGson().fromJson(r("compra"), PanamahCompra.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -360,7 +360,7 @@ public class BasePanamahTest {
 		PanamahEan model = PanamahUtil.buildGson().fromJson(r("ean"), PanamahEan.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -370,7 +370,7 @@ public class BasePanamahTest {
 				PanamahEstoqueMovimentacao.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -379,7 +379,7 @@ public class BasePanamahTest {
 		PanamahEventoCaixa model = PanamahUtil.buildGson().fromJson(r("evento-caixa"), PanamahEventoCaixa.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -389,7 +389,7 @@ public class BasePanamahTest {
 				PanamahFormaPagamento.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -398,7 +398,7 @@ public class BasePanamahTest {
 		PanamahFornecedor model = PanamahUtil.buildGson().fromJson(r("fornecedor"), PanamahFornecedor.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -407,7 +407,7 @@ public class BasePanamahTest {
 		PanamahFuncionario model = PanamahUtil.buildGson().fromJson(r("funcionario"), PanamahFuncionario.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -416,7 +416,7 @@ public class BasePanamahTest {
 		PanamahGrupo model = PanamahUtil.buildGson().fromJson(r("grupo"), PanamahGrupo.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -425,7 +425,7 @@ public class BasePanamahTest {
 		PanamahHolding model = PanamahUtil.buildGson().fromJson(r("holding"), PanamahHolding.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -434,7 +434,7 @@ public class BasePanamahTest {
 		PanamahLocalEstoque model = PanamahUtil.buildGson().fromJson(r("local-estoque"), PanamahLocalEstoque.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -443,7 +443,7 @@ public class BasePanamahTest {
 		PanamahLoja model = PanamahUtil.buildGson().fromJson(r("loja"), PanamahLoja.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -452,7 +452,7 @@ public class BasePanamahTest {
 		PanamahMeta model = PanamahUtil.buildGson().fromJson(r("meta"), PanamahMeta.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -461,7 +461,7 @@ public class BasePanamahTest {
 		PanamahProduto model = PanamahUtil.buildGson().fromJson(r("produto"), PanamahProduto.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -470,7 +470,7 @@ public class BasePanamahTest {
 		PanamahRevenda model = PanamahUtil.buildGson().fromJson(r("revenda"), PanamahRevenda.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -479,7 +479,7 @@ public class BasePanamahTest {
 		PanamahSecao model = PanamahUtil.buildGson().fromJson(r("secao"), PanamahSecao.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -488,7 +488,7 @@ public class BasePanamahTest {
 		PanamahSubgrupo model = PanamahUtil.buildGson().fromJson(r("subgrupo"), PanamahSubgrupo.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -497,7 +497,7 @@ public class BasePanamahTest {
 		PanamahTituloPagar model = PanamahUtil.buildGson().fromJson(r("titulo-pagar"), PanamahTituloPagar.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -506,7 +506,7 @@ public class BasePanamahTest {
 		PanamahTituloReceber model = PanamahUtil.buildGson().fromJson(r("titulo-receber"), PanamahTituloReceber.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -516,7 +516,7 @@ public class BasePanamahTest {
 				PanamahTrocaDevolucao.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -526,7 +526,7 @@ public class BasePanamahTest {
 				PanamahTrocaFormaPagamento.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 
@@ -535,7 +535,7 @@ public class BasePanamahTest {
 		PanamahVenda model = PanamahUtil.buildGson().fromJson(r("venda"), PanamahVenda.class);
 		PanamahUtil.auth(c);
 		PanamahLote lote = new PanamahLote();
-		lote.del(model);
+		lote.delete(model);
 		PanamahUtil.send(c, lote);
 	}
 

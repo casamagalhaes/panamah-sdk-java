@@ -86,7 +86,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahCliente cliente) throws Exception {
+	public void delete(PanamahCliente cliente) throws Exception {
 		if (cliente == null)
 			throw new RuntimeException("cliente não pode ser nulo!");
 		cliente.validate();
@@ -112,7 +112,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahCompra compra) throws Exception {
+	public void delete(PanamahCompra compra) throws Exception {
 		if (compra == null)
 			throw new RuntimeException("compra não pode ser nulo!");
 		compra.validate();
@@ -138,7 +138,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahAssinante assinante) throws Exception {
+	public void delete(PanamahAssinante assinante) throws Exception {
 		if (assinante == null)
 			throw new RuntimeException("assinante não pode ser nulo!");
 		assinante.validate();
@@ -164,7 +164,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahAcesso acesso) throws Exception {
+	public void delete(PanamahAcesso acesso) throws Exception {
 		if (acesso == null)
 			throw new RuntimeException("acesso não pode ser nulo!");
 		acesso.validate();
@@ -190,7 +190,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahEan ean) throws Exception {
+	public void delete(PanamahEan ean) throws Exception {
 		if (ean == null)
 			throw new RuntimeException("ean não pode ser nulo!");
 		ean.validate();
@@ -216,7 +216,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
+	public void delete(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
 		if (estoqueMovimentacao == null)
 			throw new RuntimeException("estoqueMovimentacao não pode ser nulo!");
 		estoqueMovimentacao.validate();
@@ -242,7 +242,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahEventoCaixa eventoCaixa) throws Exception {
+	public void delete(PanamahEventoCaixa eventoCaixa) throws Exception {
 		if (eventoCaixa == null)
 			throw new RuntimeException("eventoCaixa não pode ser nulo!");
 		eventoCaixa.validate();
@@ -268,7 +268,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahFormaPagamento formaPagamento) throws Exception {
+	public void delete(PanamahFormaPagamento formaPagamento) throws Exception {
 		if (formaPagamento == null)
 			throw new RuntimeException("formaPagamento não pode ser nulo!");
 		formaPagamento.validate();
@@ -294,7 +294,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahFornecedor fornecedor) throws Exception {
+	public void delete(PanamahFornecedor fornecedor) throws Exception {
 		if (fornecedor == null)
 			throw new RuntimeException("fornecedor não pode ser nulo!");
 		fornecedor.validate();
@@ -321,7 +321,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahFuncionario funcionario) throws Exception {
+	public void delete(PanamahFuncionario funcionario) throws Exception {
 		if (funcionario == null)
 			throw new RuntimeException("funcionario não pode ser nulo!");
 		funcionario.validate();
@@ -347,7 +347,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahGrupo grupo) throws Exception {
+	public void delete(PanamahGrupo grupo) throws Exception {
 		if (grupo == null)
 			throw new RuntimeException("grupo não pode ser nulo!");
 		grupo.validate();
@@ -375,7 +375,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahHolding holding) throws Exception {
+	public void delete(PanamahHolding holding) throws Exception {
 		if (holding == null)
 			throw new RuntimeException("holding não pode ser nulo!");
 		holding.validate();
@@ -403,7 +403,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahLocalEstoque localEstoque) throws Exception {
+	public void delete(PanamahLocalEstoque localEstoque) throws Exception {
 		if (localEstoque == null)
 			throw new RuntimeException("localEstoque não pode ser nulo!");
 		localEstoque.validate();
@@ -431,7 +431,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahLoja loja) throws Exception {
+	public void delete(PanamahLoja loja) throws Exception {
 		if (loja == null)
 			throw new RuntimeException("loja não pode ser nulo!");
 		loja.validate();
@@ -460,7 +460,7 @@ public class PanamahLote {
 
 	}
 
-	public void del(PanamahMeta meta) throws Exception {
+	public void delete(PanamahMeta meta) throws Exception {
 		if (meta == null)
 			throw new RuntimeException("meta não pode ser nulo!");
 		meta.validate();
@@ -490,7 +490,7 @@ public class PanamahLote {
 
 	}
 
-	public void del(PanamahProduto produto) throws Exception {
+	public void delete(PanamahProduto produto) throws Exception {
 		if (produto == null)
 			throw new RuntimeException("produto não pode ser nulo!");
 		produto.validate();
@@ -520,7 +520,7 @@ public class PanamahLote {
 
 	}
 
-	public void del(PanamahRevenda revenda) throws Exception {
+	public void delete(PanamahRevenda revenda) throws Exception {
 		if (revenda == null)
 			throw new RuntimeException("revenda não pode ser nulo!");
 		revenda.validate();
@@ -550,7 +550,7 @@ public class PanamahLote {
 
 	}
 
-	public void del(PanamahSecao secao) throws Exception {
+	public void delete(PanamahSecao secao) throws Exception {
 		if (secao == null)
 			throw new RuntimeException("secao não pode ser nulo!");
 		secao.validate();
@@ -580,7 +580,7 @@ public class PanamahLote {
 
 	}
 
-	public void del(PanamahSubgrupo subgrupo) throws Exception {
+	public void delete(PanamahSubgrupo subgrupo) throws Exception {
 		if (subgrupo == null)
 			throw new RuntimeException("subgrupo não pode ser nulo!");
 		subgrupo.validate();
@@ -610,7 +610,7 @@ public class PanamahLote {
 
 	}
 
-	public void del(PanamahTituloPagar tituloPagar) throws Exception {
+	public void delete(PanamahTituloPagar tituloPagar) throws Exception {
 		if (tituloPagar == null)
 			throw new RuntimeException("tituloPagar não pode ser nulo!");
 		tituloPagar.validate();
@@ -638,7 +638,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahTituloReceber tituloReceber) throws Exception {
+	public void delete(PanamahTituloReceber tituloReceber) throws Exception {
 		if (tituloReceber == null)
 			throw new RuntimeException("tituloReceber não pode ser nulo!");
 		tituloReceber.validate();
@@ -665,7 +665,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
+	public void delete(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
 		if (trocaDevolucao == null)
 			throw new RuntimeException("trocaDevolucao não pode ser nulo!");
 		trocaDevolucao.validate();
@@ -691,7 +691,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
+	public void delete(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
 		if (trocaFormaPagamento == null)
 			throw new RuntimeException("trocaFormaPagamento não pode ser nulo!");
 		trocaFormaPagamento.validate();
@@ -717,7 +717,7 @@ public class PanamahLote {
 		operacoes.add(op);
 	}
 
-	public void del(PanamahVenda venda) throws Exception {
+	public void delete(PanamahVenda venda) throws Exception {
 		if (venda == null)
 			throw new RuntimeException("venda não pode ser nulo!");
 		venda.validate();
