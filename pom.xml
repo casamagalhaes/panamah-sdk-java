@@ -7,7 +7,7 @@
 
 	<groupId>br.com.casamagalhaes.panamah.sdk</groupId>
 	<artifactId>panamah-sdk</artifactId>
-	<version>0.3.1</version>
+	<version>0.3.2</version>
 
 	<name>panamah-sdk</name>
 	<url>https://github.com/casamagalhaes/panamah-sdk-java</url>
