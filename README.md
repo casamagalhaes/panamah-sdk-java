@@ -16,7 +16,7 @@ Implementação java do panamah sdk
 
 ## Testando
 
-Para é preciso ter o 
+Para é preciso ter o
 [servidor de testes](https://github.com/casamagalhaes/panamah-test-server)
 rodando para executar corretamente os testes.
 
@@ -36,8 +36,8 @@ plugins {
 repositories {
     jcenter()
     maven {
-		url  "https://casamagalhaes.bintray.com/panamah-sdk-java"
-	}
+        url  "https://casamagalhaes.bintray.com/panamah-sdk-java"
+    }
 }
 
 dependencies {
@@ -63,4 +63,3 @@ Panamah panamah = Panamah.init(config);
 PanamahVenda venda = new PanamahVenda();
 panamah.save(venda);
 ```
-
