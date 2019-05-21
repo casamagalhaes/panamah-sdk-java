@@ -6,9 +6,9 @@ import org.junit.Test;
 
 public class KeygenTest {
 
-	String expected = "{\"assinanteId\":\"1234567890\", \"key\":\"zIT6WjYfhqWJFp/eHk5tYrx4bmw=\", \"ts\":1234567890 }";
+	String expected = "{\"assinanteId\": \"1234567890\", \"key\":\"zIT6WjYfhqWJFp/eHk5tYrx4bmw=\", \"ts\":1234567890 }";
 
-	String sample = "{\"assinanteId\":\"00934509022\", \"key\":\"lK3jlGTXY+BwpiNCKZo5VuOR+fo=\", \"ts\":1558445528 }";
+	String sample = "{\"assinanteId\": \"00934509022\", \"key\":\"lK3jlGTXY+BwpiNCKZo5VuOR+fo=\", \"ts\":1558445528 }";
 	String result = "lK3jlGTXY+BwpiNCKZo5VuOR+fo=";
 	
 	@Test

@@ -59,7 +59,7 @@ public class PanamahAuth {
 
 	public String buildAuth(long ts) {
 		String k = Base64.encodeBase64String(DigestUtils.sha1(key + assinante.getId() + ts));
-		String ret = String.format("{\"assinanteId\":\"%s\", \"key\":\"%s\", \"ts\":%d }", assinante.getId(), k, ts);
+		String ret = String.format("{\"assinanteId\": \"%s\", \"key\":\"%s\", \"ts\":%d }", assinante.getId(), k, ts);
 		return ret;
 	}
 
