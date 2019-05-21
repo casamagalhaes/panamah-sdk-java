@@ -12,7 +12,7 @@ public class PanamahAuth {
 	private String refreshToken;
 	private String authorizationToken;
 	private PanamahAssinante assinante = new PanamahAssinante();
-	private long ts = System.currentTimeMillis()/1000;
+	private long ts = System.currentTimeMillis() / 1000;
 
 	public String getKey() {
 		return key;
@@ -63,10 +63,14 @@ public class PanamahAuth {
 	}
 
 	public String buildAuth() {
-		ts = System.currentTimeMillis()/1000;
+		return buildAuth(true);
+	}
+
+	public String buildAuth(boolean now) {
+		if (now)
+			ts = System.currentTimeMillis() / 1000;
 		String k = Base64.encodeBase64String(DigestUtils.sha1(key + assinante.getId() + ts));
 		String ret = String.format("{\"assinanteId\":\"%s\", \"key\":\"%s\", \"ts\":%d }", assinante.getId(), k, ts);
-		System.out.println(ret);
 		return ret;
 	}
 
