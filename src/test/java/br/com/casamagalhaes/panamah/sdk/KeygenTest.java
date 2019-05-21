@@ -10,6 +10,7 @@ public class KeygenTest {
 
 	String sample = "{\"assinanteId\": \"00934509022\", \"key\":\"lK3jlGTXY+BwpiNCKZo5VuOR+fo=\", \"ts\":1558445528 }";
 	String result = "lK3jlGTXY+BwpiNCKZo5VuOR+fo=";
+	String error = "oETCD3pXx0eCoiFMSegvoSwcpCc="; // key nula
 	
 	@Test
 	public void shouldGenerateCorrectKey() {
