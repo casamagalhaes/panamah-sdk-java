@@ -42,7 +42,7 @@ public class PanamahStream {
 	private PanamahTask task;
 	private PanamahListener onSave;
 	private PanamahListener onDel;
-	
+
 	private PanamahStream(PanamahConfig config) throws Exception {
 		PanamahUtil.auth(config);
 		timer = new Timer("PanamahStream", true);
@@ -79,10 +79,10 @@ public class PanamahStream {
 
 	}
 
-	public PanamahPendencias pending(int start,int count) throws Exception {
+	public PanamahPendencias pending(int start, int count) throws Exception {
 		return this.task.pending(start, count);
 	}
-	
+
 	public PanamahListener getOnSave() {
 		return onSave;
 	}
@@ -117,7 +117,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -143,7 +143,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -169,7 +169,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -195,7 +195,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -221,7 +221,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -247,7 +247,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -273,7 +273,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -299,7 +299,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -325,7 +325,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -351,7 +351,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -377,7 +377,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -403,7 +403,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -429,7 +429,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -455,7 +455,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -481,7 +481,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -507,7 +507,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -533,7 +533,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -559,7 +559,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -585,7 +585,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -611,7 +611,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -637,7 +637,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -663,7 +663,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -689,7 +689,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -715,7 +715,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().save(model);
+		task.getLoteAtual().save(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -741,7 +741,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -767,7 +767,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -793,7 +793,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -819,7 +819,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -845,7 +845,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -871,7 +871,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -897,7 +897,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -923,7 +923,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -949,7 +949,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -975,7 +975,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1001,7 +1001,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1027,7 +1027,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1053,7 +1053,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1079,7 +1079,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1105,7 +1105,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1131,7 +1131,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1157,7 +1157,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1183,7 +1183,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1209,7 +1209,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1235,7 +1235,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1261,7 +1261,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1287,7 +1287,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1313,7 +1313,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();
@@ -1339,7 +1339,7 @@ public class PanamahStream {
 		}
 		if (ev != null && ev.isCancelled())
 			return;
-		task.getLoteAtual().delete(model);
+		task.getLoteAtual().delete(model, task.getConfig());
 		task.persisteLoteAtual();
 		if (task.isLoteAtualCheio()) {
 			task.fechaLoteAtual();

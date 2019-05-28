@@ -73,7 +73,7 @@ public class PanamahLote {
 		this.ultimaAtualizacao = ultimaAtualizacao;
 	}
 
-	public void save(PanamahCliente cliente) throws Exception {
+	public void save(PanamahCliente cliente, PanamahConfig config) throws Exception {
 		if (cliente == null)
 			throw new RuntimeException("cliente não pode ser nulo!");
 		cliente.validate();
@@ -83,10 +83,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.CLIENTE);
 		op.setData(cliente);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahCliente cliente) throws Exception {
+	public void delete(PanamahCliente cliente, PanamahConfig config) throws Exception {
 		if (cliente == null)
 			throw new RuntimeException("cliente não pode ser nulo!");
 		cliente.validate();
@@ -96,10 +97,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.CLIENTE);
 		op.setData(new PanamahCliente(cliente.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahCompra compra) throws Exception {
+	public void save(PanamahCompra compra, PanamahConfig config) throws Exception {
 		if (compra == null)
 			throw new RuntimeException("compra não pode ser nulo!");
 		compra.validate();
@@ -109,10 +111,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.COMPRA);
 		op.setData(compra);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahCompra compra) throws Exception {
+	public void delete(PanamahCompra compra, PanamahConfig config) throws Exception {
 		if (compra == null)
 			throw new RuntimeException("compra não pode ser nulo!");
 		compra.validate();
@@ -122,10 +125,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.COMPRA);
 		op.setData(new PanamahCompra(compra.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahAssinante assinante) throws Exception {
+	public void save(PanamahAssinante assinante, PanamahConfig config) throws Exception {
 		if (assinante == null)
 			throw new RuntimeException("assinante não pode ser nulo!");
 		assinante.validate();
@@ -135,10 +139,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.ASSINANTE);
 		op.setData(assinante);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahAssinante assinante) throws Exception {
+	public void delete(PanamahAssinante assinante, PanamahConfig config) throws Exception {
 		if (assinante == null)
 			throw new RuntimeException("assinante não pode ser nulo!");
 		assinante.validate();
@@ -148,10 +153,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.ASSINANTE);
 		op.setData(new PanamahAssinante(assinante.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahAcesso acesso) throws Exception {
+	public void save(PanamahAcesso acesso, PanamahConfig config) throws Exception {
 		if (acesso == null)
 			throw new RuntimeException("acesso não pode ser nulo!");
 		acesso.validate();
@@ -161,10 +167,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.ACESSO);
 		op.setData(acesso);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahAcesso acesso) throws Exception {
+	public void delete(PanamahAcesso acesso, PanamahConfig config) throws Exception {
 		if (acesso == null)
 			throw new RuntimeException("acesso não pode ser nulo!");
 		acesso.validate();
@@ -174,10 +181,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.ACESSO);
 		op.setData(new PanamahAcesso(acesso.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahEan ean) throws Exception {
+	public void save(PanamahEan ean, PanamahConfig config) throws Exception {
 		if (ean == null)
 			throw new RuntimeException("ean não pode ser nulo!");
 		ean.validate();
@@ -187,10 +195,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.EAN);
 		op.setData(ean);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahEan ean) throws Exception {
+	public void delete(PanamahEan ean, PanamahConfig config) throws Exception {
 		if (ean == null)
 			throw new RuntimeException("ean não pode ser nulo!");
 		ean.validate();
@@ -200,10 +209,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.EAN);
 		op.setData(new PanamahEan(ean.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
+	public void save(PanamahEstoqueMovimentacao estoqueMovimentacao, PanamahConfig config) throws Exception {
 		if (estoqueMovimentacao == null)
 			throw new RuntimeException("estoqueMovimentacao não pode ser nulo!");
 		estoqueMovimentacao.validate();
@@ -213,10 +223,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.ESTOQUE_MOVIMENTACAO);
 		op.setData(estoqueMovimentacao);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahEstoqueMovimentacao estoqueMovimentacao) throws Exception {
+	public void delete(PanamahEstoqueMovimentacao estoqueMovimentacao, PanamahConfig config) throws Exception {
 		if (estoqueMovimentacao == null)
 			throw new RuntimeException("estoqueMovimentacao não pode ser nulo!");
 		estoqueMovimentacao.validate();
@@ -226,10 +237,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.ESTOQUE_MOVIMENTACAO);
 		op.setData(new PanamahEstoqueMovimentacao(estoqueMovimentacao.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahEventoCaixa eventoCaixa) throws Exception {
+	public void save(PanamahEventoCaixa eventoCaixa, PanamahConfig config) throws Exception {
 		if (eventoCaixa == null)
 			throw new RuntimeException("eventoCaixa não pode ser nulo!");
 		eventoCaixa.validate();
@@ -239,10 +251,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.EVENTO_CAIXA);
 		op.setData(eventoCaixa);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahEventoCaixa eventoCaixa) throws Exception {
+	public void delete(PanamahEventoCaixa eventoCaixa, PanamahConfig config) throws Exception {
 		if (eventoCaixa == null)
 			throw new RuntimeException("eventoCaixa não pode ser nulo!");
 		eventoCaixa.validate();
@@ -252,10 +265,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.EVENTO_CAIXA);
 		op.setData(new PanamahEventoCaixa(eventoCaixa.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahFormaPagamento formaPagamento) throws Exception {
+	public void save(PanamahFormaPagamento formaPagamento, PanamahConfig config) throws Exception {
 		if (formaPagamento == null)
 			throw new RuntimeException("formaPagamento não pode ser nulo!");
 		formaPagamento.validate();
@@ -265,10 +279,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.FORMA_PAGAMENTO);
 		op.setData(formaPagamento);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahFormaPagamento formaPagamento) throws Exception {
+	public void delete(PanamahFormaPagamento formaPagamento, PanamahConfig config) throws Exception {
 		if (formaPagamento == null)
 			throw new RuntimeException("formaPagamento não pode ser nulo!");
 		formaPagamento.validate();
@@ -278,10 +293,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.FORMA_PAGAMENTO);
 		op.setData(new PanamahFormaPagamento(formaPagamento.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahFornecedor fornecedor) throws Exception {
+	public void save(PanamahFornecedor fornecedor, PanamahConfig config) throws Exception {
 		if (fornecedor == null)
 			throw new RuntimeException("fornecedor não pode ser nulo!");
 		fornecedor.validate();
@@ -291,10 +307,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.FORNECEDOR);
 		op.setData(fornecedor);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahFornecedor fornecedor) throws Exception {
+	public void delete(PanamahFornecedor fornecedor, PanamahConfig config) throws Exception {
 		if (fornecedor == null)
 			throw new RuntimeException("fornecedor não pode ser nulo!");
 		fornecedor.validate();
@@ -304,11 +321,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.FORNECEDOR);
 		op.setData(new PanamahFornecedor(fornecedor.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void save(PanamahFuncionario funcionario) throws Exception {
+	public void save(PanamahFuncionario funcionario, PanamahConfig config) throws Exception {
 		if (funcionario == null)
 			throw new RuntimeException("funcionario não pode ser nulo!");
 		funcionario.validate();
@@ -318,10 +336,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.FUNCIONARIO);
 		op.setData(funcionario);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahFuncionario funcionario) throws Exception {
+	public void delete(PanamahFuncionario funcionario, PanamahConfig config) throws Exception {
 		if (funcionario == null)
 			throw new RuntimeException("funcionario não pode ser nulo!");
 		funcionario.validate();
@@ -331,10 +350,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.FUNCIONARIO);
 		op.setData(new PanamahFuncionario(funcionario.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahGrupo grupo) throws Exception {
+	public void save(PanamahGrupo grupo, PanamahConfig config) throws Exception {
 		if (grupo == null)
 			throw new RuntimeException("grupo não pode ser nulo!");
 		grupo.validate();
@@ -344,10 +364,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.GRUPO);
 		op.setData(grupo);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahGrupo grupo) throws Exception {
+	public void delete(PanamahGrupo grupo, PanamahConfig config) throws Exception {
 		if (grupo == null)
 			throw new RuntimeException("grupo não pode ser nulo!");
 		grupo.validate();
@@ -358,10 +379,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.GRUPO);
 		op.setData(new PanamahGrupo(grupo.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahHolding holding) throws Exception {
+	public void save(PanamahHolding holding, PanamahConfig config) throws Exception {
 		if (holding == null)
 			throw new RuntimeException("holding não pode ser nulo!");
 		holding.validate();
@@ -372,10 +394,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.HOLDING);
 		op.setData(holding);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahHolding holding) throws Exception {
+	public void delete(PanamahHolding holding, PanamahConfig config) throws Exception {
 		if (holding == null)
 			throw new RuntimeException("holding não pode ser nulo!");
 		holding.validate();
@@ -386,10 +409,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.HOLDING);
 		op.setData(new PanamahHolding(holding.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahLocalEstoque localEstoque) throws Exception {
+	public void save(PanamahLocalEstoque localEstoque, PanamahConfig config) throws Exception {
 		if (localEstoque == null)
 			throw new RuntimeException("localEstoque não pode ser nulo!");
 		localEstoque.validate();
@@ -400,10 +424,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.LOCAL_ESTOQUE);
 		op.setData(localEstoque);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahLocalEstoque localEstoque) throws Exception {
+	public void delete(PanamahLocalEstoque localEstoque, PanamahConfig config) throws Exception {
 		if (localEstoque == null)
 			throw new RuntimeException("localEstoque não pode ser nulo!");
 		localEstoque.validate();
@@ -414,10 +439,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.LOCAL_ESTOQUE);
 		op.setData(new PanamahLocalEstoque(localEstoque.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahLoja loja) throws Exception {
+	public void save(PanamahLoja loja, PanamahConfig config) throws Exception {
 		if (loja == null)
 			throw new RuntimeException("loja não pode ser nulo!");
 		loja.validate();
@@ -428,10 +454,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.LOJA);
 		op.setData(loja);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahLoja loja) throws Exception {
+	public void delete(PanamahLoja loja, PanamahConfig config) throws Exception {
 		if (loja == null)
 			throw new RuntimeException("loja não pode ser nulo!");
 		loja.validate();
@@ -442,10 +469,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.LOJA);
 		op.setData(new PanamahLoja(loja.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahMeta meta) throws Exception {
+	public void save(PanamahMeta meta, PanamahConfig config) throws Exception {
 		if (meta == null)
 			throw new RuntimeException("meta não pode ser nulo!");
 		meta.validate();
@@ -456,11 +484,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.META);
 		op.setData(meta);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void delete(PanamahMeta meta) throws Exception {
+	public void delete(PanamahMeta meta, PanamahConfig config) throws Exception {
 		if (meta == null)
 			throw new RuntimeException("meta não pode ser nulo!");
 		meta.validate();
@@ -471,11 +500,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.META);
 		op.setData(new PanamahMeta(meta.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void save(PanamahProduto produto) throws Exception {
+	public void save(PanamahProduto produto, PanamahConfig config) throws Exception {
 		if (produto == null)
 			throw new RuntimeException("produto não pode ser nulo!");
 		produto.validate();
@@ -486,11 +516,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.PRODUTO);
 		op.setData(produto);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void delete(PanamahProduto produto) throws Exception {
+	public void delete(PanamahProduto produto, PanamahConfig config) throws Exception {
 		if (produto == null)
 			throw new RuntimeException("produto não pode ser nulo!");
 		produto.validate();
@@ -501,11 +532,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.PRODUTO);
 		op.setData(new PanamahProduto(produto.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void save(PanamahRevenda revenda) throws Exception {
+	public void save(PanamahRevenda revenda, PanamahConfig config) throws Exception {
 		if (revenda == null)
 			throw new RuntimeException("revenda não pode ser nulo!");
 		revenda.validate();
@@ -516,11 +548,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.REVENDA);
 		op.setData(revenda);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void delete(PanamahRevenda revenda) throws Exception {
+	public void delete(PanamahRevenda revenda, PanamahConfig config) throws Exception {
 		if (revenda == null)
 			throw new RuntimeException("revenda não pode ser nulo!");
 		revenda.validate();
@@ -531,11 +564,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.REVENDA);
 		op.setData(new PanamahRevenda(revenda.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void save(PanamahSecao secao) throws Exception {
+	public void save(PanamahSecao secao, PanamahConfig config) throws Exception {
 		if (secao == null)
 			throw new RuntimeException("secao não pode ser nulo!");
 		secao.validate();
@@ -546,11 +580,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.SECAO);
 		op.setData(secao);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void delete(PanamahSecao secao) throws Exception {
+	public void delete(PanamahSecao secao, PanamahConfig config) throws Exception {
 		if (secao == null)
 			throw new RuntimeException("secao não pode ser nulo!");
 		secao.validate();
@@ -561,11 +596,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.SECAO);
 		op.setData(new PanamahSecao(secao.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void save(PanamahSubgrupo subgrupo) throws Exception {
+	public void save(PanamahSubgrupo subgrupo, PanamahConfig config) throws Exception {
 		if (subgrupo == null)
 			throw new RuntimeException("subgrupo não pode ser nulo!");
 		subgrupo.validate();
@@ -576,11 +612,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.SUBGRUPO);
 		op.setData(subgrupo);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void delete(PanamahSubgrupo subgrupo) throws Exception {
+	public void delete(PanamahSubgrupo subgrupo, PanamahConfig config) throws Exception {
 		if (subgrupo == null)
 			throw new RuntimeException("subgrupo não pode ser nulo!");
 		subgrupo.validate();
@@ -591,11 +628,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.SUBGRUPO);
 		op.setData(new PanamahSubgrupo(subgrupo.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void save(PanamahTituloPagar tituloPagar) throws Exception {
+	public void save(PanamahTituloPagar tituloPagar, PanamahConfig config) throws Exception {
 		if (tituloPagar == null)
 			throw new RuntimeException("tituloPagar não pode ser nulo!");
 		tituloPagar.validate();
@@ -606,11 +644,12 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.TITULO_PAGAR);
 		op.setData(tituloPagar);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 
 	}
 
-	public void delete(PanamahTituloPagar tituloPagar) throws Exception {
+	public void delete(PanamahTituloPagar tituloPagar, PanamahConfig config) throws Exception {
 		if (tituloPagar == null)
 			throw new RuntimeException("tituloPagar não pode ser nulo!");
 		tituloPagar.validate();
@@ -621,10 +660,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.TITULO_PAGAR);
 		op.setData(new PanamahTituloPagar(tituloPagar.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahTituloReceber tituloReceber) throws Exception {
+	public void save(PanamahTituloReceber tituloReceber, PanamahConfig config) throws Exception {
 		if (tituloReceber == null)
 			throw new RuntimeException("tituloReceber não pode ser nulo!");
 		tituloReceber.validate();
@@ -635,10 +675,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.TITULO_RECEBER);
 		op.setData(tituloReceber);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahTituloReceber tituloReceber) throws Exception {
+	public void delete(PanamahTituloReceber tituloReceber, PanamahConfig config) throws Exception {
 		if (tituloReceber == null)
 			throw new RuntimeException("tituloReceber não pode ser nulo!");
 		tituloReceber.validate();
@@ -649,10 +690,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.TITULO_RECEBER);
 		op.setData(new PanamahTituloReceber(tituloReceber.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
+	public void save(PanamahTrocaDevolucao trocaDevolucao, PanamahConfig config) throws Exception {
 		if (trocaDevolucao == null)
 			throw new RuntimeException("trocaDevolucao não pode ser nulo!");
 		trocaDevolucao.validate();
@@ -662,10 +704,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.TROCA_DEVOLUCAO);
 		op.setData(trocaDevolucao);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahTrocaDevolucao trocaDevolucao) throws Exception {
+	public void delete(PanamahTrocaDevolucao trocaDevolucao, PanamahConfig config) throws Exception {
 		if (trocaDevolucao == null)
 			throw new RuntimeException("trocaDevolucao não pode ser nulo!");
 		trocaDevolucao.validate();
@@ -675,10 +718,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.TROCA_DEVOLUCAO);
 		op.setData(new PanamahTrocaDevolucao(trocaDevolucao.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
+	public void save(PanamahTrocaFormaPagamento trocaFormaPagamento, PanamahConfig config) throws Exception {
 		if (trocaFormaPagamento == null)
 			throw new RuntimeException("trocaFormaPagamento não pode ser nulo!");
 		trocaFormaPagamento.validate();
@@ -688,10 +732,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.TROCA_FORMA_PAGAMENTO);
 		op.setData(trocaFormaPagamento);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahTrocaFormaPagamento trocaFormaPagamento) throws Exception {
+	public void delete(PanamahTrocaFormaPagamento trocaFormaPagamento, PanamahConfig config) throws Exception {
 		if (trocaFormaPagamento == null)
 			throw new RuntimeException("trocaFormaPagamento não pode ser nulo!");
 		trocaFormaPagamento.validate();
@@ -701,10 +746,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.TROCA_FORMA_PAGAMENTO);
 		op.setData(new PanamahTrocaFormaPagamento(trocaFormaPagamento.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void save(PanamahVenda venda) throws Exception {
+	public void save(PanamahVenda venda, PanamahConfig config) throws Exception {
 		if (venda == null)
 			throw new RuntimeException("venda não pode ser nulo!");
 		venda.validate();
@@ -714,10 +760,11 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.VENDA);
 		op.setData(venda);
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
-	public void delete(PanamahVenda venda) throws Exception {
+	public void delete(PanamahVenda venda, PanamahConfig config) throws Exception {
 		if (venda == null)
 			throw new RuntimeException("venda não pode ser nulo!");
 		venda.validate();
@@ -727,6 +774,7 @@ public class PanamahLote {
 		op.setOp(PanamahTipoOperacao.DELETE);
 		op.setTipo(PanamahTipoModel.VENDA);
 		op.setData(new PanamahVenda(venda.getId()));
+		op.setAssinanteId(config.getAuth().getAssinante().getId());
 		operacoes.add(op);
 	}
 
