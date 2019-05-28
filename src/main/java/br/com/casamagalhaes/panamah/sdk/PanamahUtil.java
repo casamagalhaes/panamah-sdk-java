@@ -59,7 +59,8 @@ public class PanamahUtil {
 		// System.out.println(req);
 		HttpResponse re = Request.Post(config.getAddr() + "/stream/data")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
-				.addHeader("x-sdk-identity", SDK_IDENTITY).addHeader("Authorization", config.getAuth().getAccessToken())//
+				.addHeader("x-sdk-identity", SDK_IDENTITY)//
+				.addHeader("Authorization", config.getAuth().getAccessToken())//
 				.execute().returnResponse();
 		String res = null;
 		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
@@ -133,7 +134,7 @@ public class PanamahUtil {
 			throws ClientProtocolException, IOException, PanamahException {
 		HttpResponse re = Request.Get(config.getAddr() + "/stream/pending-resources?start=" + start + "&count=" + count)//
 				.addHeader("x-sdk-identity", SDK_IDENTITY)
-				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
+				.addHeader("Authorization", config.getAuth().getAccessToken())//
 				.execute().returnResponse();
 
 		String res = null;
