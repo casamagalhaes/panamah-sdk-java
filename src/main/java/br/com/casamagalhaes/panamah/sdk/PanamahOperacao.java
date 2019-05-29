@@ -6,6 +6,7 @@ public class PanamahOperacao<T>{
 
 	private PanamahTipoOperacao op;
 	private PanamahTipoModel tipo;
+	private String assinanteId;
 
 	public T getData() {
 		return data;
@@ -29,6 +30,14 @@ public class PanamahOperacao<T>{
 	
 	public void setTipo(PanamahTipoModel tipo) {
 		this.tipo = tipo;
+	}
+
+	public String getAssinanteId() {
+		return assinanteId;
+	}
+	
+	public void setAssinanteId(String assinanteId) {
+		this.assinanteId=assinanteId;
 	}
 
 }

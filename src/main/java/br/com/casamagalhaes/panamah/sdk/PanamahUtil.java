@@ -4,6 +4,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -12,6 +14,7 @@ import org.apache.http.entity.ContentType;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.thoughtworks.xstream.XStream;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahAssinante;
@@ -42,7 +45,8 @@ import br.com.casamagalhaes.panamah.sdk.nfe.X509Data;
 
 public class PanamahUtil {
 
-	public static final String SDK_IDENTITY = "panamah-java-0.3.3";
+	public static final String SDK_IDENTITY = "panamah-java-0.3.4";
+
 
 	public static String stamp(Date d) {
 		return new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS").format(d);
@@ -59,7 +63,8 @@ public class PanamahUtil {
 		// System.out.println(req);
 		HttpResponse re = Request.Post(config.getAddr() + "/stream/data")//
 				.bodyString(req, ContentType.APPLICATION_JSON)//
-				.addHeader("x-sdk-identity", SDK_IDENTITY).addHeader("Authorization", config.getAuth().getAccessToken())//
+				.addHeader("x-sdk-identity", SDK_IDENTITY)//
+				.addHeader("Authorization", config.getAuth().getAccessToken())//
 				.execute().returnResponse();
 		String res = null;
 		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
@@ -129,11 +134,10 @@ public class PanamahUtil {
 		config.getAuth().setRefreshToken(resAuth.getRefreshToken());
 	}
 
-	public static PanamahPendencias pending(PanamahConfig config, int start, int count)
+	public static HashMap<String, PanamahPendencias>  pending(PanamahConfig config, int start, int count)
 			throws ClientProtocolException, IOException, PanamahException {
 		HttpResponse re = Request.Get(config.getAddr() + "/stream/pending-resources?start=" + start + "&count=" + count)//
-				.addHeader("x-sdk-identity", SDK_IDENTITY)
-				.addHeader("Authorization", config.getAuth().getAuthorizationToken())//
+				.addHeader("x-sdk-identity", SDK_IDENTITY).addHeader("Authorization", config.getAuth().getAccessToken())//
 				.execute().returnResponse();
 
 		String res = null;
@@ -142,7 +146,7 @@ public class PanamahUtil {
 			res = baos.toString();
 		}
 
-		System.out.println(res);
+		//System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status == 403) {
 			// System.out.println("token expirado!");
@@ -151,9 +155,23 @@ public class PanamahUtil {
 		}
 		if (status >= 400)
 			throw new PanamahException(status, res);
-		
-		return buildGson().fromJson(res, PanamahPendencias.class);
+		// devolver o tipo certo
+		HashMap<String, PanamahPendencias> pen = convertMap(res);
+		return pen;
 
+	}
+
+	@SuppressWarnings("unchecked")
+	public static HashMap<String, PanamahPendencias> convertMap(String res) throws JsonSyntaxException {
+		Map<String, Map<String, String>> p = buildGson().fromJson(res, HashMap.class);
+		HashMap<String, PanamahPendencias> pen = new HashMap<String, PanamahPendencias>();
+		for (String s : p.keySet()) {
+			Map<String, String> intermediario = p.get(s);
+			String inter = buildGson().toJson(intermediario);
+			PanamahPendencias pend = buildGson().fromJson(inter,PanamahPendencias.class);
+			pen.put(s, pend);
+		}
+		return pen;
 	}
 
 	public static void createAssinante(PanamahConfig config) throws Exception {

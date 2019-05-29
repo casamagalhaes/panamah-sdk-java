@@ -15,6 +15,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.TimerTask;
 
 import com.google.gson.internal.LinkedTreeMap;
@@ -307,7 +308,7 @@ public class PanamahTask extends TimerTask {
 		return config;
 	}
 
-	public PanamahPendencias pending(int start, int count) throws Exception {
+	public HashMap<String, PanamahPendencias>  pending(int start, int count) throws Exception {
 		return PanamahUtil.pending(config, start, count);
 	}
 
