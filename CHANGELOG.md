@@ -3,9 +3,9 @@
 Histórico de releases da SDK
 
 
-## 1.0.0
+## 0.3.4
 
-Quebra de API
+Ajuste de API
 
 - suporte a multi-assinante
 - mudança no retorno de pendências
