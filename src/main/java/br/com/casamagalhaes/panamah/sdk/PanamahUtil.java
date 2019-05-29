@@ -47,6 +47,7 @@ public class PanamahUtil {
 
 	public static final String SDK_IDENTITY = "panamah-java-0.3.4";
 
+
 	public static String stamp(Date d) {
 		return new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS").format(d);
 	}
