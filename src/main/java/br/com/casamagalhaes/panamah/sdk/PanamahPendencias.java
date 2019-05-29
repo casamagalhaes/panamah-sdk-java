@@ -3,7 +3,8 @@ package br.com.casamagalhaes.panamah.sdk;
 import java.util.List;
 
 public class PanamahPendencias {
-
+	
+	private String assinanteId;
 	private List<String> CLIENTE;
 	private List<String> COMPRA;
 	private List<String> ASSINANTE;
@@ -29,6 +30,14 @@ public class PanamahPendencias {
 	private List<String> TROCA_FORMA_PAGAMENTO;
 	private List<String> VENDA;
 
+	public String getAssinanteId() {
+		return assinanteId;
+	}
+	
+	public void setAssinanteId(String assinanteId) {
+		this.assinanteId = assinanteId;
+	}
+	
 	public List<String> getCLIENTE() {
 		return CLIENTE;
 	}

@@ -2,6 +2,7 @@ package br.com.casamagalhaes.panamah.sdk;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Timer;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahAcesso;
@@ -79,7 +80,7 @@ public class PanamahStream {
 
 	}
 
-	public PanamahPendencias pending(int start, int count) throws Exception {
+	public HashMap<String, PanamahPendencias>  pending(int start, int count) throws Exception {
 		return this.task.pending(start, count);
 	}
 

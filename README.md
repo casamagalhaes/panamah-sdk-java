@@ -71,8 +71,7 @@ panamah.save(venda);
 
 - authToken/softwareToken
 - key
-- addr
 - assinanteId
 
-Assinante é normalmente o cnpj, addr <https://panamah.io/api/v2> e o token e a key são informados pela Casa Magalhães através dos canais de omunicação com os parceiros.
+Assinante é normalmente o cnpj, o token e a key são informados pela Casa Magalhães através dos canais de comunicação com os parceiros.
 

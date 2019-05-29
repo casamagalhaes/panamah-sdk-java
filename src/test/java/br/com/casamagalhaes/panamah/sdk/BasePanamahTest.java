@@ -528,11 +528,4 @@ public class BasePanamahTest {
 		PanamahUtil.send(c, lote);
 	}
 
-	@Test
-	public void shouldListPendingResources() throws Exception {
-		PanamahUtil.auth(c);
-		PanamahPendencias s = PanamahUtil.pending(c, 1, 10);
-		assertNotNull(s);
-	}
-
 }
