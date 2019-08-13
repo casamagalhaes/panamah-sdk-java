@@ -45,7 +45,7 @@ import br.com.casamagalhaes.panamah.sdk.nfe.X509Data;
 
 public class PanamahUtil {
 
-	public static final String SDK_IDENTITY = "panamah-java-0.3.4";
+	public static final String SDK_IDENTITY = "panamah-java-1.0.0";
 
 
 	public static String stamp(Date d) {
@@ -101,7 +101,7 @@ public class PanamahUtil {
 			res = baos.toString();
 		}
 
-		// System.out.println(res);
+		System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status >= 400)
 			throw new PanamahException(status, res);
@@ -146,7 +146,7 @@ public class PanamahUtil {
 			res = baos.toString();
 		}
 
-		//System.out.println(res);
+		System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status == 403) {
 			// System.out.println("token expirado!");

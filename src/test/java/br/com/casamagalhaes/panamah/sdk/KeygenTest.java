@@ -22,13 +22,4 @@ public class KeygenTest {
 		System.out.println(b);
 		assertEquals(expected, b);
 	}
-	
-	@Test
-	public void shouldMatchSample() throws Exception {
-		PanamahConfig config = PanamahConfig.fromEnv();
-		PanamahAuth auth = config.getAuth();
-		String b = auth.buildAuth(1558445528);
-		System.out.println(b);
-		assertEquals(sample, b);
-	}
 }

@@ -83,7 +83,7 @@ public class PanamahConfig {
 			c.addr = System.getenv("DEV_PANAMAH_ADDR");
 			c.auth.setAuthorizationToken(System.getenv("DEV_PANAMAH_AUTHORIZATION_TOKEN"));
 			c.auth.getAssinante().setId(System.getenv("DEV_PANAMAH_ASSINANTE_ID"));
-			c.auth.setKey(System.getenv("DEV_PANAMAH_KEY"));
+			c.auth.setKey(System.getenv("DEV_PANAMAH_SECRET"));
 			break;
 		case "staging":
 			c.basePath = System.getenv("HOM_PANAMAH_BASE_PATH");
@@ -91,7 +91,7 @@ public class PanamahConfig {
 			c.addr = System.getenv("HOM_PANAMAH_ADDR");
 			c.auth.setAuthorizationToken(System.getenv("HOM_PANAMAH_AUTHORIZATION_TOKEN"));
 			c.auth.getAssinante().setId(System.getenv("HOM_PANAMAH_ASSINANTE_ID"));
-			c.auth.setKey(System.getenv("HOM_PANAMAH_KEY"));
+			c.auth.setKey(System.getenv("HOM_PANAMAH_SECRET"));
 			break;
 		case "production":
 			c.basePath = System.getenv("PANAMAH_BASE_PATH");
@@ -99,7 +99,7 @@ public class PanamahConfig {
 			c.addr = System.getenv("PANAMAH_ADDR");
 			c.auth.setAuthorizationToken(System.getenv("PANAMAH_AUTHORIZATION_TOKEN"));
 			c.auth.getAssinante().setId(System.getenv("PANAMAH_ASSINANTE_ID"));
-			c.auth.setKey(System.getenv("PANAMAH_KEY"));
+			c.auth.setKey(System.getenv("PANAMAH_SECRET"));
 			break;
 		}
 		return c;
@@ -120,7 +120,7 @@ public class PanamahConfig {
 			c.addr = p.getProperty("panamah." + c.env + ".addr");
 			c.auth.setAuthorizationToken(p.getProperty("panamah." + c.env + ".token"));
 			c.auth.getAssinante().setId(p.getProperty("panamah." + c.env + ".assinanteid"));
-			c.auth.setKey(p.getProperty("panamah." + c.env + ".key"));
+			c.auth.setKey(p.getProperty("panamah." + c.env + ".secret"));
 		}
 		return c;
 	}
@@ -163,12 +163,12 @@ public class PanamahConfig {
 		if (authToken != null)
 			c.auth.setAuthorizationToken(authToken);
 
-		String key = System.getenv("PANAMAH_KEY");
-		if (c.auth.getAuthorizationToken() == null)
-			c.auth.setAuthorizationToken(key);
-		key = System.getProperty("panamah.key");
-		if (key != null)
-			c.auth.setKey(key);
+		String secret = System.getenv("PANAMAH_SECRET");
+		if (c.auth.getKey() == null)
+			c.auth.setKey(secret);
+		secret = System.getProperty("panamah.secret");
+		if (secret != null)
+			c.auth.setKey(secret);
 
 		String asinanteId = System.getenv("PANAMAH_ASSINANTE_ID");
 		if (c.auth.getAssinante().getId() == null)

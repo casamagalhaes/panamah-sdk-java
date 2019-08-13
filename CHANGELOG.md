@@ -2,6 +2,11 @@
 
 Histórico de releases da SDK
 
+## 1.0.0
+
+- quebra de API
+  - na configuração agora procuramos 'secret' em vez de 'key'
+- ajuste na bateria de testes
 
 ## 0.3.4
 
