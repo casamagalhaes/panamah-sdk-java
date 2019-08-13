@@ -69,9 +69,9 @@ panamah.save(venda);
 
 é preciso informar sem falta:
 
-- authToken/softwareToken
-- key
-- assinanteId
+- AuthorizationToken
+- Secret
+- AssinanteId
 
-Assinante é normalmente o cnpj, o token e a key são informados pela Casa Magalhães através dos canais de comunicação com os parceiros.
+Assinante é normalmente o cnpj, o authorization token e o secret são informados pela Casa Magalhães através dos canais de comunicação com os parceiros.
 
