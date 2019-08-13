@@ -67,11 +67,11 @@ panamah.save(venda);
 
 ### Importante
 
-é preciso informar sem falta:
+É preciso informar sem falta:
 
-- authToken/softwareToken
-- secret
-- assinanteId
+- AuthorizationToken
+- Secret
+- AssinanteId
 
-Assinante é normalmente o cnpj, o token e a secret são informados pela Casa Magalhães através dos canais de comunicação com os parceiros.
+Assinante é normalmente o cnpj, o authorization token e o secret são informados pela Casa Magalhães através dos canais de comunicação com os parceiros.
 
