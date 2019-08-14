@@ -37,12 +37,12 @@ plugins {
 repositories {
     jcenter()
     maven {
-        url  "https://casamagalhaes.bintray.com/panamah-sdk-java"
+        url  "https://dl.bintray.com/casamagalhaes/panamah-java-sdk"
     }
 }
 
 dependencies {
-    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:0.1.0'
+    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:1.0.1'
     testImplementation 'junit:junit:4.12'
 }
 ```
@@ -50,7 +50,7 @@ dependencies {
 ## Usando em projetos maven
 
 Siga as instruções do link **set me up**
-[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/0.3.0?tab=overview)
+[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/1.0.1?tab=overview)
 
 ## Uso básico
 

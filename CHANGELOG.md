@@ -2,6 +2,10 @@
 
 Histórico de releases da SDK
 
+## 1.0.1
+
+Corrigindo documentação
+
 ## 1.0.0
 
 - quebra de API
