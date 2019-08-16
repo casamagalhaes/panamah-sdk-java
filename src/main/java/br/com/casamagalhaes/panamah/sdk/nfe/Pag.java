@@ -3,7 +3,7 @@ package br.com.casamagalhaes.panamah.sdk.nfe;
 public class Pag {
 
 	private DetPag detPag;
-	private Double vTroco;
+	private java.math.BigDecimal vTroco;
 
 	public DetPag getDetPag() {
 		return detPag;
@@ -13,11 +13,11 @@ public class Pag {
 		this.detPag = detPag;
 	}
 
-	public Double getvTroco() {
+	public java.math.BigDecimal getvTroco() {
 		return vTroco;
 	}
 
-	public void setvTroco(Double vTroco) {
+	public void setvTroco(java.math.BigDecimal vTroco) {
 		this.vTroco = vTroco;
 	}
 

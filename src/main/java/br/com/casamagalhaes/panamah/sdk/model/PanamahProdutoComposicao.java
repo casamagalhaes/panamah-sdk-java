@@ -16,13 +16,13 @@ public class PanamahProdutoComposicao {
 		this.itens = itens;
 	}
 
-	private Double quantidade;
+	private java.math.BigDecimal quantidade;
 
-	public Double getQuantidade() {
+	public java.math.BigDecimal getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(Double quantidade) {
+	public void setQuantidade(java.math.BigDecimal quantidade) {
 		this.quantidade = quantidade;
 	}
 

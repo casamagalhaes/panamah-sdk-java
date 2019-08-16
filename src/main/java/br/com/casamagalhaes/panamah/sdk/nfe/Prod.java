@@ -8,14 +8,14 @@ public class Prod {
 	private Integer NCM;
 	private Integer CFOP;
 	private String uCom;
-	private Double qCom;
-	private Double vUnCom;
-	private Double vProd;
+	private java.math.BigDecimal qCom;
+	private java.math.BigDecimal vUnCom;
+	private java.math.BigDecimal vProd;
 	private String cEANTrib;
 	private String uTrib;
-	private Double qTrib;
-	private Double vUnTrib;
-	private Double vDesc;
+	private java.math.BigDecimal qTrib;
+	private java.math.BigDecimal vUnTrib;
+	private java.math.BigDecimal vDesc;
 	private Integer indTot;
 
 	public String getcProd() {
@@ -66,27 +66,27 @@ public class Prod {
 		this.uCom = uCom;
 	}
 
-	public Double getqCom() {
+	public java.math.BigDecimal getqCom() {
 		return qCom;
 	}
 
-	public void setqCom(Double qCom) {
+	public void setqCom(java.math.BigDecimal qCom) {
 		this.qCom = qCom;
 	}
 
-	public Double getvUnCom() {
+	public java.math.BigDecimal getvUnCom() {
 		return vUnCom;
 	}
 
-	public void setvUnCom(Double vUnCom) {
+	public void setvUnCom(java.math.BigDecimal vUnCom) {
 		this.vUnCom = vUnCom;
 	}
 
-	public Double getvProd() {
+	public java.math.BigDecimal getvProd() {
 		return vProd;
 	}
 
-	public void setvProd(Double vProd) {
+	public void setvProd(java.math.BigDecimal vProd) {
 		this.vProd = vProd;
 	}
 
@@ -106,27 +106,27 @@ public class Prod {
 		this.uTrib = uTrib;
 	}
 
-	public Double getqTrib() {
+	public java.math.BigDecimal getqTrib() {
 		return qTrib;
 	}
 
-	public void setqTrib(Double qTrib) {
+	public void setqTrib(java.math.BigDecimal qTrib) {
 		this.qTrib = qTrib;
 	}
 
-	public Double getvUnTrib() {
+	public java.math.BigDecimal getvUnTrib() {
 		return vUnTrib;
 	}
 
-	public void setvUnTrib(Double vUnTrib) {
+	public void setvUnTrib(java.math.BigDecimal vUnTrib) {
 		this.vUnTrib = vUnTrib;
 	}
 
-	public Double getvDesc() {
+	public java.math.BigDecimal getvDesc() {
 		return vDesc;
 	}
 
-	public void setvDesc(Double vDesc) {
+	public void setvDesc(java.math.BigDecimal vDesc) {
 		this.vDesc = vDesc;
 	}
 

@@ -81,13 +81,13 @@
     this.dataHoraCompra = dataHoraCompra;
   }
   
-  private Double desconto;
+  private java.math.BigDecimal desconto;
 
-  public Double getDesconto(){
+  public java.math.BigDecimal getDesconto(){
     return desconto;
   }
 
-  public void setDesconto(Double desconto){
+  public void setDesconto(java.math.BigDecimal desconto){
     this.desconto = desconto;
   }
   
@@ -101,13 +101,13 @@
     this.efetiva = efetiva;
   }
   
-  private Double quantidadeItens;
+  private java.math.BigDecimal quantidadeItens;
 
-  public Double getQuantidadeItens(){
+  public java.math.BigDecimal getQuantidadeItens(){
     return quantidadeItens;
   }
 
-  public void setQuantidadeItens(Double quantidadeItens){
+  public void setQuantidadeItens(java.math.BigDecimal quantidadeItens){
     this.quantidadeItens = quantidadeItens;
   }
   
@@ -121,23 +121,23 @@
     this.tipoDesconto = tipoDesconto;
   }
   
-  private Double valor;
+  private java.math.BigDecimal valor;
 
-  public Double getValor(){
+  public java.math.BigDecimal getValor(){
     return valor;
   }
 
-  public void setValor(Double valor){
+  public void setValor(java.math.BigDecimal valor){
     this.valor = valor;
   }
   
-  private Double acrescimo;
+  private java.math.BigDecimal acrescimo;
 
-  public Double getAcrescimo(){
+  public java.math.BigDecimal getAcrescimo(){
     return acrescimo;
   }
 
-  public void setAcrescimo(Double acrescimo){
+  public void setAcrescimo(java.math.BigDecimal acrescimo){
     this.acrescimo = acrescimo;
   }
   

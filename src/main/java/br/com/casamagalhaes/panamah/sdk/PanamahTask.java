@@ -10,6 +10,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -286,10 +287,10 @@ public class PanamahTask extends TimerTask {
 			for (Det d : nfe.getInfNFe().getDet()) {
 				PanamahVendaItens i = new PanamahVendaItens();
 				i.setPreco(d.getProd().getvProd());
-				i.setQuantidade(1.0 * d.getnItem());
+				i.setQuantidade(new BigDecimal(1.0 * d.getnItem()));
 				venda.getItens().add(i);
 			}
-			venda.setQuantidadeItens(1.0 * nfe.getInfNFe().getDet().size());
+			venda.setQuantidadeItens(new BigDecimal(1.0 * nfe.getInfNFe().getDet().size()));
 			
 			model.setVenda(venda);
 		}

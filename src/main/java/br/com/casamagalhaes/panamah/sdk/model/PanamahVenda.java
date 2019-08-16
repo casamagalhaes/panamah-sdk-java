@@ -92,13 +92,13 @@ public class PanamahVenda implements IPanamahModel {
 		this.dataHoraVenda = dataHoraVenda;
 	}
 
-	private Double desconto;
+	private java.math.BigDecimal desconto;
 
-	public Double getDesconto() {
+	public java.math.BigDecimal getDesconto() {
 		return desconto;
 	}
 
-	public void setDesconto(Double desconto) {
+	public void setDesconto(java.math.BigDecimal desconto) {
 		this.desconto = desconto;
 	}
 
@@ -112,23 +112,23 @@ public class PanamahVenda implements IPanamahModel {
 		this.efetiva = efetiva;
 	}
 
-	private Double quantidadeItens;
+	private java.math.BigDecimal quantidadeItens;
 
-	public Double getQuantidadeItens() {
+	public java.math.BigDecimal getQuantidadeItens() {
 		return quantidadeItens;
 	}
 
-	public void setQuantidadeItens(Double quantidadeItens) {
+	public void setQuantidadeItens(java.math.BigDecimal quantidadeItens) {
 		this.quantidadeItens = quantidadeItens;
 	}
 
-	private Double quantidadeItensCancelados;
+	private java.math.BigDecimal quantidadeItensCancelados;
 
-	public Double getQuantidadeItensCancelados() {
+	public java.math.BigDecimal getQuantidadeItensCancelados() {
 		return quantidadeItensCancelados;
 	}
 
-	public void setQuantidadeItensCancelados(Double quantidadeItensCancelados) {
+	public void setQuantidadeItensCancelados(java.math.BigDecimal quantidadeItensCancelados) {
 		this.quantidadeItensCancelados = quantidadeItensCancelados;
 	}
 
@@ -142,13 +142,13 @@ public class PanamahVenda implements IPanamahModel {
 		this.sequencial = sequencial;
 	}
 
-	private Double servico;
+	private java.math.BigDecimal servico;
 
-	public Double getServico() {
+	public java.math.BigDecimal getServico() {
 		return servico;
 	}
 
-	public void setServico(Double servico) {
+	public void setServico(java.math.BigDecimal servico) {
 		this.servico = servico;
 	}
 
@@ -172,33 +172,33 @@ public class PanamahVenda implements IPanamahModel {
 		this.tipoPreco = tipoPreco;
 	}
 
-	private Double valor;
+	private java.math.BigDecimal valor;
 
-	public Double getValor() {
+	public java.math.BigDecimal getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(java.math.BigDecimal valor) {
 		this.valor = valor;
 	}
 
-	private Double valorItensCancelados;
+	private java.math.BigDecimal valorItensCancelados;
 
-	public Double getValorItensCancelados() {
+	public java.math.BigDecimal getValorItensCancelados() {
 		return valorItensCancelados;
 	}
 
-	public void setValorItensCancelados(Double valorItensCancelados) {
+	public void setValorItensCancelados(java.math.BigDecimal valorItensCancelados) {
 		this.valorItensCancelados = valorItensCancelados;
 	}
 
-	private Double acrescimo;
+	private java.math.BigDecimal acrescimo;
 
-	public Double getAcrescimo() {
+	public java.math.BigDecimal getAcrescimo() {
 		return acrescimo;
 	}
 
-	public void setAcrescimo(Double acrescimo) {
+	public void setAcrescimo(java.math.BigDecimal acrescimo) {
 		this.acrescimo = acrescimo;
 	}
 

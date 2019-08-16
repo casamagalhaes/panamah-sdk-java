@@ -6,13 +6,13 @@ public class PanamahTrocaDevolucaoItens {
 	public PanamahTrocaDevolucaoItens() {
 	}
 
-	private Double desconto;
+	private java.math.BigDecimal desconto;
 
-	public Double getDesconto() {
+	public java.math.BigDecimal getDesconto() {
 		return desconto;
 	}
 
-	public void setDesconto(Double desconto) {
+	public void setDesconto(java.math.BigDecimal desconto) {
 		this.desconto = desconto;
 	}
 
@@ -26,33 +26,33 @@ public class PanamahTrocaDevolucaoItens {
 		this.produtoId = produtoId;
 	}
 
-	private Double quantidade;
+	private java.math.BigDecimal quantidade;
 
-	public Double getQuantidade() {
+	public java.math.BigDecimal getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(Double quantidade) {
+	public void setQuantidade(java.math.BigDecimal quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	private Double valorTotal;
+	private java.math.BigDecimal valorTotal;
 
-	public Double getValorTotal() {
+	public java.math.BigDecimal getValorTotal() {
 		return valorTotal;
 	}
 
-	public void setValorTotal(Double valorTotal) {
+	public void setValorTotal(java.math.BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
 
-	private Double valorUnitario;
+	private java.math.BigDecimal valorUnitario;
 
-	public Double getValorUnitario() {
+	public java.math.BigDecimal getValorUnitario() {
 		return valorUnitario;
 	}
 
-	public void setValorUnitario(Double valorUnitario) {
+	public void setValorUnitario(java.math.BigDecimal valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
 

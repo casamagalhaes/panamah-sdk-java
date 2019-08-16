@@ -102,13 +102,13 @@
     this.sequencial = sequencial;
   }
   
-  private Double valor;
+  private java.math.BigDecimal valor;
 
-  public Double getValor(){
+  public java.math.BigDecimal getValor(){
     return valor;
   }
 
-  public void setValor(Double valor){
+  public void setValor(java.math.BigDecimal valor){
     this.valor = valor;
   }
   

@@ -2,6 +2,11 @@
 
 Histórico de releases da SDK
 
+## 2.0.0
+
+- quebra de api
+  - mudando atributos do tipo Double para BigDecimal
+
 ## 1.0.1
 
 Corrigindo documentação

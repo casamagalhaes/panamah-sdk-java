@@ -2,14 +2,14 @@ package br.com.casamagalhaes.panamah.sdk.nfe;
 
 public class Imposto {
 
-	private Double vTotTrib;
+	private java.math.BigDecimal vTotTrib;
 	private Icms icms;
 
-	public Double getvTotTrib() {
+	public java.math.BigDecimal getvTotTrib() {
 		return vTotTrib;
 	}
 
-	public void setvTotTrib(Double vTotTrib) {
+	public void setvTotTrib(java.math.BigDecimal vTotTrib) {
 		this.vTotTrib = vTotTrib;
 	}
 

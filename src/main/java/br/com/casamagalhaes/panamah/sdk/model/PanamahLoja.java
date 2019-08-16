@@ -171,33 +171,33 @@
     this.telefone = telefone;
   }
   
-  private Double qtdCheckouts;
+  private java.math.BigDecimal qtdCheckouts;
 
-  public Double getQtdCheckouts(){
+  public java.math.BigDecimal getQtdCheckouts(){
     return qtdCheckouts;
   }
 
-  public void setQtdCheckouts(Double qtdCheckouts){
+  public void setQtdCheckouts(java.math.BigDecimal qtdCheckouts){
     this.qtdCheckouts = qtdCheckouts;
   }
   
-  private Double areaM2;
+  private java.math.BigDecimal areaM2;
 
-  public Double getAreaM2(){
+  public java.math.BigDecimal getAreaM2(){
     return areaM2;
   }
 
-  public void setAreaM2(Double areaM2){
+  public void setAreaM2(java.math.BigDecimal areaM2){
     this.areaM2 = areaM2;
   }
   
-  private Double qtdFuncionarios;
+  private java.math.BigDecimal qtdFuncionarios;
 
-  public Double getQtdFuncionarios(){
+  public java.math.BigDecimal getQtdFuncionarios(){
     return qtdFuncionarios;
   }
 
-  public void setQtdFuncionarios(Double qtdFuncionarios){
+  public void setQtdFuncionarios(java.math.BigDecimal qtdFuncionarios){
     this.qtdFuncionarios = qtdFuncionarios;
   }
   

@@ -6,23 +6,23 @@ public class PanamahVendaItens {
 	public PanamahVendaItens() {
 	}
 
-	private Double acrescimo;
+	private java.math.BigDecimal acrescimo;
 
-	public Double getAcrescimo() {
+	public java.math.BigDecimal getAcrescimo() {
 		return acrescimo;
 	}
 
-	public void setAcrescimo(Double acrescimo) {
+	public void setAcrescimo(java.math.BigDecimal acrescimo) {
 		this.acrescimo = acrescimo;
 	}
 
-	private Double desconto;
+	private java.math.BigDecimal desconto;
 
-	public Double getDesconto() {
+	public java.math.BigDecimal getDesconto() {
 		return desconto;
 	}
 
-	public void setDesconto(Double desconto) {
+	public void setDesconto(java.math.BigDecimal desconto) {
 		this.desconto = desconto;
 	}
 
@@ -46,13 +46,13 @@ public class PanamahVendaItens {
 		this.funcionarioId = funcionarioId;
 	}
 
-	private Double preco;
+	private java.math.BigDecimal preco;
 
-	public Double getPreco() {
+	public java.math.BigDecimal getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Double preco) {
+	public void setPreco(java.math.BigDecimal preco) {
 		this.preco = preco;
 	}
 
@@ -86,43 +86,43 @@ public class PanamahVendaItens {
 		this.promocao = promocao;
 	}
 
-	private Double quantidade;
+	private java.math.BigDecimal quantidade;
 
-	public Double getQuantidade() {
+	public java.math.BigDecimal getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(Double quantidade) {
+	public void setQuantidade(java.math.BigDecimal quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	private Double servico;
+	private java.math.BigDecimal servico;
 
-	public Double getServico() {
+	public java.math.BigDecimal getServico() {
 		return servico;
 	}
 
-	public void setServico(Double servico) {
+	public void setServico(java.math.BigDecimal servico) {
 		this.servico = servico;
 	}
 
-	private Double valorTotal;
+	private java.math.BigDecimal valorTotal;
 
-	public Double getValorTotal() {
+	public java.math.BigDecimal getValorTotal() {
 		return valorTotal;
 	}
 
-	public void setValorTotal(Double valorTotal) {
+	public void setValorTotal(java.math.BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
 
-	private Double valorUnitario;
+	private java.math.BigDecimal valorUnitario;
 
-	public Double getValorUnitario() {
+	public java.math.BigDecimal getValorUnitario() {
 		return valorUnitario;
 	}
 
-	public void setValorUnitario(Double valorUnitario) {
+	public void setValorUnitario(java.math.BigDecimal valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
 
@@ -136,33 +136,33 @@ public class PanamahVendaItens {
 		this.tipoPreco = tipoPreco;
 	}
 
-	private Double custo;
+	private java.math.BigDecimal custo;
 
-	public Double getCusto() {
+	public java.math.BigDecimal getCusto() {
 		return custo;
 	}
 
-	public void setCusto(Double custo) {
+	public void setCusto(java.math.BigDecimal custo) {
 		this.custo = custo;
 	}
 
-	private Double markup;
+	private java.math.BigDecimal markup;
 
-	public Double getMarkup() {
+	public java.math.BigDecimal getMarkup() {
 		return markup;
 	}
 
-	public void setMarkup(Double markup) {
+	public void setMarkup(java.math.BigDecimal markup) {
 		this.markup = markup;
 	}
 
-	private Double lucro;
+	private java.math.BigDecimal lucro;
 
-	public Double getLucro() {
+	public java.math.BigDecimal getLucro() {
 		return lucro;
 	}
 
-	public void setLucro(Double lucro) {
+	public void setLucro(java.math.BigDecimal lucro) {
 		this.lucro = lucro;
 	}
 

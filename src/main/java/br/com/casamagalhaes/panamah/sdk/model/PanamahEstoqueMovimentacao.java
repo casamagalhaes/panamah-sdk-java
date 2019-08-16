@@ -51,43 +51,43 @@
     this.produtoId = produtoId;
   }
   
-  private Double quantidade;
+  private java.math.BigDecimal quantidade;
 
-  public Double getQuantidade(){
+  public java.math.BigDecimal getQuantidade(){
     return quantidade;
   }
 
-  public void setQuantidade(Double quantidade){
+  public void setQuantidade(java.math.BigDecimal quantidade){
     this.quantidade = quantidade;
   }
   
-  private Double custo;
+  private java.math.BigDecimal custo;
 
-  public Double getCusto(){
+  public java.math.BigDecimal getCusto(){
     return custo;
   }
 
-  public void setCusto(Double custo){
+  public void setCusto(java.math.BigDecimal custo){
     this.custo = custo;
   }
   
-  private Double preco;
+  private java.math.BigDecimal preco;
 
-  public Double getPreco(){
+  public java.math.BigDecimal getPreco(){
     return preco;
   }
 
-  public void setPreco(Double preco){
+  public void setPreco(java.math.BigDecimal preco){
     this.preco = preco;
   }
   
-  private Double markup;
+  private java.math.BigDecimal markup;
 
-  public Double getMarkup(){
+  public java.math.BigDecimal getMarkup(){
     return markup;
   }
 
-  public void setMarkup(Double markup){
+  public void setMarkup(java.math.BigDecimal markup){
     this.markup = markup;
   }
   

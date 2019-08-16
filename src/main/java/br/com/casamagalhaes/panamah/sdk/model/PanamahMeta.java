@@ -21,23 +21,23 @@
     this.id = id;
   }
   
-  private Double mes;
+  private java.math.BigDecimal mes;
 
-  public Double getMes(){
+  public java.math.BigDecimal getMes(){
     return mes;
   }
 
-  public void setMes(Double mes){
+  public void setMes(java.math.BigDecimal mes){
     this.mes = mes;
   }
   
-  private Double ano;
+  private java.math.BigDecimal ano;
 
-  public Double getAno(){
+  public java.math.BigDecimal getAno(){
     return ano;
   }
 
-  public void setAno(Double ano){
+  public void setAno(java.math.BigDecimal ano){
     this.ano = ano;
   }
   
@@ -61,13 +61,13 @@
     this.secaoId = secaoId;
   }
   
-  private Double valor;
+  private java.math.BigDecimal valor;
 
-  public Double getValor(){
+  public java.math.BigDecimal getValor(){
     return valor;
   }
 
-  public void setValor(Double valor){
+  public void setValor(java.math.BigDecimal valor){
     this.valor = valor;
   }
   

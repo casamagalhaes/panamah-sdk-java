@@ -12,7 +12,7 @@ public class InfEvento {
 	private Date dhEvento;
 	private Integer tpEvento;
 	private Integer nSeqEvento;
-	private Double verEvento;
+	private java.math.BigDecimal verEvento;
 	private DetEvento detEvento;
 	
 	public String getId() {
@@ -110,13 +110,13 @@ public class InfEvento {
 	/**
 	 * @return the verEvento
 	 */
-	public Double getVerEvento() {
+	public java.math.BigDecimal getVerEvento() {
 		return verEvento;
 	}
 	/**
 	 * @param verEvento the verEvento to set
 	 */
-	public void setVerEvento(Double verEvento) {
+	public void setVerEvento(java.math.BigDecimal verEvento) {
 		this.verEvento = verEvento;
 	}
 	

@@ -102,13 +102,13 @@
     this.pesoVariavel = pesoVariavel;
   }
   
-  private Double quantidadeItensEmbalagem;
+  private java.math.BigDecimal quantidadeItensEmbalagem;
 
-  public Double getQuantidadeItensEmbalagem(){
+  public java.math.BigDecimal getQuantidadeItensEmbalagem(){
     return quantidadeItensEmbalagem;
   }
 
-  public void setQuantidadeItensEmbalagem(Double quantidadeItensEmbalagem){
+  public void setQuantidadeItensEmbalagem(java.math.BigDecimal quantidadeItensEmbalagem){
     this.quantidadeItensEmbalagem = quantidadeItensEmbalagem;
   }
   

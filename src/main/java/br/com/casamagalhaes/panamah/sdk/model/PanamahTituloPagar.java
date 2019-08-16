@@ -51,53 +51,53 @@
     this.documento = documento;
   }
   
-  private Double valorNominal;
+  private java.math.BigDecimal valorNominal;
 
-  public Double getValorNominal(){
+  public java.math.BigDecimal getValorNominal(){
     return valorNominal;
   }
 
-  public void setValorNominal(Double valorNominal){
+  public void setValorNominal(java.math.BigDecimal valorNominal){
     this.valorNominal = valorNominal;
   }
   
-  private Double valorJuros;
+  private java.math.BigDecimal valorJuros;
 
-  public Double getValorJuros(){
+  public java.math.BigDecimal getValorJuros(){
     return valorJuros;
   }
 
-  public void setValorJuros(Double valorJuros){
+  public void setValorJuros(java.math.BigDecimal valorJuros){
     this.valorJuros = valorJuros;
   }
   
-  private Double valorMulta;
+  private java.math.BigDecimal valorMulta;
 
-  public Double getValorMulta(){
+  public java.math.BigDecimal getValorMulta(){
     return valorMulta;
   }
 
-  public void setValorMulta(Double valorMulta){
+  public void setValorMulta(java.math.BigDecimal valorMulta){
     this.valorMulta = valorMulta;
   }
   
-  private Double valorDevido;
+  private java.math.BigDecimal valorDevido;
 
-  public Double getValorDevido(){
+  public java.math.BigDecimal getValorDevido(){
     return valorDevido;
   }
 
-  public void setValorDevido(Double valorDevido){
+  public void setValorDevido(java.math.BigDecimal valorDevido){
     this.valorDevido = valorDevido;
   }
   
-  private Double valorPago;
+  private java.math.BigDecimal valorPago;
 
-  public Double getValorPago(){
+  public java.math.BigDecimal getValorPago(){
     return valorPago;
   }
 
-  public void setValorPago(Double valorPago){
+  public void setValorPago(java.math.BigDecimal valorPago){
     this.valorPago = valorPago;
   }
   

@@ -101,23 +101,23 @@
     this.sequencialPagamento = sequencialPagamento;
   }
   
-  private Double valor;
+  private java.math.BigDecimal valor;
 
-  public Double getValor(){
+  public java.math.BigDecimal getValor(){
     return valor;
   }
 
-  public void setValor(Double valor){
+  public void setValor(java.math.BigDecimal valor){
     this.valor = valor;
   }
   
-  private Double valorContraValeOuTroco;
+  private java.math.BigDecimal valorContraValeOuTroco;
 
-  public Double getValorContraValeOuTroco(){
+  public java.math.BigDecimal getValorContraValeOuTroco(){
     return valorContraValeOuTroco;
   }
 
-  public void setValorContraValeOuTroco(Double valorContraValeOuTroco){
+  public void setValorContraValeOuTroco(java.math.BigDecimal valorContraValeOuTroco){
     this.valorContraValeOuTroco = valorContraValeOuTroco;
   }
   

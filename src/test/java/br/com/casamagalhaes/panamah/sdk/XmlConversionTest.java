@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -107,21 +108,21 @@ public class XmlConversionTest {
 		p.getNfe().getInfNFe().getDet().get(1).setProd(new Prod());
 		p.getNfe().getInfNFe().getDet().get(1).getProd().setcEAN("SEM GTIN");
 		p.getNfe().getInfNFe().getDet().get(1).setImposto(new Imposto());
-		p.getNfe().getInfNFe().getDet().get(1).getImposto().setvTotTrib(1.2);
+		p.getNfe().getInfNFe().getDet().get(1).getImposto().setvTotTrib(new BigDecimal(1.2));
 		p.getNfe().getInfNFe().getDet().get(1).getImposto().setIcms(new Icms());
 		p.getNfe().getInfNFe().getDet().get(1).getImposto().getIcms().setIcmsSn102(new IcmsSn102());
 		p.getNfe().getInfNFe().getDet().get(1).getImposto().getIcms().getIcmsSn102().setCsosn(1);
 		p.getNfe().getInfNFe().getDet().get(1).getImposto().getIcms().getIcmsSn102().setOrig(1);
 		p.getNfe().getInfNFe().setTotal(new Total());
 		p.getNfe().getInfNFe().getTotal().setIcmsTot(new IcmsTot());
-		p.getNfe().getInfNFe().getTotal().getIcmsTot().setvBCST(1.1);
+		p.getNfe().getInfNFe().getTotal().getIcmsTot().setvBCST(new BigDecimal(1.1));
 		p.getNfe().getInfNFe().setTransp(new Transp());
 		p.getNfe().getInfNFe().getTransp().setModFrete(1);
 		p.getNfe().getInfNFe().setPag(new Pag());
-		p.getNfe().getInfNFe().getPag().setvTroco(1.1);
+		p.getNfe().getInfNFe().getPag().setvTroco(new BigDecimal(1.1));
 		p.getNfe().getInfNFe().getPag().setDetPag(new DetPag());
 		p.getNfe().getInfNFe().getPag().getDetPag().settPag("aaa");
-		p.getNfe().getInfNFe().getPag().getDetPag().setvPag(1.1);
+		p.getNfe().getInfNFe().getPag().getDetPag().setvPag(new BigDecimal(1.1));
 		p.getNfe().setInfNFeSupl(new InfNFeSupl());
 		p.getNfe().getInfNFeSupl().setQrCode("");
 		p.getNfe().setSignature(new Signature());
@@ -152,7 +153,7 @@ public class XmlConversionTest {
 		XStream x = PanamahUtil.buildXStream();
 		String xml = x.toXML(p);
 		assertNotNull(xml);
-		// // System.out.println(xml);
+		System.out.println(xml);
 	}
 
 	@Test
@@ -179,21 +180,21 @@ public class XmlConversionTest {
 		n.getInfNFe().getDet().get(1).setProd(new Prod());
 		n.getInfNFe().getDet().get(1).getProd().setcEAN("SEM GTIN");
 		n.getInfNFe().getDet().get(1).setImposto(new Imposto());
-		n.getInfNFe().getDet().get(1).getImposto().setvTotTrib(1.2);
+		n.getInfNFe().getDet().get(1).getImposto().setvTotTrib(new BigDecimal(1.2));
 		n.getInfNFe().getDet().get(1).getImposto().setIcms(new Icms());
 		n.getInfNFe().getDet().get(1).getImposto().getIcms().setIcmsSn102(new IcmsSn102());
 		n.getInfNFe().getDet().get(1).getImposto().getIcms().getIcmsSn102().setCsosn(1);
 		n.getInfNFe().getDet().get(1).getImposto().getIcms().getIcmsSn102().setOrig(1);
 		n.getInfNFe().setTotal(new Total());
 		n.getInfNFe().getTotal().setIcmsTot(new IcmsTot());
-		n.getInfNFe().getTotal().getIcmsTot().setvBCST(1.1);
+		n.getInfNFe().getTotal().getIcmsTot().setvBCST(new BigDecimal(1.1));
 		n.getInfNFe().setTransp(new Transp());
 		n.getInfNFe().getTransp().setModFrete(1);
 		n.getInfNFe().setPag(new Pag());
-		n.getInfNFe().getPag().setvTroco(1.1);
+		n.getInfNFe().getPag().setvTroco(new BigDecimal(1.1));
 		n.getInfNFe().getPag().setDetPag(new DetPag());
 		n.getInfNFe().getPag().getDetPag().settPag("aaa");
-		n.getInfNFe().getPag().getDetPag().setvPag(1.1);
+		n.getInfNFe().getPag().getDetPag().setvPag(new BigDecimal(1.1));
 		n.setInfNFeSupl(new InfNFeSupl());
 		n.getInfNFeSupl().setQrCode("");
 		n.setSignature(new Signature());
