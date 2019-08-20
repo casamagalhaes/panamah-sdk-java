@@ -72,7 +72,7 @@ public class PanamahUtil {
 			res = baos.toString();
 		}
 
-		System.out.println(res);
+		// System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status == 403) {
 			// System.out.println("token expirado!");
@@ -101,7 +101,7 @@ public class PanamahUtil {
 			res = baos.toString();
 		}
 
-		System.out.println(res);
+		// System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status >= 400)
 			throw new PanamahException(status, res);
@@ -112,7 +112,7 @@ public class PanamahUtil {
 	}
 
 	public static void refresh(PanamahConfig config) throws ClientProtocolException, IOException, PanamahException {
-		System.out.println(config.getAuth().getRefreshToken());
+		// System.out.println(config.getAuth().getRefreshToken());
 		HttpResponse re = Request.Get(config.getAddr() + "/stream/auth/refresh")//
 				.addHeader("x-sdk-identity", SDK_IDENTITY)
 				.addHeader("Authorization", config.getAuth().getRefreshToken())//
@@ -124,7 +124,7 @@ public class PanamahUtil {
 			res = baos.toString();
 		}
 
-		System.out.println(res);
+		// System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status >= 400)
 			throw new PanamahException(status, res);
@@ -146,7 +146,7 @@ public class PanamahUtil {
 			res = baos.toString();
 		}
 
-		System.out.println(res);
+		// System.out.println(res);
 		int status = re.getStatusLine().getStatusCode();
 		if (status == 403) {
 			// System.out.println("token expirado!");

@@ -19,7 +19,7 @@ public class KeygenTest {
 		auth.setKey("1234567890");
 		auth.getAssinante().setId("1234567890");
 		String b = auth.buildAuth(1234567890);
-		System.out.println(b);
+		// System.out.println(b);
 		assertEquals(expected, b);
 	}
 }
