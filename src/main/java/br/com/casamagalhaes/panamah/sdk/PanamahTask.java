@@ -68,7 +68,7 @@ public class PanamahTask extends TimerTask {
 	public void verificaEnvio() {
 		try {
 			if (new Date().getTime() > ultimoEnvio / 2 + config.getTtl()) {
-				System.out.println("verificaEnvio");
+				// System.out.println("verificaEnvio");
 				enviaLote();
 			}
 		} catch (Exception e) {
@@ -81,7 +81,7 @@ public class PanamahTask extends TimerTask {
 	public void verificaFechamento() {
 		try {
 			if (loteAtual.isVelho(config)) {
-				System.out.println("verificaFechamento");
+				// System.out.println("verificaFechamento");
 				fechaLoteAtual();
 				abreNovoLote();
 			}
@@ -165,7 +165,7 @@ public class PanamahTask extends TimerTask {
 
 					File toWrite = Paths.get(config.getBasePath(), "lotes", "enviados", toSend.getName()).toFile();
 					
-					System.out.println("lote enviado: "+toWrite);
+					// System.out.println("lote enviado: "+toWrite);
 
 					try (Writer w = new BufferedWriter(new FileWriter(toWrite))) {
 						w.write(PanamahUtil.buildGson().toJson(lote));
