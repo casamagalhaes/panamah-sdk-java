@@ -120,10 +120,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahAcesso model) throws Exception {
@@ -150,10 +146,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -181,10 +173,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahAssinante model) throws Exception {
@@ -211,10 +199,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -242,10 +226,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahCliente model) throws Exception {
@@ -272,10 +252,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -303,10 +279,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahCompra model) throws Exception {
@@ -333,10 +305,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -364,10 +332,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahEan model) throws Exception {
@@ -394,10 +358,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -425,10 +385,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahEstoqueMovimentacao model) throws Exception {
@@ -455,10 +411,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -486,10 +438,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahEventoCaixa model) throws Exception {
@@ -516,10 +464,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -547,10 +491,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahFormaPagamento model) throws Exception {
@@ -577,10 +517,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -608,10 +544,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahFornecedor model) throws Exception {
@@ -638,10 +570,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -669,10 +597,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahFuncionario model) throws Exception {
@@ -699,10 +623,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -730,10 +650,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahGrupo model) throws Exception {
@@ -760,10 +676,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -791,10 +703,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahHolding model) throws Exception {
@@ -821,10 +729,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -852,10 +756,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahLocalEstoque model) throws Exception {
@@ -882,10 +782,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -913,10 +809,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahLoja model) throws Exception {
@@ -943,10 +835,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -974,10 +862,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahMeta model) throws Exception {
@@ -1004,10 +888,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -1035,10 +915,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahProduto model) throws Exception {
@@ -1065,10 +941,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -1096,10 +968,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahRevenda model) throws Exception {
@@ -1126,10 +994,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -1157,10 +1021,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahSecao model) throws Exception {
@@ -1187,10 +1047,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -1218,10 +1074,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahSubgrupo model) throws Exception {
@@ -1248,10 +1100,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -1279,10 +1127,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahTituloPagar model) throws Exception {
@@ -1309,10 +1153,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -1340,10 +1180,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahTituloReceber model) throws Exception {
@@ -1370,10 +1206,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -1401,10 +1233,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahTrocaDevolucao model) throws Exception {
@@ -1431,10 +1259,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 
@@ -1462,10 +1286,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahTrocaFormaPagamento model) throws Exception {
@@ -1492,10 +1312,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void save(PanamahVenda model) throws Exception {
@@ -1522,10 +1338,6 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().save(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void delete(PanamahVenda model) throws Exception {
@@ -1552,18 +1364,10 @@ public class PanamahStream {
 			return;
 		task.getLoteAtual().delete(model, assinanteId, task.getConfig());
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 
 	public void readNFe(String filePath) throws Exception {
 		task.readNFe(filePath);
 		task.persisteLoteAtual();
-		if (task.isLoteAtualCheio()) {
-			task.fechaLoteAtual();
-			task.verificaEnvio();
-		}
 	}
 }

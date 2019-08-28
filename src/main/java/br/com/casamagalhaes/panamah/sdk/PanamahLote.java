@@ -28,6 +28,7 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahTituloReceber;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaDevolucao;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaFormaPagamento;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
+import java.util.Collections;
 
 public class PanamahLote {
 
@@ -50,10 +51,14 @@ public class PanamahLote {
 	}
 
 	public List<PanamahOperacao<?>> getOperacoes() {
+		if (operacoes == null)
+			operacoes = Collections.synchronizedList(new ArrayList<PanamahOperacao<?>>());
 		return operacoes;
 	}
 
 	public void setOperacoes(List<PanamahOperacao<?>> operacoes) {
+		if (operacoes == null)
+			operacoes = Collections.synchronizedList(new ArrayList<PanamahOperacao<?>>());
 		this.operacoes = operacoes;
 	}
 
@@ -78,7 +83,7 @@ public class PanamahLote {
 			throw new RuntimeException("cliente não pode ser nulo!");
 		cliente.validate();
 		if (operacoes == null)
-			operacoes = new ArrayList<PanamahOperacao<?>>();
+			operacoes = Collections.synchronizedList(new ArrayList<PanamahOperacao<?>>());
 		PanamahOperacao<PanamahCliente> op = new PanamahOperacao<PanamahCliente>();
 		op.setOp(PanamahTipoOperacao.UPDATE);
 		op.setTipo(PanamahTipoModel.CLIENTE);
@@ -884,6 +889,15 @@ public class PanamahLote {
 		if (operacoes == null)
 			operacoes = new ArrayList<PanamahOperacao<?>>();
 		operacoes.addAll(ops);
+	}
+
+	List<PanamahOperacao<?>> removeExcedente() {
+		if(operacoes.size()>=500){
+			List<PanamahOperacao<?>> sub =  operacoes.subList(499, operacoes.size()-1);
+			operacoes.removeAll(sub);
+			return sub;
+		}
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 }

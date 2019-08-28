@@ -29,6 +29,7 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahVendaPagamentos;
 import br.com.casamagalhaes.panamah.sdk.nfe.Det;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
+import java.util.List;
 
 public class PanamahTask extends TimerTask {
 
@@ -80,10 +81,9 @@ public class PanamahTask extends TimerTask {
 
 	public void verificaFechamento() {
 		try {
-			if (loteAtual.isVelho(config)) {
+			if (loteAtual.isVelho(config) || isLoteAtualCheio()) {
 				// System.out.println("verificaFechamento");
 				fechaLoteAtual();
-				abreNovoLote();
 			}
 		} catch (Exception e) {
 			if (onError != null) {
@@ -118,6 +118,10 @@ public class PanamahTask extends TimerTask {
 		try (Writer w = new BufferedWriter(new FileWriter(f))) {
 			w.write(PanamahUtil.buildGson().toJson(loteAtual));
 		}
+		if (isLoteAtualCheio()) {
+			fechaLoteAtual();
+			verificaEnvio();
+		}
 	}
 
 	public void fechaLoteAtual() throws FileNotFoundException, IOException {
@@ -126,13 +130,17 @@ public class PanamahTask extends TimerTask {
 		if (!Paths.get(config.getBasePath(), "lotes", "fechados").toFile().exists())
 			Paths.get(config.getBasePath(), "lotes", "fechados").toFile().mkdirs();
 		File f = Paths.get(config.getBasePath(), "lotes", "fechados", fileName).toFile();
+		List<PanamahOperacao<?>> restante = loteAtual.removeExcedente();
 		try (Writer w = new BufferedWriter(new FileWriter(f))) {
 			w.write(PanamahUtil.buildGson().toJson(loteAtual));
 		}
+		abreNovoLote(restante);
 	}
 
-	private void abreNovoLote() throws IOException {
+	private void abreNovoLote(List<PanamahOperacao<?>> restante) throws IOException {
 		loteAtual = new PanamahLote();
+		if(restante != null)
+			loteAtual.getOperacoes().addAll(restante);
 		File f = Paths.get(config.getBasePath(), "lotes", "loteatual.json").toFile();
 		try (Writer w = new BufferedWriter(new FileWriter(f))) {
 			w.write(PanamahUtil.buildGson().toJson(loteAtual));
@@ -152,7 +160,7 @@ public class PanamahTask extends TimerTask {
 					}
 				});
 		// send the last one only
-		if (files.length > 0) {
+		if (files != null && files.length > 0) {
 			File toSend = files[0];
 			try (Reader r = new BufferedReader(new FileReader(toSend))) {
 				PanamahLote lote = PanamahUtil.buildGson().fromJson(r, PanamahLote.class);
@@ -206,8 +214,9 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public boolean isLoteAtualCheio() {
-		int len = PanamahUtil.buildGson().toJson(loteAtual).getBytes().length;
-		return len >= config.getMaxBytes();
+//		int len = PanamahUtil.buildGson().toJson(loteAtual).getBytes().length;
+//		return len >= config.getMaxBytes();
+		return loteAtual.getOperacoes().size() > 499;
 	}
 
 	public void readNFe(String filePath) throws Exception {

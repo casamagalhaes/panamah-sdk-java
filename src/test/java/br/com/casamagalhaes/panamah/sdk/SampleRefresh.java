@@ -7,7 +7,7 @@ public class SampleRefresh {
 	public static void main(String[] args) throws Exception {
 		// System.out.println("Teste de refresh de conexão");
 		PanamahConfig config = PanamahConfig.fromEnv("staging");
-		config.setTtl(5000);
+		config.setTtl(15000);
 		PanamahStream p = PanamahStream.init(config);
 		int i = 1000000;
 		while (i-->0) {
@@ -15,7 +15,7 @@ public class SampleRefresh {
 			ean.setId("1");
 			ean.setProdutoId("1");
 			p.save(ean);
-			Thread.sleep(2000);
+//			Thread.sleep(1);
 		}
 	}
 
