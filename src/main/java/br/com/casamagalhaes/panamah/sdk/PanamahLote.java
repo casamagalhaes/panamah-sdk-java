@@ -891,13 +891,13 @@ public class PanamahLote {
 		operacoes.addAll(ops);
 	}
 
-	List<PanamahOperacao<?>> removeExcedente() {
+	public List<PanamahOperacao<?>> removeExcedente() {
 		if(operacoes.size()>=500){
 			List<PanamahOperacao<?>> sub =  operacoes.subList(499, operacoes.size()-1);
 			operacoes.removeAll(sub);
 			return sub;
 		}
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return null;
 	}
 
 }

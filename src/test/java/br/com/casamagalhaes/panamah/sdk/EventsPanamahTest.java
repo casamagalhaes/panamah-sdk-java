@@ -59,7 +59,7 @@ public class EventsPanamahTest {
 		});
 		p.getTask().deletaLoteAtual();
 		p.save(model);
-		assertNull(p.getTask().getLoteAtual().getOperacoes());
+		assertEquals(0, p.getTask().getLoteAtual().getOperacoes().size());
 		p.flush();
 
 	}
@@ -96,7 +96,7 @@ public class EventsPanamahTest {
 		});
 		p.getTask().deletaLoteAtual();
 		p.delete(model);
-		assertNull(p.getTask().getLoteAtual().getOperacoes());
+		assertEquals(0, p.getTask().getLoteAtual().getOperacoes().size());
 		p.flush(true);
 
 	}

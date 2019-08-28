@@ -33,6 +33,6 @@ public class PendingPanamahTest {
 	@Test
 	public void shouldBuildPanamahPendencias() throws Exception {
 		Map<String,PanamahPendencias> p = PanamahUtil.convertMap(s);
-		// System.out.println(p);
+		System.out.println(p);
 	}
 }

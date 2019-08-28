@@ -2,9 +2,15 @@
 
 Histórico de releases da SDK
 
+## 2.1.0
+
+- alterada forma de fechamento de lote
+- adotando sincronização de lista
+- correções na bateria de testes
+
 ## 2.0.1
 
-- removidos println
+- removidos `System.out.println()`
 - ajuste no PanamahTask
   - agora envios ocorrem duas vezes no tempo de fechamento de lote
   - lotes fechados ao serem enviados sempre serão movidos para pasta de envio
