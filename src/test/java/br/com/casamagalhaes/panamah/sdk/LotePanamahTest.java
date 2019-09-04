@@ -62,16 +62,8 @@ public class LotePanamahTest {
         // java 8 codelevel disabled
 //        Thread t1 = new Thread(() -> addEan(p,350))
 //        Thread t2 = new Thread(() -> addEan(p,350))
-        Thread t1 = new Thread() {
-            public void run() {
-                addEan(p, 350);
-            }
-        };
-        Thread t2 = new Thread() {
-            public void run() {
-                addEan(p, 350);
-            }
-        };
+        Thread t1 = addEan(p, 350);
+        Thread t2 = addEan(p, 350);
         t1.start();
         t2.start();
         t1.join();
@@ -80,17 +72,22 @@ public class LotePanamahTest {
 
     }
 
-    private void addEan(PanamahStream p, int i) {
-        while (i-- > 0) {
-            PanamahEan ean = new PanamahEan();
-            ean.setId("1");
-            ean.setProdutoId("1");
-            try {
-                p.save(ean);
-            } catch (Exception e) {
-                e.printStackTrace();
+    private Thread addEan(final PanamahStream p, final int j) {
+        return new Thread() {
+            public void run() {
+                try {
+                    int i = j;
+                    while (i-- > 0) {
+                        PanamahEan ean = new PanamahEan();
+                        ean.setId("1");
+                        ean.setProdutoId("1");
+                        p.save(ean);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-        }
+        };
     }
 
 }

@@ -76,7 +76,7 @@ public class PanamahStream {
     }
 
     public void progress() {
-
+        // XXX implement
     }
 
     public HashMap<String, PanamahPendencias> pending(int start, int count) throws Exception {
@@ -99,22 +99,23 @@ public class PanamahStream {
         this.onDel = onDel;
     }
 
-	/**
-	 * enviar acesso para o lote
-	 *
-	 * @param model acesso
-	 * @throws IOException
-	 */
-	public void save(PanamahAcesso model) throws Exception {
-		save(model,null);
-	}
+    private boolean fechando;
 
     /**
      * enviar acesso para o lote
      *
      * @param model acesso
-	 * @param assinanteId assinanteId
-	 *
+     * @throws IOException
+     */
+    public void save(PanamahAcesso model) throws Exception {
+        save(model, null);
+    }
+
+    /**
+     * enviar acesso para o lote
+     *
+     * @param model       acesso
+     * @param assinanteId assinanteId
      * @throws IOException
      */
     public void save(PanamahAcesso model, String assinanteId) throws Exception {
@@ -129,7 +130,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -155,7 +156,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -182,7 +183,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -208,7 +209,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -235,7 +236,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -261,7 +262,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -288,7 +289,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -299,7 +300,7 @@ public class PanamahStream {
     /**
      * enviar compra para o lote
      *
-     * @param compra compra
+     * @param model compra
      * @throws IOException
      */
     public void delete(PanamahCompra model, String assinanteId) throws Exception {
@@ -314,7 +315,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -326,7 +327,7 @@ public class PanamahStream {
     /**
      * enviar ean para o lote
      *
-     * @param ean ean
+     * @param model ean
      * @throws IOException
      */
     public void save(PanamahEan model, String assinanteId) throws Exception {
@@ -341,7 +342,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -352,7 +353,7 @@ public class PanamahStream {
     /**
      * enviar ean para o lote
      *
-     * @param ean ean
+     * @param model ean
      * @throws IOException
      */
     public void delete(PanamahEan model, String assinanteId) throws Exception {
@@ -367,7 +368,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -379,7 +380,7 @@ public class PanamahStream {
     /**
      * enviar movimentação de estoque para o lote
      *
-     * @param estoqueMovimentacao estoqueMovimentacao
+     * @param model estoqueMovimentacao
      * @throws IOException
      */
     public void save(PanamahEstoqueMovimentacao model, String assinanteId) throws Exception {
@@ -394,7 +395,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -405,7 +406,7 @@ public class PanamahStream {
     /**
      * enviar movimentação de estoque para o lote
      *
-     * @param estoqueMovimentacao estoqueMovimentacao
+     * @param model estoqueMovimentacao
      * @throws IOException
      */
     public void delete(PanamahEstoqueMovimentacao model, String assinanteId) throws Exception {
@@ -420,7 +421,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -432,7 +433,7 @@ public class PanamahStream {
     /**
      * enviar evento de caixa para o lote
      *
-     * @param eventoCaixa eventoCaixa
+     * @param model eventoCaixa
      * @throws IOException
      */
     public void save(PanamahEventoCaixa model, String assinanteId) throws Exception {
@@ -447,7 +448,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -458,7 +459,7 @@ public class PanamahStream {
     /**
      * enviar evento de caixa para o lote
      *
-     * @param eventoCaixa eventoCaixa
+     * @param model eventoCaixa
      * @throws IOException
      */
     public void delete(PanamahEventoCaixa model, String assinanteId) throws Exception {
@@ -473,7 +474,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -485,7 +486,7 @@ public class PanamahStream {
     /**
      * enviar formaPagamento para o lote
      *
-     * @param formaPagamento formaPagamento
+     * @param model formaPagamento
      * @throws IOException
      */
     public void save(PanamahFormaPagamento model, String assinanteId) throws Exception {
@@ -500,7 +501,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -511,7 +512,7 @@ public class PanamahStream {
     /**
      * enviar formaPagamento para o lote
      *
-     * @param formaPagamento formaPagamento
+     * @param model formaPagamento
      * @throws IOException
      */
     public void delete(PanamahFormaPagamento model, String assinanteId) throws Exception {
@@ -526,7 +527,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -538,7 +539,7 @@ public class PanamahStream {
     /**
      * enviar fornecedor para o lote
      *
-     * @param fornecedor fornecedor
+     * @param model fornecedor
      * @throws IOException
      */
     public void save(PanamahFornecedor model, String assinanteId) throws Exception {
@@ -553,7 +554,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -564,7 +565,7 @@ public class PanamahStream {
     /**
      * enviar fornecedor para o lote
      *
-     * @param fornecedor fornecedor
+     * @param model fornecedor
      * @throws IOException
      */
     public void delete(PanamahFornecedor model, String assinanteId) throws Exception {
@@ -579,7 +580,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -591,7 +592,7 @@ public class PanamahStream {
     /**
      * enviar funcionario para o lote
      *
-     * @param funcionario funcionario
+     * @param model funcionario
      * @throws IOException
      */
     public void save(PanamahFuncionario model, String assinanteId) throws Exception {
@@ -606,7 +607,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -617,7 +618,7 @@ public class PanamahStream {
     /**
      * enviar funcionario para o lote
      *
-     * @param funcionario funcionario
+     * @param model funcionario
      * @throws IOException
      */
     public void delete(PanamahFuncionario model, String assinanteId) throws Exception {
@@ -632,7 +633,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -644,7 +645,7 @@ public class PanamahStream {
     /**
      * enviar grupo para o lote
      *
-     * @param grupo grupo
+     * @param model grupo
      * @throws IOException
      */
     public void save(PanamahGrupo model, String assinanteId) throws Exception {
@@ -659,7 +660,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -670,7 +671,7 @@ public class PanamahStream {
     /**
      * enviar grupo para o lote
      *
-     * @param grupo grupo
+     * @param model grupo
      * @throws IOException
      */
     public void delete(PanamahGrupo model, String assinanteId) throws Exception {
@@ -685,7 +686,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -697,7 +698,7 @@ public class PanamahStream {
     /**
      * enviar holding para o lote
      *
-     * @param holding holding
+     * @param model holding
      * @throws IOException
      */
     public void save(PanamahHolding model, String assinanteId) throws Exception {
@@ -712,7 +713,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -723,7 +724,7 @@ public class PanamahStream {
     /**
      * enviar holding para o lote
      *
-     * @param holding holding
+     * @param model holding
      * @throws IOException
      */
     public void delete(PanamahHolding model, String assinanteId) throws Exception {
@@ -738,7 +739,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -750,7 +751,7 @@ public class PanamahStream {
     /**
      * enviar localEstoque para o lote
      *
-     * @param localEstoque localEstoque
+     * @param model localEstoque
      * @throws IOException
      */
     public void save(PanamahLocalEstoque model, String assinanteId) throws Exception {
@@ -765,7 +766,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -776,7 +777,7 @@ public class PanamahStream {
     /**
      * enviar localEstoque para o lote
      *
-     * @param localEstoque localEstoque
+     * @param model localEstoque
      * @throws IOException
      */
     public void delete(PanamahLocalEstoque model, String assinanteId) throws Exception {
@@ -791,7 +792,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -803,7 +804,7 @@ public class PanamahStream {
     /**
      * enviar loja para o lote
      *
-     * @param loja loja
+     * @param model loja
      * @throws IOException
      */
     public void save(PanamahLoja model, String assinanteId) throws Exception {
@@ -818,7 +819,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -829,7 +830,7 @@ public class PanamahStream {
     /**
      * enviar loja para o lote
      *
-     * @param loja loja
+     * @param model loja
      * @throws IOException
      */
     public void delete(PanamahLoja model, String assinanteId) throws Exception {
@@ -844,7 +845,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -856,7 +857,7 @@ public class PanamahStream {
     /**
      * enviar meta para o lote
      *
-     * @param meta meta
+     * @param model meta
      * @throws IOException
      */
     public void save(PanamahMeta model, String assinanteId) throws Exception {
@@ -871,7 +872,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -882,7 +883,7 @@ public class PanamahStream {
     /**
      * enviar meta para o lote
      *
-     * @param meta meta
+     * @param model meta
      * @throws IOException
      */
     public void delete(PanamahMeta model, String assinanteId) throws Exception {
@@ -897,7 +898,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -909,7 +910,7 @@ public class PanamahStream {
     /**
      * enviar produto para o lote
      *
-     * @param produto produto
+     * @param model produto
      * @throws IOException
      */
     public void save(PanamahProduto model, String assinanteId) throws Exception {
@@ -924,7 +925,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -935,7 +936,7 @@ public class PanamahStream {
     /**
      * enviar produto para o lote
      *
-     * @param produto produto
+     * @param model produto
      * @throws IOException
      */
     public void delete(PanamahProduto model, String assinanteId) throws Exception {
@@ -950,7 +951,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -962,7 +963,7 @@ public class PanamahStream {
     /**
      * enviar revenda para o lote
      *
-     * @param revenda revenda
+     * @param model revenda
      * @throws IOException
      */
     public void save(PanamahRevenda model, String assinanteId) throws Exception {
@@ -977,7 +978,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -988,7 +989,7 @@ public class PanamahStream {
     /**
      * enviar revenda para o lote
      *
-     * @param revenda revenda
+     * @param model revenda
      * @throws IOException
      */
     public void delete(PanamahRevenda model, String assinanteId) throws Exception {
@@ -1003,7 +1004,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1015,7 +1016,7 @@ public class PanamahStream {
     /**
      * enviar secao para o lote
      *
-     * @param secao secao
+     * @param model secao
      * @throws IOException
      */
     public void save(PanamahSecao model, String assinanteId) throws Exception {
@@ -1030,7 +1031,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1041,7 +1042,7 @@ public class PanamahStream {
     /**
      * enviar secao para o lote
      *
-     * @param secao secao
+     * @param model secao
      * @throws IOException
      */
     public void delete(PanamahSecao model, String assinanteId) throws Exception {
@@ -1056,7 +1057,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1068,7 +1069,7 @@ public class PanamahStream {
     /**
      * enviar subgrupo para o lote
      *
-     * @param subgrupo subgrupo
+     * @param model subgrupo
      * @throws IOException
      */
     public void save(PanamahSubgrupo model, String assinanteId) throws Exception {
@@ -1083,7 +1084,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1094,7 +1095,7 @@ public class PanamahStream {
     /**
      * enviar subgrupo para o lote
      *
-     * @param subgrupo subgrupo
+     * @param model subgrupo
      * @throws IOException
      */
     public void delete(PanamahSubgrupo model, String assinanteId) throws Exception {
@@ -1109,7 +1110,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1121,7 +1122,7 @@ public class PanamahStream {
     /**
      * enviar tituloPagar para o lote
      *
-     * @param tituloPagar tituloPagar
+     * @param model tituloPagar
      * @throws IOException
      */
     public void save(PanamahTituloPagar model, String assinanteId) throws Exception {
@@ -1136,7 +1137,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1147,7 +1148,7 @@ public class PanamahStream {
     /**
      * enviar tituloPagar para o lote
      *
-     * @param tituloPagar tituloPagar
+     * @param model tituloPagar
      * @throws IOException
      */
     public void delete(PanamahTituloPagar model, String assinanteId) throws Exception {
@@ -1162,7 +1163,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1174,7 +1175,7 @@ public class PanamahStream {
     /**
      * enviar tituloReceber para o lote
      *
-     * @param tituloReceber tituloReceber
+     * @param model tituloReceber
      * @throws IOException
      */
     public void save(PanamahTituloReceber model, String assinanteId) throws Exception {
@@ -1189,7 +1190,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1200,7 +1201,7 @@ public class PanamahStream {
     /**
      * enviar tituloReceber para o lote
      *
-     * @param tituloReceber tituloReceber
+     * @param model tituloReceber
      * @throws IOException
      */
     public void delete(PanamahTituloReceber model, String assinanteId) throws Exception {
@@ -1215,7 +1216,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1227,7 +1228,7 @@ public class PanamahStream {
     /**
      * enviar trocaDevolucao para o lote
      *
-     * @param trocaDevolucao trocaDevolucao
+     * @param model trocaDevolucao
      * @throws Exception
      */
     public void save(PanamahTrocaDevolucao model, String assinanteId) throws Exception {
@@ -1242,7 +1243,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1253,7 +1254,7 @@ public class PanamahStream {
     /**
      * enviar trocaDevolucao para o lote
      *
-     * @param trocaDevolucao trocaDevolucao
+     * @param model trocaDevolucao
      * @throws Exception
      */
     public void delete(PanamahTrocaDevolucao model, String assinanteId) throws Exception {
@@ -1268,7 +1269,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1280,7 +1281,7 @@ public class PanamahStream {
     /**
      * enviar trocaFormaPagamento para o lote
      *
-     * @param trocaFormaPagamento trocaFormaPagamento
+     * @param model trocaFormaPagamento
      * @throws IOException
      */
     public void save(PanamahTrocaFormaPagamento model, String assinanteId) throws Exception {
@@ -1295,7 +1296,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1306,7 +1307,7 @@ public class PanamahStream {
     /**
      * enviar trocaFormaPagamento para o lote
      *
-     * @param trocaFormaPagamento trocaFormaPagamento
+     * @param model trocaFormaPagamento
      * @throws IOException
      */
     public void delete(PanamahTrocaFormaPagamento model, String assinanteId) throws Exception {
@@ -1321,7 +1322,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1332,7 +1333,7 @@ public class PanamahStream {
     /**
      * enviar venda para o lote
      *
-     * @param venda venda
+     * @param model venda
      * @throws IOException
      */
     public void save(PanamahVenda model, String assinanteId) throws Exception {
@@ -1347,7 +1348,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1358,7 +1359,7 @@ public class PanamahStream {
     /**
      * enviar venda para o lote
      *
-     * @param venda venda
+     * @param model venda
      * @throws IOException
      */
     public void delete(PanamahVenda model, String assinanteId) throws Exception {
@@ -1373,7 +1374,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 

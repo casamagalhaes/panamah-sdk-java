@@ -39,7 +39,7 @@ public class PanamahTask extends TimerTask {
 	private PanamahListener onSendSuccess;
 	private PanamahListener onError;
 
-	public PanamahTask(PanamahConfig config) throws FileNotFoundException, IOException {
+	public PanamahTask(PanamahConfig config) throws IOException {
 		this.config = config;
 		restauraLoteAtual();
 	}
@@ -148,7 +148,7 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public void enviaLote() throws Exception {
-		// atualiza primeiro pra não ficar jogando erros o tempo todo
+		// atualiza primeiro pra não ficar jogando erros o tempo inteiro
 		ultimoEnvio = new Date().getTime();
 		if (!Paths.get(config.getBasePath(), "lotes", "enviados").toFile().exists())
 			Paths.get(config.getBasePath(), "lotes", "enviados").toFile().mkdirs();
