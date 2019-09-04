@@ -2,3 +2,5 @@ target
 coverage
 lote*.json
 lotes
+.idea
+panamah-sdk.iml
