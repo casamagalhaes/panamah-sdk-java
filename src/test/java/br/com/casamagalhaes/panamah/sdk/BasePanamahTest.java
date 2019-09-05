@@ -165,10 +165,9 @@ public class BasePanamahTest {
     @Test
     public void shouldSaveProduto() throws Exception {
         PanamahProduto model = PanamahUtil.buildGson().fromJson(r("produto"), PanamahProduto.class);
-        PanamahUtil.auth(c);
-        PanamahLote lote = new PanamahLote();
-        lote.save(model, null, c);
-        PanamahUtil.send(c, lote);
+        PanamahStream stream = PanamahStream.init(c);
+        stream.save(model);
+        stream.flush(true);
     }
 
     @Test

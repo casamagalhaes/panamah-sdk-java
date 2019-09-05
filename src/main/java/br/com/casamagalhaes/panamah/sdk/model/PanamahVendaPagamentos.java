@@ -1,47 +1,44 @@
-
 package br.com.casamagalhaes.panamah.sdk.model;
 
 public class PanamahVendaPagamentos {
 
-	public PanamahVendaPagamentos() {
-	}
+    private String formaPagamentoId;
+    private String sequencial;
+    private java.math.BigDecimal valor;
 
-	private String formaPagamentoId;
+    public PanamahVendaPagamentos() {
+    }
 
-	public String getFormaPagamentoId() {
-		return formaPagamentoId;
-	}
+    public String getFormaPagamentoId() {
+        return formaPagamentoId;
+    }
 
-	public void setFormaPagamentoId(String formaPagamentoId) {
-		this.formaPagamentoId = formaPagamentoId;
-	}
+    public void setFormaPagamentoId(String formaPagamentoId) {
+        this.formaPagamentoId = formaPagamentoId;
+    }
 
-	private String sequencial;
+    public String getSequencial() {
+        return sequencial;
+    }
 
-	public String getSequencial() {
-		return sequencial;
-	}
+    public void setSequencial(String sequencial) {
+        this.sequencial = sequencial;
+    }
 
-	public void setSequencial(String sequencial) {
-		this.sequencial = sequencial;
-	}
+    public java.math.BigDecimal getValor() {
+        return valor;
+    }
 
-	private java.math.BigDecimal valor;
+    public void setValor(java.math.BigDecimal valor) {
+        this.valor = valor;
+    }
 
-	public java.math.BigDecimal getValor() {
-		return valor;
-	}
-
-	public void setValor(java.math.BigDecimal valor) {
-		this.valor = valor;
-	}
-
-	public void validate() throws Exception {
-		if (this.formaPagamentoId == null)
-			throw new Exception("formaPagamentoId não pode ser nulo!");
-		if (this.sequencial == null)
-			throw new Exception("sequencial não pode ser nulo!");
-		if (this.valor == null)
-			throw new Exception("valor não pode ser nulo!");
-	}
+    public void validate() throws Exception {
+        if (this.formaPagamentoId == null)
+            throw new Exception("formaPagamentoId não pode ser nulo!");
+        if (this.sequencial == null)
+            throw new Exception("sequencial não pode ser nulo!");
+        if (this.valor == null)
+            throw new Exception("valor não pode ser nulo!");
+    }
 }

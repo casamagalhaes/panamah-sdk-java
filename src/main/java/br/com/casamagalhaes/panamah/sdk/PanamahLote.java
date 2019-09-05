@@ -51,14 +51,10 @@ public class PanamahLote {
     }
 
     public List<PanamahOperacao<?>> getOperacoes() {
-        if (operacoes == null)
-            operacoes = Collections.synchronizedList(new ArrayList<PanamahOperacao<?>>());
         return operacoes;
     }
 
     public void setOperacoes(List<PanamahOperacao<?>> operacoes) {
-        if (operacoes == null)
-            operacoes = Collections.synchronizedList(new ArrayList<PanamahOperacao<?>>());
         this.operacoes = operacoes;
     }
 
@@ -82,8 +78,6 @@ public class PanamahLote {
         if (cliente == null)
             throw new RuntimeException("cliente não pode ser nulo!");
         cliente.validate();
-        if (operacoes == null)
-            operacoes = Collections.synchronizedList(new ArrayList<PanamahOperacao<?>>());
         PanamahOperacao<PanamahCliente> op = new PanamahOperacao<PanamahCliente>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.CLIENTE);
@@ -98,8 +92,6 @@ public class PanamahLote {
         if (cliente == null)
             throw new RuntimeException("cliente não pode ser nulo!");
         cliente.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahCliente> op = new PanamahOperacao<PanamahCliente>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.CLIENTE);
@@ -114,8 +106,6 @@ public class PanamahLote {
         if (compra == null)
             throw new RuntimeException("compra não pode ser nulo!");
         compra.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahCompra> op = new PanamahOperacao<PanamahCompra>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.COMPRA);
@@ -130,8 +120,6 @@ public class PanamahLote {
         if (compra == null)
             throw new RuntimeException("compra não pode ser nulo!");
         compra.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahCompra> op = new PanamahOperacao<PanamahCompra>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.COMPRA);
@@ -146,8 +134,6 @@ public class PanamahLote {
         if (assinante == null)
             throw new RuntimeException("assinante não pode ser nulo!");
         assinante.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahAssinante> op = new PanamahOperacao<PanamahAssinante>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.ASSINANTE);
@@ -162,8 +148,6 @@ public class PanamahLote {
         if (assinante == null)
             throw new RuntimeException("assinante não pode ser nulo!");
         assinante.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahAssinante> op = new PanamahOperacao<PanamahAssinante>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.ASSINANTE);
@@ -174,34 +158,10 @@ public class PanamahLote {
         operacoes.add(op);
     }
 
-    public void save(PanamahOperacao<PanamahAcesso> op) throws Exception {
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-        operacoes.add(op);
-    }
-
-    public void delete(PanamahAcesso acesso, String assinanteId, PanamahConfig config) throws Exception {
-        if (acesso == null)
-            throw new RuntimeException("acesso não pode ser nulo!");
-        acesso.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-        PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
-        op.setOp(PanamahTipoOperacao.DELETE);
-        op.setTipo(PanamahTipoModel.ACESSO);
-        op.setData(new PanamahAcesso(acesso.getId()));
-        if (assinanteId == null)
-            assinanteId = config.getAuth().getAssinante().getId();
-        op.setAssinanteId(assinanteId);
-        operacoes.add(op);
-    }
-
     public void save(PanamahEan ean, String assinanteId, PanamahConfig config) throws Exception {
         if (ean == null)
             throw new RuntimeException("ean não pode ser nulo!");
         ean.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahEan> op = new PanamahOperacao<PanamahEan>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.EAN);
@@ -216,8 +176,6 @@ public class PanamahLote {
         if (ean == null)
             throw new RuntimeException("ean não pode ser nulo!");
         ean.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahEan> op = new PanamahOperacao<PanamahEan>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.EAN);
@@ -233,8 +191,6 @@ public class PanamahLote {
         if (estoqueMovimentacao == null)
             throw new RuntimeException("estoqueMovimentacao não pode ser nulo!");
         estoqueMovimentacao.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahEstoqueMovimentacao> op = new PanamahOperacao<PanamahEstoqueMovimentacao>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.ESTOQUE_MOVIMENTACAO);
@@ -250,8 +206,6 @@ public class PanamahLote {
         if (estoqueMovimentacao == null)
             throw new RuntimeException("estoqueMovimentacao não pode ser nulo!");
         estoqueMovimentacao.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahEstoqueMovimentacao> op = new PanamahOperacao<PanamahEstoqueMovimentacao>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.ESTOQUE_MOVIMENTACAO);
@@ -266,8 +220,6 @@ public class PanamahLote {
         if (eventoCaixa == null)
             throw new RuntimeException("eventoCaixa não pode ser nulo!");
         eventoCaixa.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahEventoCaixa> op = new PanamahOperacao<PanamahEventoCaixa>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.EVENTO_CAIXA);
@@ -282,8 +234,6 @@ public class PanamahLote {
         if (eventoCaixa == null)
             throw new RuntimeException("eventoCaixa não pode ser nulo!");
         eventoCaixa.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahEventoCaixa> op = new PanamahOperacao<PanamahEventoCaixa>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.EVENTO_CAIXA);
@@ -298,8 +248,6 @@ public class PanamahLote {
         if (formaPagamento == null)
             throw new RuntimeException("formaPagamento não pode ser nulo!");
         formaPagamento.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahFormaPagamento> op = new PanamahOperacao<PanamahFormaPagamento>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.FORMA_PAGAMENTO);
@@ -315,8 +263,6 @@ public class PanamahLote {
         if (formaPagamento == null)
             throw new RuntimeException("formaPagamento não pode ser nulo!");
         formaPagamento.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahFormaPagamento> op = new PanamahOperacao<PanamahFormaPagamento>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.FORMA_PAGAMENTO);
@@ -331,8 +277,6 @@ public class PanamahLote {
         if (fornecedor == null)
             throw new RuntimeException("fornecedor não pode ser nulo!");
         fornecedor.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahFornecedor> op = new PanamahOperacao<PanamahFornecedor>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.FORNECEDOR);
@@ -347,8 +291,6 @@ public class PanamahLote {
         if (fornecedor == null)
             throw new RuntimeException("fornecedor não pode ser nulo!");
         fornecedor.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahFornecedor> op = new PanamahOperacao<PanamahFornecedor>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.FORNECEDOR);
@@ -364,8 +306,6 @@ public class PanamahLote {
         if (funcionario == null)
             throw new RuntimeException("funcionario não pode ser nulo!");
         funcionario.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahFuncionario> op = new PanamahOperacao<PanamahFuncionario>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.FUNCIONARIO);
@@ -380,8 +320,6 @@ public class PanamahLote {
         if (funcionario == null)
             throw new RuntimeException("funcionario não pode ser nulo!");
         funcionario.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahFuncionario> op = new PanamahOperacao<PanamahFuncionario>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.FUNCIONARIO);
@@ -396,8 +334,6 @@ public class PanamahLote {
         if (grupo == null)
             throw new RuntimeException("grupo não pode ser nulo!");
         grupo.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahGrupo> op = new PanamahOperacao<PanamahGrupo>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.GRUPO);
@@ -412,9 +348,6 @@ public class PanamahLote {
         if (grupo == null)
             throw new RuntimeException("grupo não pode ser nulo!");
         grupo.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahGrupo> op = new PanamahOperacao<PanamahGrupo>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.GRUPO);
@@ -429,9 +362,6 @@ public class PanamahLote {
         if (holding == null)
             throw new RuntimeException("holding não pode ser nulo!");
         holding.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahHolding> op = new PanamahOperacao<PanamahHolding>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.HOLDING);
@@ -446,9 +376,6 @@ public class PanamahLote {
         if (holding == null)
             throw new RuntimeException("holding não pode ser nulo!");
         holding.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahHolding> op = new PanamahOperacao<PanamahHolding>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.HOLDING);
@@ -463,9 +390,6 @@ public class PanamahLote {
         if (localEstoque == null)
             throw new RuntimeException("localEstoque não pode ser nulo!");
         localEstoque.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahLocalEstoque> op = new PanamahOperacao<PanamahLocalEstoque>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.LOCAL_ESTOQUE);
@@ -480,9 +404,6 @@ public class PanamahLote {
         if (localEstoque == null)
             throw new RuntimeException("localEstoque não pode ser nulo!");
         localEstoque.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahLocalEstoque> op = new PanamahOperacao<PanamahLocalEstoque>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.LOCAL_ESTOQUE);
@@ -497,9 +418,6 @@ public class PanamahLote {
         if (loja == null)
             throw new RuntimeException("loja não pode ser nulo!");
         loja.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahLoja> op = new PanamahOperacao<PanamahLoja>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.LOJA);
@@ -514,9 +432,6 @@ public class PanamahLote {
         if (loja == null)
             throw new RuntimeException("loja não pode ser nulo!");
         loja.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahLoja> op = new PanamahOperacao<PanamahLoja>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.LOJA);
@@ -531,9 +446,6 @@ public class PanamahLote {
         if (meta == null)
             throw new RuntimeException("meta não pode ser nulo!");
         meta.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahMeta> op = new PanamahOperacao<PanamahMeta>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.META);
@@ -549,9 +461,6 @@ public class PanamahLote {
         if (meta == null)
             throw new RuntimeException("meta não pode ser nulo!");
         meta.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahMeta> op = new PanamahOperacao<PanamahMeta>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.META);
@@ -567,9 +476,6 @@ public class PanamahLote {
         if (produto == null)
             throw new RuntimeException("produto não pode ser nulo!");
         produto.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahProduto> op = new PanamahOperacao<PanamahProduto>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.PRODUTO);
@@ -585,9 +491,6 @@ public class PanamahLote {
         if (produto == null)
             throw new RuntimeException("produto não pode ser nulo!");
         produto.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahProduto> op = new PanamahOperacao<PanamahProduto>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.PRODUTO);
@@ -603,9 +506,6 @@ public class PanamahLote {
         if (revenda == null)
             throw new RuntimeException("revenda não pode ser nulo!");
         revenda.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahRevenda> op = new PanamahOperacao<PanamahRevenda>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.REVENDA);
@@ -621,9 +521,6 @@ public class PanamahLote {
         if (revenda == null)
             throw new RuntimeException("revenda não pode ser nulo!");
         revenda.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahRevenda> op = new PanamahOperacao<PanamahRevenda>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.REVENDA);
@@ -639,9 +536,6 @@ public class PanamahLote {
         if (secao == null)
             throw new RuntimeException("secao não pode ser nulo!");
         secao.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahSecao> op = new PanamahOperacao<PanamahSecao>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.SECAO);
@@ -657,9 +551,6 @@ public class PanamahLote {
         if (secao == null)
             throw new RuntimeException("secao não pode ser nulo!");
         secao.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahSecao> op = new PanamahOperacao<PanamahSecao>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.SECAO);
@@ -675,9 +566,6 @@ public class PanamahLote {
         if (subgrupo == null)
             throw new RuntimeException("subgrupo não pode ser nulo!");
         subgrupo.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahSubgrupo> op = new PanamahOperacao<PanamahSubgrupo>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.SUBGRUPO);
@@ -693,9 +581,6 @@ public class PanamahLote {
         if (subgrupo == null)
             throw new RuntimeException("subgrupo não pode ser nulo!");
         subgrupo.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahSubgrupo> op = new PanamahOperacao<PanamahSubgrupo>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.SUBGRUPO);
@@ -711,9 +596,6 @@ public class PanamahLote {
         if (tituloPagar == null)
             throw new RuntimeException("tituloPagar não pode ser nulo!");
         tituloPagar.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahTituloPagar> op = new PanamahOperacao<PanamahTituloPagar>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.TITULO_PAGAR);
@@ -729,9 +611,6 @@ public class PanamahLote {
         if (tituloPagar == null)
             throw new RuntimeException("tituloPagar não pode ser nulo!");
         tituloPagar.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahTituloPagar> op = new PanamahOperacao<PanamahTituloPagar>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.TITULO_PAGAR);
@@ -746,9 +625,6 @@ public class PanamahLote {
         if (tituloReceber == null)
             throw new RuntimeException("tituloReceber não pode ser nulo!");
         tituloReceber.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahTituloReceber> op = new PanamahOperacao<PanamahTituloReceber>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.TITULO_RECEBER);
@@ -763,9 +639,6 @@ public class PanamahLote {
         if (tituloReceber == null)
             throw new RuntimeException("tituloReceber não pode ser nulo!");
         tituloReceber.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
-
         PanamahOperacao<PanamahTituloReceber> op = new PanamahOperacao<PanamahTituloReceber>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.TITULO_RECEBER);
@@ -780,8 +653,6 @@ public class PanamahLote {
         if (trocaDevolucao == null)
             throw new RuntimeException("trocaDevolucao não pode ser nulo!");
         trocaDevolucao.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahTrocaDevolucao> op = new PanamahOperacao<PanamahTrocaDevolucao>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.TROCA_DEVOLUCAO);
@@ -797,8 +668,6 @@ public class PanamahLote {
         if (trocaDevolucao == null)
             throw new RuntimeException("trocaDevolucao não pode ser nulo!");
         trocaDevolucao.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahTrocaDevolucao> op = new PanamahOperacao<PanamahTrocaDevolucao>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.TROCA_DEVOLUCAO);
@@ -814,8 +683,6 @@ public class PanamahLote {
         if (trocaFormaPagamento == null)
             throw new RuntimeException("trocaFormaPagamento não pode ser nulo!");
         trocaFormaPagamento.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahTrocaFormaPagamento> op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.TROCA_FORMA_PAGAMENTO);
@@ -831,8 +698,6 @@ public class PanamahLote {
         if (trocaFormaPagamento == null)
             throw new RuntimeException("trocaFormaPagamento não pode ser nulo!");
         trocaFormaPagamento.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahTrocaFormaPagamento> op = new PanamahOperacao<PanamahTrocaFormaPagamento>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.TROCA_FORMA_PAGAMENTO);
@@ -847,8 +712,6 @@ public class PanamahLote {
         if (venda == null)
             throw new RuntimeException("venda não pode ser nulo!");
         venda.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahVenda> op = new PanamahOperacao<PanamahVenda>();
         op.setOp(PanamahTipoOperacao.UPDATE);
         op.setTipo(PanamahTipoModel.VENDA);
@@ -863,8 +726,6 @@ public class PanamahLote {
         if (venda == null)
             throw new RuntimeException("venda não pode ser nulo!");
         venda.validate();
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         PanamahOperacao<PanamahVenda> op = new PanamahOperacao<PanamahVenda>();
         op.setOp(PanamahTipoOperacao.DELETE);
         op.setTipo(PanamahTipoModel.VENDA);
@@ -876,8 +737,6 @@ public class PanamahLote {
     }
 
     public void addFalhas(ArrayList<PanamahOperacao<?>> ops) {
-        if (operacoes == null)
-            operacoes = new ArrayList<PanamahOperacao<?>>();
         operacoes.addAll(ops);
     }
 
@@ -888,5 +747,8 @@ public class PanamahLote {
             return sub;
         }
         return null;
+    }
+
+    public <T extends IPanamahModel> void save(PanamahOperacao<T> op) {
     }
 }
