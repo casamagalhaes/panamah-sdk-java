@@ -2,6 +2,11 @@
 
 Histórico de releases da SDK
 
+## 2.1.1
+
+- refatoração do `PanamahStream`
+- novos casos de teste para estudar fechamento e abertura de lotes
+
 ## 2.1.0
 
 - alterada forma de fechamento de lote

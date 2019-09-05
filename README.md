@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:2.1.0'
+    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:2.1.1'
     testImplementation 'junit:junit:4.12'
 }
 ```
@@ -50,7 +50,7 @@ dependencies {
 ## Usando em projetos maven
 
 Siga as instruções do link **set me up**
-[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/2.1.0?tab=overview)
+[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/2.1.1?tab=overview)
 
 ## Uso básico
 
@@ -74,4 +74,3 @@ panamah.save(venda);
 - AssinanteId
 
 Assinante é normalmente o cnpj, o authorization token e o secret são informados pela Casa Magalhães através dos canais de comunicação com os parceiros.
-
