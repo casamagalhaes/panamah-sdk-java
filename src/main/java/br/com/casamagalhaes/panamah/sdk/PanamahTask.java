@@ -173,7 +173,7 @@ public class PanamahTask extends TimerTask {
             try (Reader r = new BufferedReader(new FileReader(toSend))) {
                 PanamahLote lote = PanamahUtil.buildGson().fromJson(r, PanamahLote.class);
                 // não envia lote vazio
-                if (lote !=null && lote.getOperacoes() != null && lote.getOperacoes().size() > 0) {
+                if (lote != null && lote.getOperacoes() != null && lote.getOperacoes().size() > 0) {
                     PanamahRetornoLote ret = PanamahUtil.buildGson()//
                             .fromJson(PanamahUtil.send(config, lote), PanamahRetornoLote.class);
 
@@ -222,9 +222,8 @@ public class PanamahTask extends TimerTask {
     }
 
     public boolean isLoteAtualCheio() {
-//		int len = PanamahUtil.buildGson().toJson(loteAtual).getBytes().length;
-//		return len >= config.getMaxBytes();
-        return loteAtual.getOperacoes().size() > 499;
+        int len = PanamahUtil.buildGson().toJson(loteAtual).getBytes().length;
+        return len >= config.getMaxBytes() || loteAtual.getOperacoes().size() > 499;
     }
 
     public void readNFe(String filePath) throws Exception {
@@ -273,7 +272,8 @@ public class PanamahTask extends TimerTask {
             PanamahCliente cliente = new PanamahCliente();
             cliente.setId(nfe.getInfNFe().getDest().getCpf());
             String doc = nfe.getInfNFe().getDest().getCpf();
-            if (doc == null) doc = nfe.getInfNFe().getDest().getCnpj();
+            if (doc == null)
+                doc = nfe.getInfNFe().getDest().getCnpj();
             cliente.setNumeroDocumento(doc);
             cliente.setNome(nfe.getInfNFe().getDest().getxNome());
             cliente.setRamo("");
@@ -286,8 +286,8 @@ public class PanamahTask extends TimerTask {
         }
 
         // Fornecedor
-//		 PanamahFornecedor fornecedor = new PanamahFornecedor();
-//		 fornecedor.setId(nfe.getInfNFe().g);
+        // PanamahFornecedor fornecedor = new PanamahFornecedor();
+        // fornecedor.setId(nfe.getInfNFe().g);
 
         // Produto
 
@@ -296,7 +296,7 @@ public class PanamahTask extends TimerTask {
             PanamahVenda venda = new PanamahVenda();
             venda.setId(nfe.getInfNFe().getId());
             venda.setLojaId(nfe.getInfNFe().getEmit().getCnpj());
-//			venda.setClienteId(nfe.getInfNFe().getDest().getCpf());
+            // venda.setClienteId(nfe.getInfNFe().getDest().getCpf());
             venda.setData(nfe.getInfNFe().getIde().getDhEmi());
             venda.setDataHoraVenda(nfe.getInfNFe().getIde().getDhEmi());
             venda.setItens(new ArrayList<PanamahVendaItens>());

@@ -2,6 +2,10 @@
 
 Histórico de releases da SDK
 
+## 2.1.3
+
+- correção na checagem de lote cheio
+
 ## 2.1.2
 
 - corrigido bug na montagem dos lotes
