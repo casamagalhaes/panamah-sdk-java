@@ -4,33 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.com.casamagalhaes.panamah.sdk.model.PanamahAcesso;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahAssinante;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahCliente;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahCompra;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahEan;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahEstoqueMovimentacao;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahEventoCaixa;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahFormaPagamento;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahFornecedor;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahFuncionario;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahGrupo;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahHolding;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahLocalEstoque;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahLoja;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahMeta;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahProduto;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahRevenda;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahSecao;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahSubgrupo;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahTituloPagar;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahTituloReceber;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaDevolucao;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahTrocaFormaPagamento;
-import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
-
-import java.util.Collections;
-
 public class PanamahLote {
 
     private Date criacao = new Date();

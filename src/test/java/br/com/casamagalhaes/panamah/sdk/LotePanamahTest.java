@@ -1,14 +1,7 @@
 package br.com.casamagalhaes.panamah.sdk;
 
 import br.com.casamagalhaes.panamah.sdk.model.PanamahEan;
-import org.junit.AfterClass;
 import org.junit.Test;
-
-import java.io.IOException;
-import java.nio.file.*;
-import java.nio.file.attribute.BasicFileAttributes;
-
-import static org.junit.Assert.assertEquals;
 
 public class LotePanamahTest {
 

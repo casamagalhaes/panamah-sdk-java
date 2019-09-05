@@ -70,6 +70,7 @@ public class PanamahStream {
         this.onDel = onDel;
     }
 
+    @SuppressWarnings("unchecked")
     private <T extends IPanamahModel> void processaOp(T model, String assinanteId, PanamahTipoModel tipoModel, PanamahTipoOperacao tipoOp) throws Exception {
         if (model == null)
             throw new RuntimeException("model não pode ser nulo!");

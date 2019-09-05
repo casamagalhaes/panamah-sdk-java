@@ -2,7 +2,6 @@ package br.com.casamagalhaes.panamah.sdk;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import java.io.InputStreamReader;
 import java.io.Reader;
