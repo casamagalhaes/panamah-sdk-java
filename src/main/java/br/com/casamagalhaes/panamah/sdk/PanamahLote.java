@@ -33,11 +33,10 @@ import java.util.Collections;
 
 public class PanamahLote {
 
-    private PanamahStatusLote status = PanamahStatusLote.ABERTO;
     private Date criacao = new Date();
     private Date ultimaAtualizacao = new Date();
-
-    private List<PanamahOperacao<?>> operacoes;
+    private PanamahStatusLote status = PanamahStatusLote.ABERTO;
+    private List<PanamahOperacao<?>> operacoes = new ArrayList<PanamahOperacao<?>>();
 
     public boolean isVelho(PanamahConfig config) {
         return new Date().getTime() > criacao.getTime() + config.getTtl();
@@ -77,11 +76,6 @@ public class PanamahLote {
 
     public void setUltimaAtualizacao(Date ultimaAtualizacao) {
         this.ultimaAtualizacao = ultimaAtualizacao;
-    }
-
-
-    void save(PanamahOperacao<IPanamahModel> op) {
-//		save(op.getModel(),op.getAssinanteId(), op.getConfig());
     }
 
     public void save(PanamahCliente cliente, String assinanteId, PanamahConfig config) throws Exception {
@@ -180,19 +174,9 @@ public class PanamahLote {
         operacoes.add(op);
     }
 
-    public void save(PanamahAcesso acesso, String assinanteId, PanamahConfig config) throws Exception {
-        if (acesso == null)
-            throw new RuntimeException("acesso não pode ser nulo!");
-        acesso.validate();
+    public void save(PanamahOperacao<PanamahAcesso> op) throws Exception {
         if (operacoes == null)
             operacoes = new ArrayList<PanamahOperacao<?>>();
-        PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
-        op.setOp(PanamahTipoOperacao.UPDATE);
-        op.setTipo(PanamahTipoModel.ACESSO);
-        op.setData(acesso);
-        if (assinanteId == null)
-            assinanteId = config.getAuth().getAssinante().getId();
-        op.setAssinanteId(assinanteId);
         operacoes.add(op);
     }
 

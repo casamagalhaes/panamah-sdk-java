@@ -75,10 +75,6 @@ public class PanamahStream {
         return this.task;
     }
 
-    public void progress() {
-        // XXX implement
-    }
-
     public HashMap<String, PanamahPendencias> pending(int start, int count) throws Exception {
         return this.task.pending(start, count);
     }
@@ -119,18 +115,24 @@ public class PanamahStream {
      * @throws IOException
      */
     public void save(PanamahAcesso model, String assinanteId) throws Exception {
-        PanamahEvent ev = null;
-        if (onSave != null) {
-            PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
-            op.setData(model);
-            op.setTipo(PanamahTipoModel.ACESSO);
-            op.setOp(PanamahTipoOperacao.UPDATE);
-            ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+        if (model == null)
+            throw new RuntimeException("model não pode ser nulo!");
+        model.validate();
+
+        PanamahOperacao<PanamahAcesso> op = new PanamahOperacao<PanamahAcesso>();
+        op.setData(model);
+        op.setTipo(PanamahTipoModel.ACESSO);
+        op.setOp(PanamahTipoOperacao.UPDATE);
+        if (assinanteId == null)
+            assinanteId = task.getConfig().getAuth().getAssinante().getId();
+        op.setAssinanteId(assinanteId);
+
+        PanamahEvent ev = new PanamahEvent(task.getConfig(), task.getLoteAtual(), op, null);
+        if (onSave != null)
             onSave.notify(ev);
-        }
-        if (ev != null && ev.isCancelled())
+        if (ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(op);
         task.persisteLoteAtual();
     }
 
@@ -156,7 +158,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -183,7 +185,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -209,7 +211,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -236,7 +238,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -262,7 +264,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -289,7 +291,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -315,7 +317,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -342,7 +344,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -368,7 +370,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -395,7 +397,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -421,7 +423,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -448,7 +450,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -474,7 +476,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -501,7 +503,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -527,7 +529,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -554,7 +556,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -580,7 +582,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -607,7 +609,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -633,7 +635,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -660,7 +662,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -686,7 +688,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -713,7 +715,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -739,7 +741,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -766,7 +768,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -792,7 +794,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -819,7 +821,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -845,7 +847,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -872,7 +874,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -898,7 +900,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -925,7 +927,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -951,7 +953,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -978,7 +980,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1004,7 +1006,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1031,7 +1033,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1057,7 +1059,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1084,7 +1086,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1110,7 +1112,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1137,7 +1139,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1163,7 +1165,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1190,7 +1192,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1216,7 +1218,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1243,7 +1245,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1269,7 +1271,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1296,7 +1298,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1322,7 +1324,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1348,7 +1350,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().save(model, assinanteId, task.getConfig());
+        task.getLoteAtual().save(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
@@ -1374,7 +1376,7 @@ public class PanamahStream {
         }
         if (ev != null && ev.isCancelled())
             return;
-        this.task.getLoteAtual().delete(model, assinanteId, task.getConfig());
+        task.getLoteAtual().delete(model, assinanteId, task.getConfig());
         task.persisteLoteAtual();
     }
 
