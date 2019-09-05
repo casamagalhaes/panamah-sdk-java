@@ -15,7 +15,7 @@ public class SampleRefresh {
 			ean.setId("1");
 			ean.setProdutoId("1");
 			p.save(ean);
-//			Thread.sleep(1);
+			Thread.sleep(100);
 		}
 	}
 

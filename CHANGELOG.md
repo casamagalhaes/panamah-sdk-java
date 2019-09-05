@@ -2,6 +2,12 @@
 
 Histórico de releases da SDK
 
+## 2.1.2
+
+- corrigido bug na montagem dos lotes
+- corrigido bug na montagem tipos de dado do modelo
+- corrigido bug de acesso concorrente no momento do fechamento do lote
+
 ## 2.1.1
 
 - refatoração do `PanamahStream`

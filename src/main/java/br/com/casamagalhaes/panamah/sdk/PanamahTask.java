@@ -36,10 +36,10 @@ public class PanamahTask extends TimerTask {
 
     private PanamahConfig config;
     private PanamahLote loteAtual = new PanamahLote();
-    private boolean fechandoLote;
     private long ultimoEnvio = new Date().getTime();
     private PanamahListener onSendSuccess;
     private PanamahListener onError;
+    private boolean fechandoLote;
 
     public PanamahTask(PanamahConfig config) throws IOException {
         this.config = config;
