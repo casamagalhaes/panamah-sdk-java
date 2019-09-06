@@ -2,6 +2,10 @@
 
 Histórico de releases da SDK
 
+## 2.1.5
+
+- correção na validação da operação
+
 ## 2.1.4
 
 - correção no tratamento de concorrência
@@ -33,7 +37,7 @@ Histórico de releases da SDK
 - ajuste no PanamahTask
   - agora envios ocorrem duas vezes no tempo de fechamento de lote
   - lotes fechados ao serem enviados sempre serão movidos para pasta de envio
-  - na listagem de lotes fechados o primeiro da lista é que será enviado 
+  - na listagem de lotes fechados o primeiro da lista é que será enviado
 
 ## 2.0.0
 

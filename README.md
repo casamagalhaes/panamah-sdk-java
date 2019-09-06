@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:2.1.4'
+    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:2.1.5'
     testImplementation 'junit:junit:4.12'
 }
 ```
@@ -50,7 +50,7 @@ dependencies {
 ## Usando em projetos maven
 
 Siga as instruções do link **set me up**
-[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/2.1.4?tab=overview)
+[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/2.1.5?tab=overview)
 
 ## Uso básico
 

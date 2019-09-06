@@ -74,10 +74,12 @@ public class PanamahStream {
     }
 
     @SuppressWarnings("unchecked")
-    private <T extends IPanamahModel> void processaOp(T model, String assinanteId, PanamahTipoModel tipoModel, PanamahTipoOperacao tipoOp) throws Exception {
+    private <T extends IPanamahModel> void processaOp(T model, String assinanteId, PanamahTipoModel tipoModel,
+            PanamahTipoOperacao tipoOp) throws Exception {
         if (model == null)
             throw new RuntimeException("model não pode ser nulo!");
-        model.validate();
+        if (PanamahTipoOperacao.UPDATE.equals(tipoOp))
+            model.validate();
 
         PanamahOperacao<T> op = new PanamahOperacao<>();
         op.setData(model);
@@ -95,9 +97,10 @@ public class PanamahStream {
         if (ev.isCancelled())
             return;
         buffer.add((PanamahOperacao<IPanamahModel>) op);
-        synchronized (task){
-            if(task.isFechandoLote()) return;
-            while(buffer.size() > 0){
+        synchronized (task) {
+            if (task.isFechandoLote())
+                return;
+            while (buffer.size() > 0) {
                 task.getLoteAtual().save(buffer.remove());
             }
             task.persisteLoteAtual();
