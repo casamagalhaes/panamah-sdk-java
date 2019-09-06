@@ -1,6 +1,6 @@
 package br.com.casamagalhaes.panamah.sdk;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class ConfigPanamahTest {
 	@Test
 	public void shouldLoadFromProps() throws Exception {
 		PanamahConfig c = PanamahConfig.fromProperties("application-sample");
-		assertNotNull(c.getEnv());
+		assertEquals("development",c.getEnv());
 	}
 	
 	@Test

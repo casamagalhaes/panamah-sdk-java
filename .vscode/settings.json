@@ -1,6 +1,8 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.home":"/usr/lib/jvm/java",
+    "window.titleBarStyle": "custom",
+    "workbench.iconTheme": "material-icon-theme",
     "cSpell.words": [
         "Delecao",
         "GTIN",
@@ -17,5 +19,6 @@
         "jcenter",
         "ssdfgsgsdgsdg",
         "versao"
-    ]
+    ],
+    "files.autoSave": "onFocusChange"
 }
