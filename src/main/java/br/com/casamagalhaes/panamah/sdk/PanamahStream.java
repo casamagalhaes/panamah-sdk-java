@@ -2,7 +2,10 @@ package br.com.casamagalhaes.panamah.sdk;
 
 import br.com.casamagalhaes.panamah.sdk.model.*;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * PanamahStream client
@@ -16,7 +19,7 @@ public class PanamahStream {
     private PanamahTask task;
     private PanamahListener onSave;
     private PanamahListener onDel;
-    private LinkedList<PanamahOperacao<IPanamahModel>> buffer = new LinkedList<>();
+    private LinkedBlockingQueue<PanamahOperacao<IPanamahModel>> buffer = new LinkedBlockingQueue<>();
 
     private PanamahStream(PanamahConfig config) throws Exception {
         PanamahUtil.auth(config);

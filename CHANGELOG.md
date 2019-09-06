@@ -2,6 +2,10 @@
 
 Histórico de releases da SDK
 
+## 2.1.4
+
+- correção no tratamento de concorrência
+
 ## 2.1.3
 
 - correção na checagem de lote cheio
