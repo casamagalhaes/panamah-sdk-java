@@ -55,14 +55,14 @@ public class LotePanamahTest {
         // java 8 codelevel disabled
 //        Thread t1 = new Thread(() -> addEan(p,350))
 //        Thread t2 = new Thread(() -> addEan(p,350))
-        Thread t1 = addEan(p, 35);
-        Thread t2 = addEan(p, 35);
-        Thread t3 = addEan(p, 35);
-        Thread t4 = addEan(p, 35);
-        Thread t5 = addEan(p, 35);
-        Thread t6 = addEan(p, 35);
-        Thread t7 = addEan(p, 35);
-        Thread t8 = addEan(p, 35);
+        Thread t1 = addEan(p, 350);
+        Thread t2 = addEan(p, 350);
+        Thread t3 = addEan(p, 350);
+        Thread t4 = addEan(p, 350);
+        Thread t5 = addEan(p, 350);
+        Thread t6 = addEan(p, 350);
+        Thread t7 = addEan(p, 350);
+        Thread t8 = addEan(p, 350);
         // tentando exceder o número de cores
         t1.start();
         t2.start();
