@@ -17,7 +17,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.TimerTask;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import com.google.gson.internal.LinkedTreeMap;
 
@@ -29,8 +31,6 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahVendaPagamentos;
 import br.com.casamagalhaes.panamah.sdk.nfe.Det;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
-
-import java.util.List;
 
 public class PanamahTask extends TimerTask {
 
@@ -137,7 +137,7 @@ public class PanamahTask extends TimerTask {
         if (!Paths.get(config.getBasePath(), "lotes", "fechados").toFile().exists())
             Paths.get(config.getBasePath(), "lotes", "fechados").toFile().mkdirs();
         File f = Paths.get(config.getBasePath(), "lotes", "fechados", fileName).toFile();
-        List<PanamahOperacao<?>> restante = loteAtual.removeExcedente();
+        LinkedBlockingQueue<PanamahOperacao<?>> restante = loteAtual.removeExcedente();
         try (Writer w = new BufferedWriter(new FileWriter(f))) {
             w.write(PanamahUtil.buildGson().toJson(loteAtual));
         }
@@ -145,7 +145,7 @@ public class PanamahTask extends TimerTask {
         fechandoLote = false;
     }
 
-    private void abreNovoLote(List<PanamahOperacao<?>> restante) throws IOException {
+    private void abreNovoLote(LinkedBlockingQueue<PanamahOperacao<?>> restante) throws IOException {
         loteAtual = new PanamahLote();
         if (restante != null)
             loteAtual.getOperacoes().addAll(restante);
@@ -221,7 +221,7 @@ public class PanamahTask extends TimerTask {
         return loteAtual;
     }
 
-    public boolean isLoteAtualCheio() {
+    public synchronized boolean isLoteAtualCheio() {
         int len = PanamahUtil.buildGson().toJson(loteAtual).getBytes().length;
         return len >= config.getMaxBytes() || loteAtual.getOperacoes().size() > 499;
     }

@@ -2,6 +2,11 @@
 
 Histórico de releases da SDK
 
+## 2.2.0
+
+- Nova estratégia de sincronização do lote
+- Melhoria no README principal para citar a necessidade do `PanamahAdmin`
+
 ## 2.1.5
 
 - correção na validação da operação

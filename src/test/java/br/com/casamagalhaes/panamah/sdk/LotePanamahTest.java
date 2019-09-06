@@ -55,14 +55,16 @@ public class LotePanamahTest {
         // java 8 codelevel disabled
 //        Thread t1 = new Thread(() -> addEan(p,350))
 //        Thread t2 = new Thread(() -> addEan(p,350))
-        Thread t1 = addEan(p, 350);
-        Thread t2 = addEan(p, 350);
-        Thread t3 = addEan(p, 350);
-        Thread t4 = addEan(p, 350);
-        Thread t5 = addEan(p, 350);
-        Thread t6 = addEan(p, 350);
-        Thread t7 = addEan(p, 350);
-        Thread t8 = addEan(p, 350);
+        Thread t1 = addEan(p, 30);
+        Thread t2 = addEan(p, 30);
+        Thread t3 = addEan(p, 30);
+        Thread t4 = addEan(p, 30);
+        Thread t5 = addEan(p, 30);
+        Thread t6 = addEan(p, 30);
+        Thread t7 = addEan(p, 30);
+        Thread t8 = addEan(p, 30);
+        Thread t9 = addEan(p, 30);
+        Thread t10 = addEan(p, 30);
         // tentando exceder o número de cores
         t1.start();
         t2.start();
@@ -72,6 +74,8 @@ public class LotePanamahTest {
         t6.start();
         t7.start();
         t8.start();
+        t9.start();
+        t10.start();
         t1.join();
         t2.join();
         t3.join();
@@ -80,6 +84,8 @@ public class LotePanamahTest {
         t6.join();
         t7.join();
         t8.join();
+        t9.join();
+        t10.join();
         p.flush(true);
 
     }
@@ -94,6 +100,7 @@ public class LotePanamahTest {
                         ean.setId("1");
                         ean.setProdutoId("1");
                         p.save(ean);
+                        Thread.sleep(1);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

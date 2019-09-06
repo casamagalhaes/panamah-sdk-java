@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:2.1.5'
+    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:2.2.0'
     testImplementation 'junit:junit:4.12'
 }
 ```
@@ -50,19 +50,37 @@ dependencies {
 ## Usando em projetos maven
 
 Siga as instruções do link **set me up**
-[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/2.1.5?tab=overview)
+[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/2.2.0?tab=overview)
+
+## Registrando o assinante
+
+Ao menos uma vez será preciso criar o assinante no Panamah.
+
+Para tanto, segue o processo:
+
+```java
+PanamahConfig cfg = PanamahConfig.fromProperties("application");
+
+cfg.getAuth().getAssinante().setNome("<Nome aqui>");
+cfg.getAuth().getAssinante().setFantasia("<Nome fantasia aqui>");
+
+PanamahAdmin admin = PanamahAdmin.getInstance();
+
+admin.createAssinante(cfg);
+```
 
 ## Uso básico
 
 ```java
-// init no daemon do panamah junto com o início da aplicação
-PanamahConfig config = PanamahConfig.autoConfigure();
-Panamah panamah = Panamah.init(config);
+// init do panamah junto com o início da aplicação
+PanamahConfig config = PanamahConfig.fromProperties("application");
+PanamahStream stream = Panamah.init(config);
 //...
 
 // envio dos modelos
 PanamahVenda venda = new PanamahVenda();
-panamah.save(venda);
+// preencher os modelos...
+stream.save(venda);
 ```
 
 ### Importante
@@ -73,4 +91,5 @@ panamah.save(venda);
 - Secret
 - AssinanteId
 
-Assinante é normalmente o cnpj, o authorization token e o secret são informados pela Casa Magalhães através dos canais de comunicação com os parceiros.
+Assinante é normalmente o cnpj, o authorization token e o secret são informados
+pela Casa Magalhães através dos canais de comunicação com os parceiros.

@@ -45,7 +45,7 @@ import br.com.casamagalhaes.panamah.sdk.nfe.X509Data;
 
 public class PanamahUtil {
 
-	public static final String SDK_IDENTITY = "panamah-java-2.1.5";
+	public static final String SDK_IDENTITY = "panamah-java-2.2.0";
 
 
 	public static String stamp(Date d) {
