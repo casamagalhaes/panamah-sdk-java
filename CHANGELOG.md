@@ -2,6 +2,17 @@
 
 Histórico de releases da SDK
 
+## 2.3.0
+
+- Lotes vazios são descartados direto em vez de serem salvos na pasta fechados.
+- Criada configuração `maxAgeSent` com valor padrão de 24 horas. Lotes já
+  enviados agora sao deletados após 24 horas.
+- Correção do comportamento errático do `PanamahConfig.autoConfigure()`.
+  Na sequência, primeiro procura-se pelas configurações nas propriedades da
+  jvm, em seguida no _application.properties_ e por fim nas variáveis de
+  ambiente. O autoConfigure fará uma mescla com o resultado do que for
+  encontrado.
+
 ## 2.2.0
 
 - Nova estratégia de sincronização do lote
