@@ -2,7 +2,6 @@ package br.com.casamagalhaes.panamah.sdk;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class PanamahLote {
@@ -54,12 +53,16 @@ public class PanamahLote {
 
 	public LinkedBlockingQueue<PanamahOperacao<?>> removeExcedente() {
 		LinkedBlockingQueue<PanamahOperacao<?>> sub = new LinkedBlockingQueue<PanamahOperacao<?>>();
-		while (operacoes.size() >= 500) 
+		while (operacoes.size() >= 500)
 			sub.add(operacoes.remove());
 		return sub;
 	}
 
 	public synchronized <T extends IPanamahModel> void save(PanamahOperacao<T> op) {
 		operacoes.add(op);
+	}
+
+	public boolean isVazio() {
+		return operacoes.size() == 0;
 	}
 }

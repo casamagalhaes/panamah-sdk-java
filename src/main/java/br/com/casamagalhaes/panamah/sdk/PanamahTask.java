@@ -152,18 +152,22 @@ public class PanamahTask extends TimerTask {
 	}
 
 	public synchronized void fechaLoteAtual() throws FileNotFoundException, IOException {
-		fechandoLote = true;
-		loteAtual.setStatus(PanamahStatusLote.FECHADO);
-		String fileName = "lote-" + PanamahUtil.stamp(loteAtual.getUltimaAtualizacao()) + ".json";
-		if (!Paths.get(config.getBasePath(), "lotes", "fechados").toFile().exists())
-			Paths.get(config.getBasePath(), "lotes", "fechados").toFile().mkdirs();
-		File f = Paths.get(config.getBasePath(), "lotes", "fechados", fileName).toFile();
-		LinkedBlockingQueue<PanamahOperacao<?>> restante = loteAtual.removeExcedente();
-		try (Writer w = new BufferedWriter(new FileWriter(f))) {
-			w.write(PanamahUtil.buildGson().toJson(loteAtual));
+		try {
+			fechandoLote = true;
+			if(loteAtual.isVazio())return; // lote vazio é apenas sobrescrito
+			loteAtual.setStatus(PanamahStatusLote.FECHADO);
+			String fileName = "lote-" + PanamahUtil.stamp(loteAtual.getUltimaAtualizacao()) + ".json";
+			if (!Paths.get(config.getBasePath(), "lotes", "fechados").toFile().exists())
+				Paths.get(config.getBasePath(), "lotes", "fechados").toFile().mkdirs();
+			File f = Paths.get(config.getBasePath(), "lotes", "fechados", fileName).toFile();
+			LinkedBlockingQueue<PanamahOperacao<?>> restante = loteAtual.removeExcedente();
+			try (Writer w = new BufferedWriter(new FileWriter(f))) {
+				w.write(PanamahUtil.buildGson().toJson(loteAtual));
+			}
+			abreNovoLote(restante);
+		} finally {
+			fechandoLote = false;
 		}
-		abreNovoLote(restante);
-		fechandoLote = false;
 	}
 
 	private void abreNovoLote(LinkedBlockingQueue<PanamahOperacao<?>> restante) throws IOException {
