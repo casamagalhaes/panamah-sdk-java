@@ -50,9 +50,15 @@ public class PanamahTask extends TimerTask {
     public void run() {
         verificaFechamento();
         verificaEnvio();
+        removeAntigos();
     }
 
-    public boolean isFechandoLote() {
+    public void removeAntigos() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isFechandoLote() {
         return fechandoLote;
     }
 

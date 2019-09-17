@@ -11,6 +11,7 @@ public class PanamahConfig {
 	private String basePath = ".";
 	private long ttl = 5 * 60 * 1000;
 	private long maxBytes = 300 * 1024;
+	private long maxAgeSent = 86400000;
 	private PanamahAuth auth = new PanamahAuth();
 
 	public String getEnv() {
@@ -61,6 +62,14 @@ public class PanamahConfig {
 		this.maxBytes = maxBytes;
 	}
 
+	public long getMaxAgeSent() {
+		return maxAgeSent;
+	}
+
+	public void setMaxAgeSent(long maxAgeSent) {
+		this.maxAgeSent = maxAgeSent;
+	}
+
 	public PanamahAuth getAuth() {
 		return auth;
 	}
@@ -76,32 +85,22 @@ public class PanamahConfig {
 	public static PanamahConfig fromEnv(String env) {
 		PanamahConfig c = new PanamahConfig();
 		c.env = env;
+		String prefix = "";
 		switch (env) {
 		case "development":
-			c.basePath = System.getenv("DEV_PANAMAH_BASE_PATH");
-//			c.addr = "http://127.0.0.1:7780";
-			c.addr = System.getenv("DEV_PANAMAH_ADDR");
-			c.auth.setAuthorizationToken(System.getenv("DEV_PANAMAH_AUTHORIZATION_TOKEN"));
-			c.auth.getAssinante().setId(System.getenv("DEV_PANAMAH_ASSINANTE_ID"));
-			c.auth.setKey(System.getenv("DEV_PANAMAH_SECRET"));
+			prefix = "DEV_";
 			break;
 		case "staging":
-			c.basePath = System.getenv("HOM_PANAMAH_BASE_PATH");
-//			c.addr = "https://panamah.io/api/v2";
-			c.addr = System.getenv("HOM_PANAMAH_ADDR");
-			c.auth.setAuthorizationToken(System.getenv("HOM_PANAMAH_AUTHORIZATION_TOKEN"));
-			c.auth.getAssinante().setId(System.getenv("HOM_PANAMAH_ASSINANTE_ID"));
-			c.auth.setKey(System.getenv("HOM_PANAMAH_SECRET"));
-			break;
-		case "production":
-			c.basePath = System.getenv("PANAMAH_BASE_PATH");
-//			c.addr = "https://panamah.io/api/v2";
-			c.addr = System.getenv("PANAMAH_ADDR");
-			c.auth.setAuthorizationToken(System.getenv("PANAMAH_AUTHORIZATION_TOKEN"));
-			c.auth.getAssinante().setId(System.getenv("PANAMAH_ASSINANTE_ID"));
-			c.auth.setKey(System.getenv("PANAMAH_SECRET"));
+			prefix = "HOM_";
 			break;
 		}
+
+		c.addr = System.getenv(prefix + "PANAMAH_ADDR");
+		c.basePath = System.getenv(prefix + "PANAMAH_BASE_PATH");
+
+		c.auth.setKey(System.getenv(prefix + "PANAMAH_SECRET"));
+		c.auth.setAuthorizationToken(System.getenv(prefix + "PANAMAH_AUTHORIZATION_TOKEN"));
+		c.auth.getAssinante().setId(System.getenv(prefix + "PANAMAH_ASSINANTE_ID"));
 		return c;
 	}
 
@@ -111,72 +110,63 @@ public class PanamahConfig {
 
 	public static PanamahConfig fromProperties(String prop) throws Exception {
 		PanamahConfig c = new PanamahConfig();
-//		ResourceBundle b = ResourceBundle.getBundle(prop);
 		Properties p = new Properties();
 		try (InputStream in = PanamahConfig.class.getClassLoader().getResourceAsStream(prop + ".properties")) {
 			p.load(in);
 			c.env = p.getProperty("panamah.env");
-			c.basePath = p.getProperty("panamah." + c.env + ".basepath");
 			c.addr = p.getProperty("panamah." + c.env + ".addr");
+			c.basePath = p.getProperty("panamah." + c.env + ".basepath");
+			c.auth.setKey(p.getProperty("panamah." + c.env + ".secret"));
 			c.auth.setAuthorizationToken(p.getProperty("panamah." + c.env + ".token"));
 			c.auth.getAssinante().setId(p.getProperty("panamah." + c.env + ".assinanteid"));
-			c.auth.setKey(p.getProperty("panamah." + c.env + ".secret"));
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			System.out.println("Arquivo " + prop + ".properties não encontrado!");
 		}
 		return c;
 	}
 
-	public static PanamahConfig autoConfigure() throws Exception {
+	public static PanamahConfig fromVM() throws Exception {
 		PanamahConfig c = new PanamahConfig();
-
-		// special check, JVM prop is the prop file name
-		String prop = System.getProperty("panamah.config");
-		try {
-			if (prop != null)
-				c = fromProperties(prop);
-			else
-				c = fromProperties();
-		} catch (Exception e) {
-			e.printStackTrace();
-			c.env = "production";
-		}
-
-		// JVM prop > prop file > env var
-
-		String basePath = System.getenv("PANAMAH_BASE_PATH");
-		if (c.basePath == null)
-			c.basePath = basePath;
-		basePath = System.getProperty("panamah.basepath");
-		if (basePath != null)
-			c.basePath = basePath;
-
-		String addr = System.getenv("PANAMAH_ADDR");
-		if (c.addr == null)
-			c.addr = addr;
-		addr = System.getProperty("panamah.addr");
-		if (addr != null)
-			c.addr = addr;
-
-		String authToken = System.getenv("PANAMAH_AUTHORIZATION_TOKEN");
-		if (c.auth.getAuthorizationToken() == null)
-			c.auth.setAuthorizationToken(authToken);
-		authToken = System.getProperty("panamah.authorization.token");
-		if (authToken != null)
-			c.auth.setAuthorizationToken(authToken);
-
-		String secret = System.getenv("PANAMAH_SECRET");
-		if (c.auth.getKey() == null)
-			c.auth.setKey(secret);
-		secret = System.getProperty("panamah.secret");
-		if (secret != null)
-			c.auth.setKey(secret);
-
-		String asinanteId = System.getenv("PANAMAH_ASSINANTE_ID");
-		if (c.auth.getAssinante().getId() == null)
-			c.auth.getAssinante().setId(asinanteId);
-		asinanteId = System.getProperty("panamah.asinanteid");
-		if (asinanteId != null)
-			c.auth.getAssinante().setId(asinanteId);
-
+		c.env = System.getProperty("panamah.env");
+		c.addr = System.getProperty("panamah.addr");
+		c.basePath = System.getProperty("panamah.basepath");
+		c.auth.setKey(System.getProperty("panamah.secret"));
+		c.auth.setAuthorizationToken(System.getProperty("panamah.token"));
+		c.auth.getAssinante().setId(System.getProperty("panamah.assinanteid"));
 		return c;
+	}
+
+	private PanamahConfig merge(PanamahConfig c) {
+		if (c != null) {
+			if (c.env != null)
+				env = c.env;
+			if (c.addr != null)
+				addr = c.addr;
+			if (c.basePath != null)
+				basePath = c.basePath;
+			if (c.auth.getKey() != null)
+				auth.setKey(c.auth.getKey());
+			if (c.auth.getAuthorizationToken() != null)
+				auth.setAuthorizationToken(c.auth.getAuthorizationToken());
+			if (c.auth.getAssinante().getId() != null)
+				auth.getAssinante().setId(c.auth.getAssinante().getId());
+		}
+		return this;
+	}
+
+	public static PanamahConfig autoConfigure() throws Exception {
+		PanamahConfig c1 = fromVM();
+		PanamahConfig c2 = null;
+		// special check, this JVM prop is the prop file name
+		String prop = System.getProperty("panamah.config");
+		// yet the file might not exists
+		if (prop != null)
+			c2 = fromProperties(prop);
+		else
+			c2 = fromProperties();
+		PanamahConfig c3 = fromEnv();
+		// JVM prop > prop file > env var
+		return c1.merge(c2).merge(c3);
 	}
 }
