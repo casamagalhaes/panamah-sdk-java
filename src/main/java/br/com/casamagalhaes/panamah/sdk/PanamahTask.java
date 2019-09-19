@@ -221,8 +221,8 @@ public class PanamahTask extends TimerTask {
 					}
 				}
 				// sempre deleta
-				toSend.delete();
 			}
+			toSend.delete();
 		}
 	}
 

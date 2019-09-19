@@ -3,6 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/4f38bfb0bcf3566ba312/maintainability)](https://codeclimate.com/repos/5cc8bc7f389cf3174100021a/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4f38bfb0bcf3566ba312/test_coverage)](https://codeclimate.com/repos/5cc8bc7f389cf3174100021a/test_coverage)
 [![Build Status](https://travis-ci.org/casamagalhaes/panamah-sdk-java.svg?branch=development)](https://travis-ci.org/casamagalhaes/panamah-sdk-java)
+[![Download](https://api.bintray.com/packages/casamagalhaes/panamah-java-sdk/panamah-java-sdk/images/download.svg)](https://bintray.com/casamagalhaes/panamah-java-sdk/panamah-java-sdk/_latestVersion)
 
 Implementação java do panamah sdk
 
@@ -42,7 +43,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:2.3.0'
+    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:2.3.1'
     testImplementation 'junit:junit:4.12'
 }
 ```
@@ -50,7 +51,7 @@ dependencies {
 ## Usando em projetos maven
 
 Siga as instruções do link **set me up**
-[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/2.3.0?tab=overview)
+[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/2.3.1?tab=overview)
 
 ## Registrando o assinante
 

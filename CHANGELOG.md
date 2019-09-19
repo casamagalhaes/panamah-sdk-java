@@ -2,6 +2,10 @@
 
 Histórico de releases da SDK
 
+## 2.3.1
+
+- corrigindo o momento de deletar o lote fechado
+
 ## 2.3.0
 
 - Lotes vazios são descartados direto em vez de serem salvos na pasta fechados.
