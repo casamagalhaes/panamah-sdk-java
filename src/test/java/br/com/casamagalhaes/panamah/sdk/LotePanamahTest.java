@@ -7,22 +7,8 @@ public class LotePanamahTest {
 
     private static PanamahConfig c = PanamahConfig.fromEnv("staging");
 
-//    @AfterClass
-//    public static void limpeza() throws Exception {
-//        Path lotes = Paths.get(c.getBasePath(), "lotes");
-//        Files.walkFileTree(lotes, new SimpleFileVisitor<Path>() {
-//            @Override
-//            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-//                file.toFile().delete();
-//                return super.visitFile(file, attrs);
-//            }
-//        });
-//        Thread.sleep(10);
-//        lotes.toFile().delete();
-//    }
-
     @Test
-    public void deveFecharLoteCom500Itens() throws Exception {
+    public void deveFecharLoteCheio() throws Exception {
         PanamahStream p = PanamahStream.init(c);
         int i = 500;
         while (i-- > 0) {

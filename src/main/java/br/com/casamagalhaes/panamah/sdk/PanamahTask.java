@@ -248,7 +248,7 @@ public class PanamahTask extends TimerTask {
 
 	public synchronized boolean isLoteAtualCheio() {
 		int len = PanamahUtil.buildGson().toJson(loteAtual).getBytes().length;
-		return len >= config.getMaxBytes() || loteAtual.getOperacoes().size() > 499;
+		return len >= config.getMaxBytes() || loteAtual.getOperacoes().size() > config.getMaxItens();
 	}
 
 	public void readNFe(String filePath) throws Exception {
