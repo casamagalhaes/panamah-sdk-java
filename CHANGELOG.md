@@ -4,7 +4,7 @@ Histórico de releases da SDK
 
 ## 2.4.0
 
-- mudando o limite de lote cheio para 300 itens ou 3kb
+- mudando o limite de lote cheio para 300 itens ou 3kb, o que ocorrer primeiro.
 
 ## 2.3.1
 
