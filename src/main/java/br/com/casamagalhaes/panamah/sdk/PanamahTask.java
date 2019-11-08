@@ -31,6 +31,7 @@ import br.com.casamagalhaes.panamah.sdk.model.PanamahVenda;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahVendaItens;
 import br.com.casamagalhaes.panamah.sdk.model.PanamahVendaPagamentos;
 import br.com.casamagalhaes.panamah.sdk.nfe.Det;
+import br.com.casamagalhaes.panamah.sdk.nfe.Prod;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFe;
 import br.com.casamagalhaes.panamah.sdk.nfe.NFeProc;
 
@@ -333,10 +334,17 @@ public class PanamahTask extends TimerTask {
 
 			for (Det d : nfe.getInfNFe().getDet()) {
 				PanamahVendaItens i = new PanamahVendaItens();
-				i.setPreco(d.getProd().getvProd());
-				i.setQuantidade(new BigDecimal(1.0 * d.getnItem()));
+				Prod produto = d.getProd();
+				i.setProdutoId(produto.getcProd());
+				i.setQuantidade(produto.getqCom());
+				i.setPreco(produto.getvProd());
+				i.setValorUnitario(produto.getvUnCom());
+				i.setValorTotal(produto.getvProd());
+				i.setDesconto(produto.getvDesc());
+				i.setEfetivo(true);
 				venda.getItens().add(i);
 			}
+
 			venda.setQuantidadeItens(new BigDecimal(1.0 * nfe.getInfNFe().getDet().size()));
 
 			model.setVenda(venda);
