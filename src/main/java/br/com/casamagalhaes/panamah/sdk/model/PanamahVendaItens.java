@@ -4,7 +4,7 @@ public class PanamahVendaItens {
 
     private java.math.BigDecimal acrescimo;
     private java.math.BigDecimal desconto;
-    private Boolean efetivo;
+    private Boolean efetivo = true;
     private String funcionarioId;
     private java.math.BigDecimal preco;
     private String produtoId;

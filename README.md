@@ -7,6 +7,10 @@
 
 Implementação java do panamah sdk
 
+## Visão Geral
+
+[Visão Geral](https://github.com/casamagalhaes/panamah-sdk-java/wiki/Vis%C3%A3o-geral)
+
 ## Documentação
 
 [Documentação geral](https://casamagalhaes.github.io/panamah-sdk/) e [exemplos de uso](https://github.com/casamagalhaes/panamah-sdk-java/wiki/Exemplo-de-uso)
@@ -43,7 +47,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:2.4.0'
+    implementation 'br.com.casamagalhaes.panamah.sdk:panamah-sdk:2.4.2'
     testImplementation 'junit:junit:4.12'
 }
 ```
@@ -51,7 +55,7 @@ dependencies {
 ## Usando em projetos maven
 
 Siga as instruções do link **set me up**
-[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/2.4.0?tab=overview)
+[desta página](https://bintray.com/beta/#/casamagalhaes/panamah-java-sdk/panamah-java-sdk/2.4.2?tab=overview)
 
 ## Registrando o assinante
 

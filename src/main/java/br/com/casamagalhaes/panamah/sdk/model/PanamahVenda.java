@@ -13,7 +13,7 @@ public class PanamahVenda implements IPanamahModel {
     private java.util.Date dataHoraFim;
     private java.util.Date dataHoraVenda;
     private java.math.BigDecimal desconto;
-    private Boolean efetiva;
+    private Boolean efetiva = true;
     private java.math.BigDecimal quantidadeItens;
     private java.math.BigDecimal quantidadeItensCancelados;
     private String sequencial;

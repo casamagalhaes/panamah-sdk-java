@@ -12,7 +12,7 @@ public class PanamahCompra implements IPanamahModel {
     private java.util.Date dataEmissao;
     private java.util.Date dataHoraCompra;
     private java.math.BigDecimal desconto;
-    private Boolean efetiva;
+    private Boolean efetiva = true;
     private java.math.BigDecimal quantidadeItens;
     private String tipoDesconto;
     private java.math.BigDecimal valor;

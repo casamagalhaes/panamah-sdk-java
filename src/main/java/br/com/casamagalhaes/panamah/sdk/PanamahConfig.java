@@ -32,6 +32,7 @@ public class PanamahConfig {
     }
 
     public String getAddr() {
+        if(addr == null || addr.isEmpty()) return "https://panamah.io/api/v2";
         return addr;
     }
 
