@@ -207,8 +207,6 @@ public class PanamahTask extends TimerTask {
 
 					File toWrite = Paths.get(config.getBasePath(), "lotes", "enviados", toSend.getName()).toFile();
 
-					// System.out.println("lote enviado: "+toWrite);
-
 					try (Writer w = new BufferedWriter(new FileWriter(toWrite))) {
 						w.write(PanamahUtil.buildGson().toJson(lote));
 					}

@@ -10,7 +10,7 @@ public class PanamahConfig {
     private long delay = 5000;
     private String basePath = ".";
     private long ttl = 5 * 60 * 1000;
-    private long maxBytes = 3000;
+    private long maxBytes = 300 * 1024;
     private int maxItens = 300;
     private long maxAgeSent = 86400000;
     private PanamahAuth auth = new PanamahAuth();

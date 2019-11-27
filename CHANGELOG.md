@@ -2,6 +2,19 @@
 
 Histórico de releases da SDK
 
+## 2.4.3
+
+- Estudo de caso de regressão de performance do envio de lote
+- Caso de testes dedicado ao envio de vendas
+
+## 2.4.2
+
+- Adicionado valores padrões e atualizado readme
+
+## 2.4.1
+
+- Ajustes no parser da NFe
+
 ## 2.4.0
 
 - mudando o limite de lote cheio para 300 itens ou 3kb, o que ocorrer primeiro.
