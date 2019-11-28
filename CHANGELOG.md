@@ -2,6 +2,10 @@
 
 Histórico de releases da SDK
 
+## 2.4.4
+
+- Otimizada a leitura da pasta de lotes fechados
+
 ## 2.4.3
 
 - Estudo de caso de regressão de performance do envio de lote
