@@ -2,6 +2,10 @@
 
 Histórico de releases da SDK
 
+## 2.4.5
+
+- Correção no conversor de datas dentro do `GsonUTCDateAdapter`
+
 ## 2.4.4
 
 - Otimizada a leitura da pasta de lotes fechados
