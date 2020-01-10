@@ -2,6 +2,8 @@ package br.com.casamagalhaes.panamah.sdk.model;
 
 import br.com.casamagalhaes.panamah.sdk.IPanamahModel;
 
+import java.util.List;
+
 public class PanamahProduto implements IPanamahModel {
 
     private PanamahProdutoComposicao composicao;
@@ -17,6 +19,7 @@ public class PanamahProduto implements IPanamahModel {
     private String secaoId;
     private String subgrupoId;
     private java.util.List<PanamahProdutoFornecedores> fornecedores;
+    private java.util.List<PanamahProdutoEan> eans;
 
     public PanamahProduto() {
     }
@@ -129,6 +132,13 @@ public class PanamahProduto implements IPanamahModel {
         this.fornecedores = fornecedores;
     }
 
+    public List<PanamahProdutoEan> getEans() {
+        return eans;
+    }
+
+    public void setEans(List<PanamahProdutoEan> eans) {
+        this.eans = eans;
+    }
 
     public void validate() throws Exception {
         if (this.descricao == null) throw new Exception("descricao não pode ser nulo!");

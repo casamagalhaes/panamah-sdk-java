@@ -2,6 +2,11 @@
 
 Histórico de releases da SDK
 
+## 2.4.6
+
+- Correção no teste de conversão de data/hora
+- Atualizando model `PanamahProduto` para permitir envio de eans de produto
+
 ## 2.4.5
 
 - Correção no conversor de datas dentro do `GsonUTCDateAdapter`
