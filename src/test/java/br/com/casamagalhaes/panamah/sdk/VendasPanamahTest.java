@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class VendasPanamahTest {
 
@@ -67,5 +68,54 @@ public class VendasPanamahTest {
         while (i-- > 0) for (PanamahVenda venda : cenarios.vendas) p.save(venda);
 
         p.flush(true);
+    }
+
+
+    @Test
+    public void deveEnviar100VendasDeAgoraMeioDia() throws Exception {
+        CenariosVendas cenarios = PanamahUtil.buildGson().fromJson(r("cenarios-vendas"), CenariosVendas.class);
+
+        PanamahStream p = PanamahStream.init(c);
+
+        int i = 10;
+        while (i-- > 0) for (PanamahVenda venda : cenarios.vendas) {
+            PanamahVenda v = copyPraHora(venda, 12);
+            p.save(v);
+        }
+
+        p.flush(true);
+    }
+
+    @Test
+    public void deveEnviar300VendasDe11horas12horase13horas() throws Exception {
+        CenariosVendas cenarios = PanamahUtil.buildGson().fromJson(r("cenarios-vendas"), CenariosVendas.class);
+
+        PanamahStream p = PanamahStream.init(c);
+        int i = 14;
+        while(i-->11){
+            int j = 10;
+            while(j-->0) for (PanamahVenda venda : cenarios.vendas) {
+                PanamahVenda v = copyPraHora(venda, i);
+                p.save(v);
+            }
+        }
+        p.flush(true);
+    }
+
+    private PanamahVenda copyPraHora(PanamahVenda venda, int horaDoDia) {
+        Date inicio = new Date();
+        inicio.setHours(horaDoDia);
+        String s = PanamahUtil.buildGson().toJson(venda);
+        PanamahVenda v = PanamahUtil.buildGson().fromJson(s, PanamahVenda.class);
+        String id = "021795-006-9-"+System.nanoTime();
+        Date fim = new Date(inicio.getTime());
+        v.setId(id);
+        v.setDataHoraInicio(inicio);
+        v.setData(fim);
+        v.setDataHoraVenda(fim);
+        v.setDataHoraFim(fim);
+        s = PanamahUtil.buildGson().toJson(v);
+        System.out.println(s);
+        return v;
     }
 }
